@@ -12,7 +12,7 @@ class Main {
 		frame.setBackgroundColour(0xFFFFFF);
 		frame.setSize(10, 10, 800, 600);
 		frame.show(true);
-	
+		
 			// create a button
 			var button:Button = new Button(frame, "Button 1");
 			button.setBitmap(Bitmap.fromHaxeResource("inbox.bmp"));
@@ -23,9 +23,25 @@ class Main {
 				trace(e.getId());
 			});
 		
-			// create a chekbox
+			// create a chekboxes
 			var checkbox:CheckBox = new CheckBox(frame, "Check 1");
+			checkbox.bind(Events.EVT_CHECKBOX, function(e:Event) {
+				trace("checkbox 1: " + checkbox.value);
+			});
 			checkbox.move(120, 10);
+
+			var checkbox:CheckBox = new CheckBox(frame, "Check 2");
+			checkbox.bind(Events.EVT_CHECKBOX, function(e:Event) {
+				trace("checkbox 2: " + checkbox.value);
+			});
+			checkbox.value = true;
+			checkbox.move(190, 10);
+
+			var checkbox:CheckBox = new CheckBox(frame, "Check 3");
+			checkbox.bind(Events.EVT_CHECKBOX, function(e:Event) {
+				trace("checkbox 3: " + checkbox.value);
+			});
+			checkbox.move(260, 10);
 			
 			// create a gauge (progress bar)
 			var gauge:Gauge = new Gauge(frame, 100);
