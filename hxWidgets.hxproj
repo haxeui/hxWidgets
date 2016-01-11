@@ -8,7 +8,7 @@
     <movie fps="0" />
     <movie width="0" />
     <movie height="0" />
-    <movie version="1" />
+    <movie version="0" />
     <movie minorVersion="0" />
     <movie platform="C++" />
     <movie background="#FFFFFF" />
@@ -24,7 +24,7 @@
     <option noInlineOnDebug="False" />
     <option mainClass="hx.widgets.Main" />
     <option enabledebug="False" />
-    <option additional="" />
+    <option additional="-resource assets/img/slinky_tiny_test.bmp@slinky_tiny_test.bmp&#xA;-resource assets/img/slinky_tiny_test_icon.bmp@slinky_tiny_test_icon.bmp&#xA;-resource assets/img/inbox.bmp@inbox.bmp&#xA;-resource assets/img/inbox--arrow.bmp@inbox--arrow.bmp&#xA;-resource assets/img/inbox-document.bmp@inbox-document.bmp" />
   </build>
   <!-- haxelib libraries -->
   <haxelib>
@@ -36,7 +36,7 @@
   </compileTargets>
   <!-- Paths to exclude from the Project Explorer tree -->
   <hiddenPaths>
-    <!-- example: <hidden path="..." /> -->
+    <hidden path="obj" />
   </hiddenPaths>
   <!-- Executed before build -->
   <preBuildCommand />
