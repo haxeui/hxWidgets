@@ -48,9 +48,20 @@ class Main {
 			gauge.move(120, 30);
 			gauge.value = 50;
 			
+			// create a slider
+			var slider:Slider = new Slider(frame);
+			slider.move(120, 50);
+			slider.min = 25;
+			slider.max = 125;
+			slider.value = 50;
+			slider.bind(Events.EVT_SLIDER, function(e) {
+				trace("Slider event: " + slider.value);
+				gauge.value = slider.value;
+			});
+			
 			// create a static bitmp
 			var staticBmp:StaticBitmap = new StaticBitmap(frame, Bitmap.fromHaxeResource("slinky_tiny_test.bmp"));
-			staticBmp.move(130, 60);
+			staticBmp.move(130, 75);
 			
 			// create an image list ready for use with the tabs
 			var imageList:ImageList = new ImageList(16, 16);
