@@ -1,0 +1,50 @@
+-------------------------------------------------------------------------------
+                             wxWidgets Change Log
+-------------------------------------------------------------------------------
+
+Note: This file contains the list of changes since wxWidgets 3.x, please see
+      docs/changes_30.txt for the changes in the previous versions.
+
+
+INCOMPATIBLE CHANGES SINCE 3.0.x:
+=================================
+
+Changes in behaviour not resulting in compilation errors
+--------------------------------------------------------
+
+- wxRibbonButtonBar::DeleteButton() now deletes and not just removes the button.
+
+
+3.1.0: (released 2014-xx-xx)
+----------------------------
+
+All:
+
+- Allow iterating over wxCmdLineParser arguments in order (Armel Asselin).
+- Add wxScopedArray ctor taking the number of elements to allocate.
+
+All (GUI):
+
+- XRC handler for wxAuiToolBar added (Kinaou Hervé).
+- Add support for sorting wxDataViewCtrl by multiple columns (Trigve).
+- Add wxHtmlWindow::SetDefaultHTMLCursor() (Jeff A. Marr).
+- Add default ctor and Create() to wxContextHelpButton (Hanmac).
+- Send events when toggling wxPropertyGrid nodes from keyboard (Armel Asselin).
+- Fix wxRearrangeList::Check() which asserted and misbehaved before.
+
+wxGTK:
+
+- Support building wxGTK3 under Windows (Kolya Kosenko).
+- Correctly detect cancelled drag-and-drop operations (Kinaou Hervé).
+
+wxMSW:
+
+- Improve wxMimeTypesManager open command detection (Eric Jensen).
+- Make wxFILTER_INCLUDE_LIST in wxTextValidator actually usable.
+- Fix handling of selected images in wxBitmapButton (Artur Wieczorek).
+- Support multiline strings in wxDC::DrawRotatedText() (Artur Wieczorek).
+
+wxOSX/Cocoa:
+
+- Add support for wxEVT_COMBOBOX_DROPDOWN and wxEVT_COMBOBOX_CLOSEUP
+  events (Igor Korot).
