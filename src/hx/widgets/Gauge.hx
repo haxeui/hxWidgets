@@ -13,8 +13,13 @@ class Gauge extends Window {
 		_ref = cast guageRef;
 	}
 	
-	public function setValue(value:Int) {
+	public var value(get, set):Int;
+	private function get_value():Int {
+		return guageRef.getValue();
+	}
+	private function set_value(value:Int):Int {
 		guageRef.setValue(value);
+		return value;
 	}
 	
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -37,4 +42,5 @@ extern class WxGaugeRef extends WxGauge {
 extern class WxGauge extends WxWindow {
 	@:native("Create") public function create(parent:WxWindowRef, id:Int, range:Int):Bool;
 	@:native("SetValue") public function setValue(value:Int):Void;
+	@:native("GetValue") public function getValue():Int;
 }

@@ -46,7 +46,7 @@ class Main {
 			// create a gauge (progress bar)
 			var gauge:Gauge = new Gauge(frame, 100);
 			gauge.move(120, 30);
-			gauge.setValue(50);
+			gauge.value = 50;
 			
 			// create a static bitmp
 			var staticBmp:StaticBitmap = new StaticBitmap(frame, Bitmap.fromHaxeResource("slinky_tiny_test.bmp"));
