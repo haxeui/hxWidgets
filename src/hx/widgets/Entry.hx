@@ -26,12 +26,11 @@ package hx.widgets;
 class Entry {
 	public static function start(args:Array<String>):Void {
 		var args = [Sys.executablePath()].concat(args);
-		var argc = args.length + 1;
+		var argc = args.length;
 		untyped __cpp__("char** argv = new char*[argc]");
 
-		for (i in 0...argc-1)
-		{
-			var arg : cpp.CastCharStar = args[i];
+		for (i in 0...argc) {
+			var arg:cpp.CastCharStar = args[i];
 			untyped __cpp__("argv[i] = arg");
 		}
 		untyped __cpp__("wxEntryStart(argc, argv)");
