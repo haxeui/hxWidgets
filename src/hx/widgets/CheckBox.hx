@@ -12,6 +12,23 @@ class CheckBox extends Window {
 		checkboxRef.create(parent != null ? parent._ref : Window.nullWindowRef, id, label);
 		_ref = cast checkboxRef;
 	}
+	
+	public var value(get, set):Bool;
+	public function get_value():Bool {
+		return checkboxRef.getValue();
+	}
+	public function set_value(value:Bool):Bool {
+		checkboxRef.setValue(value);
+		return value;
+	}
+	
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// HELPERS
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////
+	private var checkboxRef(get, null):WxCheckBoxRef;
+	private function get_checkboxRef():WxCheckBoxRef {
+		return cast _ref;
+	}
 }
 
 @:include("wx/checkbox.h")
@@ -24,4 +41,6 @@ extern class WxCheckBoxRef extends WxCheckBox {
 @:native("cpp.Reference<wxCheckBox>")
 extern class WxCheckBox extends WxWindow {
 	@:native("Create") public function create(parent:WxWindowRef, id:Int, title:ConstCharStar):Bool;
+	@:native("SetValue") public function setValue(value:Bool):Void;
+	@:native("GetValue") public function getValue():Bool;
 }
