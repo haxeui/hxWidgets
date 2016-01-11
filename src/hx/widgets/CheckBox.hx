@@ -14,10 +14,10 @@ class CheckBox extends Window {
 	}
 	
 	public var value(get, set):Bool;
-	public function get_value():Bool {
+	private function get_value():Bool {
 		return checkboxRef.getValue();
 	}
-	public function set_value(value:Bool):Bool {
+	private function set_value(value:Bool):Bool {
 		checkboxRef.setValue(value);
 		return value;
 	}
