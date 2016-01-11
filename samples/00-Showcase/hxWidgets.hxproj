@@ -16,13 +16,14 @@
   <!-- Other classes to be compiled into your SWF -->
   <classpaths>
     <class path="src" />
+    <class path="..\..\src" />
   </classpaths>
   <!-- Build options -->
   <build>
     <option directives="" />
     <option flashStrict="False" />
     <option noInlineOnDebug="False" />
-    <option mainClass="hx.widgets.Main" />
+    <option mainClass="Main" />
     <option enabledebug="False" />
     <option additional="-resource assets/img/slinky_tiny_test.bmp@slinky_tiny_test.bmp&#xA;-resource assets/img/slinky_tiny_test_icon.bmp@slinky_tiny_test_icon.bmp&#xA;-resource assets/img/inbox.bmp@inbox.bmp&#xA;-resource assets/img/inbox--arrow.bmp@inbox--arrow.bmp&#xA;-resource assets/img/inbox-document.bmp@inbox-document.bmp" />
   </build>
