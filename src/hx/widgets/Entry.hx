@@ -34,6 +34,7 @@ class Entry {
 			untyped __cpp__("argv[i] = arg");
 		}
 		untyped __cpp__("wxEntryStart(argc, argv)");
+		untyped __cpp__("delete[] argv");
 	}
 
 	public static function cleanup ():Void {
