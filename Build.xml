@@ -1,0 +1,47 @@
+<xml>
+	<section if="windows">
+		<files id="haxe">
+			<compilerflag value="-IZ:/hxWidgets/wxWidgets/include" />
+		</files>
+
+		<target id="haxe" tool="linker" toolid="exe">
+			<lib name="Z:/hxWidgets/lib/Windows/libwxwidgets.lib" />
+			<lib name="user32.lib" />
+			<lib name="winspool.lib" />
+			<lib name="advapi32.lib" />
+			<lib name="gdi32.lib" />
+			<lib name="comdlg32.lib" />
+			<lib name="comctl32.lib" />
+			<lib name="ole32.lib" />
+			<lib name="oleaut32.lib" />
+			<lib name="rpcrt4.lib" />
+			<lib name="shell32.lib" />
+			<lib name="kernel32.lib" />
+		</target>
+	</section>
+
+	<section if="linux">
+		<files id="haxe">
+			<compilerflag value="-I/usr/lib64/wx/include/gtk2-unicode-3.0" />
+			<compilerflag value="-I/usr/include/wx-3.0" />
+			<compilerflag value="-D_FILE_OFFSET_BITS=64" />
+			<compilerflag value="-DwxDEBUG_LEVEL=0" />
+			<compilerflag value="-DWXUSINGDLL" />
+			<compilerflag value="-D__WXGTK__" />
+			<compilerflag value="-pthread" />
+		</files>
+
+		<target id="haxe" tool="linker" toolid="exe">
+			<compilerflag value="-L/usr/lib64" />
+			<lib name="-lwx_gtk2u_xrc-3.0" />
+			<lib name="-lwx_gtk2u_webview-3.0" />
+			<lib name="-lwx_gtk2u_html-3.0" />
+			<lib name="-lwx_gtk2u_qa-3.0" />
+			<lib name="-lwx_gtk2u_adv-3.0" />
+			<lib name="-lwx_gtk2u_core-3.0" />
+			<lib name="-lwx_baseu_xml-3.0" />
+			<lib name="-lwx_baseu_net-3.0" />
+			<lib name="-lwx_baseu-3.0" />
+		</target>
+	</section>
+</xml>
