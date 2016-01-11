@@ -38,7 +38,7 @@ extern class WxGaugeRef extends WxGauge {
 }
 
 @:include("wx/gauge.h")
-@:native("cpp.Reference<wxGauge>")
+@:native("wxGauge")
 extern class WxGauge extends WxWindow {
 	@:native("Create") public function create(parent:WxWindowRef, id:Int, range:Int):Bool;
 	@:native("SetValue") public function setValue(value:Int):Void;

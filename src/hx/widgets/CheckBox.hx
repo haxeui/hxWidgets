@@ -38,7 +38,7 @@ extern class WxCheckBoxRef extends WxCheckBox {
 }
 
 @:include("wx/checkbox.h")
-@:native("cpp.Reference<wxCheckBox>")
+@:native("wxCheckBox")
 extern class WxCheckBox extends WxWindow {
 	@:native("Create") public function create(parent:WxWindowRef, id:Int, title:ConstCharStar):Bool;
 	@:native("SetValue") public function setValue(value:Bool):Void;

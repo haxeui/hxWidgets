@@ -39,7 +39,7 @@ extern class WxNotebookRef extends WxNotebook {
 }
 
 @:include("wx/notebook.h")
-@:native("cpp.Reference<wxNotebook>")
+@:native("wxNotebook")
 extern class WxNotebook extends WxWindow {
 	@:native("Create") public function create(parent:WxWindowRef, id:Int):Bool;
 	@:native("AddPage") public function addPage(page:WxWindowRef, text:ConstCharStar, select:Bool, imageId:Int):Bool;
