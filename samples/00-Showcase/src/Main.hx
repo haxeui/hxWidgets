@@ -44,7 +44,7 @@ class Main {
 			checkbox.move(260, 10);
 			
 			// create a gauge (progress bar)
-			var gauge:Gauge = new Gauge(frame, 100);
+			var gauge:Gauge = new Gauge(frame);
 			gauge.move(120, 30);
 			gauge.value = 50;
 			

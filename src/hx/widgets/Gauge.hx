@@ -5,7 +5,7 @@ import hx.widgets.Window.WxWindow;
 import hx.widgets.Window.WxWindowRef;
 
 class Gauge extends Window {
-	public function new(parent:Window, range:Int, id:Int = -1) {
+	public function new(parent:Window, range:Int = 100, id:Int = -1) {
 		super(parent, id);
 		
 		var guageRef:WxGaugeRef = WxGaugeRef.createInstance();
