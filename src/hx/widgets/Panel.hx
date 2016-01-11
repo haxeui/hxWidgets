@@ -21,7 +21,7 @@ extern class WxPanelRef extends WxPanel {
 }
 
 @:include("wx/panel.h")
-@:native("cpp.Reference<wxPanel>")
+@:native("wxPanel")
 extern class WxPanel extends WxWindow {
 	@:native("Create") public function create(parent:WxWindowRef, id:Int):Bool;
 }
