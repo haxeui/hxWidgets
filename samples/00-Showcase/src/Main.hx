@@ -1,6 +1,5 @@
-package hx.widgets;
-
 import cpp.Lib;
+import hx.widgets.*;
 import hx.widgets.App.WxAppRef;
 
 class Main {
