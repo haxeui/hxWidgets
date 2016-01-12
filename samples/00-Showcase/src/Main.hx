@@ -17,7 +17,7 @@ class Main {
 			var button:Button = new Button(frame, "Button 1");
 			button.setBitmap(Bitmap.fromHaxeResource("inbox.bmp"));
 			button.setSize(10, 10, 100, 100);
-			button.bind(Events.EVT_BUTTON, function(e:Event) {
+			button.bind(EventType.BUTTON, function(e:Event) {
 				trace("click!");
 				trace(e.getEventType());
 				trace(e.getId());
@@ -25,20 +25,20 @@ class Main {
 		
 			// create a chekboxes
 			var checkbox:CheckBox = new CheckBox(frame, "Check 1");
-			checkbox.bind(Events.EVT_CHECKBOX, function(e:Event) {
+			checkbox.bind(EventType.CHECKBOX, function(e:Event) {
 				trace("checkbox 1: " + checkbox.value);
 			});
 			checkbox.move(120, 10);
 
 			var checkbox:CheckBox = new CheckBox(frame, "Check 2");
-			checkbox.bind(Events.EVT_CHECKBOX, function(e:Event) {
+			checkbox.bind(EventType.CHECKBOX, function(e:Event) {
 				trace("checkbox 2: " + checkbox.value);
 			});
 			checkbox.value = true;
 			checkbox.move(190, 10);
 
 			var checkbox:CheckBox = new CheckBox(frame, "Check 3");
-			checkbox.bind(Events.EVT_CHECKBOX, function(e:Event) {
+			checkbox.bind(EventType.CHECKBOX, function(e:Event) {
 				trace("checkbox 3: " + checkbox.value);
 			});
 			checkbox.move(260, 10);
@@ -54,7 +54,7 @@ class Main {
 			slider.min = 25;
 			slider.max = 125;
 			slider.value = 50;
-			slider.bind(Events.EVT_SLIDER, function(e) {
+			slider.bind(EventType.SLIDER, function(e) {
 				trace("Slider event: " + slider.value);
 				gauge.value = slider.value;
 			});
