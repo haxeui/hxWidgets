@@ -81,7 +81,10 @@ class Main {
             textctrl.insertionPoint = 0;
             
             var label:StaticText = new StaticText(frame, "Static text");
-            label.move(390, 150);   
+            label.move(390, 150);
+            
+            var link:HyperlinkCtrl = new HyperlinkCtrl(frame, "hxWidgets", "https://github.com/ianharrigan/hxWidgets");
+            link.move(390, 170);
             
 			// create a gauge (progress bar)
 			var gauge:Gauge = new Gauge(frame);
