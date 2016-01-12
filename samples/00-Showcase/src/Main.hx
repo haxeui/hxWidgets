@@ -10,8 +10,14 @@ class Main {
 		var frame:Frame = new Frame(null, "hxWidgets");
 		//frame.setStatusText("Status: OK");
 		frame.backgroundColour = 0xFFFFFF;
-		frame.setSize(10, 10, 800, 600);
 		frame.show(true);
+        frame.x = 20;
+        frame.y = 40;
+        frame.width = 400;
+        frame.height = 200;
+		frame.setSize(10, 10, 800, 600);
+        trace(frame.getSize().width);
+        trace(frame.getPosition().x);
 		
 			// create a button
 			var button:Button = new Button(frame, "Button 1");
