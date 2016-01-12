@@ -49,6 +49,17 @@ class Main {
 			});
 			checkbox.move(260, 10);
 			
+            // create radio buttons
+            var radio:RadioButton = new RadioButton(frame, "Option 1");
+            radio.move(360, 10);
+
+            var radio:RadioButton = new RadioButton(frame, "Option 2");
+            radio.value = true;
+            radio.move(430, 10);
+
+            var radio:RadioButton = new RadioButton(frame, "Option 3");
+            radio.move(500, 10);
+            
 			// create a gauge (progress bar)
 			var gauge:Gauge = new Gauge(frame);
 			gauge.move(120, 30);
