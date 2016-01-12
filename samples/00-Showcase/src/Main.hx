@@ -9,7 +9,7 @@ class Main {
 		
 		var frame:Frame = new Frame(null, "hxWidgets");
 		//frame.setStatusText("Status: OK");
-		frame.setBackgroundColour(0xFFFFFF);
+		frame.backgroundColour = 0xFFFFFF;
 		frame.setSize(10, 10, 800, 600);
 		frame.show(true);
 		
@@ -58,6 +58,25 @@ class Main {
 				trace("Slider event: " + slider.value);
 				gauge.value = slider.value;
 			});
+
+			var slider:Slider = new Slider(frame);
+			slider.move(220, 50);
+			slider.windowStyle = hx.widgets.Slider.SliderStyle.AUTOTICKS
+								| hx.widgets.Slider.SliderStyle.VALUE_LABEL
+								| hx.widgets.Slider.SliderStyle.SELRANGE;
+			slider.refresh();
+			slider.setSelection(25, 75);
+			
+			var slider:Slider = new Slider(frame, 50, 0, 100, hx.widgets.Slider.SliderStyle.VERTICAL);
+			slider.move(320, 50);
+
+			var slider:Slider = new Slider(frame, 50, 0, 100, hx.widgets.Slider.SliderStyle.VERTICAL 
+															| hx.widgets.Slider.SliderStyle.AUTOTICKS
+															| hx.widgets.Slider.SliderStyle.VALUE_LABEL
+															| hx.widgets.Slider.SliderStyle.SELRANGE);
+			slider.move(350, 50);
+			slider.selectionStart = 25;
+			slider.selectionEnd = 75;
 			
 			// create a static bitmp
 			var staticBmp:StaticBitmap = new StaticBitmap(frame, Bitmap.fromHaxeResource("slinky_tiny_test.bmp"));
