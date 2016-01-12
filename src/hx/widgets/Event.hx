@@ -30,6 +30,6 @@ extern class WxEventRef extends WxEvent {
 @:include("wx/event.h")
 @:native("wxEvent")
 extern class WxEvent {
-	@:native("GetEventType") public function getEventType():Int;
-	@:native("GetId") public function getId():Int;
+	@:native("GetEventType")        public function getEventType():Int;
+	@:native("GetId")               public function getId():Int;
 }

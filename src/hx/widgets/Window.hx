@@ -5,53 +5,53 @@ import hx.widgets.Point.WxPointRef;
 import hx.widgets.Size.WxSizeRef;
 
 class Window extends EvtHandler {
-	public function new(parent:Window, id:Int) {
-		super();
-	}
+    public function new(parent:Window, id:Int) {
+        super();
+    }
 
-	public function show(value:Bool) {
-		_ref.show(value);
-	}
-	
-	public function setSize(x:Int, y:Int, width:Int, height:Int) {
-		_ref.setSize(x, y, width, height);
-	}
-	
-	public function move(x:Int, y:Int) {
-		_ref.move(x, y);
-	}
-	
-	public function addChild(child:Window) {
-		_ref.addChild(child._ref);
-	}
-	
-	public function refresh() {
-		_ref.refresh();
-	}
-	
-	public var backgroundColour(get, set):Int;
-	private function get_backgroundColour():Int {
-		return -1;
-	}
-	private function set_backgroundColour(colour:Int):Int {
-		_ref.setBackgroundColour(colour);
-		return colour;
-	}
+    public function show(value:Bool) {
+        _ref.show(value);
+    }
+    
+    public function setSize(x:Int, y:Int, width:Int, height:Int) {
+        _ref.setSize(x, y, width, height);
+    }
+    
+    public function move(x:Int, y:Int) {
+        _ref.move(x, y);
+    }
+    
+    public function addChild(child:Window) {
+        _ref.addChild(child._ref);
+    }
+    
+    public function refresh() {
+        _ref.refresh();
+    }
+    
+    public var backgroundColour(get, set):Int;
+    private function get_backgroundColour():Int {
+        return -1;
+    }
+    private function set_backgroundColour(colour:Int):Int {
+        _ref.setBackgroundColour(colour);
+        return colour;
+    }
 
-	public var windowStyle(get, set):Int;
-	private function get_windowStyle():Int {
-		return _ref.getWindowStyle();
-	}
-	private function set_windowStyle(style:Int):Int {
-		_ref.setWindowStyle(style);
-		return style;
-	}
-	
+    public var windowStyle(get, set):Int;
+    private function get_windowStyle():Int {
+        return _ref.getWindowStyle();
+    }
+    private function set_windowStyle(style:Int):Int {
+        _ref.setWindowStyle(style);
+        return style;
+    }
+    
     public function getSize():Size {
         var ref:WxSizeRef = _ref.getSize();
         return new Size(ref.getWidth(), ref.getHeight());
     }
-	
+    
     public function getPosition():Point {
         var ref:WxPointRef = _ref.getPosition();
         return new Point(ref.x, ref.y);
@@ -94,17 +94,17 @@ class Window extends EvtHandler {
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-	// HELPERS
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////
-	
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////
-	// STATIC HELPERS
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////
-	private static var nullWindowRef(get, null):WxWindowRef;
-	private static inline function get_nullWindowRef():WxWindowRef {
-		return cast 0;
-	}
-	
+    // HELPERS
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // STATIC HELPERS
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    private static var nullWindowRef(get, null):WxWindowRef;
+    private static inline function get_nullWindowRef():WxWindowRef {
+        return cast 0;
+    }
+    
 }
 
 @:include("wx/window.h")
