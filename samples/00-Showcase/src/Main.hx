@@ -80,11 +80,16 @@ class Main {
             textctrl.appendText("This is line 5\n");
             textctrl.insertionPoint = 0;
             
-            var label:StaticText = new StaticText(frame, "Static text");
-            label.move(390, 150);
+            var box:StaticBox = new StaticBox(frame, "Static Box");
+            box.move(390, 150);
+            box.width = 100;
+            box.height = 70;
             
-            var link:HyperlinkCtrl = new HyperlinkCtrl(frame, "hxWidgets", "https://github.com/ianharrigan/hxWidgets");
-            link.move(390, 170);
+            var label:StaticText = new StaticText(box, "Static text");
+            label.move(10, 20);
+            
+            var link:HyperlinkCtrl = new HyperlinkCtrl(box, "hxWidgets", "https://github.com/ianharrigan/hxWidgets");
+            link.move(10, 40);
             
 			// create a gauge (progress bar)
 			var gauge:Gauge = new Gauge(frame);
