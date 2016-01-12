@@ -80,6 +80,9 @@ class Main {
             textctrl.appendText("This is line 5\n");
             textctrl.insertionPoint = 0;
             
+            var label:StaticText = new StaticText(frame, "Static text");
+            label.move(390, 150);   
+            
 			// create a gauge (progress bar)
 			var gauge:Gauge = new Gauge(frame);
 			gauge.move(120, 30);
