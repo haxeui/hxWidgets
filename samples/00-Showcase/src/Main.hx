@@ -60,6 +60,26 @@ class Main {
             var radio:RadioButton = new RadioButton(frame, "Option 3");
             radio.move(500, 10);
             
+            // create text inputs
+            var textctrl:TextCtrl = new TextCtrl(frame, "Text input 1");
+            textctrl.move(10, 150);            
+
+            var textctrl:TextCtrl = new TextCtrl(frame, "Password 1", hx.widgets.TextCtrl.TextCtrlStyle.PASSWORD);
+            textctrl.move(10, 180);            
+
+            var textctrl:TextCtrl = new TextCtrl(frame, "Text input 2", hx.widgets.TextCtrl.TextCtrlStyle.READONLY);
+            textctrl.move(130, 150);            
+            
+            var textctrl:TextCtrl = new TextCtrl(frame, null, hx.widgets.TextCtrl.TextCtrlStyle.MULTILINE | hx.widgets.TextCtrl.TextCtrlStyle.RICH);
+            textctrl.move(250, 150);   
+            textctrl.height = 70;
+            textctrl.appendText("This is line 1\n");
+            textctrl.appendText("This is line 2\n");
+            textctrl.appendText("This is line 3\n");
+            textctrl.appendText("This is line 4\n");
+            textctrl.appendText("This is line 5\n");
+            textctrl.insertionPoint = 0;
+            
 			// create a gauge (progress bar)
 			var gauge:Gauge = new Gauge(frame);
 			gauge.move(120, 30);
@@ -108,7 +128,7 @@ class Main {
 			// create a notebox (tab view)
 			var tabs:Notebook = new Notebook(frame);
 			tabs.setImageList(imageList);
-			tabs.setSize(10, 130, 400, 200);
+			tabs.setSize(10, 230, 400, 200);
 
 			// create the panels and contents for the tab view
 				var panel1:Panel = new Panel(tabs);
