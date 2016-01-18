@@ -151,6 +151,22 @@ class Main {
             //scroller.setScrollbars(inc, 3, Std.int(totalCX / inc), 200);
             //scroller.refresh();
             
+            var s:Colour = new Colour(0xFF0000);
+            
+            var panel:Panel = new Panel(frame);
+            //panel.backgroundColour = 0xFF0000;
+            panel.setSize(590, 230, 150, 100);
+            //panel.refresh();
+            var dc:ClientDC = new ClientDC(panel);
+            dc.clear();
+            dc.setPen(new Pen(0xFF0000));
+            dc.drawLine(0, 0, 150, 100);
+            dc.setPen(new Pen(0x00FF00, 3));
+            dc.drawText("text", 10, 10);
+            dc.drawRoundedRectangle(35, 10, 100, 30, 5);
+            dc.setPen(new Pen(0x0000FF, 2));
+            dc.drawCircle(50, 70, 20);
+            
             // create an image list ready for use with the tabs
             var imageList:ImageList = new ImageList(16, 16);
             imageList.add(Bitmap.fromHaxeResource("inbox.bmp"));
