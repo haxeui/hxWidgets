@@ -130,6 +130,27 @@ class Main {
             var staticBmp:StaticBitmap = new StaticBitmap(frame, Bitmap.fromHaxeResource("slinky_tiny_test.bmp"));
             staticBmp.move(130, 75);
             
+            var scroller:ScrolledWindow = new ScrolledWindow(frame, hx.widgets.Window.WindowStyle.BORDER_THEME | hx.widgets.Window.WindowStyle.VSCROLL);
+            scroller.setSize(430, 230, 150, 200);
+            //scroller.backgroundColour = 0x0000FF;
+            scroller.refresh();
+            for (a in 0...20) {
+                var b:Button = new Button(scroller, "Button " + a);
+                b.x = 10;
+                b.y = 10 + (a * 30);
+                b.height = 25;
+            }
+            //scroller.setClientSize(150, 200);
+            //scroller.setVirtualSize(6000, 3000);
+            //trace(scroller.getVirtualSize().width);
+            var inc = 10;
+            var totalCX = 120;
+            var totalCY = ((20 * 30) + 10);
+            trace(totalCY);
+            scroller.setScrollbars(inc, inc, Std.int(totalCX / inc), Std.int(totalCY / inc));
+            //scroller.setScrollbars(inc, 3, Std.int(totalCX / inc), 200);
+            //scroller.refresh();
+            
             // create an image list ready for use with the tabs
             var imageList:ImageList = new ImageList(16, 16);
             imageList.add(Bitmap.fromHaxeResource("inbox.bmp"));

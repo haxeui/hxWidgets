@@ -4,6 +4,27 @@ import hx.widgets.EvtHandler.WxEvtHandler;
 import hx.widgets.Point.WxPointRef;
 import hx.widgets.Size.WxSizeRef;
 
+@:headerCode("#include <wx/window.h>")
+class WindowStyle {
+    public static var BORDER_DEFAULT:Int                    = untyped __cpp__("wxBORDER_DEFAULT");
+    public static var BORDER_SIMPLE:Int                     = untyped __cpp__("wxBORDER_SIMPLE");
+    public static var BORDER_SUNKEN:Int                     = untyped __cpp__("wxBORDER_SUNKEN");
+    public static var BORDER_RAISED:Int                     = untyped __cpp__("wxBORDER_RAISED");
+    public static var BORDER_STATIC:Int                     = untyped __cpp__("wxBORDER_STATIC");
+    public static var BORDER_THEME:Int                      = untyped __cpp__("wxBORDER_THEME");
+    public static var BORDER_NONE:Int                       = untyped __cpp__("wxBORDER_NONE");
+    public static var BORDER_DOUBLE:Int                     = untyped __cpp__("wxBORDER_DOUBLE");
+    public static var TRANSPARENT_WINDOW:Int                = untyped __cpp__("wxTRANSPARENT_WINDOW");
+    public static var TAB_TRAVERSAL:Int                     = untyped __cpp__("wxTAB_TRAVERSAL");
+    public static var WANTS_CHARS:Int                       = untyped __cpp__("wxWANTS_CHARS");
+    public static var NO_FULL_REPAINT_ON_RESIZE:Int         = untyped __cpp__("wxNO_FULL_REPAINT_ON_RESIZE");
+    public static var VSCROLL:Int                           = untyped __cpp__("wxVSCROLL");
+    public static var HSCROLL:Int                           = untyped __cpp__("wxHSCROLL");
+    public static var ALWAYS_SHOW_SB:Int                    = untyped __cpp__("wxALWAYS_SHOW_SB");
+    public static var CLIP_CHILDREN:Int                     = untyped __cpp__("wxCLIP_CHILDREN");
+    public static var FULL_REPAINT_ON_RESIZE:Int            = untyped __cpp__("wxFULL_REPAINT_ON_RESIZE");
+}
+
 class Window extends EvtHandler {
     public function new(parent:Window, id:Int) {
         super();
@@ -93,6 +114,19 @@ class Window extends EvtHandler {
         return value;
     }
     
+    public function setVirtualSize(width:Int, height:Int) {
+        _ref.setVirtualSize(width, height);
+    }
+    
+    public function getVirtualSize():Size {
+        var ref:WxSizeRef = _ref.getVirtualSize();
+        return new Size(ref.getWidth(), ref.getHeight());
+    }
+    
+    public function setClientSize(width:Int, height:Int) {
+        _ref.setClientSize(width, height);
+    }
+    
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // HELPERS
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -119,6 +153,7 @@ extern class WxWindow extends WxEvtHandler {
     @:native("Show")                    public function show(value:Bool):Void;
     @:native("Refresh")                 public function refresh():Void;
     @:native("SetSize")                 public function setSize(x:Int, y:Int, width:Int, height:Int):Void;
+    @:native("SetClientSize")           public function setClientSize(width:Int, height:Int):Void;
     @:native("Move")                    public function move(x:Int, y:Int):Void;
     @:native("AddChild")                public function addChild(child:WxWindowRef):Void;
     @:native("GetBackgroundColour")     public function getBackgroundColour():Int;
@@ -127,4 +162,6 @@ extern class WxWindow extends WxEvtHandler {
     @:native("SetWindowStyle")          public function setWindowStyle(style:Int):Void;
     @:native("GetSize")                 public function getSize():WxSizeRef;
     @:native("GetPosition")             public function getPosition():WxPointRef;
+    @:native("SetVirtualSize")          public function setVirtualSize(width:Int, height:Int):Void;
+    @:native("GetVirtualSize")          public function getVirtualSize():WxSizeRef;
 }
