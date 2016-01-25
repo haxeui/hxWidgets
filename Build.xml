@@ -2,21 +2,23 @@
 	<section if="windows">
 		<files id="haxe">
 			<compilerflag value="-IZ:/hxWidgets/wxWidgets/include" />
+			<compilerflag value="-IZ:/hxWidgets/wxWidgets/windows/vc120/x86/lib/mswu" />
+			<compilerflag value="-DUNICODE" />
+			<compilerflag value="-D_UNICODE" />
+			<compilerflag value="-DWXUSINGDLL" />
+			<compilerflag value="-DwxMSVC_VERISON_AUTO" />
 		</files>
 
 		<target id="haxe" tool="linker" toolid="exe">
-			<lib name="Z:/hxWidgets/lib/Windows/libwxwidgets.lib" />
-			<lib name="user32.lib" />
-			<lib name="winspool.lib" />
-			<lib name="advapi32.lib" />
-			<lib name="gdi32.lib" />
-			<lib name="comdlg32.lib" />
-			<lib name="comctl32.lib" />
-			<lib name="ole32.lib" />
-			<lib name="oleaut32.lib" />
-			<lib name="rpcrt4.lib" />
-			<lib name="shell32.lib" />
-			<lib name="kernel32.lib" />
+			<lib name="Z:/hxWidgets/wxWidgets/windows/vc120/x86/lib/wxmsw30u_xrc.lib" />
+			<lib name="Z:/hxWidgets/wxWidgets/windows/vc120/x86/lib/wxmsw30u_webview.lib" />
+			<lib name="Z:/hxWidgets/wxWidgets/windows/vc120/x86/lib/wxmsw30u_html.lib" />
+			<lib name="Z:/hxWidgets/wxWidgets/windows/vc120/x86/lib/wxmsw30u_qa.lib" />
+			<lib name="Z:/hxWidgets/wxWidgets/windows/vc120/x86/lib/wxmsw30u_adv.lib" />
+			<lib name="Z:/hxWidgets/wxWidgets/windows/vc120/x86/lib/wxmsw30u_core.lib" />
+			<lib name="Z:/hxWidgets/wxWidgets/windows/vc120/x86/lib/wxbase30u_xml.lib" />
+			<lib name="Z:/hxWidgets/wxWidgets/windows/vc120/x86/lib/wxbase30u_net.lib" />
+			<lib name="Z:/hxWidgets/wxWidgets/windows/vc120/x86/lib/wxbase30u.lib" />
 		</target>
 	</section>
 
