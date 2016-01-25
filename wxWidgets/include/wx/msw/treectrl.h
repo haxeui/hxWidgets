@@ -33,6 +33,15 @@ class  WXDLLIMPEXP_FWD_CORE wxImageList;
 class  WXDLLIMPEXP_FWD_CORE wxDragImage;
 struct WXDLLIMPEXP_FWD_CORE wxTreeViewItem;
 
+#if WXWIN_COMPATIBILITY_2_6
+    // NB: all the following flags are for compatbility only and will be removed in the
+    //     next versions
+    // flags for deprecated InsertItem() variant (their values are the same as of
+    // TVI_FIRST and TVI_LAST)
+    #define wxTREE_INSERT_FIRST 0xFFFF0001
+    #define wxTREE_INSERT_LAST  0xFFFF0002
+#endif
+
 // hash storing attributes for our items
 WX_DECLARE_EXPORTED_VOIDPTR_HASH_MAP(wxTreeItemAttr *, wxMapTreeAttr);
 
@@ -294,9 +303,6 @@ private:
     // item text are also "on item" when wxTR_FULL_ROW_HIGHLIGHT is used as the
     // item visually spans the entire breadth of the window then
     bool MSWIsOnItem(unsigned flags) const;
-
-    // Delete the given item from the native control.
-    bool MSWDeleteItem(const wxTreeItemId& item);
 
 
     // the hash storing the items attributes (indexed by item ids)

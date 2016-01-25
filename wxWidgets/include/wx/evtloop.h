@@ -16,7 +16,7 @@
 
 // TODO: implement wxEventLoopSource for MSW (it should wrap a HANDLE and be
 //       monitored using MsgWaitForMultipleObjects())
-#if defined(__WXOSX__) || (defined(__UNIX__) && !defined(__WXMSW__))
+#if defined(__WXOSX__) || (defined(__UNIX__) && !defined(__WINDOWS__))
     #define wxUSE_EVENTLOOP_SOURCE 1
 #else
     #define wxUSE_EVENTLOOP_SOURCE 0
@@ -263,7 +263,7 @@ private:
 #endif
 
 // include the header defining wxConsoleEventLoop
-#if defined(__UNIX__) && !defined(__WXMSW__)
+#if defined(__UNIX__) && !defined(__WINDOWS__)
     #include "wx/unix/evtloop.h"
 #elif defined(__WINDOWS__)
     #include "wx/msw/evtloopconsole.h"
@@ -402,7 +402,7 @@ private:
     wxEventLoopBase *m_evtLoopOld;
 };
 
-#if wxUSE_CONSOLE_EVENTLOOP
+#if wxUSE_GUI || wxUSE_CONSOLE_EVENTLOOP
 
 class wxEventLoopGuarantor
 {
@@ -430,6 +430,6 @@ private:
     wxEventLoop *m_evtLoopNew;
 };
 
-#endif // wxUSE_CONSOLE_EVENTLOOP
+#endif // wxUSE_GUI || wxUSE_CONSOLE_EVENTLOOP
 
 #endif // _WX_EVTLOOP_H_

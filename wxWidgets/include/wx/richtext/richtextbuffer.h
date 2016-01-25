@@ -304,9 +304,7 @@ enum wxTextBoxAttrFlags
     wxTEXT_BOX_ATTR_CLEAR                   = 0x00000002,
     wxTEXT_BOX_ATTR_COLLAPSE_BORDERS        = 0x00000004,
     wxTEXT_BOX_ATTR_VERTICAL_ALIGNMENT      = 0x00000008,
-    wxTEXT_BOX_ATTR_BOX_STYLE_NAME          = 0x00000010,
-    wxTEXT_BOX_ATTR_WHITESPACE              = 0x00000020,
-    wxTEXT_BOX_ATTR_CORNER_RADIUS           = 0x00000040
+    wxTEXT_BOX_ATTR_BOX_STYLE_NAME          = 0x00000010
 };
 
 /**
@@ -404,12 +402,12 @@ public:
         Returns the floating-pointing value of the dimension in mm.
 
     */
-    float GetValueMM() const { return float(m_value) / 10.0; }
+    float GetValueMM() const { return m_value / 10.0f; }
 
     /**
         Sets the value of the dimension in mm.
     */
-    void SetValueMM(float value) { m_value = (int) ((value * 10.0) + 0.5); m_flags |= wxTEXT_ATTR_VALUE_VALID; }
+    void SetValueMM(float value) { m_value = (int) ((value * 10.0f) + 0.5f); m_flags |= wxTEXT_ATTR_VALUE_VALID; }
 
     /**
         Sets the integer value of the dimension.
@@ -801,7 +799,7 @@ enum wxTextBoxAttrClearStyle
 };
 
 /**
-    Collapse mode styles.
+    Collapse mode styles. TODO: can they be switched on per side?
  */
 enum wxTextBoxAttrCollapseMode
 {
@@ -818,21 +816,6 @@ enum wxTextBoxAttrVerticalAlignment
     wxTEXT_BOX_ATTR_VERTICAL_ALIGNMENT_TOP  =       1,
     wxTEXT_BOX_ATTR_VERTICAL_ALIGNMENT_CENTRE =     2,
     wxTEXT_BOX_ATTR_VERTICAL_ALIGNMENT_BOTTOM  =    3
-};
-
-/**
-    Whitespace values mirroring the CSS white-space attribute.
-    Only wxTEXT_BOX_ATTR_WHITESPACE_NO_WRAP is currently implemented,
-    in table cells.
- */
-enum wxTextBoxAttrWhitespaceMode
-{
-    wxTEXT_BOX_ATTR_WHITESPACE_NONE                 = 0,
-    wxTEXT_BOX_ATTR_WHITESPACE_NORMAL               = 1,
-    wxTEXT_BOX_ATTR_WHITESPACE_NO_WRAP              = 2,
-    wxTEXT_BOX_ATTR_WHITESPACE_PREFORMATTED         = 3,
-    wxTEXT_BOX_ATTR_WHITESPACE_PREFORMATTED_LINE    = 4,
-    wxTEXT_BOX_ATTR_WHITESPACE_PREFORMATTED_WRAP    = 5
 };
 
 /**
@@ -1265,37 +1248,6 @@ public:
     bool HasCollapseBorders() const { return HasFlag(wxTEXT_BOX_ATTR_COLLAPSE_BORDERS); }
 
     /**
-        Returns the whitespace mode.
-    */
-    wxTextBoxAttrWhitespaceMode GetWhitespaceMode() const { return m_whitespaceMode; }
-
-    /**
-        Sets the whitespace mode.
-    */
-    void SetWhitespaceMode(wxTextBoxAttrWhitespaceMode whitespace) { m_whitespaceMode = whitespace; m_flags |= wxTEXT_BOX_ATTR_WHITESPACE; }
-
-    /**
-        Returns @true if the whitespace flag is present.
-    */
-    bool HasWhitespaceMode() const { return HasFlag(wxTEXT_BOX_ATTR_WHITESPACE); }
-
-    /**
-        Returns @true if the corner radius flag is present.
-    */
-    bool HasCornerRadius() const { return HasFlag(wxTEXT_BOX_ATTR_CORNER_RADIUS); }
-
-    /**
-        Returns the corner radius value.
-    */
-    const wxTextAttrDimension& GetCornerRadius() const { return m_cornerRadius; }
-    wxTextAttrDimension& GetCornerRadius() { return m_cornerRadius; }
-
-    /**
-        Sets the corner radius value.
-    */
-    void SetCornerRadius(const wxTextAttrDimension& dim) { m_cornerRadius = dim; m_flags |= wxTEXT_BOX_ATTR_CORNER_RADIUS; }
-
-    /**
         Returns the vertical alignment.
     */
     wxTextBoxAttrVerticalAlignment GetVerticalAlignment() const { return m_verticalAlignment; }
@@ -1541,8 +1493,6 @@ public:
     wxTextBoxAttrClearStyle         m_clearMode;
     wxTextBoxAttrCollapseMode       m_collapseMode;
     wxTextBoxAttrVerticalAlignment  m_verticalAlignment;
-    wxTextBoxAttrWhitespaceMode     m_whitespaceMode;
-    wxTextAttrDimension             m_cornerRadius;
     wxString                        m_boxStyleName;
 };
 
@@ -2811,7 +2761,7 @@ public:
     /**
         Draws a border.
     */
-    static bool DrawBorder(wxDC& dc, wxRichTextBuffer* buffer, const wxRichTextAttr& attr, const wxTextAttrBorders& borders, const wxRect& rect, int flags = 0);
+    static bool DrawBorder(wxDC& dc, wxRichTextBuffer* buffer, const wxTextAttrBorders& attr, const wxRect& rect, int flags = 0);
 
     /**
         Returns the various rectangles of the box model in pixels. You can either specify @a contentRect (inner)
@@ -5690,25 +5640,13 @@ public:
 
 // Accessors
 
-    /**
-        Returns the column span. The default is 1.
-    */
     int GetColSpan() const;
 
-    /**
-        Sets the column span.
-    */
-    void SetColSpan(int span);
+    void SetColSpan(long span) { GetProperties().SetProperty(wxT("colspan"), span); }
 
-    /**
-        Returns the row span. The default is 1.
-    */
     int GetRowSpan() const;
 
-    /**
-        Sets the row span.
-    */
-    void SetRowSpan(int span);
+    void SetRowSpan(long span) { GetProperties().SetProperty(wxT("rowspan"), span); }
 
 // Operations
 

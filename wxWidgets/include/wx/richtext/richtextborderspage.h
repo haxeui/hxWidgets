@@ -4,8 +4,9 @@
 // Author:      Julian Smart
 // Modified by:
 // Created:     21/10/2010 11:34:24
+// RCS-ID:
 // Copyright:   (c) Julian Smart
-// Licence:     wxWindows licence
+// Licence:
 /////////////////////////////////////////////////////////////////////////////
 
 #ifndef _RICHTEXTBORDERSPAGE_H_
@@ -158,9 +159,6 @@ public:
     /// wxEVT_UPDATE_UI event handler for ID_RICHTEXT_OUTLINE_SYNCHRONIZE
     void OnRichtextOutlineSynchronizeUpdate( wxUpdateUIEvent& event );
 
-    /// wxEVT_UPDATE_UI event handler for ID_RICHTEXTBORDERSPAGE_CORNER_TEXT
-    void OnRichtextborderspageCornerUpdate( wxUpdateUIEvent& event );
-
 ////@end wxRichTextBordersPage event handler declarations
 
 ////@begin wxRichTextBordersPage member function declarations
@@ -218,9 +216,6 @@ public:
     wxComboBox* m_bottomOutlineStyle;
     wxRichTextColourSwatchCtrl* m_bottomOutlineColour;
     wxCheckBox* m_outlineSyncCtrl;
-    wxCheckBox* m_cornerRadiusCheckBox;
-    wxTextCtrl* m_cornerRadiusText;
-    wxComboBox* m_cornerRadiusUnits;
     wxRichTextBorderPreviewCtrl* m_borderPreviewCtrl;
     /// Control identifiers
     enum {
@@ -270,10 +265,6 @@ public:
         ID_RICHTEXT_OUTLINE_BOTTOM_STYLE = 10842,
         ID_RICHTEXT_OUTLINE_BOTTOM_COLOUR = 10843,
         ID_RICHTEXT_OUTLINE_SYNCHRONIZE = 10846,
-        ID_RICHTEXTBORDERSPAGE_CORNER = 10847,
-        ID_RICHTEXTBORDERSPAGE_CORNER_CHECKBOX = 10848,
-        ID_RICHTEXTBORDERSPAGE_CORNER_TEXT = 10849,
-        ID_RICHTEXTBORDERSPAGE_CORNER_UNITS = 10850,
         ID_RICHTEXT_BORDER_PREVIEW = 10844
     };
 ////@end wxRichTextBordersPage member variables

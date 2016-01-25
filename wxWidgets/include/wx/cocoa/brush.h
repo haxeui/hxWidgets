@@ -29,6 +29,9 @@ class WXDLLIMPEXP_CORE wxBrush: public wxBrushBase
 public:
     wxBrush();
     wxBrush(const wxColour& col, wxBrushStyle style = wxBRUSHSTYLE_SOLID);
+#if FUTURE_WXWIN_COMPATIBILITY_3_0
+    wxDEPRECATED_FUTURE( wxBrush(const wxColour& col, int style) );
+#endif
     wxBrush(const wxBitmap& stipple);
     virtual ~wxBrush();
 
@@ -51,12 +54,10 @@ public:
     virtual wxBrushStyle GetStyle() const;
     wxBitmap *GetStipple() const;
 
-
-    wxDEPRECATED_MSG("use wxBRUSHSTYLE_XXX constants")
-    wxBrush(const wxColour& col, int style);
-
-    wxDEPRECATED_MSG("use wxBRUSHSTYLE_XXX constants")
-    void SetStyle(int style) { SetStyle((wxBrushStyle)style); }
+#if FUTURE_WXWIN_COMPATIBILITY_3_0
+    wxDEPRECATED_FUTURE( void SetStyle(int style) )
+        { SetStyle((wxBrushStyle)style); }
+#endif
 
     // wxCocoa
     WX_NSColor GetNSColor();

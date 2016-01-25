@@ -516,7 +516,7 @@ protected:
     wxDECLARE_NO_COPY_CLASS(wxAppConsoleBase);
 };
 
-#if defined(__UNIX__) && !defined(__WXMSW__)
+#if defined(__UNIX__) && !defined(__WINDOWS__)
     #include "wx/unix/app.h"
 #else
     // this has to be a class and not a typedef as we forward declare it
@@ -657,6 +657,12 @@ public:
     // deactivated
     virtual void SetActive(bool isActive, wxWindow *lastFocus);
 
+#if WXWIN_COMPATIBILITY_2_6
+    // returns true if the program is successfully initialized
+    wxDEPRECATED_MSG("always returns true now, don't call")
+    bool Initialized();
+#endif // WXWIN_COMPATIBILITY_2_6
+
 protected:
     // override base class method to use GUI traits
     virtual wxAppTraits *CreateTraits();
@@ -687,6 +693,10 @@ protected:
 
     wxDECLARE_NO_COPY_CLASS(wxAppBase);
 };
+
+#if WXWIN_COMPATIBILITY_2_6
+    inline bool wxAppBase::Initialized() { return true; }
+#endif // WXWIN_COMPATIBILITY_2_6
 
 // ----------------------------------------------------------------------------
 // now include the declaration of the real class

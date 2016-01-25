@@ -14,10 +14,8 @@
 #ifdef __WXGTK3__
     typedef struct _cairo cairo_t;
     typedef struct _GtkStyleProvider GtkStyleProvider;
-    #define WXUNUSED_IN_GTK2(x) x
     #define WXUNUSED_IN_GTK3(x)
 #else
-    #define WXUNUSED_IN_GTK2(x)
     #define WXUNUSED_IN_GTK3(x) x
 #endif
 
@@ -332,23 +330,19 @@ public:
     // find the direction of the given scrollbar (must be one of ours)
     ScrollDir ScrollDirFromRange(GtkRange *range) const;
 
-    void GTKUpdateCursor(
-        bool isBusyOrGlobalCursor = false,
-        bool isRealize = false,
-        const wxCursor* overrideCursor = NULL);
+    void GTKUpdateCursor(bool isBusyOrGlobalCursor = false, bool isRealize = false);
 
     // extra (wxGTK-specific) flags
     bool                 m_noExpose:1;          // wxGLCanvas has its own redrawing
     bool                 m_nativeSizeEvent:1;   // wxGLCanvas sends wxSizeEvent upon "alloc_size"
     bool                 m_isScrolling:1;       // dragging scrollbar thumb?
     bool                 m_clipPaintRegion:1;   // true after ScrollWindow()
+    wxRegion             m_nativeUpdateRegion;  // not transformed for RTL
     bool                 m_dirtyTabOrder:1;     // tab order changed, GTK focus
                                                 // chain needs update
     bool                 m_mouseButtonDown:1;
-    bool                 m_showOnIdle:1;        // postpone showing the window until idle
-    bool m_needCursorReset:1;
 
-    wxRegion             m_nativeUpdateRegion;  // not transformed for RTL
+    bool                 m_showOnIdle:1;        // postpone showing the window until idle
 
 protected:
     // implement the base class pure virtuals
@@ -428,11 +422,6 @@ protected:
     unsigned long GTKConnectWidget(const char *signal, wxGTKCallback callback);
 
     void ConstrainSize();
-
-#ifdef __WXGTK3__
-    static GdkWindow* GTKFindWindow(GtkWidget* widget);
-    static void GTKFindWindow(GtkWidget* widget, wxArrayGdkWindows& windows);
-#endif
 
 private:
     void Init();

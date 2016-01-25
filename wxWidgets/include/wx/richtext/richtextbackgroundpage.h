@@ -1,12 +1,12 @@
 /////////////////////////////////////////////////////////////////////////////
 // Name:        wx/richtext/richtextbackgroundpage.h
-// Purpose:     Declares the rich text formatting dialog background
-//              properties page.
+// Purpose:
 // Author:      Julian Smart
 // Modified by:
 // Created:     13/11/2010 11:17:25
+// RCS-ID:
 // Copyright:   (c) Julian Smart
-// Licence:     wxWindows licence
+// Licence:
 /////////////////////////////////////////////////////////////////////////////
 
 #ifndef _RICHTEXTBACKGROUNDPAGE_H_

@@ -387,7 +387,6 @@ public:
 
     /// Returns standard HTML cursor as used by wxHtmlWindow
     static wxCursor GetDefaultHTMLCursor(HTMLCursor type);
-    static void SetDefaultHTMLCursor(HTMLCursor type, const wxCursor& cursor);
 
 protected:
     void Init();
@@ -553,7 +552,6 @@ private:
     // standard mouse cursors
     static wxCursor *ms_cursorLink;
     static wxCursor *ms_cursorText;
-    static wxCursor *ms_cursorDefault;
 
     DECLARE_EVENT_TABLE()
     wxDECLARE_NO_COPY_CLASS(wxHtmlWindow);

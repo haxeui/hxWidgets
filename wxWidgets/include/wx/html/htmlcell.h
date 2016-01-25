@@ -217,6 +217,11 @@ public:
     virtual wxCursor GetMouseCursorAt(wxHtmlWindowInterface *window,
                                       const wxPoint& relPos) const;
 
+#if WXWIN_COMPATIBILITY_2_6
+    // this was replaced by GetMouseCursor, don't use in new code!
+    virtual wxCursor GetCursor() const;
+#endif
+
     // return next cell among parent's cells
     wxHtmlCell *GetNext() const {return m_Next;}
     // returns first child cell (if there are any, i.e. if this is container):
@@ -269,6 +274,12 @@ public:
     virtual bool ProcessMouseClick(wxHtmlWindowInterface *window,
                                    const wxPoint& pos,
                                    const wxMouseEvent& event);
+
+#if WXWIN_COMPATIBILITY_2_6
+    // this was replaced by ProcessMouseClick, don't use in new code!
+    virtual void OnMouseClick(wxWindow *window,
+                              int x, int y, const wxMouseEvent& event);
+#endif
 
     // This method used to adjust pagebreak position. The parameter is variable
     // that contains y-coordinate of page break (= horizontal line that should
@@ -481,6 +492,11 @@ public:
     virtual wxHtmlLinkInfo* GetLink(int x = 0, int y = 0) const;
     virtual const wxHtmlCell* Find(int condition, const void* param) const;
 
+#if WXWIN_COMPATIBILITY_2_6
+    // this was replaced by ProcessMouseClick, don't use in new code!
+    virtual void OnMouseClick(wxWindow *window,
+                              int x, int y, const wxMouseEvent& event);
+#endif
     virtual bool ProcessMouseClick(wxHtmlWindowInterface *window,
                                    const wxPoint& pos,
                                    const wxMouseEvent& event);

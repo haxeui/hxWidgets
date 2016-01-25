@@ -128,7 +128,7 @@ public:
 #ifndef __WXUNIVERSAL__
     // Native resource loading (implemented in src/msw/nativdlg.cpp)
     // FIXME: should they really be all virtual?
-    virtual bool LoadNativeDialog(wxWindow* parent, wxWindowID id);
+    virtual bool LoadNativeDialog(wxWindow* parent, wxWindowID& id);
     virtual bool LoadNativeDialog(wxWindow* parent, const wxString& name);
     wxWindow* GetWindowChild1(wxWindowID id);
     wxWindow* GetWindowChild(wxWindowID id);
@@ -681,6 +681,13 @@ private:
     bool HandleMoving(wxRect& rect);
     bool HandleJoystickEvent(WXUINT msg, int x, int y, WXUINT flags);
     bool HandleNotify(int idCtrl, WXLPARAM lParam, WXLPARAM *result);
+
+#ifndef __WXUNIVERSAL__
+    // Call ::IsDialogMessage() if it is safe to do it (i.e. if it's not going
+    // to hang or do something else stupid) with the given message, return true
+    // if the message was handled by it.
+    bool MSWSafeIsDialogMessage(WXMSG* msg);
+#endif // __WXUNIVERSAL__
 
 #if wxUSE_DEFERRED_SIZING
 protected:

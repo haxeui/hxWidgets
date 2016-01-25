@@ -120,6 +120,12 @@ public:
 
     wxTextCtrl *EditLabel(long item,
                           wxClassInfo* textControlClass = wxCLASSINFO(wxTextCtrl));
+
+    // End label editing, optionally cancelling the edit
+#if wxABI_VERSION >= 30002
+    bool EndEditLabel(bool cancel);
+#endif
+
     wxTextCtrl* GetEditControl() const;
     void Edit( long item ) { EditLabel(item); }
 
@@ -144,6 +150,12 @@ public:
     void RefreshItems(long itemFrom, long itemTo);
 
     virtual void EnableBellOnNoMatch(bool on = true);
+
+#if WXWIN_COMPATIBILITY_2_6
+    // obsolete, don't use
+    wxDEPRECATED( int GetItemSpacing( bool isSmall ) const );
+#endif // WXWIN_COMPATIBILITY_2_6
+
 
     // overridden base class virtuals
     // ------------------------------

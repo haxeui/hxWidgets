@@ -329,13 +329,13 @@ public:
     {
         wxASSERT(m_pPropGrid);
         return m_pPropGrid;
-    };
+    }
 
     const wxPropertyGrid* GetGrid() const
     {
         wxASSERT(m_pPropGrid);
         return (const wxPropertyGrid*)m_pPropGrid;
-    };
+    }
 
     /** Returns iterator class instance.
         @remarks
@@ -484,6 +484,12 @@ public:
     bool IsAnyModified() const;
 
     /**
+        Returns true if updating is frozen (ie Freeze() called but not yet
+        Thaw() ).
+     */
+    bool IsFrozen() const { return m_pPropGrid->m_frozen > 0; }
+
+    /**
         Returns true if any property on given page has been modified by the
         user.
      */
@@ -629,6 +635,9 @@ public:
     //
 
     void SetId( wxWindowID winid );
+
+    virtual void Freeze();
+    virtual void Thaw();
     virtual void SetExtraStyle ( long exStyle );
     virtual bool SetFont ( const wxFont& font );
     virtual void SetWindowStyleFlag ( long style );
@@ -636,9 +645,6 @@ public:
 
 protected:
     virtual wxSize DoGetBestSize() const;
-
-    virtual void DoFreeze();
-    virtual void DoThaw();
 
     //
     // Event handlers

@@ -63,8 +63,6 @@
         #define wxCOMPILER_PREFIX vc110
     #elif _MSC_VER == 1800
         #define wxCOMPILER_PREFIX vc120
-    #elif _MSC_VER == 1900
-        #define wxCOMPILER_PREFIX vc140    
     #else
         #error "Unknown MSVC compiler version, please report to wx-dev."
     #endif
@@ -155,7 +153,7 @@
     #endif
     #pragma comment(lib, wxBASE_LIB_NAME("net"))
 #endif
-#ifndef wxNO_XML_LIB
+#if wxUSE_XML && !defined(wxNO_XML_LIB)
     #pragma comment(lib, wxBASE_LIB_NAME("xml"))
 #endif
 #if wxUSE_REGEX && !defined(wxNO_REGEX_LIB) && !defined(WXUSINGDLL)
@@ -185,7 +183,7 @@
         #pragma comment(lib, wxTOOLKIT_LIB_NAME("adv"))
     #endif
 
-    #ifndef wxNO_HTML_LIB
+    #if wxUSE_HTML && !defined(wxNO_HTML_LIB)
         #pragma comment(lib, wxTOOLKIT_LIB_NAME("html"))
     #endif
     #if wxUSE_GLCANVAS && !defined(wxNO_GL_LIB)
@@ -245,13 +243,8 @@
     #endif
 
     #ifdef __WXGTK__
-        #ifdef __WXGTK3__
-            #pragma comment(lib, "libgtk-3.dll.a")
-            #pragma comment(lib, "libgdk-3.dll.a")
-        #else
-            #pragma comment(lib, "gtk-win32-2.0.lib")
-            #pragma comment(lib, "gdk-win32-2.0.lib")
-        #endif
+        #pragma comment(lib, "gtk-win32-2.0.lib")
+        #pragma comment(lib, "gdk-win32-2.0.lib")
         #pragma comment(lib, "pangocairo-1.0.lib")
         #pragma comment(lib, "gdk_pixbuf-2.0.lib")
         #pragma comment(lib, "cairo.lib")

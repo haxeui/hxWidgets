@@ -645,25 +645,6 @@ public:
         { return m_expander_column; }
 
     virtual wxDataViewColumn *GetSortingColumn() const = 0;
-    virtual wxVector<wxDataViewColumn *> GetSortingColumns() const
-    {
-        wxVector<wxDataViewColumn *> columns;
-        if ( wxDataViewColumn* col = GetSortingColumn() )
-            columns.push_back(col);
-        return columns;
-    }
-
-    // This must be overridden to return true if the control does allow sorting
-    // by more than one column, which is not the case by default.
-    virtual bool AllowMultiColumnSort(bool allow)
-    {
-        // We can still return true when disabling multi-column sort.
-        return !allow;
-    }
-
-    // This should also be overridden to actually use the specified column for
-    // sorting if using multiple columns is supported.
-    virtual void ToggleSortByColumn(int WXUNUSED(column)) { }
 
 
     // items management
@@ -991,7 +972,9 @@ public:
     void InsertItem(  unsigned int row, const wxVector<wxVariant> &values, wxUIntPtr data = 0 );
     void DeleteItem( unsigned int pos );
     void DeleteAllItems();
+#if wxABI_VERSION >= 30001
     void ClearColumns();
+#endif
 
     unsigned int GetItemCount() const;
 
@@ -1060,7 +1043,9 @@ public:
     virtual bool PrependColumn( wxDataViewColumn *col );
     virtual bool InsertColumn( unsigned int pos, wxDataViewColumn *col );
     virtual bool AppendColumn( wxDataViewColumn *col );
+#if wxABI_VERSION >= 30001
     virtual bool ClearColumns();
+#endif
 
     wxDataViewColumn *AppendTextColumn( const wxString &label,
           wxDataViewCellMode mode = wxDATAVIEW_CELL_INERT,

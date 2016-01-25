@@ -48,11 +48,6 @@ public:
 
     virtual void SetMaxLength(unsigned long len);
 
-#ifdef __WXGTK3__
-    virtual bool SetHint(const wxString& hint);
-    virtual wxString GetHint() const;
-#endif
-
     // implementation only from now on
     void SendMaxLenEvent();
     bool GTKEntryOnInsertText(const char* text);

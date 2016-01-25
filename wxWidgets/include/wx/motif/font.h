@@ -43,6 +43,19 @@ public:
 
     wxFont(const wxNativeFontInfo& info);
 
+#if FUTURE_WXWIN_COMPATIBILITY_3_0
+    wxFont(int size,
+           int family,
+           int style,
+           int weight,
+           bool underlined = false,
+           const wxString& face = wxEmptyString,
+           wxFontEncoding encoding = wxFONTENCODING_DEFAULT)
+    {
+        (void)Create(size, (wxFontFamily)family, (wxFontStyle)style, (wxFontWeight)weight, underlined, face, encoding);
+    }
+#endif
+
     wxFont(int size,
            wxFontFamily family,
            wxFontStyle style,
@@ -99,19 +112,6 @@ public:
     virtual void SetEncoding(wxFontEncoding encoding);
 
     wxDECLARE_COMMON_FONT_METHODS();
-
-    wxDEPRECATED_MSG("use wxFONT{FAMILY,STYLE,WEIGHT}_XXX constants")
-    wxFont(int size,
-           int family,
-           int style,
-           int weight,
-           bool underlined = false,
-           const wxString& face = wxEmptyString,
-           wxFontEncoding encoding = wxFONTENCODING_DEFAULT)
-    {
-        (void)Create(size, (wxFontFamily)family, (wxFontStyle)style, (wxFontWeight)weight, underlined, face, encoding);
-    }
-
 
     // Implementation
 
