@@ -1,6 +1,6 @@
 package hx.widgets;
 
-@:buildXml('<include name="./../../../Build.xml" />')
+@:buildXml('<include name="${haxelib:hxWidgets}/../Build.xml" />')
 @:headerCode("
 #include <wx/wx.h>
 #undef RegisterClass
