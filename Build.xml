@@ -1,5 +1,15 @@
 <xml>
+    <set name="MACHINE" value="x86" />
+    <set name="MACHINE" value="x64" if="HXCPP_M64" />
+    
 	<section if="windows">
+        <set name="vc" value="vc80" if="MSVC14"/>
+        <set name="vc" value="vc90" if="MSVC15"/>
+        <set name="vc" value="vc100" if="MSVC16"/>
+        <set name="vc" value="vc110" if="MSVC17"/>
+        <set name="vc" value="vc110" if="MSVC18"/>
+        <set name="vc" value="vc120" if="MSVC19"/>
+        
 		<files id="haxe">
  			<compilerflag value="-I${haxelib:hxWidgets}/../wxWidgets/include" />
 			<compilerflag value="-I${haxelib:hxWidgets}/../wxWidgets/windows/vc120/x86/lib/mswu" />
@@ -10,15 +20,15 @@
 		</files>
 
 		<target id="haxe" tool="linker" toolid="exe">
-			<lib name="${haxelib:hxWidgets}/../wxWidgets/windows/vc120/x86/lib/wxmsw30u_xrc.lib" />
-			<lib name="${haxelib:hxWidgets}/../wxWidgets/windows/vc120/x86/lib/wxmsw30u_webview.lib" />
-			<lib name="${haxelib:hxWidgets}/../wxWidgets/windows/vc120/x86/lib/wxmsw30u_html.lib" />
-			<lib name="${haxelib:hxWidgets}/../wxWidgets/windows/vc120/x86/lib/wxmsw30u_qa.lib" />
-			<lib name="${haxelib:hxWidgets}/../wxWidgets/windows/vc120/x86/lib/wxmsw30u_adv.lib" />
-			<lib name="${haxelib:hxWidgets}/../wxWidgets/windows/vc120/x86/lib/wxmsw30u_core.lib" />
-			<lib name="${haxelib:hxWidgets}/../wxWidgets/windows/vc120/x86/lib/wxbase30u_xml.lib" />
-			<lib name="${haxelib:hxWidgets}/../wxWidgets/windows/vc120/x86/lib/wxbase30u_net.lib" />
-			<lib name="${haxelib:hxWidgets}/../wxWidgets/windows/vc120/x86/lib/wxbase30u.lib" />
+			<lib name="${haxelib:hxWidgets}/../wxWidgets/windows/${vc}/${MACHINE}/lib/wxmsw30u_xrc.lib" />
+			<lib name="${haxelib:hxWidgets}/../wxWidgets/windows/${vc}/${MACHINE}/lib/wxmsw30u_webview.lib" />
+			<lib name="${haxelib:hxWidgets}/../wxWidgets/windows/${vc}/${MACHINE}/lib/wxmsw30u_html.lib" />
+			<lib name="${haxelib:hxWidgets}/../wxWidgets/windows/${vc}/${MACHINE}/lib/wxmsw30u_qa.lib" />
+			<lib name="${haxelib:hxWidgets}/../wxWidgets/windows/${vc}/${MACHINE}/lib/wxmsw30u_adv.lib" />
+			<lib name="${haxelib:hxWidgets}/../wxWidgets/windows/${vc}/${MACHINE}/lib/wxmsw30u_core.lib" />
+			<lib name="${haxelib:hxWidgets}/../wxWidgets/windows/${vc}/${MACHINE}/lib/wxbase30u_xml.lib" />
+			<lib name="${haxelib:hxWidgets}/../wxWidgets/windows/${vc}/${MACHINE}/lib/wxbase30u_net.lib" />
+			<lib name="${haxelib:hxWidgets}/../wxWidgets/windows/${vc}/${MACHINE}/lib/wxbase30u.lib" />
 		</target>
 	</section>
 
