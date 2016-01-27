@@ -12,7 +12,7 @@ class ScrolledWindow extends Window {
         
         var scrolledWindowRef:WxScrolledWindowRef = WxScrolledWindowRef.createInstance();
         scrolledWindowRef.create(parent != null ? parent._ref : Window.nullWindowRef, id, Point.defaultPositionRef, Size.defaultSizeRef, style);
-        _ref = cast scrolledWindowRef;
+        untyped __cpp__("_ref = *scrolledWindowRef");
     }
     
     public function setScrollbars(pixelsPerUnitX:Int, pixelsPerUnitY:Int, noUnitsX:Int, noUnitsY:Int) {

@@ -34,7 +34,7 @@ class Slider extends Window {
         
         var sliderRef:WxSliderRef = WxSliderRef.createInstance();
         sliderRef.create(parent != null ? parent._ref : Window.nullWindowRef, id, value, min, max, Point.defaultPositionRef, Size.defaultSizeRef, style);
-        _ref = cast sliderRef;
+        untyped __cpp__("_ref = *sliderRef");
     }
     
     public var value(get, set):Int;

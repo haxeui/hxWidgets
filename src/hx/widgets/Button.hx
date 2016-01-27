@@ -12,7 +12,7 @@ class Button extends Window {
         
         var buttonRef:WxButtonRef = WxButtonRef.createInstance();
         buttonRef.create(parent != null ? parent._ref : Window.nullWindowRef, id, label);
-        _ref = cast buttonRef;
+        untyped __cpp__("_ref = *buttonRef");
     }
     
     public function setBitmap(bitmap:Bitmap) {

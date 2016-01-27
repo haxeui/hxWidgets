@@ -10,7 +10,7 @@ class StaticBox extends Window {
         
         var boxRef:WxStaticBoxRef = WxStaticBoxRef.createInstance();
         boxRef.create(parent != null ? parent._ref : Window.nullWindowRef, id, title);
-        _ref = cast boxRef;
+        untyped __cpp__("_ref = *boxRef");
     }
 }
 

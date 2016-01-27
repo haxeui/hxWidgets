@@ -23,7 +23,7 @@ class StaticText extends Window {
         
         var textRef:WxStaticTextRef = WxStaticTextRef.createInstance();
         textRef.create(parent != null ? parent._ref : Window.nullWindowRef, id, text, Point.defaultPositionRef, Size.defaultSizeRef, style);
-        _ref = cast textRef;
+        untyped __cpp__("_ref = *textRef");
     }
     
 }
