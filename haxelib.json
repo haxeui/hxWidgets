@@ -1,0 +1,22 @@
+{
+	"name": "hxWidgets",
+	"license": "MIT",
+	"tags": [
+		"ui",
+		"gui",
+		"native",
+		"hxcpp",
+		"wxWidgets"
+	],
+	"description": "Haxe externs (and wrappers) for wxWidgets",
+	"contributors": [
+		"ianharrigan"
+	],
+	"releasenote": "Now building on windows, linux and mac",
+	"version": "0.0.1",
+	"classPath": "src",
+	"url": "https://github.com/ianharrigan/hxWidgets",
+	"dependencies": {
+		"hxcpp": ""
+	}
+}

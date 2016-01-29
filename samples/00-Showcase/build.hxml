@@ -7,7 +7,7 @@
 -resource assets/img/inbox-document.bmp@inbox-document.bmp
 -resource assets/img/inbox-document.png@inbox-document.png
 
--cp ../../src/
+-lib hxWidgets
 -cp src/
 -main Main
 -cpp bin
