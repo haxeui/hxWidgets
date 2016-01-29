@@ -10,7 +10,7 @@ class CheckBox extends Window {
         
         var checkboxRef:WxCheckBoxRef = WxCheckBoxRef.createInstance();
         checkboxRef.create(parent != null ? parent._ref : Window.nullWindowRef, id, label);
-        _ref = cast checkboxRef;
+        untyped __cpp__("_ref = *checkboxRef");
     }
     
     public var value(get, set):Bool;

@@ -8,9 +8,9 @@ class Gauge extends Window {
     public function new(parent:Window, range:Int = 100, id:Int = -1) {
         super(parent, id);
         
-        var guageRef:WxGaugeRef = WxGaugeRef.createInstance();
-        guageRef.create(parent != null ? parent._ref : Window.nullWindowRef, id, range);
-        _ref = cast guageRef;
+        var gaugeRef:WxGaugeRef = WxGaugeRef.createInstance();
+        gaugeRef.create(parent != null ? parent._ref : Window.nullWindowRef, id, range);
+        untyped __cpp__("_ref = *gaugeRef");
     }
     
     public var value(get, set):Int;

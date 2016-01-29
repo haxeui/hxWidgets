@@ -12,7 +12,7 @@ class Frame extends Window {
         
         var frameRef:WxFrameRef = WxFrameRef.createInstance();
         frameRef.create(parent != null ? parent._ref : Window.nullWindowRef, id, title);
-        _ref = cast frameRef;
+        untyped __cpp__("_ref = *frameRef");
     }
     
     public function createStatusBar() {

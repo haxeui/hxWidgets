@@ -35,7 +35,7 @@ class TextCtrl extends Window {
         
         var textRef:WxTextCtrlRef = WxTextCtrlRef.createInstance();
         textRef.create(parent != null ? parent._ref : Window.nullWindowRef, id, text, Point.defaultPositionRef, Size.defaultSizeRef, style);
-        _ref = cast textRef;
+        untyped __cpp__("_ref = *textRef");
     }
     
     public function appendText(value:String) {

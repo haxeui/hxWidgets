@@ -12,7 +12,7 @@ class StaticBitmap extends Window {
         
         var bitmapRef:WxStaticBitmapRef = WxStaticBitmapRef.createInstance();
         bitmapRef.create(parent != null ? parent._ref : Window.nullWindowRef, id, bitmap._ref);
-        _ref = cast bitmapRef;
+        untyped __cpp__("_ref = *bitmapRef");
     }
 }
 

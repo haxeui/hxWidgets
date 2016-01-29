@@ -18,7 +18,7 @@ class RadioButton extends Window {
         
         var radioRef:WxRadioButtonRef = WxRadioButtonRef.createInstance();
         radioRef.create(parent != null ? parent._ref : Window.nullWindowRef, id, title, Point.defaultPositionRef, Size.defaultSizeRef, style);
-        _ref = cast radioRef;
+        untyped __cpp__("_ref = *radioRef");
     }
     
     public var value(get, set):Bool;
