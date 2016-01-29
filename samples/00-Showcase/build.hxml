@@ -4,7 +4,7 @@
 -resource assets/img/inbox--arrow.bmp@inbox--arrow.bmp
 -resource assets/img/inbox-document.bmp@inbox-document.bmp
 
--cp ../../src/
+-lib hxWidgets
 -cp src/
 -main Main
 -cpp bin
