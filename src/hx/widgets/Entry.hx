@@ -17,6 +17,7 @@ class Entry {
         }
         untyped __cpp__("wxEntryStart(argc, argv)");
         untyped __cpp__("delete[] argv");
+        untyped __cpp__("wxInitAllImageHandlers()");
     }
 
     public static function cleanup ():Void {

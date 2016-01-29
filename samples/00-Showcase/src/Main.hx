@@ -176,9 +176,9 @@ class Main {
             
             // create an image list ready for use with the tabs
             var imageList:ImageList = new ImageList(16, 16);
-            imageList.add(Bitmap.fromHaxeResource("inbox.bmp"));
-            imageList.add(Bitmap.fromHaxeResource("inbox--arrow.bmp"));
-            imageList.add(Bitmap.fromHaxeResource("inbox-document.bmp"));
+            imageList.add(Bitmap.fromHaxeResource("inbox.png"));
+            imageList.add(Bitmap.fromHaxeResource("inbox--arrow.png"));
+            imageList.add(Bitmap.fromHaxeResource("inbox-document.png"));
         
             // create a notebox (tab view)
             var tabs:Notebook = new Notebook(frame);
