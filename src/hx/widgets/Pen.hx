@@ -31,12 +31,14 @@ class Pen {
 }
 
 @:include("wx/pen.h")
-@:native("cpp.Reference<wxPen>")
+@:unreflective
+@:native("cpp::Reference<wxPen>")
 extern class WxPenRef extends WxPen {
     @:native("new wxPen")          public static function createInstance():WxPenRef;
 }
 
 @:include("wx/pen.h")
+@:unreflective
 @:native("wxPen")
 extern class WxPen {
     @:native("SetColour")          public function setColour(colour:WxColourRef):Void;

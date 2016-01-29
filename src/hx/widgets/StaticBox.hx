@@ -15,12 +15,14 @@ class StaticBox extends Window {
 }
 
 @:include("wx/statbox.h")
-@:native("cpp.Reference<wxStaticBox>")
+@:unreflective
+@:native("wxStaticBox*")
 extern class WxStaticBoxRef extends WxStaticBox {
     @:native("new wxStaticBox")     public static function createInstance():WxStaticBoxRef;
 }
 
 @:include("wx/statbox.h")
+@:unreflective
 @:native("wxStaticBox")
 extern class WxStaticBox extends WxWindow {
     @:native("Create")              public function create(parent:WxWindowRef, id:Int, title:ConstCharStar):Bool;

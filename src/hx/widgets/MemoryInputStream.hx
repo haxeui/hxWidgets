@@ -14,12 +14,14 @@ class MemoryInputStream {
 }
 
 @:include("wx/mstream.h")
-@:native("cpp.Reference<wxMemoryInputStream>")
+@:unreflective
+@:native("cpp::Reference<wxMemoryInputStream>")
 extern class WxMemoryInputStreamRef extends WxMemoryInputStream {
     @:native("new wxMemoryInputStream")     public static function createInstance(data:ConstCharStar, len:Int):WxMemoryInputStreamRef;
 }
 
 @:include("wx/mstream.h")
+@:unreflective
 @:native("wxMemoryInputStream")
 extern class WxMemoryInputStream {
 }

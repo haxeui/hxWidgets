@@ -96,12 +96,14 @@ class Slider extends Window {
 }
 
 @:include("wx/slider.h")
-@:native("cpp.Reference<wxSlider>")
+@:unreflective
+@:native("wxSlider*")
 extern class WxSliderRef extends WxSlider {
     @:native("new wxSlider")    public static function createInstance():WxSliderRef;
 }
 
 @:include("wx/slider.h")
+@:unreflective
 @:native("wxSlider")
 extern class WxSlider extends WxWindow {
     @:native("Create")          public function create(parent:WxWindowRef, id:Int, value:Int, minValue:Int, maxValue:Int, point:WxPointRef, size:WxSizeRef, style:Int):Bool;

@@ -198,7 +198,6 @@ class Main {
                     var button = new Button(panel3, "Tab Button 3a");
                     button.setSize(5, 5, 100, 30);
                 tabs.addPage(panel3, "Tab 3", false, 2);
-            
         app.run();
         app.exit();
     }

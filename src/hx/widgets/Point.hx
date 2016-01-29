@@ -43,12 +43,14 @@ class Point {
 }
 
 @:include("wx/gdicmn.h")
-@:native("cpp.Reference<wxPoint>")
+@:unreflective
+@:native("cpp::Reference<wxPoint>")
 extern class WxPointRef extends WxPoint {
     @:native("new wxPoint")     public static function createInstance():WxPointRef;
 }
 
 @:include("wx/gdicmn.h")
+@:unreflective
 @:native("wxPoint")
 extern class WxPoint {
     @:native("x")               public var x:Int;

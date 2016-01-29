@@ -39,12 +39,14 @@ class ClientDC {
 }
 
 @:include("wx/dcclient.h")
-@:native("cpp.Reference<wxClientDC>")
+@:unreflective
+@:native("wxClientDC*")
 extern class WxClientDCRef extends WxClientDC {
     @:native("new wxClientDC")          public static function createInstance(window:WxWindowRef):WxClientDCRef;
 }
 
 @:include("wx/dcclient.h")
+@:unreflective
 @:native("wxClientDC")
 extern class WxClientDC {
     @:native("Clear")                   public function clear():Void;

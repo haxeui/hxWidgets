@@ -17,12 +17,14 @@ class Panel extends Window {
 }
 
 @:include("wx/panel.h")
-@:native("cpp.Reference<wxPanel>")
+@:unreflective
+@:native("wxPanel*")
 extern class WxPanelRef extends WxPanel {
     @:native("new wxPanel")     public static function createInstance():WxPanelRef;
 }
 
 @:include("wx/panel.h")
+@:unreflective
 @:native("wxPanel")
 extern class WxPanel extends WxWindow {
     @:native("Create")          public function create(parent:WxWindowRef, id:Int, point:WxPointRef, size:WxSizeRef, style:Int):Bool;

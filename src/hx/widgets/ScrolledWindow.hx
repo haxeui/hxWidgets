@@ -29,12 +29,14 @@ class ScrolledWindow extends Window {
 }
 
 @:include("wx/scrolwin.h")
-@:native("cpp.Reference<wxScrolledWindow>")
+@:unreflective
+@:native("wxScrolledWindow*")
 extern class WxScrolledWindowRef extends WxScrolledWindow {
     @:native("new wxScrolledWindow")    public static function createInstance():WxScrolledWindowRef;
 }
 
 @:include("wx/scrolwin.h")
+@:unreflective
 @:native("wxScrolledWindow")
 extern class WxScrolledWindow extends WxWindow {
     @:native("Create")                  public function create(parent:WxWindowRef, id:Int, point:WxPointRef, size:WxSizeRef, style:Int):Bool;

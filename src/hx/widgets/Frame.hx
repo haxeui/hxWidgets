@@ -37,12 +37,14 @@ class Frame extends Window {
 }
 
 @:include("wx/frame.h")
-@:native("cpp.Reference<wxFrame>")
+@:unreflective
+@:native("wxFrame*")
 extern class WxFrameRef extends WxFrame {
     @:native("new wxFrame")         public static function createInstance():WxFrameRef;
 }
 
 @:include("wx/frame.h")
+@:unreflective
 @:native("wxFrame")
 extern class WxFrame extends WxWindow {
     @:native("Create")              public function create(parent:WxWindowRef, id:Int, title:ConstCharStar):Bool;

@@ -61,12 +61,14 @@ class TextCtrl extends Window {
 }
 
 @:include("wx/textctrl.h")
-@:native("cpp.Reference<wxTextCtrl>")
+@:unreflective
+@:native("wxTextCtrl*")
 extern class WxTextCtrlRef extends WxTextCtrl {
     @:native("new wxTextCtrl")      public static function createInstance():WxTextCtrlRef;
 }
 
 @:include("wx/textctrl.h")
+@:unreflective
 @:native("wxTextCtrl")
 extern class WxTextCtrl extends WxWindow {
     @:native("Create")              public function create(parent:WxWindowRef, id:Int, value:ConstCharStar, point:WxPointRef, size:WxSizeRef, style:Int):Bool;

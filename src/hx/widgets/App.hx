@@ -37,11 +37,13 @@ class App {
 #include <wx/wx.h>
 #undef RegisterClass
 ")
-@:native("cpp.Reference<wxApp>")
+@:unreflective
+@:native("wxApp*")
 extern class WxAppRef extends WxApp {
     @:native("new wxApp")               public static function createInstance():WxAppRef;
 }
 
+@:unreflective
 @:native("wxApp")
 extern class WxApp {
     @:native("wxApp::SetInstance")      public static function setInstance(instance:WxAppRef):Void;

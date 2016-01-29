@@ -24,12 +24,14 @@ class Image {
 }
 
 @:include("wx/image.h")
-@:native("cpp.Reference<wxImage>")
+@:unreflective
+@:native("cpp::Reference<wxImage>")
 extern class WxImageRef extends WxImage {
     @:native("new wxImage")     public static function createInstance(stream:WxMemoryInputStreamRef):WxImageRef;
 }
 
 @:include("wx/image.h")
+@:unreflective
 @:native("wxImage")
 extern class WxImage {
     @:native("GetWidth")        public function getWidth():Int;

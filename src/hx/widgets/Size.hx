@@ -41,12 +41,14 @@ class Size {
 }
 
 @:include("wx/gdicmn.h")
-@:native("cpp.Reference<wxSize>")
+@:unreflective
+@:native("cpp::Reference<wxSize>")
 extern class WxSizeRef extends WxSize {
     @:native("new wxSize")      public static function createInstance():WxSizeRef;
 }
 
 @:include("wx/gdicmn.h")
+@:unreflective
 @:native("wxSize")
 extern class WxSize {
     @:native("GetWidth")        public function getWidth():Int;
