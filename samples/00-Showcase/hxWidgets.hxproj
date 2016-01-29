@@ -25,7 +25,7 @@
     <option noInlineOnDebug="False" />
     <option mainClass="Main" />
     <option enabledebug="False" />
-    <option additional="-resource assets/img/slinky_tiny_test.bmp@slinky_tiny_test.bmp&#xA;-resource assets/img/slinky_tiny_test_icon.bmp@slinky_tiny_test_icon.bmp&#xA;-resource assets/img/inbox.bmp@inbox.bmp&#xA;-resource assets/img/inbox--arrow.bmp@inbox--arrow.bmp&#xA;-resource assets/img/inbox-document.bmp@inbox-document.bmp" />
+    <option additional="-resource assets/img/slinky_tiny_test.bmp@slinky_tiny_test.bmp&#xA;-resource assets/img/slinky_tiny_test_icon.bmp@slinky_tiny_test_icon.bmp&#xA;-resource assets/img/inbox.bmp@inbox.bmp&#xA;-resource assets/img/inbox.png@inbox.png&#xA;-resource assets/img/inbox--arrow.bmp@inbox--arrow.bmp&#xA;-resource assets/img/inbox--arrow.png@inbox--arrow.png&#xA;-resource assets/img/inbox-document.bmp@inbox-document.bmp&#xA;-resource assets/img/inbox-document.png@inbox-document.png" />
   </build>
   <!-- haxelib libraries -->
   <haxelib>
