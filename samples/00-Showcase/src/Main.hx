@@ -11,17 +11,21 @@ class Main {
         //frame.setStatusText("Status: OK");
         frame.backgroundColour = 0xFFFFFF;
         frame.show(true);
+        /*
         frame.x = 20;
         frame.y = 40;
         frame.width = 400;
         frame.height = 200;
+        */
         frame.setSize(10, 10, 800, 600);
         trace(frame.getSize().width);
         trace(frame.getPosition().x);
         
+        //var stream:MemoryInputStream = new MemoryInputStream()
+        
             // create a button
             var button:Button = new Button(frame, "Button 1");
-            button.setBitmap(Bitmap.fromHaxeResource("inbox.bmp"));
+            //button.setBitmap(Bitmap.fromHaxeResource("inbox.bmp"));
             button.setSize(10, 10, 100, 100);
             button.bind(EventType.BUTTON, function(e:Event) {
                 trace("click!");
@@ -41,24 +45,24 @@ class Main {
                 trace("checkbox 2: " + checkbox.value);
             });
             checkbox.value = true;
-            checkbox.move(190, 10);
+            checkbox.move(200, 10);
 
             var checkbox:CheckBox = new CheckBox(frame, "Check 3");
             checkbox.bind(EventType.CHECKBOX, function(e:Event) {
                 trace("checkbox 3: " + checkbox.value);
             });
-            checkbox.move(260, 10);
+            checkbox.move(280, 10);
             
             // create radio buttons
             var radio:RadioButton = new RadioButton(frame, "Option 1");
-            radio.move(360, 10);
+            radio.move(380, 10);
 
             var radio:RadioButton = new RadioButton(frame, "Option 2");
             radio.value = true;
-            radio.move(430, 10);
+            radio.move(470, 10);
 
             var radio:RadioButton = new RadioButton(frame, "Option 3");
-            radio.move(500, 10);
+            radio.move(560, 10);
             
             // create text inputs
             var textctrl:TextCtrl = new TextCtrl(frame, "Text input 1");
@@ -71,8 +75,7 @@ class Main {
             textctrl.move(130, 150);            
             
             var textctrl:TextCtrl = new TextCtrl(frame, null, hx.widgets.TextCtrl.TextCtrlStyle.MULTILINE | hx.widgets.TextCtrl.TextCtrlStyle.RICH);
-            textctrl.move(250, 150);   
-            textctrl.height = 70;
+            textctrl.setSize(130, 180, 100, 70);   
             textctrl.appendText("This is line 1\n");
             textctrl.appendText("This is line 2\n");
             textctrl.appendText("This is line 3\n");
@@ -81,9 +84,7 @@ class Main {
             textctrl.insertionPoint = 0;
             
             var box:StaticBox = new StaticBox(frame, "Static Box");
-            box.move(390, 150);
-            box.width = 100;
-            box.height = 70;
+            box.setSize(430, 80, 120, 100);
             
             var label:StaticText = new StaticText(box, "Static text");
             label.move(10, 20);
@@ -93,12 +94,12 @@ class Main {
             
             // create a gauge (progress bar)
             var gauge:Gauge = new Gauge(frame);
-            gauge.move(120, 30);
+            gauge.move(120, 50);
             gauge.value = 50;
             
             // create a slider
             var slider:Slider = new Slider(frame);
-            slider.move(120, 50);
+            slider.setSize(120, 80, 100, 50);
             slider.min = 25;
             slider.max = 125;
             slider.value = 50;
@@ -108,7 +109,7 @@ class Main {
             });
 
             var slider:Slider = new Slider(frame);
-            slider.move(220, 50);
+            slider.setSize(220, 80, 100, 50);
             slider.windowStyle = hx.widgets.Slider.SliderStyle.AUTOTICKS
                                 | hx.widgets.Slider.SliderStyle.VALUE_LABEL
                                 | hx.widgets.Slider.SliderStyle.SELRANGE;
@@ -116,19 +117,20 @@ class Main {
             slider.setSelection(25, 75);
             
             var slider:Slider = new Slider(frame, 50, 0, 100, hx.widgets.Slider.SliderStyle.VERTICAL);
-            slider.move(320, 50);
-
+            slider.setSize(320, 80, 50, 100);
+            
             var slider:Slider = new Slider(frame, 50, 0, 100, hx.widgets.Slider.SliderStyle.VERTICAL 
                                                             | hx.widgets.Slider.SliderStyle.AUTOTICKS
                                                             | hx.widgets.Slider.SliderStyle.VALUE_LABEL
                                                             | hx.widgets.Slider.SliderStyle.SELRANGE);
-            slider.move(350, 50);
+            //slider.move(350, 50);
+            slider.setSize(360, 80, 60, 100);
             slider.selectionStart = 25;
             slider.selectionEnd = 75;
             
             // create a static bitmp
             var staticBmp:StaticBitmap = new StaticBitmap(frame, Bitmap.fromHaxeResource("slinky_tiny_test.bmp"));
-            staticBmp.move(130, 75);
+            staticBmp.move(250, 150);
             
             var scroller:ScrolledWindow = new ScrolledWindow(frame, hx.widgets.Window.WindowStyle.BORDER_THEME | hx.widgets.Window.WindowStyle.VSCROLL);
             scroller.setSize(430, 230, 150, 200);
@@ -136,9 +138,12 @@ class Main {
             scroller.refresh();
             for (a in 0...20) {
                 var b:Button = new Button(scroller, "Button " + a);
+                /*
                 b.x = 10;
                 b.y = 10 + (a * 30);
                 b.height = 25;
+                */
+                b.setSize(10, 10 + (a * 30), -1, 25);
             }
             //scroller.setClientSize(150, 200);
             //scroller.setVirtualSize(6000, 3000);
@@ -176,12 +181,12 @@ class Main {
             // create a notebox (tab view)
             var tabs:Notebook = new Notebook(frame);
             tabs.setImageList(imageList);
-            tabs.setSize(10, 230, 400, 200);
+            tabs.setSize(10, 270, 400, 200);
 
             // create the panels and contents for the tab view
                 var panel1:Panel = new Panel(tabs);
                     var button = new Button(panel1, "Tab Button 1a");
-                    button.setSize(5, 5, 100, 30);
+                    button.setSize(5, 5, -1, 30);
 
                     var button = new Button(panel1, "Tab Button 1b");
                     button.move(5, 40);
@@ -198,6 +203,7 @@ class Main {
                     var button = new Button(panel3, "Tab Button 3a");
                     button.setSize(5, 5, 100, 30);
                 tabs.addPage(panel3, "Tab 3", false, 2);
+                
         app.run();
         app.exit();
     }
