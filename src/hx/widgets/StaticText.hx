@@ -29,12 +29,14 @@ class StaticText extends Window {
 }
 
 @:include("wx/stattext.h")
-@:native("cpp.Reference<wxStaticText>")
+@:unreflective
+@:native("wxStaticText*")
 extern class WxStaticTextRef extends WxStaticText {
     @:native("new wxStaticText")    public static function createInstance():WxStaticTextRef;
 }
 
 @:include("wx/stattext.h")
+@:unreflective
 @:native("wxStaticText")
 extern class WxStaticText extends WxWindow {
     @:native("Create")              public function create(parent:WxWindowRef, id:Int, value:ConstCharStar, point:WxPointRef, size:WxSizeRef, style:Int):Bool;

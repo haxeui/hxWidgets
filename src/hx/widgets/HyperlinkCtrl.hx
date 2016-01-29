@@ -26,12 +26,14 @@ class HyperlinkCtrl extends Window {
 }
 
 @:include("wx/hyperlink.h")
-@:native("cpp.Reference<wxHyperlinkCtrl>")
+@:unreflective
+@:native("wxHyperlinkCtrl*")
 extern class WxHyperlinkCtrlRef extends WxHyperlinkCtrl {
     @:native("new wxHyperlinkCtrl")    public static function createInstance():WxHyperlinkCtrlRef;
 }
 
 @:include("wx/hyperlink.h")
+@:unreflective
 @:native("wxHyperlinkCtrl")
 extern class WxHyperlinkCtrl extends WxWindow {
     @:native("Create")                  public function create(parent:WxWindowRef, id:Int, text:ConstCharStar, url:ConstCharStar, point:WxPointRef, size:WxSizeRef, style:Int):Bool;

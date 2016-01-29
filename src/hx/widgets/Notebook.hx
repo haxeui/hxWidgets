@@ -33,12 +33,14 @@ class Notebook extends Window {
 }
 
 @:include("wx/notebook.h")
-@:native("cpp.Reference<wxNotebook>")
+@:unreflective
+@:native("wxNotebook*")
 extern class WxNotebookRef extends WxNotebook {
     @:native("new wxNotebook")      public static function createInstance():WxNotebookRef;
 }
 
 @:include("wx/notebook.h")
+@:unreflective
 @:native("wxNotebook")
 extern class WxNotebook extends WxWindow {
     @:native("Create")              public function create(parent:WxWindowRef, id:Int):Bool;

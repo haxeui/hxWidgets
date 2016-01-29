@@ -32,12 +32,14 @@ class Gauge extends Window {
 }
 
 @:include("wx/gauge.h")
-@:native("cpp.Reference<wxGauge>")
+@:unreflective
+@:native("wxGauge*")
 extern class WxGaugeRef extends WxGauge {
     @:native("new wxGauge")     public static function createInstance():WxGaugeRef;
 }
 
 @:include("wx/gauge.h")
+@:unreflective
 @:native("wxGauge")
 extern class WxGauge extends WxWindow {
     @:native("Create")          public function create(parent:WxWindowRef, id:Int, range:Int):Bool;

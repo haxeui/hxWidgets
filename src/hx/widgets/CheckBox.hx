@@ -32,12 +32,14 @@ class CheckBox extends Window {
 }
 
 @:include("wx/checkbox.h")
-@:native("cpp.Reference<wxCheckBox>")
+@:unreflective
+@:native("wxCheckBox*")
 extern class WxCheckBoxRef extends WxCheckBox {
     @:native("new wxCheckBox")      public static function createInstance():WxCheckBoxRef;
 }
 
 @:include("wx/checkbox.h")
+@:unreflective
 @:native("wxCheckBox")
 extern class WxCheckBox extends WxWindow {
     @:native("Create")              public function create(parent:WxWindowRef, id:Int, title:ConstCharStar):Bool;

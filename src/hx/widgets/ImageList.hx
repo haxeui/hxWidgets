@@ -17,12 +17,14 @@ class ImageList {
 }
 
 @:include("wx/imaglist.h")
-@:native("cpp.Reference<wxImageList>")
+@:unreflective
+@:native("wxImageList*")
 extern class WxImageListRef extends WxImageList {
     @:native("new wxImageList")     public static function createInstance():WxImageListRef;
 }
 
 @:include("wx/imaglist.h")
+@:unreflective
 @:native("wxImageList")
 extern class WxImageList {
     @:native("Create")              public function create(width:Int, height:Int):Bool;

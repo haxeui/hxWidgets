@@ -8,12 +8,14 @@ class Colour {
 }
 
 @:include("wx/colour.h")
-@:native("cpp.Reference<wxColour>")
+@:unreflective
+@:native("cpp::Reference<wxColour>")
 extern class WxColourRef extends WxColour {
     @:native("new wxColour")          public static function createInstance(colour:Int):WxColourRef;
 }
 
 @:include("wx/colour.h")
+@:unreflective
 @:native("wxColour")
 extern class WxColour {
 }

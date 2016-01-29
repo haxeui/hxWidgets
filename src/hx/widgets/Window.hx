@@ -142,12 +142,14 @@ class Window extends EvtHandler {
 }
 
 @:include("wx/window.h")
-@:native("cpp.Reference<wxWindow>")
+@:unreflective
+@:native("wxWindow*")
 extern class WxWindowRef extends WxWindow {
     @:native("new wxWindow")            public static function createInstance():WxWindowRef;
 }
 
 @:include("wx/window.h")
+@:unreflective
 @:native("wxWindow")
 extern class WxWindow extends WxEvtHandler {
     @:native("Show")                    public function show(value:Bool):Void;

@@ -34,12 +34,14 @@ class Bitmap {
 }
 
 @:include("wx/bitmap.h")
-@:native("cpp.Reference<wxBitmap>")
+@:unreflective
+@:native("cpp::Reference<wxBitmap>")
 extern class WxBitmapRef extends WxBitmap {
     @:native("new wxBitmap")    public static function createInstance(stream:WxImageRef):WxBitmapRef;
 }
 
 @:include("wx/bitmap.h")
+@:unreflective
 @:native("wxBitmap")
 extern class WxBitmap {
     @:native("GetWidth")        public function getWidth():Int;

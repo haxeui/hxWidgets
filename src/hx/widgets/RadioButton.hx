@@ -40,12 +40,14 @@ class RadioButton extends Window {
 }
 
 @:include("wx/radiobut.h")
-@:native("cpp.Reference<wxRadioButton>")
+@:unreflective
+@:native("wxRadioButton*")
 extern class WxRadioButtonRef extends WxRadioButton {
     @:native("new wxRadioButton")   public static function createInstance():WxRadioButtonRef;
 }
 
 @:include("wx/radiobut.h")
+@:unreflective
 @:native("wxRadioButton")
 extern class WxRadioButton extends WxWindow {
     @:native("Create")              public function create(parent:WxWindowRef, id:Int, title:ConstCharStar, point:WxPointRef, size:WxSizeRef, style:Int):Bool;

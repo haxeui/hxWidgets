@@ -29,12 +29,14 @@ class Button extends Window {
 }
 
 @:include("wx/button.h")
-@:native("cpp.Reference<wxButton>")
+@:unreflective
+@:native("wxButton*")
 extern class WxButtonRef extends WxButton {
     @:native("new wxButton")    public static function createInstance():WxButtonRef;
 }
 
 @:include("wx/button.h")
+@:unreflective
 @:native("wxButton")
 extern class WxButton extends WxWindow {
     @:native("Create")          public function create(parent:WxWindowRef, id:Int, title:ConstCharStar):Bool;

@@ -23,11 +23,13 @@ class Event {
 }
 
 @:include("wx/event.h")
-@:native("cpp.Reference<wxEvent>")
+@:unreflective
+@:native("cpp::Reference<wxEvent>")
 extern class WxEventRef extends WxEvent {
 }
 
 @:include("wx/event.h")
+@:unreflective
 @:native("wxEvent")
 extern class WxEvent {
 	@:native("GetEventType")        public function getEventType():Int;

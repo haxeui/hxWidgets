@@ -58,12 +58,14 @@ class EvtHandler {
 }
 
 @:include("wx/event.h")
-@:native("cpp.Reference<wxEvtHandler>")
+@:unreflective
+@:native("wxEvtHandler*")
 extern class WxEvtHandlerRef extends WxEvtHandler {
     @:native("new wxEvtHandler") public static function createInstance():WxEvtHandlerRef;
 }
 
 @:include("wx/event.h")
+@:unreflective
 @:native("wxEvtHandler")
 extern class WxEvtHandler {
 }

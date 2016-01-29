@@ -17,12 +17,14 @@ class StaticBitmap extends Window {
 }
 
 @:include("wx/statbmp.h")
-@:native("cpp.Reference<wxStaticBitmap>")
+@:unreflective
+@:native("wxStaticBitmap*")
 extern class WxStaticBitmapRef extends WxStaticBitmap {
     @:native("new wxStaticBitmap")      public static function createInstance():WxStaticBitmapRef;
 }
 
 @:include("wx/statbmp.h")
+@:unreflective
 @:native("wxStaticBitmap")
 extern class WxStaticBitmap extends WxWindow {
     @:native("Create")                  public function create(parent:WxWindowRef, id:Int, bitmap:WxBitmapRef):Bool;
