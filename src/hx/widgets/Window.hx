@@ -78,6 +78,7 @@ class Window extends EvtHandler {
         return new Point(ref.x, ref.y);
     }
     
+    /*
     public var x(get, set):Int;
     private function get_x():Int {
         return getPosition().x;
@@ -113,6 +114,7 @@ class Window extends EvtHandler {
         setSize(x, y, width, value);
         return value;
     }
+    */
     
     public function setVirtualSize(width:Int, height:Int) {
         _ref.setVirtualSize(width, height);

@@ -46,7 +46,9 @@
 		<target id="haxe" tool="linker" toolid="exe">
 			<compilerflag value="-L/usr/lib64" />
 			<lib name="-lwx_gtk2u_xrc-3.0" />
+            <!--
 			<lib name="-lwx_gtk2u_webview-3.0" />
+            -->
 			<lib name="-lwx_gtk2u_html-3.0" />
 			<lib name="-lwx_gtk2u_qa-3.0" />
 			<lib name="-lwx_gtk2u_adv-3.0" />

@@ -1,3 +1,9 @@
+-resource assets/img/slinky_tiny_test.bmp@slinky_tiny_test.bmp
+-resource assets/img/slinky_tiny_test_icon.bmp@slinky_tiny_test_icon.bmp
+-resource assets/img/inbox.bmp@inbox.bmp
+-resource assets/img/inbox--arrow.bmp@inbox--arrow.bmp
+-resource assets/img/inbox-document.bmp@inbox-document.bmp
+
 -cp ../../src/
 -cp src/
 -main Main
