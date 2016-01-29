@@ -89,8 +89,10 @@ class Main {
             var label:StaticText = new StaticText(box, "Static text");
             label.move(10, 20);
             
+            /* cant use link on mac, need to find out why (probably missing lib on my box)
             var link:HyperlinkCtrl = new HyperlinkCtrl(box, "hxWidgets", "https://github.com/ianharrigan/hxWidgets");
             link.move(10, 40);
+            */
             
             // create a gauge (progress bar)
             var gauge:Gauge = new Gauge(frame);
