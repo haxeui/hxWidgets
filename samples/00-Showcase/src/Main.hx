@@ -32,6 +32,7 @@ class Main {
         frame.setMenuBar(menuBar);
         
         frame.setSize(10, 10, 800, 600);
+        frame.bind(EventType.CLOSE_WINDOW, function(e:Event) frame.destroy()); //Safe window-closing
         trace(frame.getSize().width);
         trace(frame.getPosition().x);
         

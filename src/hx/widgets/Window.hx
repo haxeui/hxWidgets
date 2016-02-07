@@ -34,6 +34,14 @@ class Window extends EvtHandler {
         _ref.show(value);
     }
     
+    public function close(force:Bool = false) {
+        _ref.close(force);
+    }
+    
+    public function destroy() {
+        _ref.destroy();
+    }
+    
     public function setSize(x:Int, y:Int, width:Int, height:Int) {
         _ref.setSize(x, y, width, height);
     }
@@ -155,6 +163,8 @@ extern class WxWindowRef extends WxWindow {
 @:native("wxWindow")
 extern class WxWindow extends WxEvtHandler {
     @:native("Show")                    public function show(value:Bool):Void;
+    @:native("Close")                   public function close(force:Bool):Bool;
+    @:native("Destroy")                 public function destroy():Bool;
     @:native("Refresh")                 public function refresh():Void;
     @:native("SetSize")                 public function setSize(x:Int, y:Int, width:Int, height:Int):Void;
     @:native("SetClientSize")           public function setClientSize(width:Int, height:Int):Void;
