@@ -17,6 +17,20 @@ class Main {
         frame.width = 400;
         frame.height = 200;
         */
+        
+        var menuBar:MenuBar = new MenuBar();
+        var file:Menu = new Menu();
+        menuBar.append(file, "&File");
+        var menuItem:MenuItem = new MenuItem(file, "Menu 1", hx.widgets.MenuItem.ItemKind.ITEM_CHECK);
+        file.append(menuItem).check(true);
+        file.append(new MenuItem(file, "Menu 2"));
+        
+        var menuItem:MenuItem = new MenuItem(file, "Menu 3", hx.widgets.MenuItem.ItemKind.ITEM_CHECK);
+        menuItem.setBitmap(Bitmap.fromHaxeResource("inbox.png"));
+        file.append(menuItem).check(true);
+        
+        frame.setMenuBar(menuBar);
+        
         frame.setSize(10, 10, 800, 600);
         trace(frame.getSize().width);
         trace(frame.getPosition().x);
@@ -25,7 +39,7 @@ class Main {
         
             // create a button
             var button:Button = new Button(frame, "Button 1");
-            //button.setBitmap(Bitmap.fromHaxeResource("inbox.bmp"));
+            button.setBitmap(Bitmap.fromHaxeResource("inbox.png"));
             button.setSize(10, 10, 100, 100);
             button.bind(EventType.BUTTON, function(e:Event) {
                 trace("click!");

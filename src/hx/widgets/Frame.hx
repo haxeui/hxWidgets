@@ -1,9 +1,11 @@
 package hx.widgets;
 
 import cpp.ConstCharStar;
+import hx.widgets.MenuBar.WxMenuBarRef;
 import hx.widgets.Window.WxWindow;
 import hx.widgets.Window.WxWindowRef;
 
+@:access(hx.widgets.MenuBar)
 class Frame extends Window {
     private var _hasStatusBar:Bool;
     
@@ -25,6 +27,14 @@ class Frame extends Window {
             createStatusBar();
         }
         frameRef.setStatusText(text);
+    }
+    
+    public function getMenuBar():MenuBar {
+        return null;
+    }
+    
+    public function setMenuBar(menuBar:MenuBar):Void {
+        frameRef.setMenuBar(menuBar.menuBarRef);
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -50,4 +60,6 @@ extern class WxFrame extends WxWindow {
     @:native("Create")              public function create(parent:WxWindowRef, id:Int, title:ConstCharStar):Bool;
     @:native("CreateStatusBar")     public function createStatusBar():Void;
     @:native("SetStatusText")       public function setStatusText(text:ConstCharStar):Void;
+    @:native("GetMenuBar")          public function getMenuBar():WxMenuBarRef;
+    @:native("SetMenuBar")          public function setMenuBar(menuBar:WxMenuBarRef):Void;
 }
