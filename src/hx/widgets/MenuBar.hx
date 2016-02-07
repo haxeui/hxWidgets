@@ -8,11 +8,12 @@ import hx.widgets.Window.WxWindowRef;
 
 @:access(hx.widgets.Menu)
 class MenuBar extends Window { 
-    public function new(style:Int = 0) {
+    public function new(style:Int = 0, create:Bool = true) {
         super(null, -1);
-        
-        var menuBarRef:WxMenuBarRef = WxMenuBarRef.createInstance(style);
-        _ref = cast menuBarRef;
+        if (create == true) {
+            var menuBarRef:WxMenuBarRef = WxMenuBarRef.createInstance(style);
+            _ref = cast menuBarRef;
+        }
     }
     
     public function append(menu:Menu, title:String) {

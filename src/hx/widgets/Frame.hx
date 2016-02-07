@@ -30,7 +30,10 @@ class Frame extends Window {
     }
     
     public function getMenuBar():MenuBar {
-        return null;
+        var menuBarRef:WxMenuBarRef = frameRef.getMenuBar();
+        var menuBar:MenuBar = new MenuBar(0, false);
+        menuBar._ref = cast menuBarRef;
+        return menuBar;
     }
     
     public function setMenuBar(menuBar:MenuBar):Void {
