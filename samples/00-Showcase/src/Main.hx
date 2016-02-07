@@ -38,6 +38,11 @@ class Main {
         
         frame.setSize(10, 10, 800, 600);
         frame.bind(EventType.CLOSE_WINDOW, function(e:Event) frame.destroy()); //Safe window-closing
+        
+        frame.bind(EventType.MENU, function(e:Event) {
+           trace("some menu event");
+        });
+        
         trace(frame.getSize().width);
         trace(frame.getPosition().x);
         
