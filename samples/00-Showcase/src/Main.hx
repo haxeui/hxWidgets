@@ -36,9 +36,9 @@ class Main {
         file.append(menuItem).check(true);
         file.append(new MenuItem(file, "Menu 2"));
         
-        var menuItem:MenuItem = new MenuItem(file, "Menu 3", hx.widgets.MenuItem.ItemKind.ITEM_CHECK);
+        var menuItem:MenuItem = new MenuItem(file, "Menu 3");
         menuItem.setBitmap(Bitmap.fromHaxeResource("inbox.png"));
-        file.append(menuItem).check(true);
+        file.append(menuItem);
         
         frame.setMenuBar(menuBar);
         
