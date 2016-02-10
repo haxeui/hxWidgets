@@ -7,9 +7,20 @@ class Main {
         var app = new App();
         app.init();
         
+        var platform:PlatformInfo = new PlatformInfo();
+        trace("OS Major Version: " + platform.getOSMajorVersion());
+        trace("OS Minor Version: " + platform.getOSMinorVersion());
+        trace("Arch Name: " + platform.getArchName());
+        trace("Operating System Family Name: " + platform.getOperatingSystemFamilyName());
+        trace("Operating System Id Name: " + platform.getOperatingSystemIdName());
+        trace("Operating System Id: " + platform.getOperatingSystemId());
+        
+        
         var frame:Frame = new Frame(null, "hxWidgets");
         //frame.setStatusText("Status: OK");
-        frame.backgroundColour = 0xFFFFFF;
+        if (platform.getOperatingSystemId() == hx.widgets.PlatformInfo.OperatingSystemId.OS_WINDOWS) {
+            frame.backgroundColour = 0xFFFFFF;
+        }
         frame.show(true);
         /*
         frame.x = 20;
