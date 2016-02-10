@@ -26,10 +26,38 @@ class WindowStyle {
 }
 
 class Window extends EvtHandler {
+
+    private var __children:Array<Window>;
+    private var __parent:Window;
+
     public function new(parent:Window, id:Int) {
         super();
+        
+        if (__children == null)
+            __children = [];
+        
+        if (parent != null)
+        {
+            __parent = parent;
+            __parent.__children.push(this);
+        }
     }
-
+    
+    public function getChildren() {
+        return __children;
+    }
+    
+    public function getParent() {
+        return __parent;
+    }
+    
+    public function getRoot() {
+        if (getParent() != null)
+            return __parent.getRoot();
+        else
+            return this;
+    } 
+    
     public function show(value:Bool) {
         _ref.show(value);
     }
@@ -39,7 +67,13 @@ class Window extends EvtHandler {
     }
     
     public function destroy() {
+        __children = null;
         _ref.destroy();
+    }
+    
+    public function destroyChildren():Bool {
+        __children = [];
+        return _ref.destroyChildren();
     }
     
     public function setSize(x:Int, y:Int, width:Int, height:Int) {
@@ -52,6 +86,19 @@ class Window extends EvtHandler {
     
     public function addChild(child:Window) {
         _ref.addChild(child._ref);
+        __children.push(child);
+    }
+    
+    public function removeChild(child:Window) {
+        _ref.removeChild(child._ref);
+        __children.splice(__children.indexOf(child), 1);
+    }
+    
+    public function findWindowById(id:Int) {
+        var winRef:WxWindowRef = _ref.findWindowById(id);
+        var win:Window = new Window(null, -1);
+        win._ref = cast winRef;
+        return win;
     }
     
     public function refresh() {
@@ -137,6 +184,11 @@ class Window extends EvtHandler {
         _ref.setClientSize(width, height);
     }
     
+    public function getClientSize() {
+        var ref:WxSizeRef = _ref.getClientSize();
+        return new Size(ref.getWidth(), ref.getHeight());
+    }
+    
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // HELPERS
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -165,11 +217,15 @@ extern class WxWindow extends WxEvtHandler {
     @:native("Show")                    public function show(value:Bool):Void;
     @:native("Close")                   public function close(force:Bool):Bool;
     @:native("Destroy")                 public function destroy():Bool;
+    @:native("DestroyChildren")         public function destroyChildren():Bool;
     @:native("Refresh")                 public function refresh():Void;
     @:native("SetSize")                 public function setSize(x:Int, y:Int, width:Int, height:Int):Void;
     @:native("SetClientSize")           public function setClientSize(width:Int, height:Int):Void;
+    @:native("GetClientSize")           public function getClientSize():WxSizeRef;
     @:native("Move")                    public function move(x:Int, y:Int):Void;
     @:native("AddChild")                public function addChild(child:WxWindowRef):Void;
+    @:native("RemoveChild")             public function removeChild(child:WxWindowRef):Void;
+    @:native("FindWindow")              public function findWindowById(id:Int):WxWindowRef;
     @:native("GetBackgroundColour")     public function getBackgroundColour():Int;
     @:native("SetBackgroundColour")     public function setBackgroundColour(colour:Int):Void;
     @:native("GetWindowStyle")          public function getWindowStyle():Int;
@@ -178,4 +234,20 @@ extern class WxWindow extends WxEvtHandler {
     @:native("GetPosition")             public function getPosition():WxPointRef;
     @:native("SetVirtualSize")          public function setVirtualSize(width:Int, height:Int):Void;
     @:native("GetVirtualSize")          public function getVirtualSize():WxSizeRef;
+}
+
+@:access(hx.widgets.Window)
+class RepositioningGuard {
+    private var _ref:WxChildrenRepositioningGuardRef;
+
+    public function new(win:Window) {
+        _ref = WxChildrenRepositioningGuardRef.createInstance(win._ref);
+    }
+}
+
+@:include("wx/window.h")
+@:unreflective
+@:native("wxWindow::ChildrenRepositioningGuard*")
+extern class WxChildrenRepositioningGuardRef {
+    @:native("new wxWindow::ChildrenRepositioningGuard") public static function createInstance(win:WxWindowRef):WxChildrenRepositioningGuardRef;
 }
