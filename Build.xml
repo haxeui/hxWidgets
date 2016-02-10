@@ -24,15 +24,15 @@
 		</files>
 
 		<target id="haxe" tool="linker" toolid="exe">
-			<lib name="${haxelib:hxWidgets}/../wxWidgets/windows/${vc}/${MACHINE}/lib/wxmsw30u_xrc.lib" />
-			<lib name="${haxelib:hxWidgets}/../wxWidgets/windows/${vc}/${MACHINE}/lib/wxmsw30u_webview.lib" />
-			<lib name="${haxelib:hxWidgets}/../wxWidgets/windows/${vc}/${MACHINE}/lib/wxmsw30u_html.lib" />
-			<lib name="${haxelib:hxWidgets}/../wxWidgets/windows/${vc}/${MACHINE}/lib/wxmsw30u_qa.lib" />
-			<lib name="${haxelib:hxWidgets}/../wxWidgets/windows/${vc}/${MACHINE}/lib/wxmsw30u_adv.lib" />
-			<lib name="${haxelib:hxWidgets}/../wxWidgets/windows/${vc}/${MACHINE}/lib/wxmsw30u_core.lib" />
-			<lib name="${haxelib:hxWidgets}/../wxWidgets/windows/${vc}/${MACHINE}/lib/wxbase30u_xml.lib" />
-			<lib name="${haxelib:hxWidgets}/../wxWidgets/windows/${vc}/${MACHINE}/lib/wxbase30u_net.lib" />
-			<lib name="${haxelib:hxWidgets}/../wxWidgets/windows/${vc}/${MACHINE}/lib/wxbase30u.lib" />
+			<lib name="${haxelib:hxWidgets}/../wxWidgets/windows/vc120/${MACHINE}/lib/wxmsw30u_xrc.lib" />
+			<lib name="${haxelib:hxWidgets}/../wxWidgets/windows/vc120/${MACHINE}/lib/wxmsw30u_webview.lib" />
+			<lib name="${haxelib:hxWidgets}/../wxWidgets/windows/vc120/${MACHINE}/lib/wxmsw30u_html.lib" />
+			<lib name="${haxelib:hxWidgets}/../wxWidgets/windows/vc120/${MACHINE}/lib/wxmsw30u_qa.lib" />
+			<lib name="${haxelib:hxWidgets}/../wxWidgets/windows/vc120/${MACHINE}/lib/wxmsw30u_adv.lib" />
+			<lib name="${haxelib:hxWidgets}/../wxWidgets/windows/vc120/${MACHINE}/lib/wxmsw30u_core.lib" />
+			<lib name="${haxelib:hxWidgets}/../wxWidgets/windows/vc120/${MACHINE}/lib/wxbase30u_xml.lib" />
+			<lib name="${haxelib:hxWidgets}/../wxWidgets/windows/vc120/${MACHINE}/lib/wxbase30u_net.lib" />
+			<lib name="${haxelib:hxWidgets}/../wxWidgets/windows/vc120/${MACHINE}/lib/wxbase30u.lib" />
 		</target>
 	</section>
 
