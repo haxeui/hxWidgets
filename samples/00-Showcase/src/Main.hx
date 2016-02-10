@@ -242,6 +242,8 @@ class Main {
                     button.setSize(5, 5, 100, 30);
                 tabs.addPage(panel3, "Tab 3", false, 2);
                 
+        trace('Number of children in frame:' + frame.getChildren().length);
+                
         app.run();
         app.exit();
     }

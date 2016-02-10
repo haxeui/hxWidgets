@@ -39,7 +39,7 @@ class Window extends EvtHandler {
         if (parent != null)
         {
             __parent = parent;
-            __children.push(parent);
+            __parent.__children.push(this);
         }
     }
     
