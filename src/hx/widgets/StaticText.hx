@@ -26,10 +26,6 @@ class StaticText extends Window {
         _ref = cast textRef;
     }
     
-    public function setLabel(text:String) {
-        staticTextRef.setLabel(text);
-    }
-    
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // HELPERS
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -51,5 +47,4 @@ extern class WxStaticTextRef extends WxStaticText {
 @:native("wxStaticText")
 extern class WxStaticText extends WxWindow {
     @:native("Create")              public function create(parent:WxWindowRef, id:Int, value:ConstCharStar, point:WxPointRef, size:WxSizeRef, style:Int):Bool;
-    @:native("SetLabel")            public function setLabel(text:ConstCharStar):Void;
 }
