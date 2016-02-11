@@ -1,4 +1,5 @@
 import cpp.Lib;
+import cpp.Pointer;
 import hx.widgets.*;
 import hx.widgets.App.WxAppRef;
 
@@ -16,7 +17,7 @@ class Main {
         trace("Operating System Id: " + platform.getOperatingSystemId());
         
         
-        var frame:Frame = new Frame(null, "hxWidgets");
+        var frame:Frame = new Frame(null, "hxWidgets", 1001);
         //frame.setStatusText("Status: OK");
         if (platform.getOperatingSystemId() == hx.widgets.PlatformInfo.OperatingSystemId.OS_WINDOWS) {
             frame.backgroundColour = 0xFFFFFF;
@@ -36,9 +37,9 @@ class Main {
         file.append(menuItem).check(true);
         file.append(new MenuItem(file, "Menu 2"));
         
-        var menuItem:MenuItem = new MenuItem(file, "Menu 3", hx.widgets.MenuItem.ItemKind.ITEM_CHECK);
+        var menuItem:MenuItem = new MenuItem(file, "Menu 3");
         menuItem.setBitmap(Bitmap.fromHaxeResource("inbox.png"));
-        file.append(menuItem).check(true);
+        file.append(menuItem);
         
         frame.setMenuBar(menuBar);
         
@@ -57,10 +58,9 @@ class Main {
         trace(frame.getSize().width);
         trace(frame.getPosition().x);
         
-        //var stream:MemoryInputStream = new MemoryInputStream()
         
             // create a button
-            var button:Button = new Button(frame, "Button 1");
+            var button:Button = new Button(frame, "Button 1", 1002);
             button.setBitmap(Bitmap.fromHaxeResource("inbox.png"));
             button.setSize(10, 10, 100, 100);
             button.bind(EventType.BUTTON, function(e:Event) {
@@ -69,6 +69,12 @@ class Main {
                 trace(e.getId());
             });
         
+            trace("parent id: " + button.getParent().getId());
+            trace("child count: " + frame.children.length);
+            trace("first child id: "  + frame.children[0].getId());
+            // lets make sure its a functioning object
+            frame.children[0].setLabel("New Label");
+
             // create a chekboxes
             var checkbox:CheckBox = new CheckBox(frame, "Check 1");
             checkbox.bind(EventType.CHECKBOX, function(e:Event) {
