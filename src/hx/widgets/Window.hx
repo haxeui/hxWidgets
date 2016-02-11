@@ -1,8 +1,12 @@
 package hx.widgets;
 
+import cpp.ConstCharStar;
+import cpp.Void;
 import hx.widgets.EvtHandler.WxEvtHandler;
+import hx.widgets.List.WxWindowList;
 import hx.widgets.Point.WxPointRef;
 import hx.widgets.Size.WxSizeRef;
+import hx.widgets.Window.WxWindowRef;
 
 @:headerCode("#include <wx/window.h>")
 class WindowStyle {
@@ -26,7 +30,7 @@ class WindowStyle {
 }
 
 class Window extends EvtHandler {
-    public function new(parent:Window, id:Int) {
+    public function new(parent:Window = null, id:Int = -1) {
         super();
     }
 
@@ -48,10 +52,6 @@ class Window extends EvtHandler {
     
     public function move(x:Int, y:Int) {
         _ref.move(x, y);
-    }
-    
-    public function addChild(child:Window) {
-        _ref.addChild(child._ref);
     }
     
     public function refresh() {
@@ -86,44 +86,6 @@ class Window extends EvtHandler {
         return new Point(ref.x, ref.y);
     }
     
-    /*
-    public var x(get, set):Int;
-    private function get_x():Int {
-        return getPosition().x;
-    }
-    private function set_x(value:Int):Int {
-        setSize(value, y, width, height);
-        return value;
-    }
-    
-    public var y(get, set):Int;
-    private function get_y():Int {
-        return getPosition().y;
-    }
-    private function set_y(value:Int):Int {
-        setSize(x, value, width, height);
-        return value;
-    }
-    
-    public var width(get, set):Int;
-    private function get_width():Int {
-        return getSize().width;
-    }
-    private function set_width(value:Int):Int {
-        setSize(x, y, value, height);
-        return value;
-    }
-    
-    public var height(get, set):Int;
-    private function get_height():Int {
-        return getSize().height;
-    }
-    private function set_height(value:Int):Int {
-        setSize(x, y, width, value);
-        return value;
-    }
-    */
-    
     public function setVirtualSize(width:Int, height:Int) {
         _ref.setVirtualSize(width, height);
     }
@@ -137,10 +99,41 @@ class Window extends EvtHandler {
         _ref.setClientSize(width, height);
     }
     
+    public function getParent():Window {
+        var parent:Window = new Window();
+        parent._ref = _ref.getParent();
+        return parent;
+    }
+
+    public function getId():Int {
+        return _ref.getId();
+    }
+    
+    public function setId(id:Int) {
+        _ref.setId(id);
+    }
+
+    public var children(get, null):Array<Window>;
+    private function get_children():Array<Window> {
+        var list:Array<Window> = new Array<Window>();
+        var windowList:WxWindowList = _ref.getChildren();
+        for (i in 0...windowList.getCount()) {
+            var ref:WxWindowRef = windowList.item(i).getData();
+            var child:Window = new Window();
+            child._ref = ref;
+            list.push(child);
+        }
+        return list;
+    }
+    
+    public function setLabel(label:String) {
+        _ref.setLabel(label);
+    }
+    
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // HELPERS
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // STATIC HELPERS
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -169,7 +162,6 @@ extern class WxWindow extends WxEvtHandler {
     @:native("SetSize")                 public function setSize(x:Int, y:Int, width:Int, height:Int):Void;
     @:native("SetClientSize")           public function setClientSize(width:Int, height:Int):Void;
     @:native("Move")                    public function move(x:Int, y:Int):Void;
-    @:native("AddChild")                public function addChild(child:WxWindowRef):Void;
     @:native("GetBackgroundColour")     public function getBackgroundColour():Int;
     @:native("SetBackgroundColour")     public function setBackgroundColour(colour:Int):Void;
     @:native("GetWindowStyle")          public function getWindowStyle():Int;
@@ -178,4 +170,9 @@ extern class WxWindow extends WxEvtHandler {
     @:native("GetPosition")             public function getPosition():WxPointRef;
     @:native("SetVirtualSize")          public function setVirtualSize(width:Int, height:Int):Void;
     @:native("GetVirtualSize")          public function getVirtualSize():WxSizeRef;
+    @:native("GetParent")               public function getParent():WxWindowRef;
+    @:native("GetId")                   public function getId():Int;
+    @:native("SetId")                   public function setId(id:Int):Void;
+    @:native("GetChildren")             public function getChildren():WxWindowList;
+    @:native("SetLabel")                public function setLabel(label:ConstCharStar):Void;
 }
