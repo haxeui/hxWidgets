@@ -4,7 +4,12 @@ import hx.widgets.*;
 import hx.widgets.App.WxAppRef;
 
 class Main {
+    private static var worker:ThreadWorker;
+    
     public static function main() {
+        worker = new ThreadWorker();
+        worker.start();
+        
         var app = new App();
         app.init();
         
@@ -108,7 +113,8 @@ class Main {
             
             // create text inputs
             var textctrl:TextCtrl = new TextCtrl(frame, "Text input 1");
-            textctrl.move(10, 150);            
+            textctrl.move(10, 150);
+            var workertextresult:TextCtrl = textctrl;
 
             var textctrl:TextCtrl = new TextCtrl(frame, "Password 1", hx.widgets.TextCtrl.TextCtrlStyle.PASSWORD);
             textctrl.move(10, 180);            
@@ -249,7 +255,13 @@ class Main {
                 tabs.addPage(panel3, "Tab 3", false, 2);
                 
         trace('Number of children in frame:' + frame.children.length);
-                
+
+        frame.bind(EventType.IDLE, function(e) {
+           workertextresult.setLabel("" + worker.count);
+        });
+        
+        
+        
         app.run();
         app.exit();
     }
