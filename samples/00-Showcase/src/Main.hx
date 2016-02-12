@@ -5,6 +5,7 @@ import hx.widgets.App.WxAppRef;
 
 class Main {
     private static var worker:ThreadWorker;
+    private static var timer:Timer;
     
     public static function main() {
         worker = new ThreadWorker();
@@ -23,6 +24,8 @@ class Main {
         
         
         var frame:Frame = new Frame(null, "hxWidgets", 1001);
+        timer = new Timer(frame, 100);
+        
         //frame.setStatusText("Status: OK");
         if (platform.getOperatingSystemId() == hx.widgets.PlatformInfo.OperatingSystemId.OS_WINDOWS) {
             frame.backgroundColour = 0xFFFFFF;
@@ -120,7 +123,8 @@ class Main {
             textctrl.move(10, 180);            
 
             var textctrl:TextCtrl = new TextCtrl(frame, "Text input 2", hx.widgets.TextCtrl.TextCtrlStyle.READONLY);
-            textctrl.move(130, 150);            
+            textctrl.move(130, 150); 
+            var timertextresult:TextCtrl = textctrl;
             
             var textctrl:TextCtrl = new TextCtrl(frame, null, hx.widgets.TextCtrl.TextCtrlStyle.MULTILINE | hx.widgets.TextCtrl.TextCtrlStyle.RICH);
             textctrl.setSize(130, 180, 100, 70);   
@@ -258,12 +262,18 @@ class Main {
 
         frame.bind(EventType.IDLE, function(e) {
            workertextresult.setLabel("" + worker.count);
-           tabs.setSelection(worker.count % 3);
+           //tabs.setSelection(worker.count % 3);
+        });
+        
+        frame.bind(EventType.TIMER, function(e) {
+           timertextresult.setLabel("" + worker.count);
         });
         
         
-        
         app.run();
+        timer.stop();
+        worker.stop();
+        
         app.exit();
     }
 }
