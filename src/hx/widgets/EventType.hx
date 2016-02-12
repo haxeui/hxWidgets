@@ -4,6 +4,7 @@ package hx.widgets;
 #include <wx/event.h>
 #include <wx/textctrl.h>
 #include <wx/hyperlink.h>
+#include <wx/timer.h>
 ")
 class EventType {
     public static var BUTTON:Int                = untyped __cpp__("wxEVT_BUTTON");
@@ -19,6 +20,7 @@ class EventType {
     public static var CLOSE_WINDOW:Int          = untyped __cpp__("wxEVT_CLOSE_WINDOW");
     public static var MENU:Int                  = untyped __cpp__("wxEVT_MENU");
     public static var IDLE:Int                  = untyped __cpp__("wxEVT_IDLE");
+    public static var TIMER:Int                 = untyped __cpp__("wxEVT_TIMER");
     /* commented out as it causes link errors on my mac for some reason - should investigate
     public static var HYPERLINK:Int             = untyped __cpp__("wxEVT_HYPERLINK");
     */
