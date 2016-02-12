@@ -258,6 +258,7 @@ class Main {
 
         frame.bind(EventType.IDLE, function(e) {
            workertextresult.setLabel("" + worker.count);
+           tabs.setSelection(worker.count % 3);
         });
         
         

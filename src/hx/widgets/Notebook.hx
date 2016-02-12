@@ -23,6 +23,10 @@ class Notebook extends Window {
         notebookRef.setImageList(imageList._ref);
     }
     
+    public function setSelection(page:Int) {
+        notebookRef.setSelection(page);
+    }
+    
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // HELPERS
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -46,4 +50,5 @@ extern class WxNotebook extends WxWindow {
     @:native("Create")              public function create(parent:WxWindowRef, id:Int):Bool;
     @:native("AddPage")             public function addPage(page:WxWindowRef, text:ConstCharStar, select:Bool, imageId:Int):Bool;
     @:native("SetImageList")        public function setImageList(imageList:WxImageListRef):Void;
+    @:native("SetSelection")        public function setSelection(page:Int):Void;
 }
