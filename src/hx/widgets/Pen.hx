@@ -1,11 +1,12 @@
 package hx.widgets;
-import hx.widgets.Colour.WxColourRef;
 
-@:access(hx.widgets.Colour)
+import wx.widgets.Pen in WxPen;
+
 class Pen {
-    private var _ref:WxPenRef;
+    private var _ref:WxPen;
+
     public function new(colour:Int = 0x000000, width:Int = 1) {
-        _ref = WxPenRef.createInstance();
+        _ref = WxPen.createInstance();
         this.colour = colour;
         this.width = width;
     }
@@ -14,6 +15,7 @@ class Pen {
     private function get_colour():Int {
         return 0;
     }
+    @:access(hx.widgets.Colour)
     private function set_colour(value:Int):Int {
         var c:Colour = new Colour(value);
         _ref.setColour(c._ref);
@@ -28,20 +30,4 @@ class Pen {
         _ref.setWidth(value);
         return value;
     }
-}
-
-@:include("wx/pen.h")
-@:unreflective
-@:native("cpp::Reference<wxPen>")
-extern class WxPenRef extends WxPen {
-    @:native("new wxPen")          public static function createInstance():WxPenRef;
-}
-
-@:include("wx/pen.h")
-@:unreflective
-@:native("wxPen")
-extern class WxPen {
-    @:native("SetColour")          public function setColour(colour:WxColourRef):Void;
-    @:native("GetWidth")           public function getWidth():Int;
-    @:native("SetWidth")           public function setWidth(width:Int):Void;
 }

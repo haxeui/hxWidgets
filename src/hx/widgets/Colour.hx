@@ -1,21 +1,11 @@
 package hx.widgets;
 
+import wx.widgets.Colour in WxColour;
+
 class Colour {
-    private var _ref:WxColourRef;
+    private var _ref:WxColour;
+
     public function new(colour:Int) {
-        _ref = WxColourRef.createInstance(colour);
+        _ref = WxColour.createInstance(colour);
     }
-}
-
-@:include("wx/colour.h")
-@:unreflective
-@:native("cpp::Reference<wxColour>")
-extern class WxColourRef extends WxColour {
-    @:native("new wxColour")          public static function createInstance(colour:Int):WxColourRef;
-}
-
-@:include("wx/colour.h")
-@:unreflective
-@:native("wxColour")
-extern class WxColour {
 }

@@ -1,16 +1,12 @@
 package hx.widgets;
 
-import cpp.ConstCharStar;
-import hx.widgets.ImageList.WxImageListRef;
-import hx.widgets.Window.WxWindow;
-import hx.widgets.Window.WxWindowRef;
+import wx.widgets.Notebook in WxNotebook;
 
-@:access(hx.widgets.ImageList)
 class Notebook extends Window {
     public function new(parent:Window, id:Int = -1) {
         super(parent, id);
         
-        var notebookRef:WxNotebookRef = WxNotebookRef.createInstance();
+        var notebookRef:WxNotebook = WxNotebook.createInstance();
         notebookRef.create(parent != null ? parent._ref : Window.nullWindowRef, id);
         _ref = cast notebookRef;
     }
@@ -19,6 +15,7 @@ class Notebook extends Window {
         return notebookRef.addPage(page._ref, text, select, imageId);
     }
     
+    @:access(hx.widgets.ImageList)
     public function setImageList(imageList:ImageList) {
         notebookRef.setImageList(imageList._ref);
     }
@@ -30,25 +27,8 @@ class Notebook extends Window {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // HELPERS
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    private var notebookRef(get, null):WxNotebookRef;
-    private function get_notebookRef():WxNotebookRef {
+    private var notebookRef(get, null):WxNotebook;
+    private function get_notebookRef():WxNotebook {
         return cast _ref;
     }
-}
-
-@:include("wx/notebook.h")
-@:unreflective
-@:native("wxNotebook*")
-extern class WxNotebookRef extends WxNotebook {
-    @:native("new wxNotebook")      public static function createInstance():WxNotebookRef;
-}
-
-@:include("wx/notebook.h")
-@:unreflective
-@:native("wxNotebook")
-extern class WxNotebook extends WxWindow {
-    @:native("Create")              public function create(parent:WxWindowRef, id:Int):Bool;
-    @:native("AddPage")             public function addPage(page:WxWindowRef, text:ConstCharStar, select:Bool, imageId:Int):Bool;
-    @:native("SetImageList")        public function setImageList(imageList:WxImageListRef):Void;
-    @:native("SetSelection")        public function setSelection(page:Int):Void;
 }

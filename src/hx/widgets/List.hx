@@ -1,12 +1,12 @@
 package hx.widgets;
 
-import hx.widgets.Window.WxWindowRef;
+import wx.widgets.Window in WxWindow;
 
 @:include("wx/list.h")
 @:unreflective
 @:native("wxWindowListNode*")
 extern class WxWindowListNodeRef {
-    @:native("GetData")            public function getData():WxWindowRef;
+    @:native("GetData")            public function getData():WxWindow;
 }
 
 @:include("wx/list.h")
