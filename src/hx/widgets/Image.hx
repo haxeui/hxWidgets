@@ -1,17 +1,16 @@
 package hx.widgets;
 
 import haxe.io.Bytes;
-import hx.widgets.Image.WxImageRef;
-import hx.widgets.MemoryInputStream.WxMemoryInputStreamRef;
+import wx.widgets.Image in WxImage;
 
-@:access(hx.widgets.MemoryInputStream)
 class Image {
-    private var _ref:WxImageRef;
+    private var _ref:WxImage;
     private var _stream:MemoryInputStream;
-    
+
+	@:access(hx.widgets.MemoryInputStream)
     public function new(bytes:Bytes) {
         _stream = new MemoryInputStream(bytes);
-        _ref = WxImageRef.createInstance(_stream._ref);
+        _ref = WxImage.createInstance(_stream._ref);
     }
     
     public function getWidth():Int {
@@ -21,19 +20,4 @@ class Image {
     public function getHeight():Int {
         return _ref.getHeight();
     }
-}
-
-@:include("wx/image.h")
-@:unreflective
-@:native("cpp::Reference<wxImage>")
-extern class WxImageRef extends WxImage {
-    @:native("new wxImage")     public static function createInstance(stream:WxMemoryInputStreamRef):WxImageRef;
-}
-
-@:include("wx/image.h")
-@:unreflective
-@:native("wxImage")
-extern class WxImage {
-    @:native("GetWidth")        public function getWidth():Int;
-    @:native("GetHeight")       public function getHeight():Int;
 }

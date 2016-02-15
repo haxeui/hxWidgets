@@ -1,11 +1,12 @@
 package hx.widgets;
 
-import hx.widgets.Point.WxPointRef;
+import wx.widgets.Point in WxPoint;
 
 class Point {
-    private var _ref:WxPointRef;
+    private var _ref:WxPoint;
+
     public function new(x:Int = 0, y:Int = 0) {
-        _ref = WxPointRef.createInstance();
+        _ref = WxPoint.createInstance();
         _ref.x = x;
         _ref.y = y;
     }
@@ -36,23 +37,8 @@ class Point {
         return new Point(-1, -1);
     }
     
-    public static var defaultPositionRef(get, null):WxPointRef;
-    private static function get_defaultPositionRef():WxPointRef {
+    public static var defaultPositionRef(get, null):WxPoint;
+    private static function get_defaultPositionRef():WxPoint {
         return defaultPosition._ref;
     }
-}
-
-@:include("wx/gdicmn.h")
-@:unreflective
-@:native("cpp::Reference<wxPoint>")
-extern class WxPointRef extends WxPoint {
-    @:native("new wxPoint")     public static function createInstance():WxPointRef;
-}
-
-@:include("wx/gdicmn.h")
-@:unreflective
-@:native("wxPoint")
-extern class WxPoint {
-    @:native("x")               public var x:Int;
-    @:native("y")               public var y:Int;
 }

@@ -1,9 +1,12 @@
 package hx.widgets;
 
+import wx.widgets.Size in WxSize;
+
 class Size {
-    private var _ref:WxSizeRef;
+    private var _ref:WxSize;
+
     public function new(width:Int = 0, height:Int = 0) {
-        _ref = WxSizeRef.createInstance();
+        _ref = WxSize.createInstance();
         _ref.setWidth(width);
         _ref.setHeight(height);
     }
@@ -34,25 +37,8 @@ class Size {
         return new Size(-1, -1);
     }
     
-    public static var defaultSizeRef(get, null):WxSizeRef;
-    private static function get_defaultSizeRef():WxSizeRef {
+    public static var defaultSizeRef(get, null):WxSize;
+    private static function get_defaultSizeRef():WxSize {
         return defaultSize._ref;
     }
-}
-
-@:include("wx/gdicmn.h")
-@:unreflective
-@:native("cpp::Reference<wxSize>")
-extern class WxSizeRef extends WxSize {
-    @:native("new wxSize")      public static function createInstance():WxSizeRef;
-}
-
-@:include("wx/gdicmn.h")
-@:unreflective
-@:native("wxSize")
-extern class WxSize {
-    @:native("GetWidth")        public function getWidth():Int;
-    @:native("GetHeight")       public function getHeight():Int;
-    @:native("SetWidth")        public function setWidth(value:Int):Void;
-    @:native("SetHeight")       public function setHeight(value:Int):Void;
 }

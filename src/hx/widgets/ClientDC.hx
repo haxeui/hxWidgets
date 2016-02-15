@@ -1,16 +1,13 @@
 package hx.widgets;
 
-import cpp.ConstCharStar;
-import hx.widgets.Pen.WxPenRef;
-import hx.widgets.Window.WxWindow;
-import hx.widgets.Window.WxWindowRef;
+import wx.widgets.ClientDC in WxClientDC;
 
-@:access(hx.widgets.Window)
-@:access(hx.widgets.Pen)
 class ClientDC {
-    private var _ref:WxClientDCRef;
+    private var _ref:WxClientDC;
+
+	@:access(hx.widgets.Window)
     public function new(window:Window) {
-        _ref = WxClientDCRef.createInstance(window._ref);
+        _ref = WxClientDC.createInstance(window._ref);
     }
     
     public function clear() {
@@ -20,7 +17,8 @@ class ClientDC {
     public function drawLine(x1:Int, y1:Int, x2:Int, y2:Int) {
         _ref.drawLine(x1, y1, x2, y2);
     }
-    
+
+    @:access(hx.widgets.Pen)
     public function setPen(pen:Pen):Void {
         _ref.setPen(pen._ref);
     }
@@ -36,23 +34,4 @@ class ClientDC {
     public function drawCircle(x:Int, y:Int, radius:Int):Void {
         _ref.drawCircle(x, y, radius);
     }
-}
-
-@:include("wx/dcclient.h")
-@:unreflective
-@:native("wxClientDC*")
-extern class WxClientDCRef extends WxClientDC {
-    @:native("new wxClientDC")          public static function createInstance(window:WxWindowRef):WxClientDCRef;
-}
-
-@:include("wx/dcclient.h")
-@:unreflective
-@:native("wxClientDC")
-extern class WxClientDC {
-    @:native("Clear")                   public function clear():Void;
-    @:native("DrawLine")                public function drawLine(x1:Int, y1:Int, x2:Int, y2:Int):Void;
-    @:native("SetPen")                  public function setPen(pen:WxPenRef):Void;
-    @:native("DrawText")                public function drawText(text:ConstCharStar, x:Int, y:Int):Void;
-    @:native("DrawRoundedRectangle")    public function drawRoundedRectangle(x:Int, y:Int, width:Int, height:Int, radius:Float):Void;
-    @:native("DrawCircle")              public function drawCircle(x:Int, y:Int, radius:Int):Void;
 }
