@@ -2,14 +2,14 @@ package hx.widgets;
 
 import haxe.io.Bytes;
 import haxe.Resource;
-import hx.widgets.Bitmap.WxBitmapRef;
-import hx.widgets.Image.WxImageRef;
+import wx.widgets.Bitmap in WxBitmap;
 
-@:access(hx.widgets.Image)
 class Bitmap {
-    private var _ref:WxBitmapRef;
+    private var _ref:WxBitmap;
+
+	@:access(hx.widgets.Image)
     public function new(image:Image) {
-        _ref = WxBitmapRef.createInstance(image._ref);
+        _ref = WxBitmap.createInstance(image._ref);
     }
     
     public function getWidth():Int {
@@ -31,19 +31,4 @@ class Bitmap {
         var image:Image = new Image(bytes);
         return new Bitmap(image);
     }
-}
-
-@:include("wx/bitmap.h")
-@:unreflective
-@:native("cpp::Reference<wxBitmap>")
-extern class WxBitmapRef extends WxBitmap {
-    @:native("new wxBitmap")    public static function createInstance(stream:WxImageRef):WxBitmapRef;
-}
-
-@:include("wx/bitmap.h")
-@:unreflective
-@:native("wxBitmap")
-extern class WxBitmap {
-    @:native("GetWidth")        public function getWidth():Int;
-    @:native("GetHeight")       public function getHeight():Int;
 }

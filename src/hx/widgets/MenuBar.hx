@@ -1,21 +1,17 @@
 package hx.widgets;
 
-import cpp.ConstCharStar;
-import cpp.Void;
-import hx.widgets.Menu.WxMenuRef;
-import hx.widgets.Window.WxWindow;
-import hx.widgets.Window.WxWindowRef;
+import wx.widgets.MenuBar in WxMenuBar;
 
-@:access(hx.widgets.Menu)
 class MenuBar extends Window { 
     public function new(style:Int = 0, create:Bool = true) {
         super(null, -1);
         if (create == true) {
-            var menuBarRef:WxMenuBarRef = WxMenuBarRef.createInstance(style);
-            _ref = cast menuBarRef;
+            var menuBarRef:WxMenuBar = WxMenuBar.createInstance(style);
+            _ref = menuBarRef;
         }
     }
     
+    @:access(hx.widgets.Menu)
     public function append(menu:Menu, title:String) {
         menuBarRef.append(menu.menuRef, title);
     }
@@ -23,22 +19,8 @@ class MenuBar extends Window {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // HELPERS
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    private var menuBarRef(get, null):WxMenuBarRef;
-    private function get_menuBarRef():WxMenuBarRef {
+    private var menuBarRef(get, null):WxMenuBar;
+    private inline function get_menuBarRef():WxMenuBar {
         return cast _ref;
     }
-}
-
-@:include("wx/menu.h")
-@:unreflective
-@:native("wxMenuBar*")
-extern class WxMenuBarRef extends WxMenuBar {
-    @:native("new wxMenuBar")       public static function createInstance(style:Int = 0):WxMenuBarRef;
-}
-
-@:include("wx/menu.h")
-@:unreflective
-@:native("wxMenuBar")
-extern class WxMenuBar extends WxWindow {
-    @:native("Append")              public function append(menu:WxMenuRef, title:ConstCharStar):Void;
 }

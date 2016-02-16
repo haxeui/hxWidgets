@@ -1,14 +1,16 @@
 package hx.widgets;
 
+import wx.widgets.App in WxApp;
+
 @:headerCode("
 #include <wx/wx.h>
 #undef RegisterClass
 ")
 class App {
-    private var _ref:WxAppRef;
+    private var _ref:WxApp;
     
     public function new(setInstance:Bool = true) {
-        _ref = WxAppRef.createInstance();
+        _ref = WxApp.createInstance();
         if (setInstance == true) {
             App.setInstance(this);
         }
@@ -31,23 +33,4 @@ class App {
     public static function setInstance(instance:App) {
         WxApp.setInstance(instance._ref);
     }
-}
-
-@:headerCode("
-#include <wx/wx.h>
-#undef RegisterClass
-")
-@:unreflective
-@:native("wxApp*")
-extern class WxAppRef extends WxApp {
-    @:native("new wxApp")               public static function createInstance():WxAppRef;
-}
-
-@:unreflective
-@:native("wxApp")
-extern class WxApp {
-    @:native("wxApp::SetInstance")      public static function setInstance(instance:WxAppRef):Void;
-    @:native("OnInit")                  public function init():Bool;
-    @:native("OnRun")                   public function run():Void;
-    @:native("OnExit")                  public function exit():Void;
 }

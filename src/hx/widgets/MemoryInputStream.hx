@@ -1,27 +1,14 @@
 package hx.widgets;
 
-import cpp.ConstCharStar;
 import haxe.io.Bytes;
-import haxe.io.BytesData;
+import wx.widgets.MemoryInputStream in WxMemoryInputStream;
 
 class MemoryInputStream {
     private var _bytes:Bytes;
-    private var _ref:WxMemoryInputStreamRef;
+    private var _ref:WxMemoryInputStream;
+
     public function new(bytes:Bytes) {
         _bytes = bytes;
-        _ref = WxMemoryInputStreamRef.createInstance(_bytes.getData().toString(), _bytes.length);
+        _ref = WxMemoryInputStream.createInstance(_bytes.getData().toString(), _bytes.length);
     }
-}
-
-@:include("wx/mstream.h")
-@:unreflective
-@:native("cpp::Reference<wxMemoryInputStream>")
-extern class WxMemoryInputStreamRef extends WxMemoryInputStream {
-    @:native("new wxMemoryInputStream")     public static function createInstance(data:ConstCharStar, len:Int):WxMemoryInputStreamRef;
-}
-
-@:include("wx/mstream.h")
-@:unreflective
-@:native("wxMemoryInputStream")
-extern class WxMemoryInputStream {
 }

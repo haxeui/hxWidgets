@@ -1,7 +1,6 @@
 import cpp.Lib;
 import cpp.Pointer;
 import hx.widgets.*;
-import hx.widgets.App.WxAppRef;
 
 class Main {
     private static var worker:ThreadWorker;
@@ -27,7 +26,7 @@ class Main {
         timer = new Timer(frame, 100);
         
         //frame.setStatusText("Status: OK");
-        if (platform.getOperatingSystemId() == hx.widgets.PlatformInfo.OperatingSystemId.OS_WINDOWS) {
+        if (platform.getOperatingSystemId() == OperatingSystemId.OS_WINDOWS) {
             frame.backgroundColour = 0xFFFFFF;
         }
         frame.show(true);
@@ -41,7 +40,7 @@ class Main {
         var menuBar:MenuBar = new MenuBar();
         var file:Menu = new Menu();
         menuBar.append(file, "&File");
-        var menuItem:MenuItem = new MenuItem(file, "Menu 1", hx.widgets.MenuItem.ItemKind.ITEM_CHECK);
+        var menuItem:MenuItem = new MenuItem(file, "Menu 1", hx.widgets.ItemKind.ITEM_CHECK);
         file.append(menuItem).check(true);
         file.append(new MenuItem(file, "Menu 2"));
         
@@ -119,14 +118,14 @@ class Main {
             textctrl.move(10, 150);
             var workertextresult:TextCtrl = textctrl;
 
-            var textctrl:TextCtrl = new TextCtrl(frame, "Password 1", hx.widgets.TextCtrl.TextCtrlStyle.PASSWORD);
+            var textctrl:TextCtrl = new TextCtrl(frame, "Password 1", hx.widgets.styles.TextCtrlStyle.PASSWORD);
             textctrl.move(10, 180);            
 
-            var textctrl:TextCtrl = new TextCtrl(frame, "Text input 2", hx.widgets.TextCtrl.TextCtrlStyle.READONLY);
+            var textctrl:TextCtrl = new TextCtrl(frame, "Text input 2", hx.widgets.styles.TextCtrlStyle.READONLY);
             textctrl.move(130, 150); 
             var timertextresult:TextCtrl = textctrl;
             
-            var textctrl:TextCtrl = new TextCtrl(frame, null, hx.widgets.TextCtrl.TextCtrlStyle.MULTILINE | hx.widgets.TextCtrl.TextCtrlStyle.RICH);
+            var textctrl:TextCtrl = new TextCtrl(frame, null, hx.widgets.styles.TextCtrlStyle.MULTILINE | hx.widgets.styles.TextCtrlStyle.RICH);
             textctrl.setSize(130, 180, 100, 70);   
             textctrl.appendText("This is line 1\n");
             textctrl.appendText("This is line 2\n");
@@ -164,19 +163,19 @@ class Main {
 
             var slider:Slider = new Slider(frame);
             slider.setSize(220, 80, 100, 50);
-            slider.windowStyle = hx.widgets.Slider.SliderStyle.AUTOTICKS
-                                | hx.widgets.Slider.SliderStyle.VALUE_LABEL
-                                | hx.widgets.Slider.SliderStyle.SELRANGE;
+            slider.windowStyle = hx.widgets.styles.SliderStyle.AUTOTICKS
+                                | hx.widgets.styles.SliderStyle.VALUE_LABEL
+                                | hx.widgets.styles.SliderStyle.SELRANGE;
             slider.refresh();
             slider.setSelection(25, 75);
             
-            var slider:Slider = new Slider(frame, 50, 0, 100, hx.widgets.Slider.SliderStyle.VERTICAL);
+            var slider:Slider = new Slider(frame, 50, 0, 100, hx.widgets.styles.SliderStyle.VERTICAL);
             slider.setSize(320, 80, 50, 100);
             
-            var slider:Slider = new Slider(frame, 50, 0, 100, hx.widgets.Slider.SliderStyle.VERTICAL 
-                                                            | hx.widgets.Slider.SliderStyle.AUTOTICKS
-                                                            | hx.widgets.Slider.SliderStyle.VALUE_LABEL
-                                                            | hx.widgets.Slider.SliderStyle.SELRANGE);
+            var slider:Slider = new Slider(frame, 50, 0, 100, hx.widgets.styles.SliderStyle.VERTICAL 
+                                                            | hx.widgets.styles.SliderStyle.AUTOTICKS
+                                                            | hx.widgets.styles.SliderStyle.VALUE_LABEL
+                                                            | hx.widgets.styles.SliderStyle.SELRANGE);
             //slider.move(350, 50);
             slider.setSize(360, 80, 60, 100);
             slider.selectionStart = 25;
@@ -186,7 +185,7 @@ class Main {
             var staticBmp:StaticBitmap = new StaticBitmap(frame, Bitmap.fromHaxeResource("slinky_tiny_test.bmp"));
             staticBmp.move(250, 150);
             
-            var scroller:ScrolledWindow = new ScrolledWindow(frame, hx.widgets.Window.WindowStyle.BORDER_THEME | hx.widgets.Window.WindowStyle.VSCROLL);
+            var scroller:ScrolledWindow = new ScrolledWindow(frame, hx.widgets.styles.WindowStyle.BORDER_THEME | hx.widgets.styles.WindowStyle.VSCROLL);
             scroller.setSize(430, 230, 150, 200);
             //scroller.backgroundColour = 0x0000FF;
             scroller.refresh();

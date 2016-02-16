@@ -1,18 +1,14 @@
 package hx.widgets;
 
-import cpp.ConstCharStar;
-import hx.widgets.Point.WxPointRef;
-import hx.widgets.Size.WxSizeRef;
-import hx.widgets.Window.WxWindow;
-import hx.widgets.Window.WxWindowRef;
+import wx.widgets.ScrolledWindow in WxScrolledWindow;
 
 class ScrolledWindow extends Window {
     public function new(parent:Window, style:Int = 0, id:Int = -1) {
         super(parent, id);
         
-        var scrolledWindowRef:WxScrolledWindowRef = WxScrolledWindowRef.createInstance();
+        var scrolledWindowRef:WxScrolledWindow = WxScrolledWindow.createInstance();
         scrolledWindowRef.create(parent != null ? parent._ref : Window.nullWindowRef, id, Point.defaultPositionRef, Size.defaultSizeRef, style);
-        _ref = cast scrolledWindowRef;
+        _ref = scrolledWindowRef;
     }
     
     public function setScrollbars(pixelsPerUnitX:Int, pixelsPerUnitY:Int, noUnitsX:Int, noUnitsY:Int) {
@@ -22,23 +18,8 @@ class ScrolledWindow extends Window {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // HELPERS
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    private var scrolledWindowRef(get, null):WxScrolledWindowRef;
-    private function get_scrolledWindowRef():WxScrolledWindowRef {
+    private var scrolledWindowRef(get, null):WxScrolledWindow;
+    private inline function get_scrolledWindowRef():WxScrolledWindow {
         return cast _ref;
     }
-}
-
-@:include("wx/scrolwin.h")
-@:unreflective
-@:native("wxScrolledWindow*")
-extern class WxScrolledWindowRef extends WxScrolledWindow {
-    @:native("new wxScrolledWindow")    public static function createInstance():WxScrolledWindowRef;
-}
-
-@:include("wx/scrolwin.h")
-@:unreflective
-@:native("wxScrolledWindow")
-extern class WxScrolledWindow extends WxWindow {
-    @:native("Create")                  public function create(parent:WxWindowRef, id:Int, point:WxPointRef, size:WxSizeRef, style:Int):Bool;
-    @:native("SetScrollbars")           public function setScrollbars(pixelsPerUnitX:Int, pixelsPerUnitY:Int, noUnitsX:Int, noUnitsY:Int):Void;
 }
