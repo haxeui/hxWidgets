@@ -1,9 +1,7 @@
 package wx.widgets;
 
 import cpp.ConstCharStar;
-
-//TODO:
-import hx.widgets.List.WxWindowList;
+import wx.widgets.List.WindowList;
 
 @:include("wx/window.h")
 @:unreflective
@@ -37,7 +35,7 @@ extern class WindowImpl extends EvtHandler {
     @:native("GetParent")               public function getParent():Window;
     @:native("GetId")                   public function getId():Int;
     @:native("SetId")                   public function setId(id:Int):Void;
-    @:native("GetChildren")             public function getChildren():WxWindowList;
+    @:native("GetChildren")             public function getChildren():WindowList;
     @:native("SetLabel")                public function setLabel(label:ConstCharStar):Void;
 }
 
