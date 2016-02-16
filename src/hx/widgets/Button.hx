@@ -8,7 +8,7 @@ class Button extends Window {
         
         var buttonRef:WxButton = WxButton.createInstance();
         buttonRef.create(parent != null ? parent._ref : Window.nullWindowRef, id, label);
-        _ref = cast buttonRef;
+        _ref = buttonRef;
     }
     
     @:access(hx.widgets.Bitmap)

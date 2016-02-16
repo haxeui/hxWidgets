@@ -8,7 +8,7 @@ class ScrolledWindow extends Window {
         
         var scrolledWindowRef:WxScrolledWindow = WxScrolledWindow.createInstance();
         scrolledWindowRef.create(parent != null ? parent._ref : Window.nullWindowRef, id, Point.defaultPositionRef, Size.defaultSizeRef, style);
-        _ref = cast scrolledWindowRef;
+        _ref = scrolledWindowRef;
     }
     
     public function setScrollbars(pixelsPerUnitX:Int, pixelsPerUnitY:Int, noUnitsX:Int, noUnitsY:Int) {
@@ -19,7 +19,7 @@ class ScrolledWindow extends Window {
     // HELPERS
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     private var scrolledWindowRef(get, null):WxScrolledWindow;
-    private function get_scrolledWindowRef():WxScrolledWindow {
+    private inline function get_scrolledWindowRef():WxScrolledWindow {
         return cast _ref;
     }
 }

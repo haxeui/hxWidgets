@@ -8,7 +8,7 @@ class CheckBox extends Window {
         
         var checkboxRef:WxCheckBox = WxCheckBox.createInstance();
         checkboxRef.create(parent != null ? parent._ref : Window.nullWindowRef, id, label);
-        _ref = cast checkboxRef;
+        _ref = checkboxRef;
     }
     
     public var value(get, set):Bool;
@@ -24,7 +24,7 @@ class CheckBox extends Window {
     // HELPERS
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     private var checkboxRef(get, null):WxCheckBox;
-    private function get_checkboxRef():WxCheckBox {
+    private inline function get_checkboxRef():WxCheckBox {
         return cast _ref;
     }
 }

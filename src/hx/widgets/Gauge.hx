@@ -8,7 +8,7 @@ class Gauge extends Window {
         
         var guageRef:WxGauge = WxGauge.createInstance();
         guageRef.create(parent != null ? parent._ref : Window.nullWindowRef, id, range);
-        _ref = cast guageRef;
+        _ref = guageRef;
     }
     
     public var value(get, set):Int;
@@ -24,7 +24,7 @@ class Gauge extends Window {
     // HELPERS
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     private var guageRef(get, null):WxGauge;
-    private function get_guageRef():WxGauge {
+    private inline function get_guageRef():WxGauge {
         return cast _ref;
     }
 }

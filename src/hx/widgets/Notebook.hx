@@ -8,7 +8,7 @@ class Notebook extends Window {
         
         var notebookRef:WxNotebook = WxNotebook.createInstance();
         notebookRef.create(parent != null ? parent._ref : Window.nullWindowRef, id);
-        _ref = cast notebookRef;
+        _ref = notebookRef;
     }
     
     public function addPage(page:Window, text:String, select:Bool = false, imageId:Int = -1):Bool {
@@ -28,7 +28,7 @@ class Notebook extends Window {
     // HELPERS
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     private var notebookRef(get, null):WxNotebook;
-    private function get_notebookRef():WxNotebook {
+    private inline function get_notebookRef():WxNotebook {
         return cast _ref;
     }
 }

@@ -8,7 +8,7 @@ class RadioButton extends Window {
         
         var radioRef:WxRadioButton = WxRadioButton.createInstance();
         radioRef.create(parent != null ? parent._ref : Window.nullWindowRef, id, title, Point.defaultPositionRef, Size.defaultSizeRef, style);
-        _ref = cast radioRef;
+        _ref = radioRef;
     }
     
     public var value(get, set):Bool;
@@ -24,7 +24,7 @@ class RadioButton extends Window {
     // HELPERS
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     private var radioRef(get, null):WxRadioButton;
-    private function get_radioRef():WxRadioButton {
+    private inline function get_radioRef():WxRadioButton {
         return cast _ref;
     }
 }

@@ -8,14 +8,14 @@ class StaticText extends Window {
         
         var textRef:WxStaticText = WxStaticText.createInstance();
         textRef.create(parent != null ? parent._ref : Window.nullWindowRef, id, text, Point.defaultPositionRef, Size.defaultSizeRef, style);
-        _ref = cast textRef;
+        _ref = textRef;
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // HELPERS
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     private var staticTextRef(get, null):WxStaticText;
-    private function get_staticTextRef():WxStaticText {
+    private inline function get_staticTextRef():WxStaticText {
         return cast _ref;
     }
 }

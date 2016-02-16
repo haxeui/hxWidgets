@@ -10,6 +10,6 @@ class StaticBitmap extends Window {
         
         var bitmapRef:WxStaticBitmap = WxStaticBitmap.createInstance();
         bitmapRef.create(parent != null ? parent._ref : Window.nullWindowRef, id, bitmap._ref);
-        _ref = cast bitmapRef;
+        _ref = bitmapRef;
     }
 }

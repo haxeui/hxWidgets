@@ -8,7 +8,7 @@ class Menu extends Window {
         super(null, -1);
         
         var menuRef:WxMenu = WxMenu.createInstance(title, style);
-        _ref = cast menuRef;
+        _ref = menuRef;
     }
     
     @:access(hx.widgets.MenuItem)
@@ -23,7 +23,7 @@ class Menu extends Window {
     // HELPERS
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     private var menuRef(get, null):WxMenu;
-    private function get_menuRef():WxMenu {
+    private inline function get_menuRef():WxMenu {
         return cast _ref;
     }
 }
