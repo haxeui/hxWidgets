@@ -7,7 +7,7 @@ class MenuBar extends Window {
         super(null, -1);
         if (create == true) {
             var menuBarRef:WxMenuBar = WxMenuBar.createInstance(style);
-            _ref = cast menuBarRef;
+            _ref = menuBarRef;
         }
     }
     
@@ -20,7 +20,7 @@ class MenuBar extends Window {
     // HELPERS
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     private var menuBarRef(get, null):WxMenuBar;
-    private function get_menuBarRef():WxMenuBar {
+    private inline function get_menuBarRef():WxMenuBar {
         return cast _ref;
     }
 }

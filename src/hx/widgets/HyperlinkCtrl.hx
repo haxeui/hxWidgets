@@ -13,6 +13,6 @@ class HyperlinkCtrl extends Window {
         
         var linkRef:WxHyperlinkCtrl = WxHyperlinkCtrl.createInstance();
         linkRef.create(parent != null ? parent._ref : Window.nullWindowRef, id, text, url, Point.defaultPositionRef, Size.defaultSizeRef, style);
-        _ref = cast linkRef;
+        _ref = linkRef;
     }
 }

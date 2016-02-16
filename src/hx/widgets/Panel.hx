@@ -9,6 +9,6 @@ class Panel extends Window {
         
         var panelRef:WxPanel = WxPanel.createInstance();
         panelRef.create(parent != null ? parent._ref : Window.nullWindowRef, id, Point.defaultPositionRef, Size.defaultSizeRef, style);
-        _ref = cast panelRef;
+        _ref = panelRef;
     }
 }

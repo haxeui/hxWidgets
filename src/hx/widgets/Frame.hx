@@ -11,7 +11,7 @@ class Frame extends Window {
         
         var frameRef:WxFrame = WxFrame.createInstance();
         frameRef.create(parent != null ? parent._ref : Window.nullWindowRef, id, title);
-        _ref = cast frameRef;
+        _ref = frameRef;
     }
     
     public function createStatusBar() {
@@ -42,7 +42,7 @@ class Frame extends Window {
     // HELPERS
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     private var frameRef(get, null):WxFrame;
-    private function get_frameRef():WxFrame {
+    private inline function get_frameRef():WxFrame {
         return cast _ref;
     }
 }

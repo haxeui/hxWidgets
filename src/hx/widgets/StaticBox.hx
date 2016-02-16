@@ -8,6 +8,6 @@ class StaticBox extends Window {
         
         var boxRef:WxStaticBox = WxStaticBox.createInstance();
         boxRef.create(parent != null ? parent._ref : Window.nullWindowRef, id, title);
-        _ref = cast boxRef;
+        _ref = boxRef;
     }
 }

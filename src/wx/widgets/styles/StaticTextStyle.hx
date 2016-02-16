@@ -1,4 +1,4 @@
-package hx.widgets.styles;
+package wx.widgets.styles;
 
 @:headerCode("#include <wx/stattext.h>")
 class StaticTextStyle {

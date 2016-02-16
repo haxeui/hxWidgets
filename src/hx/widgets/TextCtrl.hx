@@ -8,7 +8,7 @@ class TextCtrl extends Window {
         
         var textRef:WxTextCtrl = WxTextCtrl.createInstance();
         textRef.create(parent != null ? parent._ref : Window.nullWindowRef, id, text, Point.defaultPositionRef, Size.defaultSizeRef, style);
-        _ref = cast textRef;
+        _ref = textRef;
     }
     
     public function appendText(value:String) {
@@ -28,7 +28,7 @@ class TextCtrl extends Window {
     // HELPERS
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     private var textRef(get, null):WxTextCtrl;
-    private function get_textRef():WxTextCtrl {
+    private inline function get_textRef():WxTextCtrl {
         return cast _ref;
     }
 }
