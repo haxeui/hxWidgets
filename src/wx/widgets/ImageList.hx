@@ -2,7 +2,7 @@ package wx.widgets;
 
 @:include("wx/imaglist.h")
 @:unreflective
-@:native("wxImageList*")
+@:native("cpp::Reference<wxImageList>")
 extern class ImageList extends ImageListImpl {
     @:native("new wxImageList")     public static function createInstance():ImageList;
 }

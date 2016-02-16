@@ -2,7 +2,7 @@ package wx.widgets;
 
 @:include("wx/gauge.h")
 @:unreflective
-@:native("wxGauge*")
+@:native("cpp::Reference<wxGauge>")
 extern class Gauge extends GaugeImpl {
     @:native("new wxGauge")     public static function createInstance():Gauge;
 }

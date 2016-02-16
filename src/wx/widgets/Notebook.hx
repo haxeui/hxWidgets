@@ -4,7 +4,7 @@ import cpp.ConstCharStar;
 
 @:include("wx/notebook.h")
 @:unreflective
-@:native("wxNotebook*")
+@:native("cpp::Reference<wxNotebook>")
 extern class Notebook extends NotebookImpl {
     @:native("new wxNotebook")      public static function createInstance():Notebook;
 }

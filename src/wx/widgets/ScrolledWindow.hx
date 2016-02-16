@@ -2,7 +2,7 @@ package wx.widgets;
 
 @:include("wx/scrolwin.h")
 @:unreflective
-@:native("wxScrolledWindow*")
+@:native("cpp::Reference<wxScrolledWindow>")
 extern class ScrolledWindow extends ScrolledWindowImpl {
     @:native("new wxScrolledWindow")    public static function createInstance():ScrolledWindow;
 }

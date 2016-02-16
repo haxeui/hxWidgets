@@ -2,7 +2,7 @@ package wx.widgets;
 
 @:include("wx/slider.h")
 @:unreflective
-@:native("wxSlider*")
+@:native("cpp::Reference<wxSlider>")
 extern class Slider extends SliderImpl {
     @:native("new wxSlider")    public static function createInstance():Slider;
 }

@@ -2,7 +2,7 @@ package wx.widgets;
 
 @:include("wx/statbmp.h")
 @:unreflective
-@:native("wxStaticBitmap*")
+@:native("cpp::Reference<wxStaticBitmap>")
 extern class StaticBitmap extends StaticBitmapImpl {
     @:native("new wxStaticBitmap")      public static function createInstance():StaticBitmap;
 }

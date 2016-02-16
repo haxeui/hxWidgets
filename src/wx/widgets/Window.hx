@@ -7,7 +7,7 @@ import hx.widgets.List.WxWindowList;
 
 @:include("wx/window.h")
 @:unreflective
-@:native("wxWindow*")
+@:native("cpp::Reference<wxWindow>")
 extern class Window extends WindowImpl {
     @:native("new wxWindow")            public static function createInstance():Window;
 }
@@ -43,7 +43,13 @@ extern class WindowImpl extends EvtHandler {
 
 @:include("wx/window.h")
 @:unreflective
-@:native("wxWindow::ChildrenRepositioningGuard*")
-extern class ChildrenRepositioningGuard {
+@:native("cpp::Reference<wxWindow::ChildrenRepositioningGuard>")
+extern class ChildrenRepositioningGuard extends ChildrenRepositioningGuardImpl {
     @:native("new wxWindow::ChildrenRepositioningGuard") public static function createInstance(win:Window):ChildrenRepositioningGuard;
+}
+
+@:include("wx/window.h")
+@:unreflective
+@:native("wxWindow::ChildrenRepositioningGuard")
+extern class ChildrenRepositioningGuardImpl {
 }

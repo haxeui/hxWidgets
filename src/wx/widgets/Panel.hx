@@ -2,7 +2,7 @@ package wx.widgets;
 
 @:include("wx/panel.h")
 @:unreflective
-@:native("wxPanel*")
+@:native("cpp::Reference<wxPanel>")
 extern class Panel extends PanelImpl {
     @:native("new wxPanel")     public static function createInstance():Panel;
 }
