@@ -5,7 +5,7 @@ package wx.widgets;
 #undef RegisterClass
 ")
 @:unreflective
-@:native("wxApp*")
+@:native("cpp::Reference<wxApp>")
 extern class App extends AppImpl {
     @:native("new wxApp")               public static function createInstance():App;
     @:native("wxApp::SetInstance")      public static function setInstance(instance:App):Void;

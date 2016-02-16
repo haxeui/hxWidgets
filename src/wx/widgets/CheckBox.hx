@@ -4,7 +4,7 @@ import cpp.ConstCharStar;
 
 @:include("wx/checkbox.h")
 @:unreflective
-@:native("wxCheckBox*")
+@:native("cpp::Reference<wxCheckBox>")
 extern class CheckBox extends CheckBoxImpl {
     @:native("new wxCheckBox")      public static function createInstance():CheckBox;
 }

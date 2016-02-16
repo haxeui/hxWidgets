@@ -4,7 +4,7 @@ import cpp.ConstCharStar;
 
 @:include("wx/button.h")
 @:unreflective
-@:native("wxButton*")
+@:native("cpp::Reference<wxButton>")
 extern class Button extends ButtonImpl {
     @:native("new wxButton")    public static function createInstance():Button;
 }

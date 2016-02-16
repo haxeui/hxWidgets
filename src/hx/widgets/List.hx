@@ -4,7 +4,7 @@ import wx.widgets.Window in WxWindow;
 
 @:include("wx/list.h")
 @:unreflective
-@:native("wxWindowListNode*")
+@:native("wxWindowList::compatibility_iterator")
 extern class WxWindowListNodeRef {
     @:native("GetData")            public function getData():WxWindow;
 }

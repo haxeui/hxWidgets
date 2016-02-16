@@ -4,7 +4,7 @@ import cpp.ConstCharStar;
 
 @:include("wx/statbox.h")
 @:unreflective
-@:native("wxStaticBox*")
+@:native("cpp::Reference<wxStaticBox>")
 extern class StaticBox extends StaticBoxImpl {
     @:native("new wxStaticBox")     public static function createInstance():StaticBox;
 }

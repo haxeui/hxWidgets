@@ -4,7 +4,7 @@ import cpp.ConstCharStar;
 
 @:include("wx/frame.h")
 @:unreflective
-@:native("wxFrame*")
+@:native("cpp::Reference<wxFrame>")
 extern class Frame extends FrameImpl {
     @:native("new wxFrame")         public static function createInstance():Frame;
 }

@@ -4,7 +4,7 @@ import cpp.ConstCharStar;
 
 @:include("wx/textctrl.h")
 @:unreflective
-@:native("wxTextCtrl*")
+@:native("cpp::Reference<wxTextCtrl>")
 extern class TextCtrl extends TextCtrlImpl {
     @:native("new wxTextCtrl")      public static function createInstance():TextCtrl;
 }

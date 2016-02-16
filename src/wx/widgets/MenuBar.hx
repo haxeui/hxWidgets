@@ -4,7 +4,7 @@ import cpp.ConstCharStar;
 
 @:include("wx/menu.h")
 @:unreflective
-@:native("wxMenuBar*")
+@:native("cpp::Reference<wxMenuBar>")
 extern class MenuBar extends MenuBarImpl {
     @:native("new wxMenuBar")       public static function createInstance(style:Int = 0):MenuBar;
 }

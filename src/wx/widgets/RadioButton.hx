@@ -4,7 +4,7 @@ import cpp.ConstCharStar;
 
 @:include("wx/radiobut.h")
 @:unreflective
-@:native("wxRadioButton*")
+@:native("cpp::Reference<wxRadioButton>")
 extern class RadioButton extends RadioButtonImpl {
     @:native("new wxRadioButton")   public static function createInstance():RadioButton;
 }

@@ -4,7 +4,7 @@ import cpp.ConstCharStar;
 
 @:include("wx/hyperlink.h")
 @:unreflective
-@:native("wxHyperlinkCtrl*")
+@:native("cpp::Reference<wxHyperlinkCtrl>")
 extern class HyperlinkCtrl extends HyperlinkCtrlImpl {
     @:native("new wxHyperlinkCtrl")    public static function createInstance():HyperlinkCtrl;
 }

@@ -4,7 +4,7 @@ import cpp.ConstCharStar;
 
 @:include("wx/dcclient.h")
 @:unreflective
-@:native("wxClientDC*")
+@:native("cpp::Reference<wxClientDC>")
 extern class ClientDC extends ClientDCImpl {
     @:native("new wxClientDC")          public static function createInstance(window:Window):ClientDC;
 }
