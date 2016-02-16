@@ -1,12 +1,10 @@
 package hx.widgets;
 
+import wx.widgets.List.WindowList in WxWindowList;
 import wx.widgets.Point in WxPoint;
 import wx.widgets.Size in WxSize;
 import wx.widgets.Window in WxWindow;
 import wx.widgets.Window.ChildrenRepositioningGuard in WxChildrenRepositioningGuard;
-
-//TODO
-import hx.widgets.List.WxWindowList;
 
 class Window extends EvtHandler {
     public function new(parent:Window = null, id:Int = -1) {

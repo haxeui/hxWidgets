@@ -18,13 +18,11 @@ class PlatformInfo {
     }
     
     public function getArchName():String {
-        //~ return _ref.getArchName();
-        return "";
+        return _ref.getArchName();
     }
     
     public function getOperatingSystemFamilyName():String {
-        //~ return _ref.getOperatingSystemFamilyName();
-        return "";
+        return _ref.getOperatingSystemFamilyName();
     }
     
     public function getOperatingSystemId():Int {
@@ -32,7 +30,6 @@ class PlatformInfo {
     }
     
     public function getOperatingSystemIdName():String {
-        //~ return _ref.getOperatingSystemIdName();
-        return "";
+        return _ref.getOperatingSystemIdName();
     }
 }
