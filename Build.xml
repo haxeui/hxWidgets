@@ -66,8 +66,12 @@
     
     <section if="macos">
         <files id="haxe">
+            <!--
             <compilerflag value="-I/wxWidgets-3.0.2/build-release/lib/wx/include/osx_cocoa-unicode-3.0" />
             <compilerflag value="-I/wxWidgets-3.0.2/include" />
+            -->
+            <compilerflag value="-I/usr/local/lib/wx/include/osx_cocoa-unicode-3.0" />
+            <compilerflag value="-I/usr/local/include/wx-3.0" />
             <compilerflag value="-DWXUSINGDLL" />
             <compilerflag value="-D_FILE_OFFSET_BITS=64" />
             <compilerflag value="-D__WXOSX_COCOA__" />
@@ -90,7 +94,10 @@
         </files>
 
         <target id="haxe" tool="linker" toolid="exe">
+            <!--
             <flag value="-L/wxWidgets-3.0.2/build-release/lib" />
+            -->
+            <flag value="-L/usr/local/lib" />
             <flag value="-mmacosx-version-min=10.5" />
             <flag value="-DHXCPP_M64" />
             <flag value="-m64" />
