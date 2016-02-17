@@ -1,6 +1,8 @@
 import cpp.Lib;
+
 import cpp.Pointer;
 import hx.widgets.*;
+import hx.widgets.styles.*;
 
 class Main {
     private static var worker:ThreadWorker;
@@ -40,7 +42,7 @@ class Main {
         var menuBar:MenuBar = new MenuBar();
         var file:Menu = new Menu();
         menuBar.append(file, "&File");
-        var menuItem:MenuItem = new MenuItem(file, "Menu 1", hx.widgets.ItemKind.ITEM_CHECK);
+        var menuItem:MenuItem = new MenuItem(file, "Menu 1", ItemKind.ITEM_CHECK);
         file.append(menuItem).check(true);
         file.append(new MenuItem(file, "Menu 2"));
         
@@ -56,7 +58,11 @@ class Main {
         frame.getMenuBar().append(edit, "&Edit");
         
         frame.setSize(10, 10, 800, 600);
-        frame.bind(EventType.CLOSE_WINDOW, function(e:Event) frame.destroy()); //Safe window-closing
+        frame.bind(EventType.CLOSE_WINDOW, function(e:Event) {
+            timer.stop();
+            worker.stop();
+            frame.destroy();
+        }); //Safe window-closing
         
         frame.bind(EventType.MENU, function(e:Event) {
            trace("some menu event");
@@ -118,14 +124,14 @@ class Main {
             textctrl.move(10, 150);
             var workertextresult:TextCtrl = textctrl;
 
-            var textctrl:TextCtrl = new TextCtrl(frame, "Password 1", hx.widgets.styles.TextCtrlStyle.PASSWORD);
+            var textctrl:TextCtrl = new TextCtrl(frame, "Password 1", TextCtrlStyle.PASSWORD);
             textctrl.move(10, 180);            
 
-            var textctrl:TextCtrl = new TextCtrl(frame, "Text input 2", hx.widgets.styles.TextCtrlStyle.READONLY);
+            var textctrl:TextCtrl = new TextCtrl(frame, "Text input 2", TextCtrlStyle.READONLY);
             textctrl.move(130, 150); 
             var timertextresult:TextCtrl = textctrl;
             
-            var textctrl:TextCtrl = new TextCtrl(frame, null, hx.widgets.styles.TextCtrlStyle.MULTILINE | hx.widgets.styles.TextCtrlStyle.RICH);
+            var textctrl:TextCtrl = new TextCtrl(frame, null, TextCtrlStyle.MULTILINE | TextCtrlStyle.RICH);
             textctrl.setSize(130, 180, 100, 70);   
             textctrl.appendText("This is line 1\n");
             textctrl.appendText("This is line 2\n");
@@ -163,19 +169,14 @@ class Main {
 
             var slider:Slider = new Slider(frame);
             slider.setSize(220, 80, 100, 50);
-            slider.windowStyle = hx.widgets.styles.SliderStyle.AUTOTICKS
-                                | hx.widgets.styles.SliderStyle.VALUE_LABEL
-                                | hx.widgets.styles.SliderStyle.SELRANGE;
+            slider.windowStyle = SliderStyle.AUTOTICKS | SliderStyle.VALUE_LABEL | SliderStyle.SELRANGE;
             slider.refresh();
             slider.setSelection(25, 75);
             
-            var slider:Slider = new Slider(frame, 50, 0, 100, hx.widgets.styles.SliderStyle.VERTICAL);
+            var slider:Slider = new Slider(frame, 50, 0, 100, SliderStyle.VERTICAL);
             slider.setSize(320, 80, 50, 100);
             
-            var slider:Slider = new Slider(frame, 50, 0, 100, hx.widgets.styles.SliderStyle.VERTICAL 
-                                                            | hx.widgets.styles.SliderStyle.AUTOTICKS
-                                                            | hx.widgets.styles.SliderStyle.VALUE_LABEL
-                                                            | hx.widgets.styles.SliderStyle.SELRANGE);
+            var slider:Slider = new Slider(frame, 50, 0, 100, SliderStyle.VERTICAL | SliderStyle.AUTOTICKS | SliderStyle.VALUE_LABEL | SliderStyle.SELRANGE);
             //slider.move(350, 50);
             slider.setSize(360, 80, 60, 100);
             slider.selectionStart = 25;
@@ -185,7 +186,7 @@ class Main {
             var staticBmp:StaticBitmap = new StaticBitmap(frame, Bitmap.fromHaxeResource("slinky_tiny_test.bmp"));
             staticBmp.move(250, 150);
             
-            var scroller:ScrolledWindow = new ScrolledWindow(frame, hx.widgets.styles.WindowStyle.BORDER_THEME | hx.widgets.styles.WindowStyle.VSCROLL);
+            var scroller:ScrolledWindow = new ScrolledWindow(frame, WindowStyle.BORDER_THEME | WindowStyle.VSCROLL);
             scroller.setSize(430, 230, 150, 200);
             //scroller.backgroundColour = 0x0000FF;
             scroller.refresh();
