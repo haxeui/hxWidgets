@@ -43,5 +43,5 @@ install:
 
 script:
   # Use sample as indicator of bug 
-  - cd samples/00-Showcase/
+  - cd $TRAVIS_BUILD_DIR/samples/00-Showcase/
   - haxe build.hxml
