@@ -93,7 +93,9 @@
             <compilerflag value="-m64" />
             
             <compilerflag value="-std=c++11" />
+            <!--
             <compilerflag value="-stdlib=libc++" />
+            -->
         </files>
 
         <target id="haxe" tool="linker" toolid="exe">
