@@ -36,10 +36,10 @@ before_install:
   - cd ../../project
   - neko build.n clean
   - if [ "${TRAVIS_OS_NAME}" = "linux" ]; then
-    neko build.n linux-64;
-  elif [ "${TRAVIS_OS_NAME}" = "osx" ]; then
-    neko build.n;
-  fi
+      neko build.n linux-64;
+    elif [ "${TRAVIS_OS_NAME}" = "osx" ]; then
+      neko build.n;
+    fi
   - cd ../../..
 
 install:
