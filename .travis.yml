@@ -42,6 +42,6 @@ install:
   - haxelib dev hxWidgets $TRAVIS_BUILD_DIR
 
 script:
-  # Use sample as indicator of bug
+  # Use sample as indicator of bug 
   - cd samples/00-Showcase/
   - haxe build.hxml
