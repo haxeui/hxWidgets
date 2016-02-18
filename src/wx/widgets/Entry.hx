@@ -43,7 +43,7 @@ class Entry {
 			config.exitCode();
 
 			if (new EReg ("mac", "i").match (Sys.systemName ())) {
-				cflags += '\n<compilerflag value="--mmacosx-version-min=10.7" />\n<compilerflag value="-std=c++11" />\n<compilerflag value="-stdlib=libc++" />\n';
+				cflags += '\n<compilerflag value="-mmacosx-version-min=10.7" />\n<compilerflag value="-std=c++11" />\n<compilerflag value="-stdlib=libc++" />\n';
 			}
 
 			var config = new sys.io.Process("wx-config", ["--libs"]);
