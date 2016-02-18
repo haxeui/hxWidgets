@@ -42,10 +42,6 @@ class Entry {
 			}).join("\n");
 			config.exitCode();
 
-			if (new EReg ("mac", "i").match (Sys.systemName ())) {
-				cflags += '\n<compilerflag value="-mmacosx-version-min=10.7" />\n<compilerflag value="-std=c++11" />\n<compilerflag value="-stdlib=libc++" />\n';
-			}
-
 			var config = new sys.io.Process("wx-config", ["--libs"]);
 			var libs = config.stdout.readAll().toString().split("\n")[0].split(" ");
 			var link = [];
@@ -61,6 +57,11 @@ class Entry {
 				i++;
 			}
 			config.exitCode();
+			
+			if (new EReg ("mac", "i").match (Sys.systemName ())) {
+				cflags += '\n<compilerflag value="-mmacosx-version-min=10.7" />\n<compilerflag value="-std=c++11" />\n<compilerflag value="-stdlib=libc++" />\n';
+				link.push("-lc++");
+			}
 
 			_class.get().meta.add(":buildXml", [{ expr:EConst( CString( '<set name="MAC_USE_CURRENT_SDK" value="1" if="macos" /><set name="HXCPP_GCC" value="1" if="macos" /><set name="HXCPP_M64" value="1" if="macos" /><files id="haxe">$cflags</files>\n<target id="haxe" tool="linker" toolid="exe">${link.join("\n")}</target>' ) ), pos:_pos }], _pos );
         }
