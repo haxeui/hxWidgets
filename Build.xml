@@ -1,10 +1,6 @@
 <xml>
     <set name="MACHINE" value="x86" />
     <set name="MACHINE" value="x64" if="HXCPP_M64" />
- 
-    <set name="MAC_USE_CURRENT_SDK" value="1" if="macos" />
-    <set name="HXCPP_GCC" value="1" if="macos" />
-    <set name="HXCPP_M64" value="1" if="macos" />
     
 	<section if="windows">
         <set name="vc" value="vc80" if="MSVC14"/>
@@ -35,108 +31,4 @@
 			<lib name="${haxelib:hxWidgets}/../wxWidgets/windows/${vc}/${MACHINE}/lib/wxbase30u.lib" />
 		</target>
 	</section>
-
-	<section if="linux">
-		<files id="haxe">
-			<compilerflag value="-I/usr/lib64/wx/include/gtk2-unicode-3.0" />
-			<compilerflag value="-I/usr/include/wx-3.0" />
-			<compilerflag value="-D_FILE_OFFSET_BITS=64" />
-			<compilerflag value="-DwxDEBUG_LEVEL=0" />
-			<compilerflag value="-DWXUSINGDLL" />
-			<compilerflag value="-D__WXGTK__" />
-			<compilerflag value="-pthread" />
-		</files>
-
-		<target id="haxe" tool="linker" toolid="exe">
-			<compilerflag value="-L/usr/lib64" />
-			<lib name="-lwx_gtk2u_xrc-3.0" />
-            <!--
-			<lib name="-lwx_gtk2u_webview-3.0" />
-            -->
-			<lib name="-lwx_gtk2u_html-3.0" />
-			<lib name="-lwx_gtk2u_qa-3.0" />
-			<lib name="-lwx_gtk2u_adv-3.0" />
-			<lib name="-lwx_gtk2u_core-3.0" />
-			<lib name="-lwx_baseu_xml-3.0" />
-			<lib name="-lwx_baseu_net-3.0" />
-			<lib name="-lwx_baseu-3.0" />
-		</target>
-	</section>
-    
-    
-    <section if="macos">
-        <files id="haxe">
-            <!--
-            <compilerflag value="-I/wxWidgets-3.0.2/build-release/lib/wx/include/osx_cocoa-unicode-3.0" />
-            <compilerflag value="-I/wxWidgets-3.0.2/include" />
-            -->
-            <compilerflag value="-I/usr/local/lib/wx/include/osx_cocoa-unicode-3.0" />
-            <compilerflag value="-I/usr/local/include/wx-3.0" />
-            <compilerflag value="-DWXUSINGDLL" />
-            <compilerflag value="-D_FILE_OFFSET_BITS=64" />
-            <compilerflag value="-D__WXOSX_COCOA__" />
-            <compilerflag value="-Wall" />
-            <compilerflag value="-Wundef" />
-            <compilerflag value="-Wunused-parameter" />
-            <compilerflag value="-Wno-ctor-dtor-privacy" />
-            <compilerflag value="-Woverloaded-virtual" />
-            <compilerflag value="-Wno-deprecated-declarations" />
-            <compilerflag value="-DWX_PRECOMP" />
-            <compilerflag value="-O2" />
-            <compilerflag value="-fno-strict-aliasing" />
-            <compilerflag value="-fno-common" />
-            <compilerflag value="-fvisibility=hidden" />
-            <compilerflag value="-fvisibility-inlines-hidden" />
-            <flag value="-DHXCPP_M64" />
-            <flag value="-m64" />
-            <compilerflag value="-DHXCPP_M64" />
-            <compilerflag value="-m64" />
-            
-            <compilerflag value="-std=c++11" />
-            <compilerflag value="-stdlib=libc++" />
-        </files>
-
-        <target id="haxe" tool="linker" toolid="exe">
-            <!--
-            <flag value="-L/wxWidgets-3.0.2/build-release/lib" />
-            -->
-            <flag value="-L/usr/local/lib" />
-            <flag value="-mmacosx-version-min=10.5" />
-            <flag value="-DHXCPP_M64" />
-            <flag value="-m64" />
-            <compilerflag value="-DHXCPP_M64" />
-            <compilerflag value="-m64" />
-
-            <lib name="-lwx_osx_cocoau_core-3.0" />
-            <lib name="-lwx_baseu-3.0" />
-            <lib name="-lwxtiff-3.0" />
-            <lib name="-lwxjpeg-3.0" />
-            <lib name="-lwxpng-3.0" />
-            <lib name="-lwxregexu-3.0" />
-
-            <lib name="-framework" />
-            <lib name="IOKit" />
-            <lib name="-framework" />
-            <lib name="Carbon" />
-            <lib name="-framework" />
-            <lib name="Cocoa" />
-            <lib name="-framework" />
-            <lib name="System" />
-            <lib name="-framework" />
-            <lib name="AudioToolbox" />
-            <!--
-            <lib name="-framework" />
-            <lib name="QuickTime" />
-            -->
-            <lib name="-framework" />
-            <lib name="OpenGL" />
-            <lib name="-framework" />
-            <lib name="AGL" />
-            <lib name="-framework" />
-            <lib name="WebKit" />
-            <lib name="-lz" />
-            <lib name="-liconv" />
-            <lib name="-lpthread" />
-        </target>
-    </section>
 </xml>
