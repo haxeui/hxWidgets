@@ -60,6 +60,8 @@ class Entry {
 			
 			if (new EReg ("mac", "i").match (Sys.systemName ())) {
 				cflags += '\n<compilerflag value="-mmacosx-version-min=10.7" />\n<compilerflag value="-std=c++11" />\n<compilerflag value="-stdlib=libc++" />\n';
+				link.push("-std=c++11");
+				link.push("-stdlib=libc++");
 				link.push("-lc++");
 			}
 
