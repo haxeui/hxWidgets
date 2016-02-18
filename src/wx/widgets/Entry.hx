@@ -36,7 +36,7 @@ class Entry {
         if (new EReg("window", "i").match(Sys.systemName())) {
 			_class.get().meta.add(":buildXml", [{ expr:EConst( CString( "<include name=\"${haxelib:hxWidgets}/../Build.xml\" />" ) ), pos:_pos }], _pos );
 		} else {
-			var config = new sys.io.Process("wx-config", ["--cflags"]);
+			var config = new sys.io.Process("wx-config", ["--cxxflags"]);
 			var cflags = config.stdout.readAll().toString().split("\n")[0].split(" ").map(function (s:String) {
 				return '<compilerflag value="$s" />';
 			}).join("\n");

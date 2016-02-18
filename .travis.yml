@@ -27,7 +27,7 @@ before_install:
     fi
   
   # Print wx-config to know more
-  - wx-config --cflags
+  - wx-config --cxxflags
   - wx-config --libs
   
   # We need a git version of hxcpp for now
