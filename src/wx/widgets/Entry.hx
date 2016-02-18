@@ -62,7 +62,7 @@ class Entry {
 			}
 			config.exitCode();
 
-			_class.get().meta.add(":buildXml", [{ expr:EConst( CString( '<files id="haxe">$cflags</files>\n<target id="haxe" tool="linker" toolid="exe">${link.join("\n")}</target>' ) ), pos:_pos }], _pos );
+			_class.get().meta.add(":buildXml", [{ expr:EConst( CString( '<set name="MAC_USE_CURRENT_SDK" value="1" if="macos" /><set name="HXCPP_GCC" value="1" if="macos" /><set name="HXCPP_M64" value="1" if="macos" /><files id="haxe">$cflags</files>\n<target id="haxe" tool="linker" toolid="exe">${link.join("\n")}</target>' ) ), pos:_pos }], _pos );
         }
 
         return Context.getBuildFields();
