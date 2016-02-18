@@ -2,7 +2,7 @@ package wx.widgets;
 
 @:include("wx/menu.h")
 @:unreflective
-@:native("int")
+@:native("cpp::Reference<wxItemKind>")
 extern class ItemKind {
     @:native("wxITEM_SEPARATOR") public static var ITEM_SEPARATOR:ItemKind;
     @:native("wxITEM_NORMAL")    public static var ITEM_NORMAL:ItemKind;
