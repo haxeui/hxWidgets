@@ -11,7 +11,7 @@ extern class Gauge extends GaugeImpl {
 @:unreflective
 @:native("wxGauge")
 extern class GaugeImpl extends Control {
-    @:native("Create")          @:overload(function(parent:Window, id:Int, range:Int):Bool {})
+    @:native("Create")          @:overload(function(parent:Window, id:Int, range:Int, point:Point, size:Size, style:Int):Bool {})
     @:native("Create")          public override function create(parent:Window, id:Int, point:Point, size:Size, style:Int):Bool;
     
     @:native("SetValue")        public function setValue(value:Int):Void;

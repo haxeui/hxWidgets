@@ -14,4 +14,5 @@ extern class Control extends ControlImpl {
 @:native("wxControl")
 extern class ControlImpl extends Window {
     @:native("SetLabel")                public function setLabel(label:ConstCharStar):Void;
+    @:native("GetLabel")                public function getLabel():ConstCharStar;
 }
