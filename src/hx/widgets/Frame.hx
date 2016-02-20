@@ -1,17 +1,24 @@
 package hx.widgets;
 
+import hx.widgets.styles.FrameStyle;
 import wx.widgets.Frame in WxFrame;
 import wx.widgets.MenuBar in WxMenuBar;
 
 class Frame extends Window {
     private var _hasStatusBar:Bool;
     
-    public function new(parent:Window, title:String, id:Int = -1) {
-        super(parent, id);
+    public function new(parent:Window, title:String, style:Int = 0, id:Int = -1) {
+        if (style == 0) {
+            style = FrameStyle.DEFAULT_FRAME_STYLE;
+        }
         
-        var frameRef:WxFrame = WxFrame.createInstance();
-        frameRef.create(parent != null ? parent._ref : Window.nullWindowRef, id, title);
-        _ref = frameRef;
+        if (_ref == null) {
+            var frameRef:WxFrame = WxFrame.createInstance();
+            frameRef.create(parent != null ? parent._ref : Window.nullWindowRef, id, title, Point.defaultPositionRef, Size.defaultSizeRef, style);
+            _ref = frameRef;
+        }
+        
+        super(parent, id);
     }
     
     public function createStatusBar() {

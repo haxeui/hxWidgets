@@ -12,6 +12,6 @@ extern class HyperlinkCtrl extends HyperlinkCtrlImpl {
 @:include("wx/hyperlink.h")
 @:unreflective
 @:native("wxHyperlinkCtrl")
-extern class HyperlinkCtrlImpl extends Window {
+extern class HyperlinkCtrlImpl extends Control {
     @:native("Create")                  public function create(parent:Window, id:Int, text:ConstCharStar, url:ConstCharStar, point:Point, size:Size, style:Int):Bool;
 }

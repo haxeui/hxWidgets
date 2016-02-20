@@ -3,17 +3,19 @@ package hx.widgets;
 import hx.widgets.styles.SliderStyle;
 import wx.widgets.Slider in WxSlider;
 
-class Slider extends Window {
-    public function new(parent:Window, value:Int = 0, min:Int = 0, max:Int = 100, style:Int = -1, id:Int = -1) {
-        super(parent, id);
-
-        if (style == -1) {
+class Slider extends Control {
+    public function new(parent:Window, value:Int = 0, min:Int = 0, max:Int = 100, style:Int = 0, id:Int = -1) {
+        if (style == 0) {
             style = SliderStyle.DEFAULT;
         }
+
+        if (_ref == null) {
+            var sliderRef:WxSlider = WxSlider.createInstance();
+            sliderRef.create(parent != null ? parent._ref : Window.nullWindowRef, id, value, min, max, Point.defaultPositionRef, Size.defaultSizeRef, style);
+            _ref = sliderRef;
+        }
         
-        var sliderRef:WxSlider = WxSlider.createInstance();
-        sliderRef.create(parent != null ? parent._ref : Window.nullWindowRef, id, value, min, max, Point.defaultPositionRef, Size.defaultSizeRef, style);
-        _ref = sliderRef;
+        super(parent, id);
     }
     
     public var value(get, set):Int;

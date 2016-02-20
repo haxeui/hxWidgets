@@ -2,13 +2,15 @@ package hx.widgets;
 
 import wx.widgets.Gauge in WxGauge;
 
-class Gauge extends Window {
+class Gauge extends Control {
     public function new(parent:Window, range:Int = 100, id:Int = -1) {
-        super(parent, id);
+        if (_ref == null) {
+            var guageRef:WxGauge = WxGauge.createInstance();
+            guageRef.create(parent != null ? parent._ref : Window.nullWindowRef, id, range);
+            _ref = guageRef;
+        }
         
-        var guageRef:WxGauge = WxGauge.createInstance();
-        guageRef.create(parent != null ? parent._ref : Window.nullWindowRef, id, range);
-        _ref = guageRef;
+        super(parent, id);
     }
     
     public var value(get, set):Int;

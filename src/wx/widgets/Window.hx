@@ -14,6 +14,8 @@ extern class Window extends WindowImpl {
 @:unreflective
 @:native("wxWindow")
 extern class WindowImpl extends EvtHandler {
+    @:native("Create")                  public function create(parent:Window, id:Int, point:Point, size:Size, style:Int):Bool;
+    
     @:native("Show")                    public function show(value:Bool):Void;
     @:native("Close")                   public function close(force:Bool):Bool;
     @:native("Destroy")                 public function destroy():Bool;
@@ -36,7 +38,6 @@ extern class WindowImpl extends EvtHandler {
     @:native("GetId")                   public function getId():Int;
     @:native("SetId")                   public function setId(id:Int):Void;
     @:native("GetChildren")             public function getChildren():WindowList;
-    @:native("SetLabel")                public function setLabel(label:ConstCharStar):Void;
 }
 
 @:include("wx/window.h")

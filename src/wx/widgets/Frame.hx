@@ -13,7 +13,9 @@ extern class Frame extends FrameImpl {
 @:unreflective
 @:native("wxFrame")
 extern class FrameImpl extends Window {
-    @:native("Create")              public function create(parent:Window, id:Int, title:ConstCharStar):Bool;
+    @:native("Create")              @:overload(function(parent:Window, id:Int, label:ConstCharStar, point:Point, size:Size, style:Int):Bool {})
+    @:native("Create")              public override function create(parent:Window, id:Int, point:Point, size:Size, style:Int):Bool;
+    
     @:native("CreateStatusBar")     public function createStatusBar():Void;
     @:native("SetStatusText")       public function setStatusText(text:ConstCharStar):Void;
     @:native("GetMenuBar")          public function getMenuBar():MenuBar;

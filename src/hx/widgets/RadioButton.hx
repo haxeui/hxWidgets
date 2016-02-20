@@ -2,13 +2,15 @@ package hx.widgets;
 
 import wx.widgets.RadioButton in WxRadioButton;
 
-class RadioButton extends Window {
-    public function new(parent:Window, title:String, style:Int = 0, id:Int = -1)  {
-        super(parent, id);
+class RadioButton extends Control {
+    public function new(parent:Window, label:String, style:Int = 0, id:Int = -1)  {
+        if (_ref == null) {       
+            var radioRef:WxRadioButton = WxRadioButton.createInstance();
+            radioRef.create(parent != null ? parent._ref : Window.nullWindowRef, id, label, Point.defaultPositionRef, Size.defaultSizeRef, style);
+            _ref = radioRef;
+        }
         
-        var radioRef:WxRadioButton = WxRadioButton.createInstance();
-        radioRef.create(parent != null ? parent._ref : Window.nullWindowRef, id, title, Point.defaultPositionRef, Size.defaultSizeRef, style);
-        _ref = radioRef;
+        super(parent, id);
     }
     
     public var value(get, set):Bool;

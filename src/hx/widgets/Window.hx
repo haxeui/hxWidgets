@@ -114,10 +114,6 @@ class Window extends EvtHandler {
         return list;
     }
     
-    public function setLabel(label:String) {
-        _ref.setLabel(label);
-    }
-    
     public function getClientSize() {
         var ref:WxSize = _ref.getClientSize();
         return new Size(ref.getWidth(), ref.getHeight());

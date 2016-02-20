@@ -10,6 +10,7 @@ extern class StaticBitmap extends StaticBitmapImpl {
 @:include("wx/statbmp.h")
 @:unreflective
 @:native("wxStaticBitmap")
-extern class StaticBitmapImpl extends Window {
-    @:native("Create")                  public function create(parent:Window, id:Int, bitmap:Bitmap):Bool;
+extern class StaticBitmapImpl extends Control {
+    @:native("Create")                  @:overload(function(parent:Window, id:Int, bitmap:Bitmap):Bool {})
+    @:native("Create")                  public override function create(parent:Window, id:Int, point:Point, size:Size, style:Int):Bool;
 }

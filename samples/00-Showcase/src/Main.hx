@@ -24,7 +24,7 @@ class Main {
         trace("Operating System Id: " + platform.getOperatingSystemId());
         
         
-        var frame:Frame = new Frame(null, "hxWidgets", 1001);
+        var frame:Frame = new Frame(null, "hxWidgets");
         timer = new Timer(frame, 100);
         
         //frame.setStatusText("Status: OK");
@@ -32,18 +32,12 @@ class Main {
             frame.backgroundColour = 0xFFFFFF;
         }
         frame.show(true);
-        /*
-        frame.x = 20;
-        frame.y = 40;
-        frame.width = 400;
-        frame.height = 200;
-        */
         
         var menuBar:MenuBar = new MenuBar();
         var file:Menu = new Menu();
         menuBar.append(file, "&File");
         var menuItem:MenuItem = new MenuItem(file, "Menu 1", ItemKind.ITEM_CHECK);
-        file.append(menuItem).check(true);
+        file.append(menuItem);// .check(true);
         file.append(new MenuItem(file, "Menu 2"));
         
         var menuItem:MenuItem = new MenuItem(file, "Menu 3");
@@ -73,7 +67,7 @@ class Main {
         
         
             // create a button
-            var button:Button = new Button(frame, "Button 1", 1002);
+            var button:Button = new Button(frame, "Button 1", 0, 1002);
             button.setBitmap(Bitmap.fromHaxeResource("inbox.png"));
             button.setSize(10, 10, 100, 100);
             button.bind(EventType.BUTTON, function(e:Event) {
@@ -86,7 +80,7 @@ class Main {
             trace("child count: " + frame.children.length);
             trace("first child id: "  + frame.children[0].getId());
             // lets make sure its a functioning object
-            frame.children[0].setLabel("New Label");
+            //frame.children[0].setLabel("New Label");
 
             // create a chekboxes
             var checkbox:CheckBox = new CheckBox(frame, "Check 1");

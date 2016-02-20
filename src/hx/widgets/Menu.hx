@@ -5,10 +5,12 @@ import wx.widgets.MenuItem in WxMenuItem;
 
 class Menu extends Window {
     public function new(title:String = null, style:Int = 0) {
-        super(null, -1);
+        if (_ref == null) {
+            var menuRef:WxMenu = WxMenu.createInstance(title, style);
+            _ref = menuRef;
+        }
         
-        var menuRef:WxMenu = WxMenu.createInstance(title, style);
-        _ref = menuRef;
+        super(null, -1);
     }
     
     @:access(hx.widgets.MenuItem)

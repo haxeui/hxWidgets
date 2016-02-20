@@ -2,13 +2,15 @@ package hx.widgets;
 
 import wx.widgets.StaticText in WxStaticText;
 
-class StaticText extends Window {
+class StaticText extends Control {
     public function new(parent:Window, text:String = null, style:Int = 0, id:Int = -1) {
-        super(parent, id);
+        if (_ref == null) {        
+            var textRef:WxStaticText = WxStaticText.createInstance();
+            textRef.create(parent != null ? parent._ref : Window.nullWindowRef, id, text, Point.defaultPositionRef, Size.defaultSizeRef, style);
+            _ref = textRef;
+        }
         
-        var textRef:WxStaticText = WxStaticText.createInstance();
-        textRef.create(parent != null ? parent._ref : Window.nullWindowRef, id, text, Point.defaultPositionRef, Size.defaultSizeRef, style);
-        _ref = textRef;
+        super(parent, id);
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

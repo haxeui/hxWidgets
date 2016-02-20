@@ -2,13 +2,15 @@ package hx.widgets;
 
 import wx.widgets.Notebook in WxNotebook;
 
-class Notebook extends Window {
-    public function new(parent:Window, id:Int = -1) {
-        super(parent, id);
+class Notebook extends Control {
+    public function new(parent:Window, style:Int = 0, id:Int = -1) {
+        if (_ref == null) {
+            var notebookRef:WxNotebook = WxNotebook.createInstance();
+            notebookRef.create(parent != null ? parent._ref : Window.nullWindowRef, id, Point.defaultPositionRef, Size.defaultSizeRef, style);
+            _ref = notebookRef;
+        }
         
-        var notebookRef:WxNotebook = WxNotebook.createInstance();
-        notebookRef.create(parent != null ? parent._ref : Window.nullWindowRef, id);
-        _ref = notebookRef;
+        super(parent, id);
     }
     
     public function addPage(page:Window, text:String, select:Bool = false, imageId:Int = -1):Bool {

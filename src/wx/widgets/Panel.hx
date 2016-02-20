@@ -11,5 +11,4 @@ extern class Panel extends PanelImpl {
 @:unreflective
 @:native("wxPanel")
 extern class PanelImpl extends Window {
-    @:native("Create")          public function create(parent:Window, id:Int, point:Point, size:Size, style:Int):Bool;
 }

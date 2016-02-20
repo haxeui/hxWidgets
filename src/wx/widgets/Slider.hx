@@ -10,8 +10,10 @@ extern class Slider extends SliderImpl {
 @:include("wx/slider.h")
 @:unreflective
 @:native("wxSlider")
-extern class SliderImpl extends Window {
-    @:native("Create")          public function create(parent:Window, id:Int, value:Int, minValue:Int, maxValue:Int, point:Point, size:Size, style:Int):Bool;
+extern class SliderImpl extends Control {
+    @:native("Create")          @:overload(function(parent:Window, id:Int, value:Int, minValue:Int, maxValue:Int, point:Point, size:Size, style:Int):Bool {})
+    @:native("Create")          public override function create(parent:Window, id:Int, point:Point, size:Size, style:Int):Bool;
+    
     @:native("SetValue")        public function setValue(value:Int):Void;
     @:native("GetValue")        public function getValue():Int;
     @:native("SetMin")          public function setMin(value:Int):Void;

@@ -2,13 +2,15 @@ package hx.widgets;
 
 import wx.widgets.TextCtrl in WxTextCtrl;
 
-class TextCtrl extends Window {
+class TextCtrl extends Control {
     public function new(parent:Window, text:String = null, style:Int = 0, id:Int = -1) {
-        super(parent, id);
+        if (_ref == null) {
+            var textRef:WxTextCtrl = WxTextCtrl.createInstance();
+            textRef.create(parent != null ? parent._ref : Window.nullWindowRef, id, text, Point.defaultPositionRef, Size.defaultSizeRef, style);
+            _ref = textRef;
+        }
         
-        var textRef:WxTextCtrl = WxTextCtrl.createInstance();
-        textRef.create(parent != null ? parent._ref : Window.nullWindowRef, id, text, Point.defaultPositionRef, Size.defaultSizeRef, style);
-        _ref = textRef;
+        super(parent, id);
     }
     
     public function appendText(value:String) {

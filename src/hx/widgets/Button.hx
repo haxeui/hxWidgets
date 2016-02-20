@@ -2,13 +2,15 @@ package hx.widgets;
 
 import wx.widgets.Button in WxButton;
 
-class Button extends Window {
-    public function new(parent:Window, label:String, id:Int = -1) {
-        super(parent, id);
+class Button extends Control {
+    public function new(parent:Window, label:String, style:Int = 0, id:Int = -1) {
+        if (_ref == null) {
+            var buttonRef:WxButton = WxButton.createInstance();
+            buttonRef.create(parent != null ? parent._ref : Window.nullWindowRef, id, label, Point.defaultPositionRef, Size.defaultSizeRef, style);
+            _ref = buttonRef;
+        }
         
-        var buttonRef:WxButton = WxButton.createInstance();
-        buttonRef.create(parent != null ? parent._ref : Window.nullWindowRef, id, label);
-        _ref = buttonRef;
+        super(parent, id);
     }
     
     @:access(hx.widgets.Bitmap)

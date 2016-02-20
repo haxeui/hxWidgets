@@ -12,6 +12,7 @@ extern class StaticBox extends StaticBoxImpl {
 @:include("wx/statbox.h")
 @:unreflective
 @:native("wxStaticBox")
-extern class StaticBoxImpl extends Window {
-    @:native("Create")              public function create(parent:Window, id:Int, title:ConstCharStar):Bool;
+extern class StaticBoxImpl extends Control {
+    @:native("Create")          @:overload(function(parent:Window, id:Int, title:ConstCharStar):Bool {})
+    @:native("Create")          public override function create(parent:Window, id:Int, point:Point, size:Size, style:Int):Bool;
 }

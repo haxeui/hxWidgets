@@ -12,8 +12,10 @@ extern class RadioButton extends RadioButtonImpl {
 @:include("wx/radiobut.h")
 @:unreflective
 @:native("wxRadioButton")
-extern class RadioButtonImpl extends Window {
-    @:native("Create")              public function create(parent:Window, id:Int, title:ConstCharStar, point:Point, size:Size, style:Int):Bool;
+extern class RadioButtonImpl extends Control {
+    @:native("Create")              @:overload(function(parent:Window, id:Int, label:ConstCharStar, point:Point, size:Size, style:Int):Bool {})
+    @:native("Create")              public override function create(parent:Window, id:Int, point:Point, size:Size, style:Int):Bool;
+    
     @:native("SetValue")            public function setValue(value:Bool):Void;
     @:native("GetValue")            public function getValue():Bool;
 }

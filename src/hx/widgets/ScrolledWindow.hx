@@ -4,11 +4,13 @@ import wx.widgets.ScrolledWindow in WxScrolledWindow;
 
 class ScrolledWindow extends Window {
     public function new(parent:Window, style:Int = 0, id:Int = -1) {
-        super(parent, id);
+        if (_ref == null) {
+            var scrolledWindowRef:WxScrolledWindow = WxScrolledWindow.createInstance();
+            scrolledWindowRef.create(parent != null ? parent._ref : Window.nullWindowRef, id, Point.defaultPositionRef, Size.defaultSizeRef, style);
+            _ref = scrolledWindowRef;
+        }
         
-        var scrolledWindowRef:WxScrolledWindow = WxScrolledWindow.createInstance();
-        scrolledWindowRef.create(parent != null ? parent._ref : Window.nullWindowRef, id, Point.defaultPositionRef, Size.defaultSizeRef, style);
-        _ref = scrolledWindowRef;
+        super(parent, id);
     }
     
     public function setScrollbars(pixelsPerUnitX:Int, pixelsPerUnitY:Int, noUnitsX:Int, noUnitsY:Int) {

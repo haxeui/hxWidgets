@@ -12,8 +12,7 @@ extern class Notebook extends NotebookImpl {
 @:include("wx/notebook.h")
 @:unreflective
 @:native("wxNotebook")
-extern class NotebookImpl extends Window {
-    @:native("Create")              public function create(parent:Window, id:Int):Bool;
+extern class NotebookImpl extends Control {
     @:native("AddPage")             public function addPage(page:Window, text:ConstCharStar, select:Bool, imageId:Int):Bool;
     @:native("SetImageList")        public function setImageList(imageList:ImageList):Void;
     @:native("SetSelection")        public function setSelection(page:Int):Void;
