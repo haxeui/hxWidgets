@@ -24,6 +24,10 @@ extern class WindowImpl extends EvtHandler {
     @:native("SetSize")                 public function setSize(x:Int, y:Int, width:Int, height:Int):Void;
     @:native("SetClientSize")           public function setClientSize(width:Int, height:Int):Void;
     @:native("GetClientSize")           public function getClientSize():Size;
+    @:native("GetBestSize")             public function getBestSize():Size;
+    @:native("GetMaxSize")              public function getMaxSize():Size;
+    @:native("GetMinSize")              public function getMinSize():Size;
+    @:native("GetMinClientSize")        public function getMinClientSize():Size;
     @:native("Move")                    public function move(x:Int, y:Int):Void;
     @:native("FindWindow")              public function findWindowById(id:Int):Window;
     @:native("GetBackgroundColour")     public function getBackgroundColour():Int;

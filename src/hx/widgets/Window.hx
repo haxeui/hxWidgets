@@ -119,6 +119,26 @@ class Window extends EvtHandler {
         return new Size(ref.getWidth(), ref.getHeight());
     }
     
+    public function getBestSize() {
+        var ref:WxSize = _ref.getBestSize();
+        return new Size(ref.getWidth(), ref.getHeight());
+    }
+    
+    public function getMaxSize() {
+        var ref:WxSize = _ref.getMaxSize();
+        return new Size(ref.getWidth(), ref.getHeight());
+    }
+    
+    public function getMinSize() {
+        var ref:WxSize = _ref.getMinSize();
+        return new Size(ref.getWidth(), ref.getHeight());
+    }
+    
+    public function getMinClientSize() {
+        var ref:WxSize = _ref.getMinClientSize();
+        return new Size(ref.getWidth(), ref.getHeight());
+    }
+    
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // HELPERS
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
