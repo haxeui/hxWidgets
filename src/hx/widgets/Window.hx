@@ -126,8 +126,8 @@ class Window extends EvtHandler {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // STATIC HELPERS
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    private static var nullWindowRef(get, null):WxWindow;
-    private static inline function get_nullWindowRef():WxWindow {
+    public static var nullWindowRef(get, null):WxWindow;
+    public static inline function get_nullWindowRef():WxWindow {
         return cast 0;
     }
     
