@@ -2,7 +2,6 @@ package hx.widgets;
 
 import wx.widgets.SystemSettings in WxSystemSettings;
 
-@:headerCode("#include <wx/settings.h>")
 class SystemSettings {
     private var _ref:WxSystemSettings;
 
