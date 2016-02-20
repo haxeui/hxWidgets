@@ -4,8 +4,8 @@ import hx.widgets.styles.SliderStyle;
 import wx.widgets.Slider in WxSlider;
 
 class Slider extends Control {
-    public function new(parent:Window, value:Int = 0, min:Int = 0, max:Int = 100, style:Int = 0, id:Int = -1) {
-        if (style == 0) {
+    public function new(parent:Window, value:Int = 0, min:Int = 0, max:Int = 100, style:Int = -1, id:Int = -1) {
+        if (style == -1) {
             style = SliderStyle.DEFAULT;
         }
 
