@@ -23,8 +23,7 @@ class Main {
         trace("Operating System Id Name: " + platform.getOperatingSystemIdName());
         trace("Operating System Id: " + platform.getOperatingSystemId());
         
-        var settings:SystemSettings = new SystemSettings();
-        trace("Screen X: " + settings.getMetric(SystemMetric.SCREEN_X));
+        trace("Screen X: " + SystemSettings.getMetric(SystemMetric.SCREEN_X));
         
         var frame:Frame = new Frame(null, "hxWidgets");
         timer = new Timer(frame, 100);
