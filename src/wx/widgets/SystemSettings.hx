@@ -12,5 +12,4 @@ extern class SystemSettings extends SystemSettingsImpl {
 @:native("wxSystemSettings")
 extern class SystemSettingsImpl {
     @:native("GetMetric")               public function getMetric(metric:SystemMetric, window:Window):Int;
-    @:native("GetMetric")               public function getMetric2(metric:Dynamic, window:Window):Int;
 }
