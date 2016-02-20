@@ -150,6 +150,11 @@ class Main {
             var gauge:Gauge = new Gauge(frame);
             gauge.move(120, 50);
             gauge.value = 50;
+
+            var gauge:Gauge = new Gauge(frame, 100, GaugeStyle.VERTICAL);
+            gauge.move(620, 50);
+            gauge.value = 50;
+
             
             // create a slider
             var slider:Slider = new Slider(frame);
@@ -182,7 +187,7 @@ class Main {
             staticBmp.move(250, 150);
             
             var scroller:ScrolledWindow = new ScrolledWindow(frame, WindowStyle.BORDER_THEME | WindowStyle.VSCROLL);
-            scroller.setSize(430, 230, 150, 200);
+            scroller.setSize(430, 280, 150, 200);
             //scroller.backgroundColour = 0x0000FF;
             scroller.refresh();
             for (a in 0...20) {
@@ -209,7 +214,7 @@ class Main {
             
             var panel:Panel = new Panel(frame);
             //panel.backgroundColour = 0xFF0000;
-            panel.setSize(590, 230, 150, 100);
+            panel.setSize(590, 280, 150, 100);
             //panel.refresh();
             var dc:ClientDC = new ClientDC(panel);
             dc.clear();
