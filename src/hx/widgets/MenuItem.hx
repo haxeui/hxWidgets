@@ -11,14 +11,17 @@ class MenuItem {
             if (kind == null) {
                 kind = ItemKind.ITEM_NORMAL;
             }
-            _ref = WxMenuItem.createInstance(parent.menuRef, id, text, "", kind);
+            trace(ItemKind.ITEM_CHECK);
+            _ref = WxMenuItem.createInstance(parent.menuRef, id, text, "");
         }
     }
     
     public function check(check:Bool = true) {
+        /*
         if (_ref != null) {
             _ref.check(check);
         }
+        */
     }
     
     @:access(hx.widgets.Bitmap)
