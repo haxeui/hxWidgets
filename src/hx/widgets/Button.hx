@@ -1,5 +1,6 @@
 package hx.widgets;
 
+import cpp.Pointer;
 import wx.widgets.Button in WxButton;
 
 class Button extends Control {
@@ -16,6 +17,12 @@ class Button extends Control {
     @:access(hx.widgets.Bitmap)
     public function setBitmap(bitmap:Bitmap) {
         buttonRef.setBitmap(bitmap._ref);
+    }
+    
+    public function setBitmapPosition(dir:Direction) {
+        buttonRef.setBitmapPosition(untyped __cpp__("((wxDirection)dir)"));
+        //buttonRef.setBitmapPosition(dir);
+        trace(dir);
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

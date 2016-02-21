@@ -13,8 +13,9 @@ extern class Button extends ButtonImpl {
 @:unreflective
 @:native("wxButton")
 extern class ButtonImpl extends Control {
-    @:native("Create")              @:overload(function(parent:Window, id:Int, label:ConstCharStar, point:Point, size:Size, style:Int):Bool {})
-    @:native("Create")              public override function create(parent:Window, id:Int, point:Point, size:Size, style:Int):Bool;
+    @:native("Create")                  @:overload(function(parent:Window, id:Int, label:ConstCharStar, point:Point, size:Size, style:Int):Bool {})
+    @:native("Create")                  public override function create(parent:Window, id:Int, point:Point, size:Size, style:Int):Bool;
     
-    @:native("SetBitmap")       public function setBitmap(bitmap:Bitmap):Void;
+    @:native("SetBitmap")               public function setBitmap(bitmap:Bitmap):Void;
+    @:native("SetBitmapPosition")       public function setBitmapPosition(dir:Direction):Void;
 }
