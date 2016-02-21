@@ -21,8 +21,6 @@ class Button extends Control {
     
     public function setBitmapPosition(dir:Direction) {
         buttonRef.setBitmapPosition(untyped __cpp__("((wxDirection)dir)"));
-        //buttonRef.setBitmapPosition(dir);
-        trace(dir);
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
