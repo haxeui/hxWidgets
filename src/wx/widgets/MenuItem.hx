@@ -6,7 +6,7 @@ import cpp.ConstCharStar;
 @:unreflective
 @:native("cpp::Reference<wxMenuItem>")
 extern class MenuItem extends MenuItemImpl {
-    @:native("new wxMenuItem")      public static function createInstance(parent:Menu, id:Int = 0, text:ConstCharStar, helpString:ConstCharStar, kind:ItemKind):MenuItem;
+    @:native("new wxMenuItem")      public static function createInstance(parent:Menu, id:Int = 0, text:ConstCharStar, helpString:ConstCharStar):MenuItem;
 }
 
 @:include("wx/menu.h")
