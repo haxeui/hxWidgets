@@ -28,6 +28,10 @@ class Bitmap {
     }
     
     public static function fromHaxeBytes(bytes:Bytes):Bitmap {
+        if (bytes == null) {
+            return null;
+        }
+
         var image:Image = new Image(bytes);
         return new Bitmap(image);
     }
