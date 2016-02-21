@@ -38,7 +38,7 @@ class Main {
         var file:Menu = new Menu();
         menuBar.append(file, "&File");
         var menuItem:MenuItem = new MenuItem(file, "Menu 1", ItemKind.ITEM_CHECK);
-        file.append(menuItem);// .check(true);
+        file.append(menuItem).check(true);
         file.append(new MenuItem(file, "Menu 2"));
         
         var menuItem:MenuItem = new MenuItem(file, "Menu 3");
@@ -70,6 +70,7 @@ class Main {
             // create a button
             var button:Button = new Button(frame, "Button 1", 0, 1002);
             button.setBitmap(Bitmap.fromHaxeResource("inbox.png"));
+            button.setBitmapPosition(Direction.RIGHT);
             button.setSize(10, 10, 100, 100);
             button.bind(EventType.BUTTON, function(e:Event) {
                 trace("click!");
