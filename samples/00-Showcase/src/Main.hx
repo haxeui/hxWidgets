@@ -25,6 +25,8 @@ class Main {
         
         trace("Screen X: " + SystemSettings.getMetric(SystemMetric.SCREEN_X));
         
+        SystemOptions.setOption("msw.window.no-clip-children", 1);
+        
         var frame:Frame = new Frame(null, "hxWidgets");
         timer = new Timer(frame, 100);
         
