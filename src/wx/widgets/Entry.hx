@@ -65,7 +65,7 @@ class Entry {
 			}
 			config.exitCode();
 			
-			if (new EReg("mac", "i").match(Sys.systemName()) && (os.major >= 10 && os.minor >= 7)) {
+			if (new EReg("mac", "i").match(Sys.systemName()) && (os.major > 10 || (os.major == 10 && os.minor >= 7))) {
 				cflags += '\n<compilerflag value="-mmacosx-version-min=10.7" />\n<compilerflag value="-std=c++11" />\n<compilerflag value="-stdlib=libc++" />\n';
 				link.push('<compilerflag value="-std=c++11" />');
 				link.push('<compilerflag value="-stdlib=libc++" />');
