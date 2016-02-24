@@ -4,6 +4,10 @@ import cpp.Pointer;
 import hx.widgets.*;
 import hx.widgets.styles.*;
 
+/*
+Note: Images in buttons for ubuntu dont work until you run:
+gsettings set org.gnome.settings-daemon.plugins.xsettings overrides "{'Gtk/ButtonImages': <1>, 'Gtk/MenuImages': <1>}"
+*/
 class Main {
     private static var worker:ThreadWorker;
     private static var timer:Timer;
