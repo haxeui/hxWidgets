@@ -13,7 +13,9 @@ extern class Notebook extends NotebookImpl {
 @:unreflective
 @:native("wxNotebook")
 extern class NotebookImpl extends Control {
-    @:native("AddPage")             public function addPage(page:Window, text:ConstCharStar, select:Bool, imageId:Int):Bool;
-    @:native("SetImageList")        public function setImageList(imageList:ImageList):Void;
-    @:native("SetSelection")        public function setSelection(page:Int):Void;
+    @:native("AddPage")                 public function addPage(page:Window, text:ConstCharStar, select:Bool, imageId:Int):Bool;
+    @:native("GetPageCount")            public function getPageCount():Int;
+    @:native("SetImageList")            public function setImageList(imageList:ImageList):Void;
+    @:native("SetSelection")            public function setSelection(page:Int):Void;
+    @:native("CalcSizeFromPage")        public function calcSizeFromPage(pageSize:Size):Size;
 }
