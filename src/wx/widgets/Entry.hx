@@ -3,6 +3,12 @@ package wx.widgets;
 import haxe.macro.Expr;
 import haxe.macro.Context;
 
+typedef OSVersion = {
+    var major:Int;
+    var minor:Int;
+    @:optional var revision:Int;
+}
+
 #if !macro @:build(wx.widgets.Entry.wxconfig()) #end
 @:headerCode("
 #include <wx/wx.h>
@@ -33,6 +39,7 @@ class Entry {
         var _pos = Context.currentPos();
         var _class = Context.getLocalClass();
 
+        var os:OSVersion = getOSVersion();
         if (new EReg("window", "i").match(Sys.systemName())) {
 			_class.get().meta.add(":buildXml", [{ expr:EConst( CString( "<include name=\"${haxelib:hxWidgets}/../Build.xml\" />" ) ), pos:_pos }], _pos );
 		} else {
@@ -58,7 +65,7 @@ class Entry {
 			}
 			config.exitCode();
 			
-			if (new EReg ("mac", "i").match (Sys.systemName ())) {
+			if (new EReg("mac", "i").match(Sys.systemName()) && (os.major >= 10 && os.minor >= 7)) {
 				cflags += '\n<compilerflag value="-mmacosx-version-min=10.7" />\n<compilerflag value="-std=c++11" />\n<compilerflag value="-stdlib=libc++" />\n';
 				link.push('<compilerflag value="-std=c++11" />');
 				link.push('<compilerflag value="-stdlib=libc++" />');
@@ -69,5 +76,24 @@ class Entry {
         }
 
         return Context.getBuildFields();
+    }
+    
+    private static function getOSVersion():OSVersion {
+        var version:OSVersion = {
+            major: 0,
+            minor: 0,
+            revision: 0
+        };
+
+        if (new EReg ("mac", "i").match (Sys.systemName ())) {
+            var versionString:String = new sys.io.Process("sw_vers", ["-productVersion"]).stdout.readAll().toString();
+            var arr = versionString.split(".");
+            version = {
+                major: Std.parseInt(arr[0]),
+                minor: Std.parseInt(arr[1]),
+                revision: Std.parseInt(arr[2])
+            };
+        }
+        return version;
     }
 }
