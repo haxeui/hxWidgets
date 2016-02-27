@@ -38,6 +38,11 @@ class Notebook extends Control {
         return new Size(r.getWidth(), r.getHeight());
     }
     
+    @:access(hx.widgets.Size)
+    public function setPadding(width:Int, height:Int) {
+        var size:Size = new Size(width, height);
+        notebookRef.setPadding(size._ref);
+    }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // HELPERS

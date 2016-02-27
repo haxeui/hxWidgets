@@ -18,4 +18,5 @@ extern class NotebookImpl extends Control {
     @:native("SetImageList")            public function setImageList(imageList:ImageList):Void;
     @:native("SetSelection")            public function setSelection(page:Int):Void;
     @:native("CalcSizeFromPage")        public function calcSizeFromPage(pageSize:Size):Size;
+    @:native("SetPadding")              public function setPadding(padding:Size):Void;
 }
