@@ -251,7 +251,9 @@ class Main {
             var tabs:Notebook = new Notebook(frame);
             tabs.setImageList(imageList);
             tabs.setSize(10, 270, 400, 200);
-
+            tabs.bind(EventType.NOTEBOOK_PAGE_CHANGED, function(e) {
+               trace("Page changed"); 
+            });
             // create the panels and contents for the tab view
                 var panel1:Panel = new Panel(tabs);
                     var button = new Button(panel1, "Tab Button 1a");
