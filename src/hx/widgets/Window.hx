@@ -3,6 +3,7 @@ package hx.widgets;
 import wx.widgets.List.WindowList in WxWindowList;
 import wx.widgets.Point in WxPoint;
 import wx.widgets.Size in WxSize;
+import wx.widgets.Size.SizeImpl in WxSizeImpl;
 import wx.widgets.Window in WxWindow;
 import wx.widgets.Window.ChildrenRepositioningGuard in WxChildrenRepositioningGuard;
 
@@ -115,7 +116,7 @@ class Window extends EvtHandler {
     }
     
     public function getClientSize() {
-        var ref:WxSize = _ref.getClientSize();
+        var ref:WxSizeImpl = _ref.getClientSize();
         return new Size(ref.getWidth(), ref.getHeight());
     }
     

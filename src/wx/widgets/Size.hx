@@ -9,6 +9,7 @@ extern class Size extends SizeImpl {
 
 @:include("wx/gdicmn.h")
 @:unreflective
+@:structAccess
 @:native("wxSize")
 extern class SizeImpl {
     @:native("GetWidth")        public function getWidth():Int;

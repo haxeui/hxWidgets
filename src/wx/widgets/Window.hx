@@ -23,7 +23,7 @@ extern class WindowImpl extends EvtHandler {
     @:native("Refresh")                 public function refresh():Void;
     @:native("SetSize")                 public function setSize(x:Int, y:Int, width:Int, height:Int):Void;
     @:native("SetClientSize")           public function setClientSize(width:Int, height:Int):Void;
-    @:native("GetClientSize")           public function getClientSize():Size;
+    @:native("GetClientSize")           public function getClientSize():Size.SizeImpl;
     @:native("GetBestSize")             public function getBestSize():Size;
     @:native("GetMaxSize")              public function getMaxSize():Size;
     @:native("GetMinSize")              public function getMinSize():Size;
