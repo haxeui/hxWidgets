@@ -13,11 +13,12 @@ class Control extends Window {
         super(parent, id);
     }
     
-    public function setLabel(label:String) {
+    public var label(get, set):String;
+    private function set_label(label:String) {
         controlRef.setLabel(label);
+        return label;
     }
-    
-    public function getLabel():String {
+    private function get_label():String {
         return controlRef.getLabel();
     }
     

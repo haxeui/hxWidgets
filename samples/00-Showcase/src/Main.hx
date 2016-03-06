@@ -278,12 +278,12 @@ class Main {
         trace('Number of children in frame:' + frame.children.length);
 
         frame.bind(EventType.IDLE, function(e) {
-           workertextresult.setLabel("" + worker.count);
+           workertextresult.label = '${worker.count}';
            //tabs.setSelection(worker.count % 3);
         });
         
         frame.bind(EventType.TIMER, function(e) {
-           timertextresult.setLabel("" + worker.count);
+           timertextresult.label = '${worker.count}';
         });
         
         
