@@ -4,7 +4,7 @@ package wx.widgets;
 @:unreflective
 @:native("cpp::Reference<wxTimer>")
 extern class Timer extends TimerImpl {
-    @:native("new wxTimer")    public static function createInstance(owner:Window):Timer;
+    @:native("new wxTimer")    public static function createInstance(owner:Window, id:Int = -1):Timer;
 }
 
 @:include("wx/timer.h")

@@ -6,8 +6,8 @@ class Timer {
     private var _ref:WxTimer;
     
     @:access(hx.widgets.Window)
-    public function new(window:Window, milliseconds:Int = -1, oneShot:Bool = false) {
-        _ref = WxTimer.createInstance(window._ref);
+    public function new(window:Window, milliseconds:Int = -1, oneShot:Bool = false, id:Int = -1) {
+        _ref = WxTimer.createInstance(window._ref, id);
         if (milliseconds > 0) {
             start(milliseconds, oneShot);
         }
