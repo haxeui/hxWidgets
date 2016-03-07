@@ -14,4 +14,17 @@ class StaticBitmap extends Control {
         
         super(parent, id);
     }
+    
+    @:access(hx.widgets.Bitmap)
+    public function setBitmap(bitmap:Bitmap) {
+        bitmapRef.setBitmap(bitmap._ref);
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // HELPERS
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    private var bitmapRef(get, null):WxStaticBitmap;
+    private function get_bitmapRef():WxStaticBitmap {
+        return cast _ref;
+    }
 }
