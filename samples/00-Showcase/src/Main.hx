@@ -35,7 +35,7 @@ class Main {
         timer = new Timer(frame, 100);
         
         //frame.setStatusText("Status: OK");
-        if (platform.getOperatingSystemId() == OperatingSystemId.OS_WINDOWS) {
+        if (platform.getOperatingSystemId() == OperatingSystemId.WINDOWS) {
             frame.backgroundColour = 0xFFFFFF;
         }
         frame.show(true);
