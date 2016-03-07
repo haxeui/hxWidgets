@@ -45,6 +45,9 @@ extern class WindowImpl extends EvtHandler {
     @:native("SetFont")                 public function setFont(font:Font):Void;
     @:native("Freeze")                  public function freeze():Void;
     @:native("Thaw")                    public function thaw():Void;
+    
+    @:native("GetScrollPos")            public function getScrollPos(orientation:Int):Int;
+    @:native("SetScrollPos")            public function setScrollPos(orientation:Int, pos:Int, refresh:Bool = true):Void;
 }
 
 @:include("wx/window.h")

@@ -13,8 +13,8 @@ class ScrolledWindow extends Window {
         super(parent, id);
     }
     
-    public function setScrollbars(pixelsPerUnitX:Int, pixelsPerUnitY:Int, noUnitsX:Int, noUnitsY:Int) {
-        scrolledWindowRef.setScrollbars(pixelsPerUnitX, pixelsPerUnitY, noUnitsX, noUnitsY);
+    public function setScrollbars(pixelsPerUnitX:Int, pixelsPerUnitY:Int, noUnitsX:Int, noUnitsY:Int, xPos:Int = 0, yPos:Int = 0, noRefresh:Bool = false) {
+        scrolledWindowRef.setScrollbars(pixelsPerUnitX, pixelsPerUnitY, noUnitsX, noUnitsY, xPos, yPos, noRefresh);
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

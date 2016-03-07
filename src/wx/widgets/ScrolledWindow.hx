@@ -11,5 +11,5 @@ extern class ScrolledWindow extends ScrolledWindowImpl {
 @:unreflective
 @:native("wxScrolledWindow")
 extern class ScrolledWindowImpl extends Window {
-    @:native("SetScrollbars")           public function setScrollbars(pixelsPerUnitX:Int, pixelsPerUnitY:Int, noUnitsX:Int, noUnitsY:Int):Void;
+    @:native("SetScrollbars")           public function setScrollbars(pixelsPerUnitX:Int, pixelsPerUnitY:Int, noUnitsX:Int, noUnitsY:Int, xPos:Int = 0, yPos:Int = 0, noRefresh:Bool = false):Void;
 }
