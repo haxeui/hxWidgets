@@ -42,6 +42,7 @@ extern class WindowImpl extends EvtHandler {
     @:native("GetId")                   public function getId():Int;
     @:native("SetId")                   public function setId(id:Int):Void;
     @:native("GetChildren")             public function getChildren():WindowList;
+    @:native("SetFont")                 public function setFont(font:Font):Void;
 }
 
 @:include("wx/window.h")

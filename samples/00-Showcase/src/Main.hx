@@ -148,6 +148,11 @@ class Main {
             var label:StaticText = new StaticText(box, "Static text");
             label.move(10, 20);
             
+            var label:StaticText = new StaticText(box, "Static text");
+            var font:Font = new Font(16);
+            label.setFont(font);
+            label.move(10, 40);
+            
             /* cant use link on mac, need to find out why (probably missing lib on my box)
             var link:HyperlinkCtrl = new HyperlinkCtrl(box, "hxWidgets", "https://github.com/ianharrigan/hxWidgets");
             link.move(10, 40);
