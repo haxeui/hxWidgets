@@ -17,6 +17,9 @@
 			<compilerflag value="-D_UNICODE" />
 			<compilerflag value="-DWXUSINGDLL" />
 			<compilerflag value="-DwxMSVC_VERISON_AUTO" />
+            <compilerflag value="-DWIN32" if="windows" />
+            <compilerflag value="-D__WXMSW__" if="windows" />
+            <compilerflag value="-D__WX__=1" />
 		</files>
 
 		<target id="haxe" tool="linker" toolid="exe">
