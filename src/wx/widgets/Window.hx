@@ -16,7 +16,7 @@ extern class Window extends WindowImpl {
 extern class WindowImpl extends EvtHandler {
     @:native("Create")                  public function create(parent:Window, id:Int, point:Point, size:Size, style:Int):Bool;
     
-    @:native("Show")                    public function show(value:Bool):Void;
+    @:native("Show")                    public function show(value:Bool = true):Void;
     @:native("Close")                   public function close(force:Bool):Bool;
     @:native("Destroy")                 public function destroy():Bool;
     @:native("DestroyChildren")         public function destroyChildren():Bool;

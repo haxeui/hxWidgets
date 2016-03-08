@@ -12,7 +12,7 @@ class Window extends EvtHandler {
         super();
     }
     
-    public function show(value:Bool) {
+    public function show(value:Bool = true) {
         _ref.show(value);
     }
     
