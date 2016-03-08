@@ -82,6 +82,13 @@ class Main {
                 trace("click!");
                 trace(e.getEventType());
                 trace(e.getId());
+                
+                var dialog:Dialog = new Dialog(frame, "Modal Dialog");
+                var dialogResult = dialog.showModal();
+                trace("dialog result = " + dialogResult);
+
+                var dialog:Dialog = new Dialog(frame, "Non-modal Dialog");
+                dialog.show();
             });
         
             trace("parent id: " + button.getParent().getId());
