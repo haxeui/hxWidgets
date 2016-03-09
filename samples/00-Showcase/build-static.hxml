@@ -1,0 +1,18 @@
+-resource assets/img/slinky_tiny_test.bmp@slinky_tiny_test.bmp
+-resource assets/img/slinky_tiny_test_icon.bmp@slinky_tiny_test_icon.bmp
+-resource assets/img/inbox.bmp@inbox.bmp
+-resource assets/img/inbox.png@inbox.png
+-resource assets/img/inbox--arrow.bmp@inbox--arrow.bmp
+-resource assets/img/inbox--arrow.png@inbox--arrow.png
+-resource assets/img/inbox-document.bmp@inbox-document.bmp
+-resource assets/img/inbox-document.png@inbox-document.png
+
+# by default wxwidgets uses /MD - so match for static linking
+# if wxWidgets is using /MT, remove this line
+-D ABI=-MD
+-D WXSTATIC
+
+-lib hxWidgets
+-cp src/
+-main Main
+-cpp bin

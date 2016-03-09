@@ -1,1 +1,1 @@
-copy ..\..\wxWidgets\windows\vc120\x86\dll\*.dll bin /y
+copy %WXWIN%\lib\vc_dll\*.dll bin /y
