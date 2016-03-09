@@ -158,6 +158,7 @@ class Main {
             var label:StaticText = new StaticText(box, "Static text");
             var font:Font = new Font(16);
             label.setFont(font);
+            label.foregroundColour = 0xFF00FF;
             label.move(10, 40);
             
             /* cant use link on mac, need to find out why (probably missing lib on my box)

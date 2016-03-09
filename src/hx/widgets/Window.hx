@@ -47,6 +47,15 @@ class Window extends EvtHandler {
         _ref.refresh();
     }
     
+    public var foregroundColour(get, set):Int;
+    private function get_foregroundColour():Int {
+        return -1;
+    }
+    private function set_foregroundColour(colour:Int):Int {
+        _ref.setForegroundColour(colour);
+        return colour;
+    }
+
     public var backgroundColour(get, set):Int;
     private function get_backgroundColour():Int {
         return -1;

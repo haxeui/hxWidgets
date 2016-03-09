@@ -32,6 +32,8 @@ extern class WindowImpl extends EvtHandler {
     @:native("FindWindow")              public function findWindowById(id:Int):Window;
     @:native("GetBackgroundColour")     public function getBackgroundColour():Int;
     @:native("SetBackgroundColour")     public function setBackgroundColour(colour:Int):Void;
+    @:native("GetForegroundColour")     public function getForegroundColour():Int;
+    @:native("SetForegroundColour")     public function setForegroundColour(colour:Int):Void;
     @:native("GetWindowStyle")          public function getWindowStyle():Int;
     @:native("SetWindowStyle")          public function setWindowStyle(style:Int):Void;
     @:native("GetSize")                 public function getSize():Size;
