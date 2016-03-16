@@ -32,6 +32,7 @@ class Main {
         SystemOptions.setOption("msw.window.no-clip-children", 1);
         
         var frame:Frame = new Frame(null, "hxWidgets");
+        
         timer = new Timer(frame, 100);
         
         //frame.setStatusText("Status: OK");
@@ -71,7 +72,6 @@ class Main {
         
         trace(frame.getSize().width);
         trace(frame.getPosition().x);
-        
         
             // create a button
             var button:Button = new Button(frame, "Button 1", 0, 1002);
@@ -287,6 +287,27 @@ class Main {
                     var button = new Button(panel3, "Tab Button 3a");
                     button.setSize(5, 5, 100, 30);
                 tabs.addPage(panel3, "Tab 3", false, 2);
+                
+            //Create a button for showing glFrame
+            var glFrameButton:Button = new Button(frame, "OpenGL Test");
+            glFrameButton.setSize(430, 245, -1, 30);
+            glFrameButton.bind(EventType.BUTTON, function(e)
+            {
+                var glFrame:Frame = new Frame(frame, "OpenGL Test");
+                glFrame.setSize(50, 50, 400, 400);
+        
+                glFrame.bind(EventType.CLOSE_WINDOW, function(e)
+                {
+                    glFrame.destroy();
+                });
+                
+                // create an OpenGL canvas
+                var canvas = new GLCanvas(glFrame);
+                canvas.setColour("black");
+                canvas.setSize(0, 0, 400, 400);
+            
+                glFrame.show(true);
+            });
                 
         trace('Number of children in frame:' + frame.children.length);
 
