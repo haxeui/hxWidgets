@@ -7,11 +7,10 @@ class GLCanvas extends Window {
     
     @:access(hx.widgets.Point)
     @:access(hx.widgets.Size)
-    public function new(parent:Window = null, id:Int = -1, pt:Point = null, size:Size = null) {
+    public function new(parent:Window = null, id:Int = -1) {
         super();
         
-        var canvas:WxGLCanvas = WxGLCanvas.createInstance(parent == null ? cast 0 : parent._ref, untyped __cpp__("((wxWindowID)id)"), untyped __cpp__("NULL"),
-                                    pt == null ? Point.defaultPositionRef : pt._ref, size == null ? Size.defaultSizeRef : size._ref);
+        var canvas:WxGLCanvas = WxGLCanvas.createInstance(parent == null ? cast 0 : parent._ref, untyped __cpp__("((wxWindowID)id)"));
         _ref = cast canvas;
     }
     

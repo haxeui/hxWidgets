@@ -6,7 +6,7 @@ import cpp.ConstCharStar;
 @:unreflective
 @:native("cpp::Reference<wxGLCanvas>")
 extern class GLCanvas extends GLCanvasImpl {
-    @:native("new wxGLCanvas")      public static function createInstance(parent:Window, id:Int, attribList:IntStar, pt:Point, size:Size):GLCanvas;
+    @:native("new wxGLCanvas")      public static function createInstance(parent:Window, id:Int):GLCanvas;
 }
 
 @:include("wx/glcanvas.h")
