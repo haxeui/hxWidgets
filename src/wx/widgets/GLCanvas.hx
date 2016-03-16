@@ -8,7 +8,7 @@ import cpp.abi.Abi;
 @:unreflective
 @:native("cpp::Reference<wxGLCanvas>")
 extern class GLCanvas extends GLCanvasImpl {
-    @:native("new wxGLCanvas")      public static function createInstance(parent:Window, id:Int, attribList:Pointer<Int>, pt:Point, size:Size):GLCanvas;
+    @:native("new wxGLCanvas")      public static function createInstance(parent:Window, id:Int, attribList:Pointer<Int>, pt:Point, size:Size, style:Int):GLCanvas;
 }
 
 @:include("wx/glcanvas.h")

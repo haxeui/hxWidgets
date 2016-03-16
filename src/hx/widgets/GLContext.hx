@@ -9,4 +9,8 @@ class GLContext {
     public function new(win:GLCanvas) {
          _ref = WxGLContext.createInstance(cast win._ref);
     }
+    
+    public function isOK():Bool {
+        return _ref.isOK();
+    }
 }

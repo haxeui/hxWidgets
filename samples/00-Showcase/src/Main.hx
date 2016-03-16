@@ -301,14 +301,15 @@ class Main {
                 
                 // create an OpenGL canvas
                 var canvas = new GLCanvas(glFrame, [GLOptions.RGBA, GLOptions.DOUBLEBUFFER, GLOptions.DEPTH_SIZE, 16, 0]);
-                canvas.setSize(0, 0, 400, 400);
                 
-                var context:GLContext = new GLContext(canvas);
-                //canvas.setColour("BLUE");
-            
+                var context = new GLContext(canvas);
+                trace("is gl context ok: " + context.isOK());
+                canvas.setSize(0, 0, 400, 400);
                 glFrame.show(true);
                 
                 canvas.setCurrent(context);
+                canvas.setColour("BLACK");
+                canvas.refresh();
             });
                 
                 
