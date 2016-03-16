@@ -300,7 +300,7 @@ class Main {
                 });
                 
                 // create an OpenGL canvas
-                var canvas = new GLCanvas(glFrame, [GLOptions.DEBUG, GLOptions.RGBA, GLOptions.DOUBLEBUFFER, GLOptions.DEPTH_SIZE, 16, 0]);
+                var canvas = new GLCanvas(glFrame, [GLOptions.RGBA, GLOptions.DOUBLEBUFFER, GLOptions.DEPTH_SIZE, 16, 0]);
                 canvas.setSize(0, 0, 400, 400);
                 
                 var context:GLContext = new GLContext(canvas);
