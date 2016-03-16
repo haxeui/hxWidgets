@@ -162,6 +162,10 @@ class Window extends EvtHandler {
         _ref.thaw();
     }
     
+    public function isFrozen():Bool {
+        return _ref.isFrozen();
+    }
+    
     public function getScrollPos(orientation:Int):Int {
         return _ref.getScrollPos(orientation);
     }
