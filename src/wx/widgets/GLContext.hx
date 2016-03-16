@@ -11,5 +11,4 @@ extern class GLContext extends GLContextImpl {
 @:unreflective
 @:native("wxGLContext")
 extern class GLContextImpl {
-    @:native("IsOK")                public function isOK():Bool;
 }
