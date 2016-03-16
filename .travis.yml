@@ -6,12 +6,12 @@ os:
 
 haxe:
   - "3.2.1"
-#  - development
+  - development
 
 # Allow failure on haxe dev
-#matrix:
-#  allow_failures:
-#    - haxe: development
+matrix:
+  allow_failures:
+    - haxe: development
 
 # Needed for apt-get
 sudo: true
