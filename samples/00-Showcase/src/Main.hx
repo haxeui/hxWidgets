@@ -288,6 +288,30 @@ class Main {
                     button.setSize(5, 5, 100, 30);
                 tabs.addPage(panel3, "Tab 3", false, 2);
                 
+            //Create a button for showing glFrame
+            var glFrameButton:Button = new Button(frame, "OpenGL Test");
+            glFrameButton.setSize(430, 245, -1, 30);
+            glFrameButton.bind(EventType.BUTTON, function(e) {
+                var glFrame:Frame = new Frame(frame, "OpenGL Test");
+                glFrame.setSize(50, 50, 400, 400);
+        
+                glFrame.bind(EventType.CLOSE_WINDOW, function(e) {
+                    glFrame.destroy();
+                });
+                
+                // create an OpenGL canvas
+                var canvas = new GLCanvas(glFrame);
+                canvas.setSize(0, 0, 400, 400);
+                canvas.setColour("BLACK");
+                
+                var context:GLContext = new GLContext(canvas);
+            
+                glFrame.show(true);
+                
+                canvas.setCurrent(context);
+            });
+                
+                
         trace('Number of children in frame:' + frame.children.length);
 
         frame.bind(EventType.IDLE, function(e) {
