@@ -49,8 +49,8 @@ class Entry {
 			}).join("\n");
 			config.exitCode();
 
-			var config = new sys.io.Process("wx-config", ["--libs"]);
-			var libs = config.stdout.readAll().toString().split("\n")[0].split(" ");
+			var config = new sys.io.Process("wx-config", ["--libs", "--gl-libs"]);
+			var libs = config.stdout.readAll().toString().split("\n").join(" ").split(" ");
 			var link = [];
 			var i = 0;
 			while (i < libs.length) {
