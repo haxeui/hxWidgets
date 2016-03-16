@@ -302,11 +302,14 @@ class Main {
                 });
                 
                 // create an OpenGL canvas
-                var canvas = new GLCanvas(glFrame, -1);
+                var canvas = new GLCanvas(glFrame, -1, new Point(0, 0), new Size(400, 400));
                 canvas.setColour("BLACK");
-                canvas.setSize(0, 0, 400, 400);
+                
+                var context:GLContext = new GLContext(canvas);
             
                 glFrame.show(true);
+                
+                canvas.setCurrent(context);
             });
                 
         trace('Number of children in frame:' + frame.children.length);
