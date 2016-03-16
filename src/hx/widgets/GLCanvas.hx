@@ -6,10 +6,10 @@ import wx.widgets.GLCanvas in WxGLCanvas;
 class GLCanvas extends Window {
     
     @:access(hx.widgets.GLAttributes)
-    public function new(parent:Window = null, attributes:GLAttributes, id:Int = -1) {
+    public function new(parent:Window = null, id:Int = -1) {
         super();
         
-        var canvas:WxGLCanvas = WxGLCanvas.createInstance(parent == null ? cast 0 : parent._ref, attributes._ref, id);
+        var canvas:WxGLCanvas = WxGLCanvas.createInstance(parent == null ? cast 0 : parent._ref, id);
         _ref = cast canvas;
     }
     

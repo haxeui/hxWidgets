@@ -301,11 +301,8 @@ class Main {
                     glFrame.destroy();
                 });
                 
-                var attr = new GLAttributes();
-                attr.defaults().endList();
-                
                 // create an OpenGL canvas
-                var canvas = new GLCanvas(glFrame, attr, -1);
+                var canvas = new GLCanvas(glFrame, -1);
                 canvas.setColour("BLACK");
                 canvas.setSize(0, 0, 400, 400);
             
