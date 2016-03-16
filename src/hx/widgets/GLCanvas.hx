@@ -1,13 +1,20 @@
 package hx.widgets;
 
+import cpp.NativeArray;
+import cpp.Pointer;
 import wx.widgets.GLCanvas in WxGLCanvas;
 
 @:headerCode("#undef RegisterClass")
 class GLCanvas extends Window {
-    public function new(parent:Window, id:Int = -1) {
+    public function new(parent:Window, options:Array<Int>=null, id:Int = -1) {
         if (_ref == null) {
-            var buttonRef:WxGLCanvas = WxGLCanvas.createInstance(parent != null ? parent._ref : Window.nullWindowRef, id, cast 0, Point.defaultPositionRef, Size.defaultSizeRef);
-            _ref = buttonRef;
+            var attribList:Pointer<Int> = cast 0;
+            if (options != null) {
+                attribList = NativeArray.address(options, 0);
+            }
+            
+            var canvasRef:WxGLCanvas = WxGLCanvas.createInstance(parent != null ? parent._ref : Window.nullWindowRef, id, attribList, Point.defaultPositionRef, Size.defaultSizeRef);
+            _ref = canvasRef;
         }
         
         super(parent, id);
