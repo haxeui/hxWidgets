@@ -17,7 +17,7 @@ typedef OSVersion = {
 class Entry {
 	#if !macro
     public static function start(args:Array<String>):Void {
-        var args = [Sys.executablePath()].concat(args);
+        var args = [#if (haxe_ver >= 3.3) Sys.programPath() #else Sys.executablePath() #end].concat(args);
         var argc = args.length;
         untyped __cpp__("char** argv = new char*[argc]");
 
@@ -57,7 +57,7 @@ class Entry {
 				if (libs[i] == "-framework") {
 					link.push('<vflag name="${libs[i]}" value="${libs[i+1]}"/>');
 					i++;
-				} else {
+				} else if (libs[i] != "") {
 					link.push('<lib name="${libs[i]}" />');
 				}
 
@@ -74,6 +74,9 @@ class Entry {
 
 			_class.get().meta.add(":buildXml", [{ expr:EConst( CString( '<set name="MAC_USE_CURRENT_SDK" value="1" if="macos" /><set name="HXCPP_GCC" value="1" if="macos" /><set name="HXCPP_M64" value="1" if="macos" /><files id="haxe">$cflags</files>\n<target id="haxe" tool="linker" toolid="exe">${link.join("\n")}</target>' ) ), pos:_pos }], _pos );
         }
+        
+        // https://github.com/HaxeFoundation/hxcpp/issues/397
+        haxe.macro.Compiler.define("source-header", "GeneratedByHaxe");
 
         return Context.getBuildFields();
     }

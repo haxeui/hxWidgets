@@ -3,6 +3,7 @@ package hx.widgets;
 import cpp.Pointer;
 import wx.widgets.Button in WxButton;
 
+@:unreflective
 class Button extends Control {
     public function new(parent:Window, label:String, style:Int = 0, id:Int = -1) {
         if (_ref == null) {
@@ -20,7 +21,7 @@ class Button extends Control {
     }
     
     public function setBitmapPosition(dir:Direction) {
-        buttonRef.setBitmapPosition(untyped __cpp__("((wxDirection)dir)"));
+        buttonRef.setBitmapPosition(#if (haxe_ver >= 3.3) dir #else untyped __cpp__("((wxDirection)dir)")#end);
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -1,5 +1,29 @@
 package wx.widgets;
 
+#if (haxe_ver >= 3.3)
+@:headerCode("#include <wx/defs.h>")
+@:unreflective
+@:native("wxDirection")
+@:enum extern abstract Direction(DirectionImpl) {
+    @:native("wxLEFT")   var LEFT;
+    @:native("wxRIGHT")  var RIGHT;
+    @:native("wxUP")     var UP;
+    @:native("wxDOWN")   var DOWN;
+    @:native("wxTOP")    var TOP;
+    @:native("wxBOTTOM") var BOTTOM;
+    @:native("wxNORTH")  var NORTH;
+    @:native("wxSOUTH")  var SOUTH;
+    @:native("wxWEST")   var WEST;
+    @:native("wxEAST")   var EAST;
+    @:native("wxALL")    var ALL;
+}
+
+@:headerCode("#include <wx/defs.h>")
+@:unreflective
+@:native("wxDirection")
+extern class DirectionImpl {
+}
+#else
 @:headerCode("#include <wx/defs.h>")
 abstract Direction(Int) {
     public static var LEFT(default, null)         = new Direction(untyped __cpp__('::wxLEFT')); 
@@ -18,3 +42,4 @@ abstract Direction(Int) {
         this = i;
     }
 }
+#end

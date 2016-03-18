@@ -116,7 +116,7 @@ class Window extends EvtHandler {
         var list:Array<Window> = new Array<Window>();
         var windowList:WxWindowList = _ref.getChildren();
         for (i in 0...windowList.getCount()) {
-            var ref:WxWindow = windowList.item(i).getData();
+            var ref:WxWindow = (windowList.item(i):WxWindowListNode).getData();
             var child:Window = new Window();
             child._ref = ref;
             list.push(child);
