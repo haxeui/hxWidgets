@@ -1,6 +1,6 @@
 # hxWidgets
 
-[![Build Status](https://travis-ci.org/ianharrigan/hxWidgets.png)](https://travis-ci.org/ianharrigan/hxWidgets)
+[![Build Status](https://travis-ci.org/ianharrigan/hxWidgets.svg?branch=master)](https://travis-ci.org/ianharrigan/hxWidgets)
 
 Haxe externs (and wrappers) for wxWidgets
 
