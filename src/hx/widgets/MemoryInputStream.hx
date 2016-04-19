@@ -9,6 +9,6 @@ class MemoryInputStream {
 
     public function new(bytes:Bytes) {
         _bytes = bytes;
-        _ref = WxMemoryInputStream.createInstance(_bytes.getData().toString(), _bytes.length);
+        _ref = WxMemoryInputStream.createInstance(_bytes.toString(), _bytes.length);
     }
 }
