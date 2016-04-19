@@ -44,18 +44,40 @@ class Main {
         var file:Menu = new Menu();
         menuBar.append(file, "&File");
         var menuItem:MenuItem = new MenuItem(file, "Menu 1", ItemKind.ITEM_CHECK);
-        file.append(menuItem).check(true);
-        file.append(new MenuItem(file, "Menu 2"));
+        file.appendItem(menuItem).check(true);
+        file.appendItem(new MenuItem(file, "Menu 2"));
         
         var menuItem:MenuItem = new MenuItem(file, "Menu 3");
         menuItem.setBitmap(Bitmap.fromHaxeResource("inbox.png"));
-        file.append(menuItem);
+        file.appendItem(menuItem);
+        
+        
+        file.appendItem(new MenuItem(file, null, null, StandardIds.ABOUT)); // doesnt need text, becomes "About" (en_UK)
+        file.appendItem(new MenuItem.PreferencesMenuItem(file)); // becomes "Preferences" (en_UK)
+        
+        file.append(StandardIds.EXIT);
         
         frame.setMenuBar(menuBar);
+
         
         
         var edit:Menu = new Menu();
-        edit.append(new MenuItem(edit, "Something"));
+        edit.appendItem(new MenuItem(edit, "Something"));
+        
+        var subMenu = new Menu();
+        subMenu.append(1001, "Item 1");
+        subMenu.append(1002, "Item 2");
+        subMenu.append(1003, "Item 3");
+        subMenu.appendSeparator();
+        subMenu.appendCheckItem(1004, "Check 1");
+        subMenu.appendCheckItem(1005, "Check 2");
+        subMenu.appendCheckItem(1006, "Check 3");
+        subMenu.appendSeparator();
+        subMenu.appendRadioItem(1007, "Radio 1");
+        subMenu.appendRadioItem(1008, "Radio 2");
+        subMenu.appendRadioItem(1009, "Radio 3");
+        edit.appendSubMenu(subMenu, "Sub Menu");
+        
         frame.getMenuBar().append(edit, "&Edit");
         
         frame.setSize(10, 10, 800, 600);

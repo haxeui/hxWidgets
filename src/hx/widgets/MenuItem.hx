@@ -29,3 +29,21 @@ class MenuItem {
         _ref.setBitmap(bitmap._ref);
     }
 }
+
+class AboutMenuItem extends MenuItem {
+    public function new(parent:Menu = null, text:String = null) {
+        super(parent, text, null, StandardIds.ABOUT);
+    }
+}
+
+class PreferencesMenuItem extends MenuItem {
+    public function new(parent:Menu = null, text:String = null) {
+        super(parent, text, null, StandardIds.PREFERENCES);
+    }
+}
+
+class ExitMenuItem extends MenuItem {
+    public function new(parent:Menu = null, text:String = null) {
+        super(parent, text, null, StandardIds.EXIT);
+    }
+}
