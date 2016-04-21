@@ -167,17 +167,18 @@ class Window extends EvtHandler {
         return _ref.isFrozen();
     }
     
-    public function getScrollPos(orientation:Int):Int {
-        return _ref.getScrollPos(orientation);
+    public function beginRepositioningChildren():Bool {
+        return _ref.beginRepositioningChildren();
+    }
+    
+    public function endRepositioningChildren() {
+        _ref.endRepositioningChildren();
     }
     
     public function setScrollPos(orientation:Int, pos:Int, refresh:Bool = true) {
         _ref.setScrollPos(orientation, pos, refresh);
     }
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // HELPERS
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+    
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // STATIC HELPERS
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -186,13 +187,4 @@ class Window extends EvtHandler {
         return cast 0;
     }
     
-}
-
-class ChildrenRepositioningGuard {
-    private var _ref:WxChildrenRepositioningGuard;
-
-	@:access(hx.widgets.Window)
-    public function new(win:Window) {
-        _ref = WxChildrenRepositioningGuard.createInstance(win._ref);
-    }
 }
