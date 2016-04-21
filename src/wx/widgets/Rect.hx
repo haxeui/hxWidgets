@@ -11,8 +11,12 @@ extern class Rect extends RectImpl {
 @:unreflective
 @:native("wxRect")
 extern class RectImpl {
+    @:native("GetX")            public function getX():Int;
+    @:native("SetX")            public function setX(value:Int):Void;
+    @:native("GetY")            public function getY():Int;
+    @:native("SetY")            public function setY(value:Int):Void;
     @:native("GetWidth")        public function getWidth():Int;
-    @:native("GetHeight")       public function getHeight():Int;
     @:native("SetWidth")        public function setWidth(value:Int):Void;
+    @:native("GetHeight")       public function getHeight():Int;
     @:native("SetHeight")       public function setHeight(value:Int):Void;
 }

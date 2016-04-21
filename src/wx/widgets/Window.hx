@@ -20,7 +20,9 @@ extern class WindowImpl extends EvtHandler {
     @:native("Close")                           public function close(force:Bool):Bool;
     @:native("Destroy")                         public function destroy():Bool;
     @:native("DestroyChildren")                 public function destroyChildren():Bool;
-    @:native("Refresh")                         public function refresh():Void;
+    @:native("Refresh")                         public function refresh(eraseBackground:Bool = true):Void;
+    @:native("RefreshRect")                     public function refreshRect(rect:Rect, eraseBackground:Bool = true):Void;
+    @:native("Update")                          public function update():Void;
     @:native("SetSize")                         public function setSize(width:Int, height:Int):Void;
     @:native("SetClientSize")                   public function setClientSize(width:Int, height:Int):Void;
     @:native("GetClientSize")                   public function getClientSize():Size.SizeImpl;

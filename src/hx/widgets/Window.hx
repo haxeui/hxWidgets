@@ -43,8 +43,20 @@ class Window extends EvtHandler {
         return win;
     }
 
-    public function refresh() {
-        _ref.refresh();
+    public function refresh(eraseBackground:Bool = true) {
+        _ref.refresh(eraseBackground);
+    }
+    
+    @:access(hx.widgets.Rect)
+    public function refreshRect(x:Int, y:Int, width:Int, height:Int, eraseBackground:Bool = true) {
+        var rc = new Rect(width, height);
+        rc.x = x;
+        rc.y = y;
+        _ref.refreshRect(rc._ref, eraseBackground);
+    }
+    
+    public function update() {
+        _ref.update();
     }
     
     public var foregroundColour(get, set):Int;
