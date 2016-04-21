@@ -28,8 +28,8 @@ class Window extends EvtHandler {
         return _ref.destroyChildren();
     }
     
-    public function setSize(x:Int, y:Int, width:Int, height:Int) {
-        _ref.setSize(x, y, width, height);
+    public function setSize(width:Int, height:Int) {
+        _ref.setSize(width, height);
     }
     
     public function move(x:Int, y:Int) {

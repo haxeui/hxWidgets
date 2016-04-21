@@ -80,7 +80,8 @@ class Main {
         
         frame.getMenuBar().append(edit, "&Edit");
         
-        frame.setSize(10, 10, 800, 600);
+        frame.setSize(800, 600);
+        frame.move(10, 10);
         frame.bind(EventType.CLOSE_WINDOW, function(e:Event) {
             timer.stop();
             worker.stop();
@@ -99,7 +100,8 @@ class Main {
             var button:Button = new Button(frame, "Button 1", 0, 1002);
             button.setBitmap(Bitmap.fromHaxeResource("inbox.png"));
             button.setBitmapPosition(Direction.RIGHT);
-            button.setSize(10, 10, 100, 100);
+            button.setSize(100, 100);
+            button.move(10, 10);
             button.bind(EventType.BUTTON, function(e:Event) {
                 trace("click!");
                 trace(e.getEventType());
@@ -163,7 +165,8 @@ class Main {
             var timertextresult:TextCtrl = textctrl;
             
             var textctrl:TextCtrl = new TextCtrl(frame, null, TextCtrlStyle.MULTILINE | TextCtrlStyle.RICH);
-            textctrl.setSize(130, 180, 100, 70);   
+            textctrl.setSize(100, 70);   
+            textctrl.move(130, 180);
             textctrl.appendText("This is line 1\n");
             textctrl.appendText("This is line 2\n");
             textctrl.appendText("This is line 3\n");
@@ -172,7 +175,8 @@ class Main {
             textctrl.insertionPoint = 0;
             
             var box:StaticBox = new StaticBox(frame, "Static Box");
-            box.setSize(430, 80, 120, 100);
+            box.setSize(120, 100);
+            box.move(430, 80);
             
             var label:StaticText = new StaticText(box, "Static text");
             label.move(10, 20);
@@ -208,7 +212,8 @@ class Main {
             
             // create a slider
             var slider:Slider = new Slider(frame);
-            slider.setSize(120, 80, 100, 50);
+            slider.setSize(100, 50);
+            slider.move(120, 80);
             slider.min = 25;
             slider.max = 125;
             slider.value = 50;
@@ -218,17 +223,20 @@ class Main {
             });
 
             var slider:Slider = new Slider(frame);
-            slider.setSize(220, 80, 100, 50);
+            slider.setSize(100, 50);
+            slider.move(220, 80);
             slider.windowStyle = SliderStyle.AUTOTICKS | SliderStyle.VALUE_LABEL | SliderStyle.SELRANGE;
             slider.refresh();
             slider.setSelection(25, 75);
             
             var slider:Slider = new Slider(frame, 50, 0, 100, SliderStyle.VERTICAL);
-            slider.setSize(320, 80, 50, 100);
+            slider.setSize(50, 100);
+            slider.move(320, 80);
             
             var slider:Slider = new Slider(frame, 50, 0, 100, SliderStyle.VERTICAL | SliderStyle.AUTOTICKS | SliderStyle.VALUE_LABEL | SliderStyle.SELRANGE);
             //slider.move(350, 50);
-            slider.setSize(360, 80, 60, 100);
+            slider.setSize(60, 100);
+            slider.move(360, 80);
             slider.selectionStart = 25;
             slider.selectionEnd = 75;
             
@@ -237,7 +245,8 @@ class Main {
             staticBmp.move(250, 150);
             
             var scroller:ScrolledWindow = new ScrolledWindow(frame, WindowStyle.BORDER_THEME | WindowStyle.VSCROLL);
-            scroller.setSize(430, 280, 150, 200);
+            scroller.setSize(150, 200);
+            scroller.move(430, 280);
             //scroller.backgroundColour = 0x0000FF;
             scroller.refresh();
             for (a in 0...20) {
@@ -247,7 +256,8 @@ class Main {
                 b.y = 10 + (a * 30);
                 b.height = 25;
                 */
-                b.setSize(10, 10 + (a * 30), -1, 25);
+                b.setSize( -1, 25);
+                b.move(10, 10 + (a * 30));
             }
             //scroller.setClientSize(150, 200);
             //scroller.setVirtualSize(6000, 3000);
@@ -264,7 +274,8 @@ class Main {
             
             var panel:Panel = new Panel(frame);
             //panel.backgroundColour = 0xFF0000;
-            panel.setSize(590, 280, 150, 100);
+            panel.setSize(150, 100);
+            panel.move(590, 280);
             //panel.refresh();
             var dc:ClientDC = new ClientDC(panel);
             dc.clear();
@@ -285,14 +296,16 @@ class Main {
             // create a notebox (tab view)
             var tabs:Notebook = new Notebook(frame);
             tabs.setImageList(imageList);
-            tabs.setSize(10, 270, 400, 200);
+            tabs.setSize(400, 200);
+            tabs.move(10, 270);
             tabs.bind(EventType.NOTEBOOK_PAGE_CHANGED, function(e) {
                trace("Page changed"); 
             });
             // create the panels and contents for the tab view
                 var panel1:Panel = new Panel(tabs);
                     var button = new Button(panel1, "Tab Button 1a");
-                    button.setSize(5, 5, -1, 30);
+                    button.setSize( -1, 30);
+                    button.move(5, 5);
 
                     var button = new Button(panel1, "Tab Button 1b");
                     button.move(5, 40);
@@ -301,21 +314,25 @@ class Main {
 
                 var panel2:Panel = new Panel(tabs);
                     var button = new Button(panel2, "Tab Button 2a");
-                    button.setSize(5, 5, 100, 30);
+                    button.setSize(100, 30);
+                    button.move(5, 5);
                     
                 tabs.addPage(panel2, "Tab 2", false, 1);
 
                 var panel3:Panel = new Panel(tabs);
                     var button = new Button(panel3, "Tab Button 3a");
-                    button.setSize(5, 5, 100, 30);
+                    button.setSize(100, 30);
+                    button.move(5, 5);
                 tabs.addPage(panel3, "Tab 3", false, 2);
                 
             //Create a button for showing glFrame
             var glFrameButton:Button = new Button(frame, "OpenGL Test");
-            glFrameButton.setSize(430, 245, -1, 30);
+            glFrameButton.setSize( -1, 30);
+            glFrameButton.move(430, 245);
             glFrameButton.bind(EventType.BUTTON, function(e) {
                 var glFrame:Frame = new Frame(frame, "OpenGL Test");
-                glFrame.setSize(50, 50, 400, 400);
+                glFrame.setSize(400, 400);
+                glFrame.move(50, 50);
         
                 glFrame.bind(EventType.CLOSE_WINDOW, function(e) {
                     glFrame.destroy();
@@ -325,7 +342,8 @@ class Main {
                 var canvas = new GLCanvas(glFrame, [GLOptions.RGBA, GLOptions.DOUBLEBUFFER, GLOptions.DEPTH_SIZE, 16, 0]);
                 
                 var context = new GLContext(canvas);
-                canvas.setSize(0, 0, 400, 400);
+                canvas.setSize(400, 400);
+                canvas.move(0, 0);
                 glFrame.show(true);
                 
                 canvas.setCurrent(context);

@@ -21,7 +21,7 @@ extern class WindowImpl extends EvtHandler {
     @:native("Destroy")                         public function destroy():Bool;
     @:native("DestroyChildren")                 public function destroyChildren():Bool;
     @:native("Refresh")                         public function refresh():Void;
-    @:native("SetSize")                         public function setSize(x:Int, y:Int, width:Int, height:Int):Void;
+    @:native("SetSize")                         public function setSize(width:Int, height:Int):Void;
     @:native("SetClientSize")                   public function setClientSize(width:Int, height:Int):Void;
     @:native("GetClientSize")                   public function getClientSize():Size.SizeImpl;
     @:native("GetBestSize")                     public function getBestSize():Size;
