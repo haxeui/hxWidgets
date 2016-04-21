@@ -9,9 +9,9 @@ class Gauge extends Control {
             style = GaugeStyle.HORIZONTAL;
         }
         if (_ref == null) {
-            var guageRef:WxGauge = WxGauge.createInstance();
-            guageRef.create(parent != null ? parent._ref : Window.nullWindowRef, id, range, Point.defaultPositionRef, Size.defaultSizeRef, style);
-            _ref = guageRef;
+            var gaugeRef:WxGauge = WxGauge.createInstance();
+            gaugeRef.create(parent != null ? parent._ref : Window.nullWindowRef, id, range, Point.defaultPositionRef, Size.defaultSizeRef, style);
+            _ref = gaugeRef;
         }
         
         super(parent, id);
@@ -19,18 +19,22 @@ class Gauge extends Control {
     
     public var value(get, set):Int;
     private function get_value():Int {
-        return guageRef.getValue();
+        return gaugeRef.getValue();
     }
     private function set_value(value:Int):Int {
-        guageRef.setValue(value);
+        gaugeRef.setValue(value);
         return value;
+    }
+    
+    public function pulse() {
+        gaugeRef.pulse();
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // HELPERS
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    private var guageRef(get, null):WxGauge;
-    private inline function get_guageRef():WxGauge {
+    private var gaugeRef(get, null):WxGauge;
+    private inline function get_gaugeRef():WxGauge {
         return cast _ref;
     }
 }
