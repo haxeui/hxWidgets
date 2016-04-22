@@ -12,4 +12,5 @@ extern class Event extends EventImpl {
 extern class EventImpl {
 	@:native("GetEventType")        public function getEventType():Int;
 	@:native("GetId")               public function getId():Int;
+    @:native("Skip")                public function skip(skip:Bool = true):Void;
 }

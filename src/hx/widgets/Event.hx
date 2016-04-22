@@ -17,6 +17,10 @@ class Event {
 		return _ref.getId();
 	}
 	
+    public function skip(skip:Bool = true) {
+        _ref.skip(skip);
+    }
+    
 	public static function fromRef(ref:WxEvent):Event {
 		var event:Event = new Event();
 		event._ref = ref;
