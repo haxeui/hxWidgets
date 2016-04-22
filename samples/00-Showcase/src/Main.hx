@@ -52,10 +52,12 @@ class Main {
         file.appendItem(menuItem);
         
         
+        /*
         file.appendItem(new MenuItem(file, null, null, StandardIds.ABOUT)); // doesnt need text, becomes "About" (en_UK)
         file.appendItem(new MenuItem.PreferencesMenuItem(file)); // becomes "Preferences" (en_UK)
         
         file.append(StandardIds.EXIT);
+        */
         
         frame.setMenuBar(menuBar);
 

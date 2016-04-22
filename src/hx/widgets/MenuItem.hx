@@ -30,6 +30,7 @@ class MenuItem {
     }
 }
 
+/*
 class AboutMenuItem extends MenuItem {
     public function new(parent:Menu = null, text:String = null) {
         super(parent, text, null, StandardIds.ABOUT);
@@ -47,3 +48,4 @@ class ExitMenuItem extends MenuItem {
         super(parent, text, null, StandardIds.EXIT);
     }
 }
+*/
