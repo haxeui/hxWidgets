@@ -14,13 +14,23 @@ class Button extends Control {
         
         super(parent, id);
     }
-    
+
+    private var _hasBitmap:Bool = false;
     @:access(hx.widgets.Bitmap)
     public function setBitmap(bitmap:Bitmap) {
         buttonRef.setBitmap(bitmap._ref);
+        if (_hasBitmap == false) {
+            buttonRef.setBitmapPosition(#if (haxe_ver >= 3.3) _dir #else untyped __cpp__("((wxDirection)_dir)")#end);
+        }
+        _hasBitmap = true;
     }
     
+    private var _dir:Direction;
     public function setBitmapPosition(dir:Direction) {
+        if (_hasBitmap == false) {
+            _dir = dir;
+            return;
+        }
         buttonRef.setBitmapPosition(#if (haxe_ver >= 3.3) dir #else untyped __cpp__("((wxDirection)dir)")#end);
     }
     

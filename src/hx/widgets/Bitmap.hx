@@ -29,7 +29,7 @@ class Bitmap {
     
     public static function fromHaxeBytes(bytes:Bytes):Bitmap {
         if (bytes == null) {
-            return null;
+            throw "Could not load bitmap from null bytes";
         }
 
         var image:Image = new Image(bytes);

@@ -98,8 +98,8 @@ class Main {
         
             // create a button
             var button:Button = new Button(frame, "Button 1", 0, 1002);
-            button.setBitmap(Bitmap.fromHaxeResource("inbox.png"));
             button.setBitmapPosition(Direction.RIGHT);
+            button.setBitmap(Bitmap.fromHaxeResource("inbox.png"));
             button.setSize(100, 100);
             button.move(10, 10);
             button.bind(EventType.BUTTON, function(e:Event) {
@@ -199,6 +199,8 @@ class Main {
 
             var scroll:ScrollBar = new ScrollBar(frame, ScrollBarStyle.HORIZONTAL);
             scroll.move(120, 70);
+            trace(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> " + scroll.getBestSize().width);
+            trace(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> " + scroll.getBestSize().height);
             scroll.setScrollbar(50, 10, 100, 20);
             
             var gauge:Gauge = new Gauge(frame, 100, GaugeStyle.VERTICAL);
