@@ -283,9 +283,9 @@ class Main {
             //panel.refresh();
             
             
-            var dc:ClientDC = new ClientDC(panel);
             panel.bind(EventType.PAINT, function(e) {
                trace("PAINT!!!"); 
+                var dc:ClientDC = new ClientDC(panel);
                 var gc:GraphicsContext = new GraphicsContext(dc);
                 
                 /*
