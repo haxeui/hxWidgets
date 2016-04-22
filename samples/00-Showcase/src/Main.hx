@@ -284,7 +284,7 @@ class Main {
             
             
             var dc:ClientDC = new ClientDC(panel);
-            var gc:GraphicsContext = new GraphicsContext(panel);
+            var gc:GraphicsContext = new GraphicsContext(dc);
             
             /*
             gc.clear();

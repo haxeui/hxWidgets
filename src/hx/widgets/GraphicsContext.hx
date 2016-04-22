@@ -5,9 +5,9 @@ import wx.widgets.GraphicsContext in WxGraphicsContext;
 class GraphicsContext {
     private var _ref:WxGraphicsContext;
     
-    @:access(hx.widgets.Window)
-    public function new(window:Window) {
-        _ref = WxGraphicsContext.createInstance(window._ref);
+    @:access(hx.widgets.ClientDC)
+    public function new(dc:ClientDC) {
+        _ref = WxGraphicsContext.createInstance(dc._ref);
     }
     
     public function strokeLine(x1:Float, y1:Float, x2:Float, y2:Float) {
