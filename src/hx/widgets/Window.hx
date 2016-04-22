@@ -190,6 +190,18 @@ class Window extends EvtHandler {
         _ref.setScrollPos(orientation, pos, refresh);
     }
     
+    public function getScrollPos(orientation:Int) {
+        return _ref.getScrollPos(orientation);
+    }
+    
+    public function getScrollRange(orientation:Int) {
+        return _ref.getScrollRange(orientation);
+    }
+    
+    public function getScrollThumb(orientation:Int) {
+        return _ref.getScrollThumb(orientation);
+    }
+    
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // STATIC HELPERS
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

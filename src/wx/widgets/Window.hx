@@ -54,5 +54,7 @@ extern class WindowImpl extends EvtHandler {
     @:native("EndRepositioningChildren")        public function endRepositioningChildren():Void;
     
     @:native("GetScrollPos")                    public function getScrollPos(orientation:Int):Int;
+    @:native("GetScrollRange")                  public function getScrollRange(orientation:Int):Int;
+    @:native("GetScrollThumb")                  public function getScrollThumb(orientation:Int):Int;
     @:native("SetScrollPos")                    public function setScrollPos(orientation:Int, pos:Int, refresh:Bool = true):Void;
 }
