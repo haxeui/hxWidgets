@@ -284,17 +284,20 @@ class Main {
             
             
             var dc:ClientDC = new ClientDC(panel);
-            var gc:GraphicsContext = new GraphicsContext(dc);
-            
-            /*
-            gc.clear();
-            */
-            gc.setPen(new Pen(0xFF0000));
-            gc.strokeLine(0, 0, 150, 100);
-            gc.setPen(new Pen(0x00FF00, 3));
-            //gc.drawText("text", 10, 10);
-            gc.drawRoundedRectangle(35, 10, 100, 30, 5);
-            gc.setPen(new Pen(0x0000FF, 2));
+            panel.bind(EventType.PAINT, function(e) {
+               trace("PAINT!!!"); 
+                var gc:GraphicsContext = new GraphicsContext(dc);
+                
+                /*
+                gc.clear();
+                */
+                gc.setPen(new Pen(0xFF0000));
+                gc.strokeLine(0, 0, 150, 100);
+                gc.setPen(new Pen(0x00FF00, 3));
+                //gc.drawText("text", 10, 10);
+                gc.drawRoundedRectangle(35, 10, 100, 30, 5);
+                gc.setPen(new Pen(0x0000FF, 2));
+            });
             
             // create an image list ready for use with the tabs
             var imageList:ImageList = new ImageList(16, 16);

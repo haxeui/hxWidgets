@@ -24,6 +24,7 @@ class EventType {
     public static var TIMER:Int                 = untyped __cpp__("wxEVT_TIMER");
     public static var NOTEBOOK_PAGE_CHANGED:Int = untyped __cpp__("wxEVT_NOTEBOOK_PAGE_CHANGED");
     public static var SIZE:Int                  = untyped __cpp__("wxEVT_SIZE");
+    public static var PAINT:Int                 = untyped __cpp__("wxEVT_PAINT");
     /* commented out as it causes link errors on my mac for some reason - should investigate
     public static var HYPERLINK:Int             = untyped __cpp__("wxEVT_HYPERLINK");
     */
