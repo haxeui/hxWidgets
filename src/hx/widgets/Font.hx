@@ -5,7 +5,7 @@ import wx.widgets.Font in WxFont;
 class Font {
     private var _ref:WxFont;
     
-    public function new(size:Int, family:FontFamily = null, style:FontStyle = null, weight:FontWeight = null, underline = false) {
+    public function new(size:Int = -1, family:FontFamily = null, style:FontStyle = null, weight:FontWeight = null, underline = false) {
         if (family == null) {
             family = FontFamily.DEFAULT;
         }
@@ -15,6 +15,8 @@ class Font {
         if (weight == null) {
             weight = FontWeight.NORMAL;
         }
-        _ref = WxFont.createInstance(size, family, style, weight, underline);
+        if (size > 0) {
+            _ref = WxFont.createInstance(size, family, style, weight, underline);
+        }
     }
 }

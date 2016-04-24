@@ -19,11 +19,29 @@ class GraphicsContext {
         _ref.setPen(pen._ref);
     }
     
+    @:access(hx.widgets.Font)
+    @:access(hx.widgets.Colour)
+    public function setFont(font:Font, color:Int = 0):Void {
+        var c:Colour = new Colour(color);
+        _ref.setFont(font._ref, c._ref);
+    }
+    
     public function drawText(text:String, x:Float, y:Float):Void {
         _ref.drawText(text, x, y);
     }
     
     public function drawRoundedRectangle(x:Float, y:Float, width:Float, height:Float, radius:Float):Void {
         _ref.drawRoundedRectangle(x, y, width, height, radius);
+    }
+    
+    @:access(hx.widgets.Bitmap)
+    public function drawBitmap(bmp:Bitmap, x:Float = 0, y:Float = 0, width:Float = -1, height:Float = -1):Void {
+        if (width == -1) {
+            width = bmp.getWidth();
+        }
+        if (height == -1) {
+            height = bmp.getHeight();
+        }
+        _ref.drawBitmap(bmp._ref, x, y, width, height);
     }
 }

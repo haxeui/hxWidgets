@@ -201,8 +201,6 @@ class Main {
 
             var scroll:ScrollBar = new ScrollBar(frame, ScrollBarStyle.HORIZONTAL);
             scroll.move(120, 70);
-            trace(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> " + scroll.getBestSize().width);
-            trace(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> " + scroll.getBestSize().height);
             scroll.setScrollbar(50, 10, 100, 20);
             
             var gauge:Gauge = new Gauge(frame, 100, GaugeStyle.VERTICAL);
@@ -282,21 +280,21 @@ class Main {
             panel.move(590, 280);
             //panel.refresh();
             
-            
+
             panel.bind(EventType.PAINT, function(e) {
-               trace("PAINT!!!"); 
                 var dc:ClientDC = new ClientDC(panel);
                 var gc:GraphicsContext = new GraphicsContext(dc);
                 
-                /*
-                gc.clear();
-                */
                 gc.setPen(new Pen(0xFF0000));
                 gc.strokeLine(0, 0, 150, 100);
                 gc.setPen(new Pen(0x00FF00, 3));
-                //gc.drawText("text", 10, 10);
                 gc.drawRoundedRectangle(35, 10, 100, 30, 5);
                 gc.setPen(new Pen(0x0000FF, 2));
+                gc.drawBitmap(Bitmap.fromHaxeResource("inbox.png"));
+                gc.drawBitmap(Bitmap.fromHaxeResource("inbox.png"), 0, 20, 32, 32);
+                gc.drawBitmap(Bitmap.fromHaxeResource("slinky_tiny_test.bmp").getSubBitmap(new Rect(10, 10, 40, 30)), 10, 60);
+                gc.setFont(panel.getFont(), 0xFF00FF);
+                gc.drawText("Test", 10, 100);
             });
             
             // create an image list ready for use with the tabs

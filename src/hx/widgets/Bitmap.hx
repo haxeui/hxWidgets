@@ -8,8 +8,10 @@ class Bitmap {
     private var _ref:WxBitmap;
 
 	@:access(hx.widgets.Image)
-    public function new(image:Image) {
-        _ref = WxBitmap.createInstance(image._ref);
+    public function new(image:Image = null) {
+        if (image != null) {
+            _ref = WxBitmap.createInstance(image._ref);
+        }
     }
     
     public function getWidth():Int {
@@ -18,6 +20,18 @@ class Bitmap {
     
     public function getHeight():Int {
         return _ref.getHeight();
+    }
+
+    public function isOk():Bool {
+        return _ref.isOk();
+    }
+    
+    @:access(hx.widgets.Rect)
+    public function getSubBitmap(rect:Rect):Bitmap {
+        var ref:wx.widgets.Bitmap.BitmapImpl = _ref.getSubBitmap(rect._ref);
+        var bmp:Bitmap = new Bitmap();
+        bmp._ref = WxBitmap.createInstanceFromBitmap(ref);
+        return bmp;
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

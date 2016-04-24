@@ -6,6 +6,7 @@ import wx.widgets.Point in WxPoint;
 import wx.widgets.Size in WxSize;
 import wx.widgets.Size.SizeImpl in WxSizeImpl;
 import wx.widgets.Window in WxWindow;
+import wx.widgets.Font in WxFont;
 
 class Window extends EvtHandler {
     public function new(parent:Window = null, id:Int = -1) {
@@ -49,9 +50,7 @@ class Window extends EvtHandler {
     
     @:access(hx.widgets.Rect)
     public function refreshRect(x:Int, y:Int, width:Int, height:Int, eraseBackground:Bool = true) {
-        var rc = new Rect(width, height);
-        rc.x = x;
-        rc.y = y;
+        var rc = new Rect(x, y, width, height);
         _ref.refreshRect(rc._ref, eraseBackground);
     }
     
@@ -164,6 +163,14 @@ class Window extends EvtHandler {
     @:access(hx.widgets.Font)
     public function setFont(font:Font) {
         _ref.setFont(font._ref);
+    }
+    
+    @:access(hx.widgets.Font)
+    public function getFont():Font {
+        var ref:wx.widgets.Font.FontImpl = _ref.getFont();
+        var font:Font = new Font();
+        font._ref = WxFont.createInstanceFromFont(ref);
+        return font;
     }
     
     public function freeze() {

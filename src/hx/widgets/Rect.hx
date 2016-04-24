@@ -5,8 +5,10 @@ import wx.widgets.Rect in WxRect;
 class Rect {
     private var _ref:WxRect;
     
-    public function new(width:Int = 0, height:Int = 0) {
+    public function new(x:Int = 0, y:Int = 0, width:Int = 0, height:Int = 0) {
         _ref = WxRect.createInstance();
+        _ref.setX(x);
+        _ref.setY(y);
         _ref.setWidth(width);
         _ref.setHeight(height);
     }
