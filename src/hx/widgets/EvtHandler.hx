@@ -34,6 +34,25 @@ class EvtHandler {
         untyped __cpp__('_ref->Bind(event, &hx::widgets::EvtHandler_obj::onEvent, this, id)');
     }
     
+    public function unbind(event:Int, fn:Event->Void, id:Int = -1) {
+        var mapForId:Map<Int, Array<Event->Void>> = _eventMap.get(id);
+        if (mapForId == null) {
+            return;
+        }
+        
+        var eventList:Array<Event->Void> = mapForId.get(event);
+        if (eventList == null) {
+            return;
+        }
+        
+        eventList.remove(fn);
+        if (eventList.length == 0) {
+            mapForId.remove(event);
+        }
+        
+        untyped __cpp__('_ref->Unbind(event, &hx::widgets::EvtHandler_obj::onEvent, this, id)');
+    }
+    
     private function handleEvent(e:WxEvent):Void {
         executeHandlers(e, e.getId());
         executeHandlers(e); // call any that were not added using control ids
