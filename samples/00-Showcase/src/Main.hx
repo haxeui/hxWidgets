@@ -116,6 +116,26 @@ class Main {
                 var dialog:Dialog = new Dialog(frame, "Non-modal Dialog");
                 dialog.show();
             });
+            button.bind(EventType.LEFT_DOWN, function(e) {
+               trace("Mouse down");
+               e.skip();
+            });
+            button.bind(EventType.LEFT_UP, function(e) {
+               trace("Mouse up");
+               e.skip();
+            });
+            button.bind(EventType.MOTION, function(e) {
+               //trace("Mouse move");
+               e.skip();
+            });
+            button.bind(EventType.ENTER_WINDOW, function(e) {
+               trace("Mouse over");
+               e.skip();
+            });
+            button.bind(EventType.LEAVE_WINDOW, function(e) {
+               trace("Mouse out");
+               e.skip();
+            });
         
             trace("parent id: " + button.getParent().getId());
             trace("child count: " + frame.children.length);

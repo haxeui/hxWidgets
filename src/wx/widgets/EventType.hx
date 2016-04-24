@@ -30,4 +30,18 @@ class EventType {
     /* commented out as it causes link errors on my mac for some reason - should investigate
     public static var HYPERLINK:Int             = untyped __cpp__("wxEVT_HYPERLINK");
     */
+    
+    public static var LEFT_DOWN:Int             = untyped __cpp__("wxEVT_LEFT_DOWN"); // Process a wxEVT_LEFT_DOWN event. The handler of this event should normally call event.Skip() to allow the default processing to take place as otherwise the window under mouse wouldn't get the focus.
+    public static var LEFT_UP:Int               = untyped __cpp__("wxEVT_LEFT_UP");
+    public static var LEFT_DCLICK:Int           = untyped __cpp__("wxEVT_LEFT_DCLICK");
+    public static var MIDDLE_DOWN:Int           = untyped __cpp__("wxEVT_MIDDLE_DOWN");
+    public static var MIDDLE_UP:Int             = untyped __cpp__("wxEVT_MIDDLE_UP");
+    public static var MIDDLE_DCLICK:Int         = untyped __cpp__("wxEVT_MIDDLE_DCLICK");
+    public static var RIGHT_DOWN:Int            = untyped __cpp__("wxEVT_RIGHT_DOWN");
+    public static var RIGHT_UP:Int              = untyped __cpp__("wxEVT_RIGHT_UP");
+    public static var RIGHT_DCLICK:Int          = untyped __cpp__("wxEVT_RIGHT_DCLICK");
+    public static var MOTION:Int                = untyped __cpp__("wxEVT_MOTION");
+    public static var ENTER_WINDOW:Int          = untyped __cpp__("wxEVT_ENTER_WINDOW");
+    public static var LEAVE_WINDOW:Int          = untyped __cpp__("wxEVT_LEAVE_WINDOW");
+    public static var MOUSEWHEEL:Int            = untyped __cpp__("wxEVT_MOUSEWHEEL");
 }
