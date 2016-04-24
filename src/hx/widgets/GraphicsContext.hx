@@ -19,6 +19,11 @@ class GraphicsContext {
         _ref.setPen(pen._ref);
     }
     
+    @:access(hx.widgets.Brush)
+    public function setBrush(brush:Brush):Void {
+        _ref.setBrush(brush._ref);
+    }
+    
     @:access(hx.widgets.Font)
     @:access(hx.widgets.Colour)
     public function setFont(font:Font, color:Int = 0):Void {

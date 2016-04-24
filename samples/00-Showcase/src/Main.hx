@@ -288,6 +288,7 @@ class Main {
                 gc.setPen(new Pen(0xFF0000));
                 gc.strokeLine(0, 0, 150, 100);
                 gc.setPen(new Pen(0x00FF00, 3));
+                gc.setBrush(new Brush(0xFF00FF));
                 gc.drawRoundedRectangle(35, 10, 100, 30, 5);
                 gc.setPen(new Pen(0x0000FF, 2));
                 gc.drawBitmap(Bitmap.fromHaxeResource("inbox.png"));
