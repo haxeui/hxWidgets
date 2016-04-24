@@ -282,7 +282,7 @@ class Main {
             
 
             panel.bind(EventType.PAINT, function(e) {
-                var dc:ClientDC = new ClientDC(panel);
+                var dc:PaintDC = new PaintDC(panel);
                 var gc:GraphicsContext = new GraphicsContext(dc);
                 
                 gc.setPen(new Pen(0xFF0000));
