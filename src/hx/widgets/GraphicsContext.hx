@@ -53,4 +53,8 @@ class GraphicsContext {
     public function setAnitaliasMode(mode:AntialiasMode):Bool {
         return _ref.setAntialiasMode(#if (haxe_ver >= 3.3) mode #else untyped __cpp__("((wxAntialiasMode)mode)")#end);
     }
+    
+    public function setInterpolationQuality(mode:InterpolationQuality):Bool {
+        return _ref.setInterpolationQuality(#if (haxe_ver >= 3.3) mode #else untyped __cpp__("((wxInterpolationQuality)mode)")#end);
+    }
 }

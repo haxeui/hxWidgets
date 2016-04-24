@@ -295,6 +295,7 @@ class Main {
                 gc.setAnitaliasMode(AntialiasMode.NONE);
                 gc.drawBitmap(Bitmap.fromHaxeResource("inbox.png"), 0, 20, 32, 32);
                 gc.setAnitaliasMode(AntialiasMode.DEFAULT);
+                gc.setInterpolationQuality(InterpolationQuality.NONE);
                 gc.drawBitmap(Bitmap.fromHaxeResource("inbox.png"), 48, 20, 32, 32);
                 gc.drawBitmap(Bitmap.fromHaxeResource("slinky_tiny_test.bmp").getSubBitmap(new Rect(10, 10, 40, 30)), 10, 60);
                 gc.setFont(panel.getFont(), 0xFF00FF);
