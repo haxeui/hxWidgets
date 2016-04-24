@@ -9,12 +9,12 @@ class MouseEvent extends Event {
     }
 
     public var x(get, null):Int;
-    public function get_x():Int {
+    private function get_x():Int {
         return mouseEventRef.getX();
     }
 
     public var y(get, null):Int;
-    public function get_y():Int {
+    private function get_y():Int {
         return mouseEventRef.getY();
     }
 
