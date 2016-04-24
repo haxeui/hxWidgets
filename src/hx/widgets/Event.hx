@@ -20,6 +20,12 @@ class Event {
     public function skip(skip:Bool = true) {
         _ref.skip(skip);
     }
+
+    public function convertTo<T>(clz:Class<T>):T {
+		var event:T = Type.createInstance(clz, []);
+		cast(event, Event)._ref = _ref;
+		return event;
+    }
     
 	public static function fromRef(ref:WxEvent):Event {
 		var event:Event = new Event();

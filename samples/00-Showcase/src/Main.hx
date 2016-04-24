@@ -117,8 +117,9 @@ class Main {
                 dialog.show();
             });
             button.bind(EventType.LEFT_DOWN, function(e) {
-               trace("Mouse down");
+               trace("Mouse down - " + e.convertTo(MouseEvent).x + "x" + e.convertTo(MouseEvent).y);
                e.skip();
+               
             });
             button.bind(EventType.LEFT_UP, function(e) {
                trace("Mouse up");
