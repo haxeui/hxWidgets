@@ -23,6 +23,11 @@ class ClientDC {
         _ref.setPen(pen._ref);
     }
     
+    @:access(hx.widgets.Brush)
+    public function setBrush(brush:Brush):Void {
+        _ref.setBrush(brush._ref);
+    }
+    
     public function drawText(text:String, x:Int, y:Int):Void {
         _ref.drawText(text, x, y);
     }

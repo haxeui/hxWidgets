@@ -20,4 +20,5 @@ extern class GraphicsContextImpl {
     @:native("DrawText")                public function drawText(text:ConstCharStar, x:Float, y:Float):Void;
     @:native("DrawRoundedRectangle")    public function drawRoundedRectangle(x:Float, y:Float, width:Float, height:Float, radius:Float):Void;
     @:native("DrawBitmap")              public function drawBitmap(bmp:Bitmap, x:Float, y:Float, width:Float, height:Float):Void;
+    @:native("SetAntialiasMode")        public function setAntialiasMode(mode:AntialiasMode):Bool;
 }

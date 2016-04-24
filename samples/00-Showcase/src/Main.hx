@@ -292,7 +292,10 @@ class Main {
                 gc.drawRoundedRectangle(35, 10, 100, 30, 5);
                 gc.setPen(new Pen(0x0000FF, 2));
                 gc.drawBitmap(Bitmap.fromHaxeResource("inbox.png"));
+                gc.setAnitaliasMode(AntialiasMode.NONE);
                 gc.drawBitmap(Bitmap.fromHaxeResource("inbox.png"), 0, 20, 32, 32);
+                gc.setAnitaliasMode(AntialiasMode.DEFAULT);
+                gc.drawBitmap(Bitmap.fromHaxeResource("inbox.png"), 48, 20, 32, 32);
                 gc.drawBitmap(Bitmap.fromHaxeResource("slinky_tiny_test.bmp").getSubBitmap(new Rect(10, 10, 40, 30)), 10, 60);
                 gc.setFont(panel.getFont(), 0xFF00FF);
                 gc.drawText("Test", 10, 100);

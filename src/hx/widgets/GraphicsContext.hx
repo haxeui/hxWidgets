@@ -49,4 +49,8 @@ class GraphicsContext {
         }
         _ref.drawBitmap(bmp._ref, x, y, width, height);
     }
+    
+    public function setAnitaliasMode(mode:AntialiasMode):Bool {
+        return _ref.setAntialiasMode(#if (haxe_ver >= 3.3) mode #else untyped __cpp__("((wxAntialiasMode)mode)")#end);
+    }
 }
