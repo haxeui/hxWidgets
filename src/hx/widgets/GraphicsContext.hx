@@ -5,9 +5,11 @@ import wx.widgets.GraphicsContext in WxGraphicsContext;
 class GraphicsContext {
     private var _ref:WxGraphicsContext;
     
-    @:access(hx.widgets.ClientDC)
-    public function new(dc:ClientDC) {
-        _ref = WxGraphicsContext.createInstance(dc._ref);
+    @:access(hx.widgets.Window)
+    public function new(window:Window = null) {
+        if (window != null) {
+            _ref = WxGraphicsContext.createInstance(window._ref);
+        }
     }
     
     public function strokeLine(x1:Float, y1:Float, x2:Float, y2:Float) {
@@ -56,5 +58,22 @@ class GraphicsContext {
     
     public function setInterpolationQuality(mode:InterpolationQuality):Bool {
         return _ref.setInterpolationQuality(#if (haxe_ver >= 3.3) mode #else untyped __cpp__("((wxInterpolationQuality)mode)")#end);
+    }
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // STATIC HELPERS
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    @:access(hx.widgets.WindowDC)
+    public static function fromWindowDC(dc:WindowDC):GraphicsContext {
+        var ctx:GraphicsContext = new GraphicsContext();
+        ctx._ref = WxGraphicsContext.createInstanceFromWindowDC(dc.windowDCRef);
+        return ctx;
+    }
+    
+    @:access(hx.widgets.MemoryDC)
+    public static function fromMemoryDC(dc:MemoryDC):GraphicsContext {
+        var ctx:GraphicsContext = new GraphicsContext();
+        ctx._ref = WxGraphicsContext.createInstanceFromMemoryDC(dc.memoryDCRef);
+        return ctx;
     }
 }

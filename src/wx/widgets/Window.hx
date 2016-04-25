@@ -3,6 +3,7 @@ package wx.widgets;
 import cpp.ConstCharStar;
 import wx.widgets.Font.FontImpl;
 import wx.widgets.List.WindowList;
+import wx.widgets.styles.BackgroundStyle;
 
 @:include("wx/window.h")
 @:unreflective
@@ -60,4 +61,6 @@ extern class WindowImpl extends EvtHandler {
     @:native("SetScrollPos")                    public function setScrollPos(orientation:Int, pos:Int, refresh:Bool = true):Void;
     
     @:native("GetFont")                         public function getFont():FontImpl;
+    
+    @:native("SetBackgroundStyle")              public function setBackgroundStyle(style:BackgroundStyle):Bool;
 }

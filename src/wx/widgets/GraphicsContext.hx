@@ -6,7 +6,9 @@ import cpp.ConstCharStar;
 @:unreflective
 @:native("cpp::Reference<wxGraphicsContext>")
 extern class GraphicsContext extends GraphicsContextImpl {
-     @:native("wxGraphicsContext::Create")          public static function createInstance(dc:ClientDC):GraphicsContext;
+     @:native("wxGraphicsContext::Create")          public static function createInstance(window:Window):GraphicsContext;
+     @:native("wxGraphicsContext::Create")          public static function createInstanceFromWindowDC(dc:WindowDC):GraphicsContext;
+     @:native("wxGraphicsContext::Create")          public static function createInstanceFromMemoryDC(dc:MemoryDC):GraphicsContext;
 }
 
 @:include("wx/graphics.h")

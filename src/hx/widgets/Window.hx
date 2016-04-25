@@ -1,5 +1,6 @@
 package hx.widgets;
 
+import hx.widgets.styles.BackgroundStyle;
 import wx.widgets.List.WindowList in WxWindowList;
 import wx.widgets.List.WindowListNode in WxWindowListNode;
 import wx.widgets.Point in WxPoint;
@@ -207,6 +208,10 @@ class Window extends EvtHandler {
     
     public function getScrollThumb(orientation:Int) {
         return _ref.getScrollThumb(orientation);
+    }
+    
+    public function setBackgroundStyle(style:BackgroundStyle):Bool {
+        return _ref.setBackgroundStyle(#if (haxe_ver >= 3.3) style #else untyped __cpp__("((wxBackgroundStyle)style)")#end);
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

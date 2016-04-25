@@ -294,17 +294,24 @@ class Main {
             //scroller.refresh();
             
             var s:Colour = new Colour(0xFF0000);
-            
+            frame.backgroundColour = 0xFF0000;
             var panel:Panel = new Panel(frame);
+            //panel.setBackgroundStyle(BackgroundStyle.BG_PAINT);
             //panel.backgroundColour = 0xFF0000;
             panel.setSize(150, 100);
             panel.move(590, 280);
             //panel.refresh();
             
 
+            panel.bind(EventType.ERASE_BACKGROUND, function(e) {
+                
+            });
+            
             panel.bind(EventType.PAINT, function(e) {
                 var dc:PaintDC = new PaintDC(panel);
-                var gc:GraphicsContext = new GraphicsContext(dc);
+                dc.clear();
+                //var gc:GraphicsContext = new GraphicsContext(panel);
+                var gc:GraphicsContext = GraphicsContext.fromWindowDC(dc);
                 
                 gc.setPen(new Pen(0xFF0000));
                 gc.strokeLine(0, 0, 150, 100);
