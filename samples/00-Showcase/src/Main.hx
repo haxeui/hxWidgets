@@ -294,21 +294,28 @@ class Main {
             //scroller.refresh();
             
             var s:Colour = new Colour(0xFF0000);
-            frame.backgroundColour = 0xFF0000;
+            //frame.backgroundColour = 0xFF0000;
             var panel:Panel = new Panel(frame);
             //panel.setBackgroundStyle(BackgroundStyle.BG_PAINT);
             //panel.backgroundColour = 0xFF0000;
-            panel.setSize(150, 100);
+            panel.setSize(150, 150);
             panel.move(590, 280);
             //panel.refresh();
             
 
+            /*
             panel.bind(EventType.ERASE_BACKGROUND, function(e) {
-                
+                e.skip();
             });
+            */
             
             panel.bind(EventType.PAINT, function(e) {
                 var dc:PaintDC = new PaintDC(panel);
+                //var dc:GCDC = new GCDC(new WindowDC(panel));
+                //var bgb:Brush = new Brush();
+                //bgb.setRGBA(0, 0, 0, 255);
+                //dc.setBackground(StockBrushes.BRUSH_TRANSPARENT);
+                dc.setBackground(StockBrushes.BRUSH_RED);
                 dc.clear();
                 //var gc:GraphicsContext = new GraphicsContext(panel);
                 var gc:GraphicsContext = GraphicsContext.fromWindowDC(dc);
@@ -317,6 +324,7 @@ class Main {
                 gc.strokeLine(0, 0, 150, 100);
                 gc.setPen(new Pen(0x00FF00, 3));
                 gc.setBrush(new Brush(0xFF00FF));
+                gc.setBrush(StockBrushes.BRUSH_TRANSPARENT);
                 gc.drawRoundedRectangle(35, 10, 100, 30, 5);
                 gc.setPen(new Pen(0x0000FF, 2));
                 gc.drawBitmap(Bitmap.fromHaxeResource("inbox.png"));
@@ -326,7 +334,7 @@ class Main {
                 gc.setInterpolationQuality(InterpolationQuality.NONE);
                 gc.drawBitmap(Bitmap.fromHaxeResource("inbox.png"), 48, 20, 32, 32);
                 gc.drawBitmap(Bitmap.fromHaxeResource("slinky_tiny_test.bmp").getSubBitmap(new Rect(10, 10, 40, 30)), 10, 60);
-                gc.setFont(panel.getFont(), 0xFF00FF);
+                gc.setFont(panel.getFont(), 0x000000);
                 gc.drawText("Test", 10, 100);
             });
             

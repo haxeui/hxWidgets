@@ -37,4 +37,9 @@ class DC {
     public function drawCircle(x:Int, y:Int, radius:Int):Void {
         _ref.drawCircle(x, y, radius);
     }
+    
+    @:access(hx.widgets.Brush)
+    public function setBackground(brush:Brush):Void {
+        _ref.setBackground(brush._ref);
+    }
 }

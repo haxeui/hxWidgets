@@ -11,4 +11,5 @@ extern class Colour extends ColourImpl {
 @:unreflective
 @:native("wxColour")
 extern class ColourImpl {
+    @:native("Set")                     public function set(r:Int, g:Int, b:Int, a:Int):Void;
 }

@@ -20,4 +20,11 @@ class Brush {
         _ref.setColour(c._ref);
         return value;
     }
+    
+    @:access(hx.widgets.Colour)
+    public function setRGBA(r:Int, g:Int, b:Int, a:Int) {
+        var c:Colour = new Colour();
+        c.set(r, g, b, a);
+        _ref.setColour(c._ref);
+    }
 }

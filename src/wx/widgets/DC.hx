@@ -19,5 +19,6 @@ extern class DCImpl {
     @:native("DrawText")                public function drawText(text:ConstCharStar, x:Int, y:Int):Void;
     @:native("DrawRoundedRectangle")    public function drawRoundedRectangle(x:Int, y:Int, width:Int, height:Int, radius:Float):Void;
     @:native("DrawCircle")              public function drawCircle(x:Int, y:Int, radius:Int):Void;
+    @:native("SetBackground")           public function setBackground(brush:Brush):Void;
 }
 
