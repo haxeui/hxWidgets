@@ -25,7 +25,7 @@ class Button extends Control {
         _hasBitmap = true;
     }
     
-    private var _dir:Direction;
+    private var _dir:Direction = Direction.LEFT;
     public function setBitmapPosition(dir:Direction) {
         if (_hasBitmap == false) {
             _dir = dir;
