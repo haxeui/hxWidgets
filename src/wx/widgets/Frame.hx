@@ -1,6 +1,22 @@
 package wx.widgets;
 
 import cpp.ConstCharStar;
+import cpp.Pointer;
+import cpp.RawPointer;
+
+@:include("wx/frame.h")
+@:unreflective
+@:native("wxFrame")
+extern class Frame extends Window {
+    @:native("new wxFrame") private static function _new():RawPointer<Frame>;
+    inline public static function createInstance():Pointer<Frame> return Pointer.fromRaw(_new());
+    
+    @:native("Create")              @:overload(function(parent:Pointer<Window>, id:Int, label:ConstCharStar, point:Point, size:Size, style:Int):Bool {})
+    @:native("Create")              public override function create(parent:Pointer<Window>, id:Int, point:Point, size:Size, style:Int):Bool;
+}
+
+/*
+import cpp.ConstCharStar;
 
 @:include("wx/frame.h")
 @:unreflective
@@ -21,3 +37,4 @@ extern class FrameImpl extends Window {
     @:native("GetMenuBar")          public function getMenuBar():MenuBar;
     @:native("SetMenuBar")          public function setMenuBar(menuBar:MenuBar):Void;
 }
+*/

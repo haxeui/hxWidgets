@@ -1,5 +1,77 @@
 package hx.widgets;
 
+import cpp.Pointer;
+import wx.widgets.Window in WxWindow;
+
+@:access(hx.widgets.Colour)
+@:access(hx.widgets.Size)
+class Window {
+    private var _ref:Pointer<WxWindow>;
+    public function new(parent:Window, id:Int = -1) {
+        
+        //_ref = WxTestWindow.createInstance();
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Window status functions
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public function show(value:Bool = true):Bool {
+        return _ref.ptr.show(value);
+    }
+
+    public function hide():Bool {
+        return _ref.ptr.hide();
+    }
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Drawing-related functions
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public var backgroundColour(get, set):Int;
+    private function get_backgroundColour():Int {
+        var r = _ref.ptr.getBackgroundColour();
+        var c:Colour = Colour.fromPtr(Pointer.addressOf(r));
+        return c.rgb;
+    }
+    private function set_backgroundColour(value:Int):Int {
+        var c:Colour = new Colour(value);
+        _ref.ptr.setBackgroundColour(c._ref.ref);
+        c.destroy();
+        return value;
+    }
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Sizing functions
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public function beginRepositioningChildren():Bool {
+        return _ref.ptr.beginRepositioningChildren();
+    }
+    
+    public function endRepositioningChildren() {
+        _ref.ptr.endRepositioningChildren();
+    }
+    
+    public var size(get, set):Size;
+    private function get_size():Size {
+        var r = _ref.ptr.getSize();
+        return Size.copy(Pointer.addressOf(r));
+    }
+    private function set_size(value:Size):Size {
+        _ref.ptr.setSize(value._ref.ref);
+        return value;
+    }
+    
+    public function resize(width:Int, height:Int) { // bit of sugar - semantically works well with 'move'
+        _ref.ptr.setSize(width, height);
+    }
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Positioning functions
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public function move(x:Int, y:Int) {
+        _ref.ptr.move(x, y);
+    }
+}
+/*
 import hx.widgets.styles.BackgroundStyle;
 import wx.widgets.List.WindowList in WxWindowList;
 import wx.widgets.List.WindowListNode in WxWindowListNode;
@@ -223,3 +295,4 @@ class Window extends EvtHandler {
     }
     
 }
+*/

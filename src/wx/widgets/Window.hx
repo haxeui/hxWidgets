@@ -1,6 +1,110 @@
 package wx.widgets;
 
 import cpp.ConstCharStar;
+import cpp.Pointer;
+import cpp.RawPointer;
+import wx.widgets.styles.BackgroundStyle;
+
+@:include("wx/window.h")
+@:unreflective
+@:native("wxWindow")
+extern class Window {
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // creation functions
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    @:native("new wxWindow")                    private static function _new():RawPointer<Window>;
+                                                public static inline function createInstance():Pointer<Window> return Pointer.fromRaw(_new());
+    
+    @:native("Create")                          public function create(parent:Pointer<Window>, id:Int, point:Point, size:Size, style:Int):Bool;
+
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Window status functions
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    @:native("Show")                            public function show(value:Bool = true):Bool;
+    @:native("Hide")                            public function hide():Bool;
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Window deletion functions
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    @:native("Close")                           public function close(force:Bool = false):Bool;
+    @:native("Destroy")                         public function destroy():Bool;
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Child management functions
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    @:native("DestroyChildren")                 public function destroyChildren():Bool;
+    @:native("FindWindow")                      public function findWindowById(id:Int):Pointer<Window>;
+    //@:native("GetChildren")                     public function getChildren():WindowList;
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Sibling and parent management functions
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    @:native("GetParent")                       public function getParent():Pointer<Window>;
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Drawing-related functions
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    @:native("Refresh")                         public function refresh(eraseBackground:Bool = true):Void;
+    @:native("RefreshRect")                     public function refreshRect(rect:Rect, eraseBackground:Bool = true):Void;
+    @:native("Update")                          public function update():Void;
+    @:native("GetBackgroundColour")             public function getBackgroundColour():Colour;
+    @:native("SetBackgroundColour")             public function setBackgroundColour(colour:Colour):Void;
+    @:native("GetForegroundColour")             public function getForegroundColour():Int;
+    @:native("SetForegroundColour")             public function setForegroundColour(colour:Int):Void;
+    //@:native("GetFont")                         public function getFont():FontImpl;
+    //@:native("SetFont")                         public function setFont(font:Font):Void;
+    @:native("Freeze")                          public function freeze():Void;
+    @:native("Thaw")                            public function thaw():Void;
+    @:native("IsFrozen")                        public function isFrozen():Bool;
+    @:native("SetBackgroundStyle")              public function setBackgroundStyle(style:BackgroundStyle):Bool;
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Sizing functions
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    @:native("BeginRepositioningChildren")      public function beginRepositioningChildren():Bool;
+    @:native("EndRepositioningChildren")        public function endRepositioningChildren():Void;
+    @:native("GetSize")                         public function getSize():Size;
+    @:native("SetSize")                         @:overload(function(width:Int, height:Int):Void {})
+    @:native("SetSize")                         public function setSize(size:Size):Void;
+    //@:native("GetClientSize")                   public function getClientSize():Size.SizeImpl;
+    @:native("SetClientSize")                   public function setClientSize(width:Int, height:Int):Void;
+    @:native("GetBestSize")                     public function getBestSize():Size;
+    @:native("GetMaxSize")                      public function getMaxSize():Size;
+    @:native("GetMinSize")                      public function getMinSize():Size;
+    @:native("GetMinClientSize")                public function getMinClientSize():Size;
+    @:native("GetVirtualSize")                  public function getVirtualSize():Size;
+    @:native("SetVirtualSize")                  public function setVirtualSize(width:Int, height:Int):Void;
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Positioning functions
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    @:native("Move")                            public function move(x:Int, y:Int):Void;
+    @:native("GetPosition")                     public function getPosition():Point;
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Window styles functions
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    @:native("GetWindowStyle")                  public function getWindowStyle():Int;
+    @:native("SetWindowStyle")                  public function setWindowStyle(style:Int):Void;
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Window properties functions
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    @:native("GetId")                           public function getId():Int;
+    @:native("SetId")                           public function setId(id:Int):Void;
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Scrolling and scrollbars functions
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    @:native("GetScrollPos")                    public function getScrollPos(orientation:Int):Int;
+    @:native("GetScrollRange")                  public function getScrollRange(orientation:Int):Int;
+    @:native("GetScrollThumb")                  public function getScrollThumb(orientation:Int):Int;
+    @:native("SetScrollPos")                    public function setScrollPos(orientation:Int, pos:Int, refresh:Bool = true):Void;
+}
+
+/*
+import cpp.ConstCharStar;
 import wx.widgets.Font.FontImpl;
 import wx.widgets.List.WindowList;
 import wx.widgets.styles.BackgroundStyle;
@@ -22,9 +126,11 @@ extern class WindowImpl extends EvtHandler {
     @:native("Close")                           public function close(force:Bool):Bool;
     @:native("Destroy")                         public function destroy():Bool;
     @:native("DestroyChildren")                 public function destroyChildren():Bool;
+    
     @:native("Refresh")                         public function refresh(eraseBackground:Bool = true):Void;
     @:native("RefreshRect")                     public function refreshRect(rect:Rect, eraseBackground:Bool = true):Void;
     @:native("Update")                          public function update():Void;
+    
     @:native("SetSize")                         public function setSize(width:Int, height:Int):Void;
     @:native("SetClientSize")                   public function setClientSize(width:Int, height:Int):Void;
     @:native("GetClientSize")                   public function getClientSize():Size.SizeImpl;
@@ -32,26 +138,49 @@ extern class WindowImpl extends EvtHandler {
     @:native("GetMaxSize")                      public function getMaxSize():Size;
     @:native("GetMinSize")                      public function getMinSize():Size;
     @:native("GetMinClientSize")                public function getMinClientSize():Size;
+    
+    
+    
+    
+    
     @:native("Move")                            public function move(x:Int, y:Int):Void;
+    
+    
     @:native("FindWindow")                      public function findWindowById(id:Int):Window;
+    
+    
+    
     @:native("GetBackgroundColour")             public function getBackgroundColour():Int;
     @:native("SetBackgroundColour")             public function setBackgroundColour(colour:Int):Void;
     @:native("GetForegroundColour")             public function getForegroundColour():Int;
     @:native("SetForegroundColour")             public function setForegroundColour(colour:Int):Void;
+    
+    
     @:native("GetWindowStyle")                  public function getWindowStyle():Int;
     @:native("SetWindowStyle")                  public function setWindowStyle(style:Int):Void;
+    
     @:native("GetSize")                         public function getSize():Size;
+    
     @:native("GetPosition")                     public function getPosition():Point;
+    
     @:native("SetVirtualSize")                  public function setVirtualSize(width:Int, height:Int):Void;
     @:native("GetVirtualSize")                  public function getVirtualSize():Size;
+    
     @:native("GetParent")                       public function getParent():Window;
+    
+    
     @:native("GetId")                           public function getId():Int;
     @:native("SetId")                           public function setId(id:Int):Void;
+    
+    
     @:native("GetChildren")                     public function getChildren():WindowList;
+    
+    
     @:native("SetFont")                         public function setFont(font:Font):Void;
     @:native("Freeze")                          public function freeze():Void;
     @:native("Thaw")                            public function thaw():Void;
     @:native("IsFrozen")                        public function isFrozen():Bool;
+    
     @:native("BeginRepositioningChildren")      public function beginRepositioningChildren():Bool;
     @:native("EndRepositioningChildren")        public function endRepositioningChildren():Void;
     
@@ -64,3 +193,4 @@ extern class WindowImpl extends EvtHandler {
     
     @:native("SetBackgroundStyle")              public function setBackgroundStyle(style:BackgroundStyle):Bool;
 }
+*/

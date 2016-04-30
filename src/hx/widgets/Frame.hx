@@ -1,5 +1,35 @@
 package hx.widgets;
 
+import cpp.Pointer;
+import hx.widgets.styles.FrameStyle;
+import wx.widgets.Frame in WxFrame;
+import wx.widgets.MenuBar in WxMenuBar;
+
+@:access(hx.widgets.Size)
+class Frame extends Window {
+    public function new(parent:Window, title:String, style:Int = 0, id:Int = -1) {
+        if (style == 0) {
+            style = FrameStyle.DEFAULT_FRAME_STYLE;
+        }
+        
+        if (_ref == null) {
+            var frameRef:Pointer<WxFrame> = WxFrame.createInstance();
+            frameRef.ptr.create(parent != null ? parent._ref : null, id, title, Point.defaultPositionRef, Size.defaultSize._ref.ref, style);
+            _ref = cast frameRef.raw;
+        }
+        
+        super(parent, id);
+    }
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Helpers
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    private var frameRef(get, null):Pointer<WxFrame>;
+    private inline function get_frameRef():Pointer<WxFrame> {
+        return cast _ref.raw;
+    }
+}
+/*
 import hx.widgets.styles.FrameStyle;
 import wx.widgets.Frame in WxFrame;
 import wx.widgets.MenuBar in WxMenuBar;
@@ -53,3 +83,4 @@ class Frame extends Window {
         return cast _ref;
     }
 }
+*/

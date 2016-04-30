@@ -9,16 +9,21 @@ Note: Images in buttons for ubuntu dont work until you run:
 gsettings set org.gnome.settings-daemon.plugins.xsettings overrides "{'Gtk/ButtonImages': <1>, 'Gtk/MenuImages': <1>}"
 */
 class Main {
+    /*
     private static var worker:ThreadWorker;
     private static var timer:Timer;
+    */
     
     public static function main() {
+        /*
         worker = new ThreadWorker();
         worker.start();
+        */
         
         var app = new App();
         app.init();
         
+        /*
         var platform:PlatformInfo = new PlatformInfo();
         trace("OS Major Version: " + platform.getOSMajorVersion());
         trace("OS Minor Version: " + platform.getOSMinorVersion());
@@ -30,16 +35,27 @@ class Main {
         trace("Screen X: " + SystemSettings.getMetric(SystemMetric.SCREEN_X));
         
         SystemOptions.setOption("msw.window.no-clip-children", 1);
+        */
         
         var frame:Frame = new Frame(null, "hxWidgets");
+        /*
         timer = new Timer(frame, 100);
+        */
         
         //frame.setStatusText("Status: OK");
+        /*
         if (platform.getOperatingSystemId() == OperatingSystemId.WINDOWS) {
             frame.backgroundColour = 0xFFFFFF;
         }
+        */
+        frame.backgroundColour = 0xFF0000;
+        trace(StringTools.hex(frame.backgroundColour, 6));
         frame.show(true);
+        frame.resize(800, 600);
+        trace(frame.size.width);
+        trace(frame.size.height);
         
+        /*
         var menuBar:MenuBar = new MenuBar();
         var file:Menu = new Menu();
         menuBar.append(file, "&File");
@@ -50,7 +66,7 @@ class Main {
         var menuItem:MenuItem = new MenuItem(file, "Menu 3");
         menuItem.setBitmap(Bitmap.fromHaxeResource("inbox.png"));
         file.appendItem(menuItem);
-        
+        */
         
         /*
         file.appendItem(new MenuItem(file, null, null, StandardIds.ABOUT)); // doesnt need text, becomes "About" (en_UK)
@@ -59,12 +75,13 @@ class Main {
         file.append(StandardIds.EXIT);
         */
         
+        /*
         frame.setMenuBar(menuBar);
 
         var testButton:TestButton = new TestButton(frame);
         var testWindow:TestWindow = new TestWindow(frame);
         testButton.setLabel("This is new");
-        
+        */
         
         /*
         var edit:Menu = new Menu();
@@ -414,8 +431,10 @@ class Main {
         */
         
         app.run();
+        /*
         timer.stop();
         worker.stop();
+        */
         
         app.exit();
     }
