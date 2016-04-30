@@ -61,8 +61,12 @@ class Main {
         
         frame.setMenuBar(menuBar);
 
+        var testButton:TestButton = new TestButton(frame);
+        var testWindow:TestWindow = new TestWindow(frame);
+        testButton.setLabel("This is new");
         
         
+        /*
         var edit:Menu = new Menu();
         edit.appendItem(new MenuItem(edit, "Something"));
         
@@ -100,6 +104,8 @@ class Main {
         
             // create a button
             var button:Button = new Button(frame, "Button 1", 0, 1002);
+            button.label = "Bob\nBob\nBob\nBob\nBob\nBob\nBob\n";
+            trace(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> " + button.label);
             button.setBitmapPosition(Direction.RIGHT);
             button.setBitmap(Bitmap.fromHaxeResource("inbox.png"));
             button.setSize(100, 100);
@@ -187,7 +193,7 @@ class Main {
             textctrl.move(130, 150); 
             var timertextresult:TextCtrl = textctrl;
             
-            var textctrl:TextCtrl = new TextCtrl(frame, null, TextCtrlStyle.MULTILINE | TextCtrlStyle.RICH);
+            var textctrl:TextCtrl = new TextCtrl(frame, null, TextCtrlStyle.MULTILINE);
             textctrl.setSize(100, 70);   
             textctrl.move(130, 180);
             textctrl.appendText("This is line 1\n");
@@ -195,25 +201,28 @@ class Main {
             textctrl.appendText("This is line 3\n");
             textctrl.appendText("This is line 4\n");
             textctrl.appendText("This is line 5\n");
+            trace("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX " + textctrl.value);
             textctrl.insertionPoint = 0;
+            
+            textctrl.bind(EventType.TEXT, function(e) {
+            trace("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX " + textctrl.value);
+            });
+            
             
             var box:StaticBox = new StaticBox(frame, "Static Box");
             box.setSize(120, 100);
             box.move(430, 80);
             
             var label:StaticText = new StaticText(box, "Static text");
+            label.label = "TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST ";
+            trace(">>>>>>>>>> " + label.test());
             label.move(10, 20);
             
-            var label:StaticText = new StaticText(box, "Static text");
+            var label2:StaticText = new StaticText(box, label.label);
             var font:Font = new Font(16);
-            label.setFont(font);
-            label.foregroundColour = 0xFF00FF;
-            label.move(10, 40);
-            
-            /* cant use link on mac, need to find out why (probably missing lib on my box)
-            var link:HyperlinkCtrl = new HyperlinkCtrl(box, "hxWidgets", "https://github.com/ianharrigan/hxWidgets");
-            link.move(10, 40);
-            */
+            label2.setFont(font);
+            label2.foregroundColour = 0xFF00FF;
+            label2.move(10, 40);
             
             // create a gauge (progress bar)
             var gauge:Gauge = new Gauge(frame);
@@ -274,11 +283,6 @@ class Main {
             scroller.refresh();
             for (a in 0...20) {
                 var b:Button = new Button(scroller, "Button " + a);
-                /*
-                b.x = 10;
-                b.y = 10 + (a * 30);
-                b.height = 25;
-                */
                 b.setSize( -1, 25);
                 b.move(10, 10 + (a * 30));
             }
@@ -303,12 +307,6 @@ class Main {
             //panel.refresh();
             
 
-            /*
-            panel.bind(EventType.ERASE_BACKGROUND, function(e) {
-                e.skip();
-            });
-            */
-            
             panel.bind(EventType.PAINT, function(e) {
                 var dc:PaintDC = new PaintDC(panel);
                 //var dc:GCDC = new GCDC(new WindowDC(panel));
@@ -413,7 +411,7 @@ class Main {
         frame.bind(EventType.TIMER, function(e) {
            timertextresult.label = '${worker.count}';
         });
-        
+        */
         
         app.run();
         timer.stop();

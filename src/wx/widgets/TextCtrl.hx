@@ -19,4 +19,6 @@ extern class TextCtrlImpl extends Control {
     @:native("AppendText")          public function appendText(value:ConstCharStar):Void;
     @:native("GetInsertionPoint")   public function getInsertionPoint():Int;
     @:native("SetInsertionPoint")   public function setInsertionPoint(value:Int):Void;
+    @:native("SetValue")            public function setValue(value:ConstCharStar):Void;
+    @:native("GetValue")            public function getValue():ConstCharStar;
 }

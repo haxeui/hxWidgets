@@ -26,6 +26,15 @@ class TextCtrl extends Control {
         return value;
     }
     
+    public var value(get, set):String;
+    private function get_value():String {
+        return textRef.getValue();
+    }
+    private function set_value(value:String):String {
+        textRef.setValue(value);
+        return value;
+    }
+    
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // HELPERS
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
