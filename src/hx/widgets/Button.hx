@@ -3,6 +3,22 @@ package hx.widgets;
 import cpp.Pointer;
 import wx.widgets.Button in WxButton;
 
+class Button extends Control {
+    public function new(parent:Window, label:String, style:Int = 0, id:Int = -1) {
+        if (_ref == null) {
+            var buttonRef:Pointer<WxButton> = WxButton.createInstance();
+            buttonRef.ptr.create(parent != null ? parent._ref : null, id, label, Point.defaultPosition.ref, Size.defaultSize.ref, style);
+            _ref = cast buttonRef.raw;
+        }
+        
+        super(parent, id);
+    }
+}
+
+/*
+import cpp.Pointer;
+import wx.widgets.Button in WxButton;
+
 @:unreflective
 class Button extends Control {
     public function new(parent:Window, label:String, style:Int = 0, id:Int = -1) {
@@ -42,3 +58,4 @@ class Button extends Control {
         return cast _ref;
     }
 }
+*/

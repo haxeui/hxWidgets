@@ -3,7 +3,12 @@ package hx.widgets;
 import wx.widgets.Font in WxFont;
 
 class Font {
-    private var _ref:WxFont;
+    //private var _ref:WxFont;
+    private var _size:Int;
+    private var _family:FontFamily;
+    private var _style:FontStyle;
+    private var _weight:FontWeight;
+    private var _underline:Bool;
     
     public function new(size:Int = -1, family:FontFamily = null, style:FontStyle = null, weight:FontWeight = null, underline = false) {
         if (family == null) {
@@ -15,8 +20,10 @@ class Font {
         if (weight == null) {
             weight = FontWeight.NORMAL;
         }
-        if (size > 0) {
-            _ref = WxFont.createInstance(size, family, style, weight, underline);
-        }
+        _size = size;
+        _family = family;
+        _style = style;
+        _weight = weight;
+        _underline = underline;
     }
 }

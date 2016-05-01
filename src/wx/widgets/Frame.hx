@@ -8,10 +8,13 @@ import cpp.RawPointer;
 @:unreflective
 @:native("wxFrame")
 extern class Frame extends Window {
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // creation functions
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
     @:native("new wxFrame") private static function _new():RawPointer<Frame>;
     inline public static function createInstance():Pointer<Frame> return Pointer.fromRaw(_new());
     
-    @:native("Create")              @:overload(function(parent:Pointer<Window>, id:Int, label:ConstCharStar, point:Point, size:Size, style:Int):Bool {})
+    @:native("Create")              @:overload(function(parent:Pointer<Window>, id:Int, title:ConstCharStar, point:Point, size:Size, style:Int):Bool {})
     @:native("Create")              public override function create(parent:Pointer<Window>, id:Int, point:Point, size:Size, style:Int):Bool;
 }
 

@@ -1,9 +1,12 @@
 package hx.widgets;
 
 import cpp.Pointer;
+import hx.widgets.styles.BackgroundStyle;
 import wx.widgets.Window in WxWindow;
 import wx.widgets.Colour in WxColour;
 import wx.widgets.Size in WxSize;
+import wx.widgets.Rect in WxRect;
+import wx.widgets.Point in WxPoint;
 
 class Window {
     private var _ref:Pointer<WxWindow>;
@@ -24,8 +27,58 @@ class Window {
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Window deletion functions
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public function close(force:Bool = false):Bool {
+        return _ref.ptr.close(force);
+    }
+    
+    public function destroy():Bool {
+        var r = _ref.ptr.destroy();
+        if (r == true) {
+            _ref.destroy();
+        }
+        return r;
+    }
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Child management functions
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public function destroyChildren():Bool {
+        return _ref.ptr.destroyChildren();
+    }
+
+    // TODO:
+    public function findWindowById(id:Int):Window {
+        return null;
+    }
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Sibling and parent management functions
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public var parent(get, null):Window;
+    // TODO:
+    private function get_parent():Window {
+        return null;
+    }
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Drawing-related functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public function refresh(eraseBackground:Bool = true) {
+        _ref.ptr.refresh(eraseBackground);
+    }
+    
+    public function refreshRect(rect:Rect, eraseBackground:Bool = true) {
+        var temp:Pointer<WxRect> = rect.createPointer();
+        _ref.ptr.refreshRect(temp.ref, eraseBackground);
+        temp.destroy();
+    }
+    
+    public function update() {
+        _ref.ptr.update();
+    }
+    
     public var backgroundColour(get, set):Int;
     private function get_backgroundColour():Int {
         var r = _ref.ptr.getBackgroundColour();
@@ -35,6 +88,53 @@ class Window {
         var temp:Pointer<WxColour> = WxColour.createInstance(Colour.convertColor(value));
         _ref.ptr.setBackgroundColour(temp.ref);
         temp.destroy();
+        return value;
+    }
+    
+    public var foregroundColour(get, set):Int;
+    private function get_foregroundColour():Int {
+        var r = _ref.ptr.getForegroundColour();
+        return Colour.copy(Pointer.addressOf(r)).rgb;
+    }
+    private function set_foregroundColour(value:Int):Int {
+        var temp:Pointer<WxColour> = WxColour.createInstance(Colour.convertColor(value));
+        _ref.ptr.setForegroundColour(temp.ref);
+        temp.destroy();
+        return value;
+    }
+    
+    // TODO:
+    public var font(get, set):Font;
+    private function get_font():Font {
+        return null;
+    }
+    private function set_font(value:Font):Font {
+        return value;
+    }
+    
+    public function freeze() {
+        _ref.ptr.freeze();
+    }
+    
+    public function thaw() {
+        _ref.ptr.thaw();
+    }
+    
+    public var isFrozen(get, null):Bool;
+    private function get_isFrozen():Bool {
+        return _ref.ptr.isFrozen();
+    }
+    
+    public var backgroundStyle:BackgroundStyle;
+    private function get_backgroundStyle():BackgroundStyle {
+        return _ref.ptr.getBackgroundStyle();
+    }
+    private function set_backgroundStyle(value:BackgroundStyle):BackgroundStyle {
+        #if (haxe_ver >= 3.3)
+        _ref.ptr.setBackgroundStyle(cast value);
+        #else
+        _ref.ptr.setBackgroundStyle(untyped __cpp__("((wxBackgroundStyle)value)"));
+        #end
         return value;
     }
     
@@ -55,7 +155,7 @@ class Window {
         return Size.copy(Pointer.addressOf(r));
     }
     private function set_size(value:Size):Size {
-        var temp:Pointer<WxSize> = WxSize.createInstance(value.width, value.height);
+        var temp:Pointer<WxSize> = value.createPointer();
         _ref.ptr.setSize(temp.ref);
         temp.destroy();
         return value;
@@ -65,11 +165,61 @@ class Window {
         _ref.ptr.setSize(width, height);
     }
     
+    public var clientSize(get, set):Size;
+    private function get_clientSize():Size {
+        var r = _ref.ptr.getClientSize();
+        return Size.copy(Pointer.addressOf(r));
+    }
+    private function set_clientSize(value:Size):Size {
+        var temp:Pointer<WxSize> = value.createPointer();
+        _ref.ptr.setClientSize(temp.ref);
+        temp.destroy();
+        return value;
+    }
+    
+    public function resizeClient(width:Int, height:Int) { // bit of sugar - semantically works well with 'move'
+        _ref.ptr.setClientSize(width, height);
+    }
+    
+    public var bestSize(get, null):Size;
+    private function get_bestSize():Size {
+        var r = _ref.ptr.getBestSize();
+        return Size.copy(Pointer.addressOf(r));
+    }
+    
+    public var virtualSize(get, set):Size;
+    private function get_virtualSize():Size {
+        var r = _ref.ptr.getVirtualSize();
+        return Size.copy(Pointer.addressOf(r));
+    }
+    private function set_virtualSize(value:Size):Size {
+        var temp:Pointer<WxSize> = value.createPointer();
+        _ref.ptr.setVirtualSize(temp.ref);
+        temp.destroy();
+        return value;
+    }
+    
+    public function resizeVirtual(width:Int, height:Int) { // bit of sugar - semantically works well with 'move'
+        _ref.ptr.setVirtualSize(width, height);
+    }
+    
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Positioning functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     public function move(x:Int, y:Int) {
         _ref.ptr.move(x, y);
+    }
+    
+    public var position(get, set):Point;
+    private function get_position():Point {
+        var r = _ref.ptr.getPosition();
+        return Point.copy(Pointer.addressOf(r));
+    }
+    private function set_position(value:Point):Point {
+        var temp:Pointer<WxPoint> = value.createPointer();
+        _ref.ptr.setPosition(temp.ref);
+        temp.destroy();
+        return value;
     }
 }
 /*

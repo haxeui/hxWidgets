@@ -48,12 +48,23 @@ class Main {
             frame.backgroundColour = 0xFFFFFF;
         }
         */
+
+        var button:Button = new Button(frame, "Test");
+        
         frame.backgroundColour = 0xFF0000;
         trace(StringTools.hex(frame.backgroundColour, 6));
         frame.show(true);
         frame.resize(800, 600);
         trace(frame.size.width);
         trace(frame.size.height);
+        frame.backgroundStyle = BackgroundStyle.BG_TRANSPARENT;
+        frame.refresh();
+        trace(frame.backgroundStyle == BackgroundStyle.BG_TRANSPARENT);
+        frame.move(10, 20);
+        trace(frame.position.x + ", " + frame.position.y);
+        frame.position = new Point(100, 200);
+        trace(frame.position.x + ", " + frame.position.y);
+        
         
         /*
         var menuBar:MenuBar = new MenuBar();

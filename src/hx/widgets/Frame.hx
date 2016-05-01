@@ -5,7 +5,6 @@ import hx.widgets.styles.FrameStyle;
 import wx.widgets.Frame in WxFrame;
 import wx.widgets.MenuBar in WxMenuBar;
 
-@:access(hx.widgets.Size)
 class Frame extends Window {
     public function new(parent:Window, title:String, style:Int = 0, id:Int = -1) {
         if (style == 0) {
@@ -14,7 +13,7 @@ class Frame extends Window {
         
         if (_ref == null) {
             var frameRef:Pointer<WxFrame> = WxFrame.createInstance();
-            frameRef.ptr.create(parent != null ? parent._ref : null, id, title, Point.defaultPositionRef, Size.defaultSize.ref, style);
+            frameRef.ptr.create(parent != null ? parent._ref : null, id, title, Point.defaultPosition.ref, Size.defaultSize.ref, style);
             _ref = cast frameRef.raw;
         }
         

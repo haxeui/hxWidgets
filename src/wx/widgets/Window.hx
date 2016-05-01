@@ -50,14 +50,15 @@ extern class Window {
     @:native("Update")                          public function update():Void;
     @:native("GetBackgroundColour")             public function getBackgroundColour():Colour;
     @:native("SetBackgroundColour")             public function setBackgroundColour(colour:Colour):Void;
-    @:native("GetForegroundColour")             public function getForegroundColour():Int;
-    @:native("SetForegroundColour")             public function setForegroundColour(colour:Int):Void;
-    //@:native("GetFont")                         public function getFont():FontImpl;
-    //@:native("SetFont")                         public function setFont(font:Font):Void;
+    @:native("GetForegroundColour")             public function getForegroundColour():Colour;
+    @:native("SetForegroundColour")             public function setForegroundColour(colour:Colour):Void;
+    @:native("GetFont")                         public function getFont():Font;
+    @:native("SetFont")                         public function setFont(font:Font):Void;
     @:native("Freeze")                          public function freeze():Void;
     @:native("Thaw")                            public function thaw():Void;
     @:native("IsFrozen")                        public function isFrozen():Bool;
-    @:native("SetBackgroundStyle")              public function setBackgroundStyle(style:BackgroundStyle):Bool;
+    @:native("GetBackgroundStyle")              public function getBackgroundStyle():BackgroundStyle;
+    @:native("SetBackgroundStyle")              public function setBackgroundStyle(style:BackgroundStyle):Void;
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Sizing functions
@@ -67,20 +68,20 @@ extern class Window {
     @:native("GetSize")                         public function getSize():Size;
     @:native("SetSize")                         @:overload(function(width:Int, height:Int):Void {})
     @:native("SetSize")                         public function setSize(size:Size):Void;
-    //@:native("GetClientSize")                   public function getClientSize():Size.SizeImpl;
-    @:native("SetClientSize")                   public function setClientSize(width:Int, height:Int):Void;
+    @:native("GetClientSize")                   public function getClientSize():Size;
+    @:native("SetClientSize")                   @:overload(function(width:Int, height:Int):Void {})
+    @:native("SetClientSize")                   public function setClientSize(size:Size):Void;
     @:native("GetBestSize")                     public function getBestSize():Size;
-    @:native("GetMaxSize")                      public function getMaxSize():Size;
-    @:native("GetMinSize")                      public function getMinSize():Size;
-    @:native("GetMinClientSize")                public function getMinClientSize():Size;
     @:native("GetVirtualSize")                  public function getVirtualSize():Size;
-    @:native("SetVirtualSize")                  public function setVirtualSize(width:Int, height:Int):Void;
+    @:native("SetVirtualSize")                  @:overload(function(width:Int, height:Int):Void {})
+    @:native("SetVirtualSize")                  public function setVirtualSize(size:Size):Void;
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Positioning functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     @:native("Move")                            public function move(x:Int, y:Int):Void;
     @:native("GetPosition")                     public function getPosition():Point;
+    @:native("SetPosition")                     public function setPosition(pos:Point):Void;
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Window styles functions

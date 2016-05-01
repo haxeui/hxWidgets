@@ -1,5 +1,20 @@
 package hx.widgets;
 
+import cpp.Pointer;
+import wx.widgets.Control in WxControl;
+
+class Control extends Window {
+    public function new(parent:Window, style:Int = 0, id:Int = -1) {
+        if (_ref == null) {
+            var controlRef:Pointer<WxControl> = WxControl.createInstance();
+            controlRef.ptr.create(parent != null ? parent._ref : null, id, Point.defaultPosition.ref, Size.defaultSize.ref, style);
+            _ref = cast controlRef.raw;
+        }
+        
+        super(parent, id);
+    }
+}
+/*
 import wx.widgets.Control in WxControl;
 
 class Control extends Window {
@@ -30,3 +45,4 @@ class Control extends Window {
         return cast _ref;
     }
 }
+*/
