@@ -160,6 +160,17 @@ class Main {
             });
             checkbox.move(280, 10);
         
+            // create radio buttons
+            var radio:RadioButton = new RadioButton(frame, "Option 1");
+            radio.move(380, 10);
+
+            var radio:RadioButton = new RadioButton(frame, "Option 2");
+            radio.value = true;
+            radio.move(470, 10);
+
+            var radio:RadioButton = new RadioButton(frame, "Option 3");
+            radio.move(560, 10);
+            
         /*
         
         trace("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX " + fff.title);
