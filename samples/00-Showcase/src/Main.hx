@@ -79,8 +79,30 @@ class Main {
         frame.position = new Point(100, 200);
         trace(frame.position.x + ", " + frame.position.y);
         
-
         trace(">>>>>>>>>>>>>>>>>>>> " + button.parent.size.width);
+        //var ff:Frame = cast(button.parent, Frame);
+        trace("CLASS INFO! " + button.parent.classInfo.className);
+
+        var fff:Frame = Window.convertTo(button.parent, Frame);
+        
+        trace(cast(button.parent, Frame).title);
+        
+        /*
+        
+        trace("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX " + fff.title);
+        
+        trace("CLASS INFO! " + button.parent.classInfo);
+        */
+        
+        /*
+        var ff:Frame = cast button.parent;
+        if (ff == null) {
+            trace("ITS NULL!");
+        } else {
+            trace("NOT NULL!");
+            //trace(">>>>>>>>>>>>>>>>>>>> " + f.size.width);
+        }
+        */
         
         /*
         var menuBar:MenuBar = new MenuBar();

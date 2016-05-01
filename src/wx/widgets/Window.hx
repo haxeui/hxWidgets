@@ -102,6 +102,11 @@ extern class Window {
     @:native("GetScrollRange")                  public function getScrollRange(orientation:Int):Int;
     @:native("GetScrollThumb")                  public function getScrollThumb(orientation:Int):Int;
     @:native("SetScrollPos")                    public function setScrollPos(orientation:Int, pos:Int, refresh:Bool = true):Void;
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Misc functions
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    @:native("GetClassInfo")                    public function getClassInfo():Pointer<ClassInfo>;
 }
 
 /*

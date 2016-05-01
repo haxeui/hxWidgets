@@ -9,6 +9,7 @@ import wx.widgets.Size in WxSize;
 import wx.widgets.Rect in WxRect;
 import wx.widgets.Point in WxPoint;
 import wx.widgets.Font in WxFont;
+import wx.widgets.ClassInfo in WxClassInfo;
 
 class Window extends EvtHandler {
     private var _ref:Pointer<WxWindow>;
@@ -58,13 +59,14 @@ class Window extends EvtHandler {
     // Sibling and parent management functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     public var parent(get, null):Window;
-    // TODO:
     private function get_parent():Window {
         var p:Pointer<WxWindow> = _ref.ptr.getParent();
         var win:Window = new Window(null);
         var raw:RawPointer<WxWindow> = cast p.raw;
         win._ref = Pointer.fromRaw(raw);
-        return win;
+
+        // lets auto convert the class so it can be used with casts
+        return autoConvert(win);
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -229,6 +231,46 @@ class Window extends EvtHandler {
         temp.destroy();
         return value;
     }
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Misc functions
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public var classInfo(get, null):ClassInfo;
+    @:access(hx.widgets.ClassInfo)
+    private function get_classInfo():ClassInfo {
+        var t:Pointer<WxClassInfo> = _ref.ptr.getClassInfo();
+        var info:ClassInfo = new ClassInfo();
+        
+        var raw:RawPointer<WxClassInfo> = cast t.raw;
+        info._ref = Pointer.fromRaw(raw);
+        
+        return info;
+    }
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Static helpers
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    private static function autoConvert(win:Window):Window {
+        var classInfo:ClassInfo = win.classInfo;
+        var className = win.classInfo.className;
+        if (StringTools.startsWith(className, "wx")) {
+            className = className.substr(2, className.length);
+        }
+        className = "hx.widgets." + className;
+        var parentClass = Type.resolveClass(className);
+        if (parentClass != null) {
+            win = convertTo(win, parentClass);
+        }
+        return win;
+    }
+    
+    public static function convertTo<T>(win:Window, c:Class<T>):T {
+        var t:T = Type.createEmptyInstance(c);
+        var raw:RawPointer<WxWindow> = cast win._ref.raw;
+        cast(t, Window)._ref = Pointer.fromRaw(raw);
+        return t;
+    }
+    
 }
 /*
 import hx.widgets.styles.BackgroundStyle;
