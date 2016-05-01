@@ -16,6 +16,13 @@ extern class Button extends Control {
 
     @:native("Create")                  @:overload(function(parent:Pointer<Window>, id:Int, label:ConstCharStar, point:Point, size:Size, style:Int):Bool {})
     @:native("Create")                  public override function create(parent:Pointer<Window>, id:Int, point:Point, size:Size, style:Int):Bool;
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Instance functions
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    @:native("GetBitmap")               public function getBitmap():Bitmap;
+    @:native("SetBitmap")               public function setBitmap(bitmap:Bitmap):Void;
+    @:native("SetBitmapPosition")       public function setBitmapPosition(dir:Direction):Void;
 }
 
 /*

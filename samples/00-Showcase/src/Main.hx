@@ -1,4 +1,5 @@
 import cpp.Lib;
+import haxe.Resource;
 
 import cpp.Pointer;
 import hx.widgets.*;
@@ -90,6 +91,22 @@ class Main {
         cast(frame.findWindowById(1001), Button).label = "New";
         
         cast(frame.children[0], Button).label = "Bob";
+        
+        
+        var stream:MemoryInputStream = new MemoryInputStream(Resource.getBytes("inbox.png"));
+        var image:Image = new Image(Resource.getBytes("inbox.png"));
+        trace(image.width);
+        trace(image.height);
+        var bmp:Bitmap = new Bitmap(image);
+        trace(bmp.width);
+        trace(bmp.height);
+        
+        var sub:Bitmap = bmp.getSubBitmap(new Rect(0, 0, 8, 8));
+        trace(sub.width);
+        trace(sub.height);
+        button.bitmapPosition = Direction.RIGHT;
+        button.bitmap = bmp;
+        trace(button.bitmap.width);
         
         /*
         
