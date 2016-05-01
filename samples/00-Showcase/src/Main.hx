@@ -64,6 +64,7 @@ class Main {
            trace("clicked"); 
         });
         
+        
         frame.backgroundColour = 0xFF0000;
         trace(StringTools.hex(frame.backgroundColour, 6));
         frame.show(true);
@@ -78,6 +79,8 @@ class Main {
         frame.position = new Point(100, 200);
         trace(frame.position.x + ", " + frame.position.y);
         
+
+        trace(">>>>>>>>>>>>>>>>>>>> " + button.parent.size.width);
         
         /*
         var menuBar:MenuBar = new MenuBar();

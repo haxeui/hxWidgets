@@ -1,6 +1,7 @@
 package hx.widgets;
 
 import cpp.Pointer;
+import cpp.RawPointer;
 import hx.widgets.styles.BackgroundStyle;
 import wx.widgets.Window in WxWindow;
 import wx.widgets.Colour in WxColour;
@@ -59,7 +60,11 @@ class Window extends EvtHandler {
     public var parent(get, null):Window;
     // TODO:
     private function get_parent():Window {
-        return null;
+        var p:Pointer<WxWindow> = _ref.ptr.getParent();
+        var win:Window = new Window(null);
+        var raw:RawPointer<WxWindow> = cast p.raw;
+        win._ref = Pointer.fromRaw(raw);
+        return win;
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
