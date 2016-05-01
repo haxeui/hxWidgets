@@ -9,11 +9,10 @@ import wx.widgets.Rect in WxRect;
 import wx.widgets.Point in WxPoint;
 import wx.widgets.Font in WxFont;
 
-class Window {
+class Window extends EvtHandler {
     private var _ref:Pointer<WxWindow>;
     public function new(parent:Window, id:Int = -1) {
-        
-        //_ref = WxTestWindow.createInstance();
+        super();
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

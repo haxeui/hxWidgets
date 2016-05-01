@@ -59,6 +59,10 @@ class Main {
         button.label = "TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST ";
         trace(">>>>>>>>>>>>>>>>>>>>> " + button.label);
         
+        button.bind(EventType.BUTTON, function(e) {
+           trace("clicked"); 
+        });
+        
         frame.backgroundColour = 0xFF0000;
         trace(StringTools.hex(frame.backgroundColour, 6));
         frame.show(true);

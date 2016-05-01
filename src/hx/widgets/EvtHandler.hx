@@ -1,5 +1,6 @@
 package hx.widgets;
 
+import cpp.Pointer;
 import wx.widgets.Event in WxEvent;
 import wx.widgets.Window in WxWindow;
 
@@ -8,8 +9,8 @@ void onEvent(wxEvent& e) {
     this->handleEvent(e);
 }
 ")
+@:access(hx.widgets.Window)
 class EvtHandler {
-    private var _ref:WxWindow;
     private var _eventMap:Map<Int, Map<Int, Array<Event->Void>>>;
     
     public function new() {
@@ -31,7 +32,10 @@ class EvtHandler {
         
         eventList.push(fn);
         
-        untyped __cpp__('_ref->Bind(event, &hx::widgets::EvtHandler_obj::onEvent, this, id)');
+        if (Std.is(this, Window)) {
+            var win:Pointer<WxWindow> = cast(this, Window)._ref;
+            untyped __cpp__('win->ptr->Bind(event, &hx::widgets::EvtHandler_obj::onEvent, this, id)');
+        }
     }
     
     public function unbind(event:Int, fn:Event->Void, id:Int = -1) {
@@ -50,7 +54,10 @@ class EvtHandler {
             mapForId.remove(event);
         }
         
-        untyped __cpp__('_ref->Unbind(event, &hx::widgets::EvtHandler_obj::onEvent, this, id)');
+        if (Std.is(this, Window)) {
+            var win:Pointer<WxWindow> = cast(this, Window)._ref;
+            untyped __cpp__('win->ptr->Unbind(event, &hx::widgets::EvtHandler_obj::onEvent, this, id)');
+        }
     }
     
     private function handleEvent(e:WxEvent):Void {
