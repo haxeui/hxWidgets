@@ -50,6 +50,12 @@ class Main {
         */
 
         var button:Button = new Button(frame, "Test");
+        var f = button.font;
+        f.weight = FontWeight.BOLD;
+        f.underlined = true;
+        f.size = 30;
+        f.family = FontFamily.MODERN;
+        button.font = f;
         
         frame.backgroundColour = 0xFF0000;
         trace(StringTools.hex(frame.backgroundColour, 6));

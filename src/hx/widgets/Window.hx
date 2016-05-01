@@ -7,6 +7,7 @@ import wx.widgets.Colour in WxColour;
 import wx.widgets.Size in WxSize;
 import wx.widgets.Rect in WxRect;
 import wx.widgets.Point in WxPoint;
+import wx.widgets.Font in WxFont;
 
 class Window {
     private var _ref:Pointer<WxWindow>;
@@ -103,12 +104,15 @@ class Window {
         return value;
     }
     
-    // TODO:
     public var font(get, set):Font;
     private function get_font():Font {
-        return null;
+        var r = _ref.ptr.getFont();
+        return Font.copy(Pointer.addressOf(r));
     }
     private function set_font(value:Font):Font {
+        var temp:Pointer<WxFont> = value.createPointer();
+        _ref.ptr.setFont(temp.ref);
+        temp.destroy();
         return value;
     }
     

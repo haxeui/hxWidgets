@@ -22,6 +22,11 @@ extern class Font {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Instance functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    @:native("GetPointSize")            public function getPointSize():Int;
+    @:native("GetFamily")               public function getFamily():FontFamily;
+    @:native("GetStyle")                public function getStyle():FontStyle;
+    @:native("GetWeight")               public function getWeight():FontWeight;
+    @:native("GetUnderlined")           public function getUnderlined():Bool;
 }
 
 /*
