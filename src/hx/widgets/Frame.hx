@@ -5,7 +5,7 @@ import hx.widgets.styles.FrameStyle;
 import wx.widgets.Frame in WxFrame;
 import wx.widgets.MenuBar in WxMenuBar;
 
-class Frame extends Window {
+class Frame extends TopLevelWindow {
     public function new(parent:Window, title:String, style:Int = 0, id:Int = -1) {
         if (style == 0) {
             style = FrameStyle.DEFAULT_FRAME_STYLE;

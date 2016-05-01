@@ -38,6 +38,7 @@ class Main {
         */
         
         var frame:Frame = new Frame(null, "hxWidgets");
+        trace("TITLE: " + frame.title);
         /*
         timer = new Timer(frame, 100);
         */
