@@ -171,6 +171,33 @@ class Main {
             var radio:RadioButton = new RadioButton(frame, "Option 3");
             radio.move(560, 10);
             
+            // create text inputs
+            var textctrl:TextCtrl = new TextCtrl(frame, "Text input 1");
+            textctrl.move(10, 150);
+            var workertextresult:TextCtrl = textctrl;
+
+            var textctrl:TextCtrl = new TextCtrl(frame, "Password 1", TextCtrlStyle.PASSWORD);
+            textctrl.move(10, 180);            
+
+            var textctrl:TextCtrl = new TextCtrl(frame, "Text input 2", TextCtrlStyle.READONLY);
+            textctrl.move(130, 150); 
+            var timertextresult:TextCtrl = textctrl;
+            
+            var textctrl:TextCtrl = new TextCtrl(frame, null, TextCtrlStyle.MULTILINE);
+            textctrl.resize(100, 70);   
+            textctrl.move(130, 180);
+            textctrl.appendText("This is line 1\n");
+            textctrl.appendText("This is line 2\n");
+            textctrl.appendText("This is line 3\n");
+            textctrl.appendText("This is line 4\n");
+            textctrl.appendText("This is line 5\n");
+            trace("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX " + textctrl.value);
+            textctrl.insertionPoint = 0;
+            
+            textctrl.bind(EventType.TEXT, function(e) {
+            trace("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX " + textctrl.value);
+            });
+            
         /*
         
         trace("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX " + fff.title);
