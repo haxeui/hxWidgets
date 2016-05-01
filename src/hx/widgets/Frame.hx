@@ -14,7 +14,7 @@ class Frame extends Window {
         
         if (_ref == null) {
             var frameRef:Pointer<WxFrame> = WxFrame.createInstance();
-            frameRef.ptr.create(parent != null ? parent._ref : null, id, title, Point.defaultPositionRef, Size.defaultSize._ref.ref, style);
+            frameRef.ptr.create(parent != null ? parent._ref : null, id, title, Point.defaultPositionRef, Size.defaultSize.ref, style);
             _ref = cast frameRef.raw;
         }
         

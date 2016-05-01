@@ -4,10 +4,12 @@ import cpp.Pointer;
 import wx.widgets.Size in WxSize;
 
 class Size {
-    private var _ref:Pointer<WxSize>;
+    private var _width:Int;
+    private var _height:Int;
     
     public function new(width:Int = 0, height:Int = 0) {
-        _ref = WxSize.createInstance(width, height);
+        _width = width;
+        _height = height;
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -15,34 +17,32 @@ class Size {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     public var width(get, set):Int;
     private function get_width():Int {
-        return _ref.ref.getWidth();
+        return _width;
     }
     private function set_width(value:Int):Int {
-        _ref.ref.setWidth(value);
+        _width = value;
         return value;
     }
     
     public var height(get, set):Int;
     private function get_height():Int {
-        return _ref.ref.getHeight();
+        return _height;
     }
     private function set_height(value:Int):Int {
-        _ref.ref.setHeight(value);
+        _height = value;
         return value;
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // Helpers
+    // Static helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public static var defaultSize(get, null):Size;
-    private static function get_defaultSize():Size {
-        return new Size(-1, -1);
-    }
-    
-    public static function fromPtr(ptr:Pointer<WxSize>):Size {
-        var c:Size = new Size();
-        c._ref = ptr;
-        return c;
+    private static var _defaultSize:Pointer<WxSize>; // create and hold our own versions of globals
+    public static var defaultSize(get, null):Pointer<WxSize>;
+    private static function get_defaultSize():Pointer<WxSize> {
+        if (_defaultSize == null) {
+            _defaultSize = WxSize.createInstance(-1, -1);
+        }
+        return _defaultSize;
     }
     
     public static function copy(ptr:Pointer<WxSize>):Size {

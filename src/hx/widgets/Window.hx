@@ -2,9 +2,9 @@ package hx.widgets;
 
 import cpp.Pointer;
 import wx.widgets.Window in WxWindow;
+import wx.widgets.Colour in WxColour;
+import wx.widgets.Size in WxSize;
 
-@:access(hx.widgets.Colour)
-@:access(hx.widgets.Size)
 class Window {
     private var _ref:Pointer<WxWindow>;
     public function new(parent:Window, id:Int = -1) {
@@ -29,13 +29,12 @@ class Window {
     public var backgroundColour(get, set):Int;
     private function get_backgroundColour():Int {
         var r = _ref.ptr.getBackgroundColour();
-        var c:Colour = Colour.fromPtr(Pointer.addressOf(r));
-        return c.rgb;
+        return Colour.copy(Pointer.addressOf(r)).rgb;
     }
     private function set_backgroundColour(value:Int):Int {
-        var c:Colour = new Colour(value);
-        _ref.ptr.setBackgroundColour(c._ref.ref);
-        c.destroy();
+        var temp:Pointer<WxColour> = WxColour.createInstance(Colour.convertColor(value));
+        _ref.ptr.setBackgroundColour(temp.ref);
+        temp.destroy();
         return value;
     }
     
@@ -56,7 +55,9 @@ class Window {
         return Size.copy(Pointer.addressOf(r));
     }
     private function set_size(value:Size):Size {
-        _ref.ptr.setSize(value._ref.ref);
+        var temp:Pointer<WxSize> = WxSize.createInstance(value.width, value.height);
+        _ref.ptr.setSize(temp.ref);
+        temp.destroy();
         return value;
     }
     
