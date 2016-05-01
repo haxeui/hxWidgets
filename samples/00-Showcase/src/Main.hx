@@ -50,7 +50,7 @@ class Main {
         }
         */
 
-        var button:Button = new Button(frame, "Test");
+        var button:Button = new Button(frame, "Test", 0, 1001);
         var f = button.font;
         f.weight = FontWeight.BOLD;
         f.underlined = true;
@@ -86,6 +86,8 @@ class Main {
         var fff:Frame = Window.convertTo(button.parent, Frame);
         
         trace(cast(button.parent, Frame).title);
+        
+        cast(frame.findWindowById(1001), Button).label = "New";
         
         /*
         

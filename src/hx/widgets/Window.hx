@@ -50,9 +50,12 @@ class Window extends EvtHandler {
         return _ref.ptr.destroyChildren();
     }
 
-    // TODO:
     public function findWindowById(id:Int):Window {
-        return null;
+        var p:Pointer<WxWindow> = _ref.ptr.findWindowById(id);
+        var win:Window = new Window(null);
+        var raw:RawPointer<WxWindow> = cast p.raw;
+        win._ref = Pointer.fromRaw(raw);
+        return autoConvert(win); // lets auto convert the class so it can be used with casts
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -64,9 +67,7 @@ class Window extends EvtHandler {
         var win:Window = new Window(null);
         var raw:RawPointer<WxWindow> = cast p.raw;
         win._ref = Pointer.fromRaw(raw);
-
-        // lets auto convert the class so it can be used with casts
-        return autoConvert(win);
+        return autoConvert(win); // lets auto convert the class so it can be used with casts
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
