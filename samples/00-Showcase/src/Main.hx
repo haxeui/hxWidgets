@@ -89,6 +89,8 @@ class Main {
         
         cast(frame.findWindowById(1001), Button).label = "New";
         
+        cast(frame.children[0], Button).label = "Bob";
+        
         /*
         
         trace("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX " + fff.title);

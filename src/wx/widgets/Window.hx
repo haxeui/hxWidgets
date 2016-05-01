@@ -35,7 +35,7 @@ extern class Window {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     @:native("DestroyChildren")                 public function destroyChildren():Bool;
     @:native("FindWindow")                      public function findWindowById(id:Int):Pointer<Window>;
-    //@:native("GetChildren")                     public function getChildren():WindowList;
+    @:native("GetChildren")                     public function getChildren():WindowList;
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Sibling and parent management functions
@@ -107,6 +107,22 @@ extern class Window {
     // Misc functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     @:native("GetClassInfo")                    public function getClassInfo():Pointer<ClassInfo>;
+}
+
+@:include("wx/list.h")
+@:unreflective
+@:structAccess
+@:native("wxWindowList")
+extern class WindowList {
+    @:native("GetCount")          public function getCount():Int;
+    @:native("Item")              public function item(index:Int):WindowListNode;
+}
+
+@:include("wx/list.h")
+@:unreflective
+@:native("wxWindowList::compatibility_iterator")
+extern class WindowListNode {
+    @:native("GetData")            public function getData():Pointer<Window>;
 }
 
 /*
