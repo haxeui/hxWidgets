@@ -56,6 +56,8 @@ class Main {
         f.size = 30;
         f.family = FontFamily.MODERN;
         button.font = f;
+        button.label = "TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST ";
+        trace(">>>>>>>>>>>>>>>>>>>>> " + button.label);
         
         frame.backgroundColour = 0xFF0000;
         trace(StringTools.hex(frame.backgroundColour, 6));

@@ -2,6 +2,7 @@ package hx.widgets;
 
 import cpp.Pointer;
 import wx.widgets.Control in WxControl;
+import wx.widgets.WxString;
 
 class Control extends Window {
     public function new(parent:Window, style:Int = 0, id:Int = -1) {
@@ -12,6 +13,29 @@ class Control extends Window {
         }
         
         super(parent, id);
+    }
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Instance functions
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public var label(get, set):String;
+    private function get_label():String {
+        var r:WxString = controlRef.ptr.getLabel();
+        return new String(r.c_str());
+    }
+    private function set_label(value:String):String {
+        var s = WxString.createInstance(value);
+        controlRef.ptr.setLabel(s.ref);
+        s.destroy();
+        return value;
+    }
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Helpers
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    private var controlRef(get, null):Pointer<WxControl>;
+    private inline function get_controlRef():Pointer<WxControl> {
+        return cast _ref.raw;
     }
 }
 /*

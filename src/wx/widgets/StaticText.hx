@@ -12,7 +12,7 @@ extern class StaticText extends StaticTextImpl {
     @:native("new wxStaticText")    public static function createInstance():StaticText;
 }
 
-
+/*
 @:include("wx/string.h")
 @:unreflective
 @:native("cpp::Reference<wxString>")
@@ -28,6 +28,7 @@ extern class WxStringImpl {
     @:native("Length")            public function length():Int;
     @:native("c_str")            public function c_str():ConstCharStar;
 }
+*/
 
 @:include("wx/stattext.h")
 @:unreflective
