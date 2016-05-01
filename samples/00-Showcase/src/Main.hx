@@ -39,74 +39,9 @@ class Main {
         */
         
         var frame:Frame = new Frame(null, "hxWidgets");
-        trace("TITLE: " + frame.title);
-        /*
-        timer = new Timer(frame, 100);
-        */
-        
-        //frame.setStatusText("Status: OK");
-        /*
-        if (platform.getOperatingSystemId() == OperatingSystemId.WINDOWS) {
-            frame.backgroundColour = 0xFFFFFF;
-        }
-        */
-
-        var button:Button = new Button(frame, "Test", 0, 1001);
-        var f = button.font;
-        f.weight = FontWeight.BOLD;
-        f.underlined = true;
-        f.size = 30;
-        f.family = FontFamily.MODERN;
-        button.font = f;
-        button.label = "TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST ";
-        trace(">>>>>>>>>>>>>>>>>>>>> " + button.label);
-        
-        button.bind(EventType.BUTTON, function(e) {
-           trace("clicked"); 
-        });
-        
-        
-        frame.backgroundColour = 0xFF0000;
-        trace(StringTools.hex(frame.backgroundColour, 6));
-        frame.show(true);
         frame.resize(800, 600);
-        trace(frame.size.width);
-        trace(frame.size.height);
-        frame.backgroundStyle = BackgroundStyle.BG_TRANSPARENT;
-        frame.refresh();
-        trace(frame.backgroundStyle == BackgroundStyle.BG_TRANSPARENT);
-        frame.move(10, 20);
-        trace(frame.position.x + ", " + frame.position.y);
-        frame.position = new Point(100, 200);
-        trace(frame.position.x + ", " + frame.position.y);
+        frame.show(true);
         
-        trace(">>>>>>>>>>>>>>>>>>>> " + button.parent.size.width);
-        //var ff:Frame = cast(button.parent, Frame);
-        trace("CLASS INFO! " + button.parent.classInfo.className);
-
-        var fff:Frame = Window.convertTo(button.parent, Frame);
-        
-        trace(cast(button.parent, Frame).title);
-        
-        cast(frame.findWindowById(1001), Button).label = "New";
-        
-        cast(frame.children[0], Button).label = "Bob";
-        
-        
-        var stream:MemoryInputStream = new MemoryInputStream(Resource.getBytes("inbox.png"));
-        var image:Image = new Image(Resource.getBytes("inbox.png"));
-        trace(image.width);
-        trace(image.height);
-        var bmp:Bitmap = new Bitmap(image);
-        trace(bmp.width);
-        trace(bmp.height);
-        
-        var sub:Bitmap = bmp.getSubBitmap(new Rect(0, 0, 8, 8));
-        trace(sub.width);
-        trace(sub.height);
-        button.bitmapPosition = Direction.RIGHT;
-        button.bitmap = sub;
-        trace(button.bitmap.width);
         
         var menuBar:MenuBar = new MenuBar();
         var file:Menu = new Menu();
@@ -143,6 +78,87 @@ class Main {
         frame.bind(EventType.MENU, function(e:Event) {
            trace("some menu event");
         });
+        
+        trace("TITLE: " + frame.title);
+        /*
+        timer = new Timer(frame, 100);
+        */
+        
+        //frame.setStatusText("Status: OK");
+        /*
+        if (platform.getOperatingSystemId() == OperatingSystemId.WINDOWS) {
+            frame.backgroundColour = 0xFFFFFF;
+        }
+        */
+
+        
+        var button:Button = new Button(frame, "Test", 0, 1001);
+        button.bind(EventType.BUTTON, function(e) {
+           trace("clicked"); 
+        });
+        
+        
+        
+        button.bitmapPosition = Direction.RIGHT;
+        button.bitmap = Bitmap.fromHaxeResource("inbox.png");
+            button.resize(100, 100);
+            button.move(10, 10);
+            button.bind(EventType.BUTTON, function(e:Event) {
+                /*
+                trace("click!");
+                trace(e.getEventType());
+                trace(e.getId());
+                
+                var dialog:Dialog = new Dialog(frame, "Modal Dialog");
+                var dialogResult = dialog.showModal();
+                trace("dialog result = " + dialogResult);
+
+                var dialog:Dialog = new Dialog(frame, "Non-modal Dialog");
+                dialog.show();
+                */
+            });
+            button.bind(EventType.LEFT_DOWN, function(e) {
+               trace("Mouse down - " + e.convertTo(MouseEvent).x + "x" + e.convertTo(MouseEvent).y);
+               e.skip();
+               
+            });
+            button.bind(EventType.LEFT_UP, function(e) {
+               trace("Mouse up");
+               e.skip();
+            });
+            button.bind(EventType.MOTION, function(e) {
+               //trace("Mouse move");
+               e.skip();
+            });
+            button.bind(EventType.ENTER_WINDOW, function(e) {
+               trace("Mouse over");
+               e.skip();
+            });
+            button.bind(EventType.LEAVE_WINDOW, function(e) {
+               trace("Mouse out");
+               e.skip();
+            });
+        
+        
+            // create a chekboxes
+            var checkbox:CheckBox = new CheckBox(frame, "Check 1");
+            checkbox.bind(EventType.CHECKBOX, function(e:Event) {
+                trace("checkbox 1: " + checkbox.value);
+            });
+            checkbox.move(120, 10);
+
+            var checkbox:CheckBox = new CheckBox(frame, "Check 2");
+            checkbox.bind(EventType.CHECKBOX, function(e:Event) {
+                trace("checkbox 2: " + checkbox.value);
+            });
+            checkbox.value = true;
+            checkbox.move(200, 10);
+
+            var checkbox:CheckBox = new CheckBox(frame, "Check 3");
+            checkbox.bind(EventType.CHECKBOX, function(e:Event) {
+                trace("checkbox 3: " + checkbox.value);
+            });
+            checkbox.move(280, 10);
         
         /*
         
