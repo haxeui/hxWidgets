@@ -21,6 +21,23 @@ class Frame extends TopLevelWindow {
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Instance functions
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public var menuBar(get, set):MenuBar;
+    @:access(hx.widgets.MenuBar)
+    private function get_menuBar():MenuBar {
+        var menuBar:MenuBar = new MenuBar(0, false);
+        var p = frameRef.ptr.getMenuBar();
+        menuBar._ref = cast p.raw;
+        return menuBar;
+    }
+    @:access(hx.widgets.MenuBar)
+    private function set_menuBar(value:MenuBar):MenuBar {
+        frameRef.ptr.setMenuBar(value.menuBarRef);
+        return value;
+    }
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     private var frameRef(get, null):Pointer<WxFrame>;

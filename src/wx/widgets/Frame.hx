@@ -16,6 +16,12 @@ extern class Frame extends TopLevelWindow {
     
     @:native("Create")              @:overload(function(parent:Pointer<Window>, id:Int, title:ConstCharStar, point:Point, size:Size, style:Int):Bool {})
     @:native("Create")              public override function create(parent:Pointer<Window>, id:Int, point:Point, size:Size, style:Int):Bool;
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Instance functions
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    @:native("GetMenuBar")          public function getMenuBar():Pointer<MenuBar>;
+    @:native("SetMenuBar")          public function setMenuBar(menuBar:Pointer<MenuBar>):Void;
 }
 
 /*

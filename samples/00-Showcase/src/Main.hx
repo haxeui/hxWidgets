@@ -105,8 +105,44 @@ class Main {
         trace(sub.width);
         trace(sub.height);
         button.bitmapPosition = Direction.RIGHT;
-        button.bitmap = bmp;
+        button.bitmap = sub;
         trace(button.bitmap.width);
+        
+        var menuBar:MenuBar = new MenuBar();
+        var file:Menu = new Menu();
+        var menuItem:MenuItem = new MenuItem(file, "Menu 1", ItemKind.ITEM_CHECK);
+        file.appendItem(menuItem);
+        file.appendItem(new MenuItem(file, "Menu 2"));
+        menuBar.append(file, "&File");
+        
+        var menuItem:MenuItem = new MenuItem(file, "Menu 3");
+        menuItem.bitmap = Bitmap.fromHaxeResource("inbox.png");
+        file.appendItem(menuItem);
+        
+        frame.menuBar = menuBar;
+        
+        var edit:Menu = new Menu();
+        edit.appendItem(new MenuItem(edit, "Something"));
+        
+        var subMenu = new Menu();
+        subMenu.append(1001, "Item 1");
+        subMenu.append(1002, "Item 2");
+        subMenu.append(1003, "Item 3");
+        subMenu.appendSeparator();
+        subMenu.appendCheckItem(1004, "Check 1");
+        subMenu.appendCheckItem(1005, "Check 2");
+        subMenu.appendCheckItem(1006, "Check 3");
+        subMenu.appendSeparator();
+        subMenu.appendRadioItem(1007, "Radio 1");
+        subMenu.appendRadioItem(1008, "Radio 2");
+        subMenu.appendRadioItem(1009, "Radio 3");
+        edit.appendSubMenu(subMenu, "Sub Menu");
+        
+        frame.menuBar.append(edit, "&Edit");
+        
+        frame.bind(EventType.MENU, function(e:Event) {
+           trace("some menu event");
+        });
         
         /*
         
