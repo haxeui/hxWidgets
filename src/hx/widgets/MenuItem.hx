@@ -1,6 +1,7 @@
 package hx.widgets;
 
 import cpp.Pointer;
+import cpp.RawPointer;
 import wx.widgets.MenuItem in WxMenuItem;
 
 class MenuItem {
@@ -12,7 +13,7 @@ class MenuItem {
             if (kind == null) {
                 kind = ItemKind.ITEM_NORMAL;
             }
-            _ref = WxMenuItem.createInstance(parent.menuRef, id, text, "");
+            _ref = WxMenuItem.createInstance(parent.menuRef.get_raw(), id, text, "");
         }
     }
     

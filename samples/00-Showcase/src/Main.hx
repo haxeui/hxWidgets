@@ -98,6 +98,9 @@ class Main {
         });
         
         
+        cast(frame.findWindowById(1001), Button).label = "Bob";
+        cast(frame.children[0], Button).label = "Bob1";
+        cast(button.parent, Frame).title += " - Changed";
         
         button.bitmapPosition = Direction.RIGHT;
         button.bitmap = Bitmap.fromHaxeResource("inbox.png");

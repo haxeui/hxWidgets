@@ -15,7 +15,7 @@ import wx.widgets.ClassInfo in WxClassInfo;
 
 class Window extends EvtHandler {
     private var _ref:Pointer<WxWindow>;
-    public function new(parent:Window, id:Int = -1) {
+    public function new(parent:Window = null, id:Int = -1) {
         super();
     }
 
@@ -53,10 +53,16 @@ class Window extends EvtHandler {
     }
 
     public function findWindowById(id:Int):Window {
+        /*
         var p:Pointer<WxWindow> = _ref.ptr.findWindowById(id);
-        var win:Window = new Window(null);
+        var win:Window = new Window();
         var raw:RawPointer<WxWindow> = cast p.raw;
         win._ref = Pointer.fromRaw(raw);
+        return autoConvert(win); // lets auto convert the class so it can be used with casts
+        */
+        var p:RawPointer<WxWindow> = _ref.ptr.findWindowById(id);
+        var win:Window = new Window();
+        win._ref = Pointer.fromRaw(p);
         return autoConvert(win); // lets auto convert the class so it can be used with casts
     }
     
@@ -66,10 +72,10 @@ class Window extends EvtHandler {
         var windowList:WxWindowList = _ref.ptr.getChildren();
         trace(windowList.getCount());
         for (i in 0...windowList.getCount()) {
-            var child:Pointer<WxWindow> = (windowList.item(i):WxWindowListNode).getData();
-            var win:Window = new Window(null);
-            var raw:RawPointer<WxWindow> = cast child.raw;
-            win._ref = Pointer.fromRaw(raw);
+            var child:RawPointer<WxWindow> = windowList.item(i).getData();
+            var win:Window = new Window();
+            //var raw:RawPointer<WxWindow> = cast child.raw;
+            win._ref = Pointer.fromRaw(child);
             list.push(autoConvert(win)); // lets auto convert the class so it can be used with casts
         }
         return list;
@@ -80,10 +86,16 @@ class Window extends EvtHandler {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     public var parent(get, null):Window;
     private function get_parent():Window {
+        /*
         var p:Pointer<WxWindow> = _ref.ptr.getParent();
-        var win:Window = new Window(null);
+        var win:Window = new Window();
         var raw:RawPointer<WxWindow> = cast p.raw;
         win._ref = Pointer.fromRaw(raw);
+        return autoConvert(win); // lets auto convert the class so it can be used with casts
+        */
+        var p:RawPointer<WxWindow> = _ref.ptr.getParent();
+        var win:Window = new Window();
+        win._ref = Pointer.fromRaw(p);
         return autoConvert(win); // lets auto convert the class so it can be used with casts
     }
     

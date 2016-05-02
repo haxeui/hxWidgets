@@ -7,9 +7,8 @@ import wx.widgets.WxString;
 class Control extends Window {
     public function new(parent:Window, style:Int = 0, id:Int = -1) {
         if (_ref == null) {
-            var controlRef:Pointer<WxControl> = WxControl.createInstance();
-            controlRef.ptr.create(parent != null ? parent._ref : null, id, Point.defaultPosition.ref, Size.defaultSize.ref, style);
-            _ref = cast controlRef.raw;
+            _ref = WxControl.createInstance();
+            controlRef.ptr.create(parent != null ? parent._ref.get_raw() : null, id, Point.defaultPosition.ref, Size.defaultSize.ref, style);
         }
         
         super(parent, id);
@@ -34,8 +33,8 @@ class Control extends Window {
     // Helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     private var controlRef(get, null):Pointer<WxControl>;
-    private inline function get_controlRef():Pointer<WxControl> {
-        return cast _ref.raw;
+    private function get_controlRef():Pointer<WxControl> {
+        return untyped __cpp__("(wxControl*)(_ref->get_raw())");
     }
 }
 /*

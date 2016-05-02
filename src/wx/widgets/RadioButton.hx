@@ -11,11 +11,11 @@ extern class RadioButton extends Control {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // creation functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    @:native("new wxRadioButton")       private static function _new():RawPointer<RadioButton>;
-                                        public static inline function createInstance():Pointer<RadioButton> return Pointer.fromRaw(_new());
+    @:native("new wxRadioButton")       private static function _new():RawPointer<Window>;
+                                        public static inline function createInstance():Pointer<Window> return Pointer.fromRaw(_new());
 
-    @:native("Create")                  @:overload(function(parent:Pointer<Window>, id:Int, label:ConstCharStar, point:Point, size:Size, style:Int):Bool {})
-    @:native("Create")                  public override function create(parent:Pointer<Window>, id:Int, point:Point, size:Size, style:Int):Bool;
+    @:native("Create")                  @:overload(function(parent:RawPointer<Window>, id:Int, label:ConstCharStar, point:Point, size:Size, style:Int):Bool {})
+    @:native("Create")                  public override function create(parent:RawPointer<Window>, id:Int, point:Point, size:Size, style:Int):Bool;
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Instance functions

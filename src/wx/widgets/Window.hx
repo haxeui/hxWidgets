@@ -15,7 +15,7 @@ extern class Window {
     @:native("new wxWindow")                    private static function _new():RawPointer<Window>;
                                                 public static inline function createInstance():Pointer<Window> return Pointer.fromRaw(_new());
     
-    @:native("Create")                          public function create(parent:Pointer<Window>, id:Int, point:Point, size:Size, style:Int):Bool;
+    @:native("Create")                          public function create(parent:RawPointer<Window>, id:Int, point:Point, size:Size, style:Int):Bool;
 
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -34,13 +34,13 @@ extern class Window {
     // Child management functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     @:native("DestroyChildren")                 public function destroyChildren():Bool;
-    @:native("FindWindow")                      public function findWindowById(id:Int):Pointer<Window>;
+    @:native("FindWindow")                      public function findWindowById(id:Int):RawPointer<Window>;
     @:native("GetChildren")                     public function getChildren():WindowList;
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Sibling and parent management functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    @:native("GetParent")                       public function getParent():Pointer<Window>;
+    @:native("GetParent")                       public function getParent():RawPointer<Window>;
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Drawing-related functions
@@ -122,7 +122,7 @@ extern class WindowList {
 @:unreflective
 @:native("wxWindowList::compatibility_iterator")
 extern class WindowListNode {
-    @:native("GetData")            public function getData():Pointer<Window>;
+    @:native("GetData")            public function getData():RawPointer<Window>;
 }
 
 /*

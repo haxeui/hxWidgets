@@ -11,11 +11,11 @@ extern class Frame extends TopLevelWindow {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // creation functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    @:native("new wxFrame") private static function _new():RawPointer<Frame>;
-    inline public static function createInstance():Pointer<Frame> return Pointer.fromRaw(_new());
+    @:native("new wxFrame") private static function _new():RawPointer<Window>;
+    inline public static function createInstance():Pointer<Window> return Pointer.fromRaw(_new());
     
-    @:native("Create")              @:overload(function(parent:Pointer<Window>, id:Int, title:ConstCharStar, point:Point, size:Size, style:Int):Bool {})
-    @:native("Create")              public override function create(parent:Pointer<Window>, id:Int, point:Point, size:Size, style:Int):Bool;
+    @:native("Create")              @:overload(function(parent:RawPointer<Window>, id:Int, title:ConstCharStar, point:Point, size:Size, style:Int):Bool {})
+    @:native("Create")              public override function create(parent:RawPointer<Window>, id:Int, point:Point, size:Size, style:Int):Bool;
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Instance functions

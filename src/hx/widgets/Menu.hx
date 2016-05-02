@@ -7,8 +7,7 @@ import wx.widgets.MenuItem in WxMenuItem;
 class Menu extends Window {
     public function new(text:String = null, style:Int = 0) {
         if (_ref == null) {
-            var menuRef:Pointer<WxMenu> = WxMenu.createInstance(text, style);
-            _ref = cast menuRef.raw;
+            _ref = WxMenu.createInstance(text, style);
         }
         
         super(null, -1);
@@ -19,7 +18,7 @@ class Menu extends Window {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     @:access(hx.widgets.MenuItem)
     public function appendItem(menuItem:MenuItem):MenuItem {
-        var menuItemRef:Pointer<WxMenuItem> = menuRef.ptr.append(menuItem._ref);
+        var menuItemRef:Pointer<WxMenuItem> = Pointer.fromRaw(menuRef.ptr.append(menuItem._ref.get_raw()));
         var menuItem:MenuItem = new MenuItem();
         menuItem._ref = menuItemRef;
         return menuItem;
@@ -31,7 +30,7 @@ class Menu extends Window {
     
     @:access(hx.widgets.MenuItem)
     public function appendCheckItem(id:Int, text:String):MenuItem {
-        var menuItemRef:Pointer<WxMenuItem> = menuRef.ptr.appendCheckItem(id, text);
+        var menuItemRef:Pointer<WxMenuItem> = Pointer.fromRaw(menuRef.ptr.appendCheckItem(id, text));
         var menuItem:MenuItem = new MenuItem();
         menuItem._ref = menuItemRef;
         return menuItem;
@@ -39,7 +38,7 @@ class Menu extends Window {
     
     @:access(hx.widgets.MenuItem)
     public function appendRadioItem(id:Int, text:String):MenuItem {
-        var menuItemRef:Pointer<WxMenuItem> = menuRef.ptr.appendRadioItem(id, text);
+        var menuItemRef:Pointer<WxMenuItem> = Pointer.fromRaw(menuRef.ptr.appendRadioItem(id, text));
         var menuItem:MenuItem = new MenuItem();
         menuItem._ref = menuItemRef;
         return menuItem;
@@ -47,7 +46,7 @@ class Menu extends Window {
     
     @:access(hx.widgets.MenuItem)
     public function appendSeparator():MenuItem {
-        var menuItemRef:Pointer<WxMenuItem> = menuRef.ptr.appendSeparator();
+        var menuItemRef:Pointer<WxMenuItem> = Pointer.fromRaw(menuRef.ptr.appendSeparator());
         var menuItem:MenuItem = new MenuItem();
         menuItem._ref = menuItemRef;
         return menuItem;
@@ -55,7 +54,7 @@ class Menu extends Window {
     
     @:access(hx.widgets.MenuItem)
     public function appendSubMenu(menu:Menu, text:String):MenuItem {
-        var menuItemRef:Pointer<WxMenuItem> = menuRef.ptr.appendSubMenu(menu.menuRef, text);
+        var menuItemRef:Pointer<WxMenuItem> = Pointer.fromRaw(menuRef.ptr.appendSubMenu(menu.menuRef.get_raw(), text));
         var menuItem:MenuItem = new MenuItem();
         menuItem._ref = menuItemRef;
         return menuItem;
@@ -65,8 +64,8 @@ class Menu extends Window {
     // Helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     private var menuRef(get, null):Pointer<WxMenu>;
-    private inline function get_menuRef():Pointer<WxMenu> {
-        return cast _ref.raw;
+    private function get_menuRef():Pointer<WxMenu> {
+        return untyped __cpp__("(wxMenu*)(_ref->get_raw())");
     }
 }
 

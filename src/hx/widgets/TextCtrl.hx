@@ -7,9 +7,8 @@ import wx.widgets.WxString;
 class TextCtrl extends Control {
     public function new(parent:Window, text:String = null, style:Int = 0, id:Int = -1) {
         if (_ref == null) {
-            var textRef:Pointer<WxTextCtrl> = WxTextCtrl.createInstance();
-            textRef.ptr.create(parent != null ? parent._ref : null, id, text, Point.defaultPosition.ref, Size.defaultSize.ref, style);
-            _ref = cast textRef.raw;
+            _ref = WxTextCtrl.createInstance();
+            textCtrlRef.ptr.create(parent != null ? parent._ref.get_raw() : null, id, text, Point.defaultPosition.ref, Size.defaultSize.ref, style);
         }
         
         super(parent, id);
@@ -19,26 +18,26 @@ class TextCtrl extends Control {
     // Instance functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     public function appendText(value:String) {
-        textRef.ptr.appendText(value);
+        textCtrlRef.ptr.appendText(value);
     }
     
     public var insertionPoint(get, set):Int;
     private function get_insertionPoint():Int {
-        return textRef.ptr.getInsertionPoint();
+        return textCtrlRef.ptr.getInsertionPoint();
     }
     private function set_insertionPoint(value:Int):Int {
-        textRef.ptr.setInsertionPoint(value);
+        textCtrlRef.ptr.setInsertionPoint(value);
         return value;
     }
     
     public var value(get, set):String;
     private function get_value():String {
-        var r:WxString = textRef.ptr.getValue();
+        var r:WxString = textCtrlRef.ptr.getValue();
         return new String(r.c_str());
     }
     private function set_value(value:String):String {
         var s = WxString.createInstance(value);
-        textRef.ptr.setValue(s.ref);
+        textCtrlRef.ptr.setValue(s.ref);
         s.destroy();
         return value;
     }
@@ -46,9 +45,9 @@ class TextCtrl extends Control {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    private var textRef(get, null):Pointer<WxTextCtrl>;
-    private inline function get_textRef():Pointer<WxTextCtrl> {
-        return cast _ref;
+    private var textCtrlRef(get, null):Pointer<WxTextCtrl>;
+    private function get_textCtrlRef():Pointer<WxTextCtrl> {
+        return untyped __cpp__("(wxTextCtrl*)(_ref->get_raw())");
     }
 }
 /*
