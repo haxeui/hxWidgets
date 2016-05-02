@@ -300,4 +300,11 @@ class Window extends EvtHandler {
         cast(t, Window)._ref = Pointer.fromRaw(raw);
         return t;
     }
+
+    public static function toRaw(win:Window):RawPointer<WxWindow> {
+        if (win == null) {
+            return null;
+        }
+        return win._ref.get_raw();
+    }
 }

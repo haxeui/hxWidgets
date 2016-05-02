@@ -24,7 +24,7 @@ class MenuBar extends Window {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     private var menuBarRef(get, null):Pointer<WxMenuBar>;
     private function get_menuBarRef():Pointer<WxMenuBar> {
-        return untyped __cpp__("(wxMenuBar*)(_ref->get_raw())");
+        return Pointer.fromRaw(untyped __cpp__("(wxMenuBar*)(_ref->get_raw())"));
     }
 }
 

@@ -9,7 +9,7 @@ class Button extends Control {
     public function new(parent:Window, label:String, style:Int = 0, id:Int = -1) {
         if (_ref == null) {
             _ref = WxButton.createInstance();
-            buttonRef.ptr.create(parent != null ? parent._ref.get_raw() : null, id, label, Point.defaultPosition.ref, Size.defaultSize.ref, style);
+            buttonRef.ptr.create(Window.toRaw(parent), id, label, Point.defaultPosition.ref, Size.defaultSize.ref, style);
         }
         
         super(parent, id);
@@ -63,7 +63,7 @@ class Button extends Control {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     private var buttonRef(get, null):Pointer<WxButton>;
     private function get_buttonRef():Pointer<WxButton> {
-       return untyped __cpp__("(wxButton*)(_ref->get_raw())");
+       return Pointer.fromRaw(untyped __cpp__("(wxButton*)(_ref->get_raw())"));
     }
 }
 

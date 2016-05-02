@@ -13,7 +13,7 @@ class Frame extends TopLevelWindow {
         
         if (_ref == null) {
             _ref = WxFrame.createInstance();
-            frameRef.ptr.create(parent != null ? parent._ref.get_raw() : null, id, title, Point.defaultPosition.ref, Size.defaultSize.ref, style);
+            frameRef.ptr.create(Window.toRaw(parent), id, title, Point.defaultPosition.ref, Size.defaultSize.ref, style);
         }
         
         super(parent, id);
@@ -41,7 +41,7 @@ class Frame extends TopLevelWindow {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     private var frameRef(get, null):Pointer<WxFrame>;
     private function get_frameRef():Pointer<WxFrame> {
-        return untyped __cpp__("(wxFrame*)(_ref->get_raw())");
+        return Pointer.fromRaw(untyped __cpp__("(wxFrame*)(_ref->get_raw())"));
     }
 }
 /*

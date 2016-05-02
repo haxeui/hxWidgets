@@ -8,7 +8,7 @@ class TextCtrl extends Control {
     public function new(parent:Window, text:String = null, style:Int = 0, id:Int = -1) {
         if (_ref == null) {
             _ref = WxTextCtrl.createInstance();
-            textCtrlRef.ptr.create(parent != null ? parent._ref.get_raw() : null, id, text, Point.defaultPosition.ref, Size.defaultSize.ref, style);
+            textCtrlRef.ptr.create(Window.toRaw(parent), id, text, Point.defaultPosition.ref, Size.defaultSize.ref, style);
         }
         
         super(parent, id);
@@ -47,7 +47,7 @@ class TextCtrl extends Control {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     private var textCtrlRef(get, null):Pointer<WxTextCtrl>;
     private function get_textCtrlRef():Pointer<WxTextCtrl> {
-        return untyped __cpp__("(wxTextCtrl*)(_ref->get_raw())");
+        return Pointer.fromRaw(untyped __cpp__("(wxTextCtrl*)(_ref->get_raw())"));
     }
 }
 /*

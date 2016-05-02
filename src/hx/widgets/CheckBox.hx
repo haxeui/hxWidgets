@@ -7,7 +7,7 @@ class CheckBox extends Control {
     public function new(parent:Window, label:String, style:Int = 0, id:Int = -1) {
         if (_ref == null) {
             _ref = WxCheckBox.createInstance();
-            checkboxRef.ptr.create(parent != null ? parent._ref.get_raw() : null, id, label, Point.defaultPosition.ref, Size.defaultSize.ref, style);
+            checkboxRef.ptr.create(Window.toRaw(parent), id, label, Point.defaultPosition.ref, Size.defaultSize.ref, style);
         }
         
         super(parent, id);
@@ -30,7 +30,7 @@ class CheckBox extends Control {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     private var checkboxRef(get, null):Pointer<WxCheckBox>;
     private function get_checkboxRef():Pointer<WxCheckBox> {
-        return untyped __cpp__("(wxCheckBox*)(_ref->get_raw())");
+        return Pointer.fromRaw(untyped __cpp__("(wxCheckBox*)(_ref->get_raw())"));
     }
 }
 
