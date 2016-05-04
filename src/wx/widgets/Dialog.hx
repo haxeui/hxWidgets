@@ -14,7 +14,7 @@ extern class Dialog extends Window {
     @:native("new wxDialog")            private static function _new():RawPointer<Window>;
                                         public static inline function createInstance():Pointer<Window> return Pointer.fromRaw(_new());
 
-    @:native("Create")                  @:overload(function(parent:RawPointer<Window>, id:Int, title:ConstCharStar, point:Point, size:Size, style:Int):Bool {})
+    @:native("Create")                  @:overload(function(parent:RawPointer<Window>, id:Int, title:WxString, point:Point, size:Size, style:Int):Bool {})
     @:native("Create")                  public override function create(parent:RawPointer<Window>, id:Int, point:Point, size:Size, style:Int):Bool;
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

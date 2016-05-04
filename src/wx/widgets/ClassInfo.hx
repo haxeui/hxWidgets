@@ -1,5 +1,6 @@
 package wx.widgets;
 
+import cpp.ConstCharStar;
 import cpp.Pointer;
 import cpp.RawPointer;
 

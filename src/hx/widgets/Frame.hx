@@ -4,21 +4,24 @@ import cpp.Pointer;
 import hx.widgets.styles.FrameStyle;
 import wx.widgets.Frame in WxFrame;
 import wx.widgets.MenuBar in WxMenuBar;
+import wx.widgets.WxString;
 
 class Frame extends TopLevelWindow {
     public function new(parent:Window, title:String, style:Int = 0, id:Int = -1) {
         if (style == 0) {
             style = FrameStyle.DEFAULT_FRAME_STYLE;
         }
-        
+
         if (_ref == null) {
             _ref = WxFrame.createInstance();
-            frameRef.ptr.create(Window.toRaw(parent), id, title, Point.defaultPosition.ref, Size.defaultSize.ref, style);
+            var str = WxString.createInstance(title);
+            frameRef.ptr.create(Window.toRaw(parent), id, str.ref, Point.defaultPosition.ref, Size.defaultSize.ref, style);
+            str.destroy();
         }
-        
+
         super(parent, id);
     }
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Instance functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -27,15 +30,15 @@ class Frame extends TopLevelWindow {
     private function get_menuBar():MenuBar {
         var menuBar:MenuBar = new MenuBar(0, false);
         var p = frameRef.ptr.getMenuBar();
-        menuBar._ref = cast p.raw;
+        menuBar._ref = Pointer.fromRaw(untyped __cpp__("(wxWindow*)(p)"));
         return menuBar;
     }
     @:access(hx.widgets.MenuBar)
     private function set_menuBar(value:MenuBar):MenuBar {
-        frameRef.ptr.setMenuBar(value.menuBarRef);
+        frameRef.ptr.setMenuBar(value.menuBarRef.raw);
         return value;
     }
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

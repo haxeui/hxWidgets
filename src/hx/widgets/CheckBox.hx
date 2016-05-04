@@ -2,17 +2,20 @@ package hx.widgets;
 
 import cpp.Pointer;
 import wx.widgets.CheckBox in WxCheckBox;
+import wx.widgets.WxString;
 
 class CheckBox extends Control {
     public function new(parent:Window, label:String, style:Int = 0, id:Int = -1) {
         if (_ref == null) {
             _ref = WxCheckBox.createInstance();
-            checkboxRef.ptr.create(Window.toRaw(parent), id, label, Point.defaultPosition.ref, Size.defaultSize.ref, style);
+            var str = WxString.createInstance(label);
+            checkboxRef.ptr.create(Window.toRaw(parent), id, str.ref, Point.defaultPosition.ref, Size.defaultSize.ref, style);
+            str.destroy();
         }
-        
+
         super(parent, id);
     }
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Instance functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -24,7 +27,7 @@ class CheckBox extends Control {
         checkboxRef.ptr.setValue(value);
         return value;
     }
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

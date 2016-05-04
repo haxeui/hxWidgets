@@ -1,14 +1,15 @@
 package wx.widgets;
 
-@:include("wx/event.h")
-@:unreflective
-@:native("cpp::Reference<wxEvtHandler>")
-extern class EvtHandler extends EvtHandlerImpl {
-    @:native("new wxEvtHandler") public static function createInstance():EvtHandler;
-}
+import cpp.Pointer;
+import cpp.RawPointer;
 
 @:include("wx/event.h")
 @:unreflective
 @:native("wxEvtHandler")
-extern class EvtHandlerImpl {
+extern class EvtHandler {
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // creation functions
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    @:native("new wxEvtHandler")        private static function _new():RawPointer<EvtHandler>;
+                                        public static inline function createInstance():Pointer<EvtHandler> return Pointer.fromRaw(_new());
 }

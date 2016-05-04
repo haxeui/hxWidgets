@@ -14,12 +14,12 @@ extern class Frame extends TopLevelWindow {
     @:native("new wxFrame") private static function _new():RawPointer<Window>;
     inline public static function createInstance():Pointer<Window> return Pointer.fromRaw(_new());
 
-    @:native("Create")              @:overload(function(parent:RawPointer<Window>, id:Int, title:ConstCharStar, point:Point, size:Size, style:Int):Bool {})
+    @:native("Create")              @:overload(function(parent:RawPointer<Window>, id:Int, title:WxString, point:Point, size:Size, style:Int):Bool {})
     @:native("Create")              public override function create(parent:RawPointer<Window>, id:Int, point:Point, size:Size, style:Int):Bool;
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Instance functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    @:native("GetMenuBar")          public function getMenuBar():Pointer<MenuBar>;
-    @:native("SetMenuBar")          public function setMenuBar(menuBar:Pointer<MenuBar>):Void;
+    @:native("GetMenuBar")          public function getMenuBar():RawPointer<MenuBar>;
+    @:native("SetMenuBar")          public function setMenuBar(menuBar:RawPointer<MenuBar>):Void;
 }

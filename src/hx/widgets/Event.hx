@@ -1,24 +1,25 @@
 package hx.widgets;
 
+import cpp.Pointer;
 import wx.widgets.Event in WxEvent;
 
 class Event {
-	private var _ref:WxEvent;
-	
+	private var _ref:Pointer<WxEvent>;
+
 	public function new() {
-		
+
 	}
-	
+
 	public function getEventType():Int {
-		return _ref.getEventType();
+		return _ref.ptr.getEventType();
 	}
-	
+
 	public function getId():Int {
-		return _ref.getId();
+		return _ref.ptr.getId();
 	}
-	
+
     public function skip(skip:Bool = true) {
-        _ref.skip(skip);
+        _ref.ptr.skip(skip);
     }
 
     public function convertTo<T>(clz:Class<T>):T {
@@ -26,10 +27,10 @@ class Event {
 		cast(event, Event)._ref = _ref;
 		return event;
     }
-    
-	public static function fromRef(ref:WxEvent):Event {
+
+	public static function fromPointer(ptr:Pointer<WxEvent>):Event {
 		var event:Event = new Event();
-		event._ref = ref;
+		event._ref = ptr;
 		return event;
 	}
 }

@@ -16,7 +16,7 @@ extern class Font {
                                         public static inline function createInstance(pointSize:Int, family:FontFamily, style:FontStyle,
                                                                                      weight:FontWeight, underline:Bool = false):Pointer<Font>
                                                                                      return Pointer.fromRaw(_new(pointSize, family, style,
-                                                                                                                 weight, underline = false));
+                                                                                                                 weight, underline));
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Instance functions

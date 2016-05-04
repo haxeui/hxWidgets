@@ -4,14 +4,10 @@ import cpp.ConstCharStar;
 
 @:include("wx/hyperlink.h")
 @:unreflective
-@:native("cpp::Reference<wxHyperlinkCtrl>")
-extern class HyperlinkCtrl extends HyperlinkCtrlImpl {
-    @:native("new wxHyperlinkCtrl")    public static function createInstance():HyperlinkCtrl;
-}
-
-@:include("wx/hyperlink.h")
-@:unreflective
 @:native("wxHyperlinkCtrl")
-extern class HyperlinkCtrlImpl extends Control {
-    @:native("Create")                  public function create(parent:Window, id:Int, text:ConstCharStar, url:ConstCharStar, point:Point, size:Size, style:Int):Bool;
+extern class HyperlinkCtrl {
+    @:native("new wxHyperlinkCtrl")     private static function _new():RawPointer<HyperlinkCtrl>;
+                                        public static inline function createInstance():Pointer<HyperlinkCtrl> return Pointer.fromRaw(_new());
+
+    @:native("Create")                  public function create(parent:RawPointer<Window>, id:Int, text:WxString, url:WxString, point:Point, size:Size, style:Int):Bool;
 }

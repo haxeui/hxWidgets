@@ -4,6 +4,7 @@ import cpp.Pointer;
 import cpp.RawPointer;
 import hx.widgets.styles.DialogStyle;
 import wx.widgets.Dialog in WxDialog;
+import wx.widgets.WxString;
 
 @:headerCode("
 #include <wx/dialog.h>
@@ -16,19 +17,21 @@ class Dialog extends Window {
         }
         if (_ref == null) {
             _ref = WxDialog.createInstance();
-            dialogRef.ptr.create(Window.toRaw(parent), id, title, Point.defaultPosition.ref, Size.defaultSize.ref, style);
+            var str = WxString.createInstance(title);
+            dialogRef.ptr.create(Window.toRaw(parent), id, str.ref, Point.defaultPosition.ref, Size.defaultSize.ref, style);
+            str.destroy();
         }
-        
+
         super(parent, id);
     }
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Instance functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     public function showModal():Int {
         return dialogRef.ptr.showModal();
     }
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

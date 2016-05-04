@@ -4,6 +4,7 @@ import cpp.Pointer;
 import wx.widgets.GraphicsContext in WxGraphicsContext;
 import wx.widgets.Font in WxFont;
 import wx.widgets.Colour in WxColour;
+import wx.widgets.WxString;
 
 @:unreflective
 class GraphicsContext {
@@ -35,7 +36,9 @@ class GraphicsContext {
     }
 
     public function drawText(text:String, x:Float, y:Float):Void {
-        _ref.ptr.drawText(text, x, y);
+        var str = WxString.createInstance(text);
+        _ref.ptr.drawText(str.ref, x, y);
+        str.destroy();
     }
 
     public function drawRoundedRectangle(x:Float, y:Float, width:Float, height:Float, radius:Float):Void {
