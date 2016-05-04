@@ -35,7 +35,7 @@ class Frame extends TopLevelWindow {
     }
     @:access(hx.widgets.MenuBar)
     private function set_menuBar(value:MenuBar):MenuBar {
-        frameRef.ptr.setMenuBar(value.menuBarRef.raw);
+        frameRef.ptr.setMenuBar(value.menuBarRef.get_raw());
         return value;
     }
 
