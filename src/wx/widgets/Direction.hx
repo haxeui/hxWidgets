@@ -4,7 +4,7 @@ package wx.widgets;
 @:headerCode("#include <wx/defs.h>")
 @:unreflective
 @:native("wxDirection")
-@:enum extern abstract Direction(DirectionImpl) {
+@:enum extern abstract Direction(DirectionImpl) from Int to Int {
     @:native("wxLEFT")   var LEFT;
     @:native("wxRIGHT")  var RIGHT;
     @:native("wxUP")     var UP;
@@ -25,7 +25,7 @@ extern class DirectionImpl {
 }
 #else
 @:headerCode("#include <wx/defs.h>")
-abstract Direction(Int) {
+abstract Direction(Int) from Int to Int {
     public static var LEFT(default, null)         = new Direction(untyped __cpp__('::wxLEFT')); 
     public static var RIGHT(default, null)        = new Direction(untyped __cpp__('::wxRIGHT')); 
     public static var UP(default, null)           = new Direction(untyped __cpp__('::wxUP')); 

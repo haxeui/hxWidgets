@@ -104,6 +104,14 @@ extern class Window {
     @:native("GetScrollThumb")                  public function getScrollThumb(orientation:Int):Int;
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Constraints, sizers and window layout functions
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    @:native("GetSizer")                        public function getSizer():RawPointer<Sizer>;
+    @:native("SetSizer")                        public function setSizer(sizer:RawPointer<Sizer>, deleteOld:Bool = true):Void;
+    @:native("SetSizerAndFit")                  public function setSizerAndFit(sizer:RawPointer<Sizer>, deleteOld:Bool = true):Void;
+    @:native("Layout")                          public function layout():Bool;
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Misc functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     @:native("GetClassInfo")                    public function getClassInfo():Pointer<ClassInfo>;

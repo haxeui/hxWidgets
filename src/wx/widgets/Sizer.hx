@@ -1,0 +1,14 @@
+package wx.widgets;
+
+import cpp.Pointer;
+import cpp.RawPointer;
+
+@:include("wx/sizer.h")
+@:unreflective
+@:native("wxSizer")
+extern class Sizer {
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Instance functions
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    @:native("Add")                 public function add(window:RawPointer<Window>, proportion:Int = 0, flag:Int = 0, border:Int = 0):Void;
+}

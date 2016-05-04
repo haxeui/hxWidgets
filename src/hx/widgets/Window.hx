@@ -13,6 +13,7 @@ import wx.widgets.Rect in WxRect;
 import wx.widgets.Point in WxPoint;
 import wx.widgets.Font in WxFont;
 import wx.widgets.ClassInfo in WxClassInfo;
+import wx.widgets.Sizer in WxSizer;
 
 @:unreflective
 class Window extends EvtHandler {
@@ -328,6 +329,31 @@ class Window extends EvtHandler {
     public var vscrollThumb(get, null):Int; // bit of API sugar
     private function get_vscrollThumb():Int {
         return getScrollThumb(Orientation.VERTICAL);
+    }
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Constraints, sizers and window layout functions
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public var sizer(get, set):Sizer;
+    @:access(hx.widgets.Sizer)
+    private function get_sizer():Sizer {
+        var sizer:Sizer = new Sizer();
+        sizer._ref = Pointer.fromRaw(_ref.ptr.getSizer());
+        return sizer;
+    }
+    @:access(hx.widgets.Sizer)
+    private function set_sizer(value:Sizer):Sizer {
+        _ref.ptr.setSizer(value._ref.get_raw());
+        return value;
+    }
+
+    @:access(hx.widgets.Sizer)
+    public function setSizerAndFit(sizer:Sizer, deleteOld:Bool = true) {
+        _ref.ptr.setSizerAndFit(sizer._ref.get_raw(), deleteOld);
+    }
+    
+    public function layout():Bool {
+        return _ref.ptr.layout();
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
