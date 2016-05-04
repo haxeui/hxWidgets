@@ -12,8 +12,8 @@ gsettings set org.gnome.settings-daemon.plugins.xsettings overrides "{'Gtk/Butto
 class Main {
     /*
     private static var worker:ThreadWorker;
-    private static var timer:Timer;
     */
+    private static var timer:Timer;
     
     public static function main() {
         /*
