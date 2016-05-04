@@ -7,6 +7,10 @@
 -resource assets/img/inbox-document.bmp@inbox-document.bmp
 -resource assets/img/inbox-document.png@inbox-document.png
 
+-resource assets/img/information-button.png@information-button.png
+-resource assets/img/ui-check-boxes-series.png@ui-check-boxes-series.png
+-resource assets/img/layer-shape-line.png@layer-shape-line.png
+
 # by default wxwidgets uses /MD - so match for static linking
 # if wxWidgets is using /MT, remove this line
 -D ABI=-MD

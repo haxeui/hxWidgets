@@ -1,6 +1,8 @@
 import cpp.Lib;
 import haxe.Resource;
-import views.InfoView;
+import views.BasicControlsView;
+import views.DrawingView;
+import views.SystemInfoView;
 
 import cpp.Pointer;
 import hx.widgets.*;
@@ -26,18 +28,30 @@ class Main {
         app.init();
         
         var frame:Frame = new Frame(null, "hxWidgets");
+        frame.sizer = new BoxSizer(Orientation.VERTICAL);
         frame.resize(800, 600);
-        frame.show();
         
+        var imageList:ImageList = new ImageList(16, 16);
+        imageList.add(Bitmap.fromHaxeResource("ui-check-boxes-series.png"));
+        imageList.add(Bitmap.fromHaxeResource("layer-shape-line.png"));
+        imageList.add(Bitmap.fromHaxeResource("information-button.png"));
         var tabs:Notebook = new Notebook(frame);
-        //tabs.resize(400, 400);
-        var infoView:InfoView = new InfoView(tabs);
-        tabs.addPage(infoView, "Info");
+        tabs.padding = new Size(6, 6);
+        tabs.imageList = imageList;
+
+        frame.sizer.add(tabs, 1, Stretch.EXPAND | Direction.ALL);
         
-        var box:BoxSizer = new BoxSizer(Orientation.VERTICAL);
-        box.add(tabs, 1, Stretch.EXPAND | Direction.ALL);
-        frame.sizer = box;
+        var controlsView:BasicControlsView = new BasicControlsView(tabs);
+        tabs.addPage(controlsView, "Basic Controls", false, 0);
+
+        var drawingView:DrawingView = new DrawingView(tabs);
+        tabs.addPage(drawingView, "Drawing", false, 1);
+        
+        var infoView:SystemInfoView = new SystemInfoView(tabs);
+        tabs.addPage(infoView, "System Info", false, 2);
+        
         frame.layout();
+        frame.show();
         
         /*
         var n = Stretch.EXPAND | Stretch.TILE;
