@@ -41,13 +41,7 @@ class DC {
         _ref.ptr.drawCircle(x, y, radius);
     }
     
-    public var background(get, set):Brush;
-    @:access(hx.widgets.Brush)
-    private function get_background():Brush {
-        var brush:Brush = new Brush();
-        // TODO:
-        return brush;
-    }
+    public var background(null, set):Brush;
     @:access(hx.widgets.Brush)
     private function set_background(value:Brush):Brush {
         _ref.ptr.setBackground(value._ref.ref);

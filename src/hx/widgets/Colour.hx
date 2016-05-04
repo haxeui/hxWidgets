@@ -25,6 +25,10 @@ class Colour {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Static helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public function createPointer():Pointer<WxColour> {
+        return WxColour.createInstance(_colour);
+    }
+    
     public static function copy(ptr:Pointer<WxColour>):Colour {
         var c:Colour = new Colour(convertColor(ptr.ref.GetRGB()));
         return c;
