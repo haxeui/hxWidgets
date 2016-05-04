@@ -201,6 +201,21 @@ class Main {
             trace("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX " + textctrl.value);
             });
             
+            var box:StaticBox = new StaticBox(frame, "Static Box");
+            box.resize(120, 100);
+            box.move(430, 80);
+            
+            var label:StaticText = new StaticText(box, "Static text");
+            label.label = "TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST ";
+            trace(">>>>>>>>>> " + label.label);
+            label.move(10, 20);
+            
+            var label2:StaticText = new StaticText(box, label.label);
+            var font:Font = new Font(16);
+            label2.font = font;
+            label2.foregroundColour = 0xFF00FF;
+            label2.move(10, 40);
+            
         /*
         
         trace("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX " + fff.title);
