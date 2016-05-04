@@ -1,5 +1,7 @@
 package hx.widgets;
 
+import cpp.Pointer;
+import cpp.RawPointer;
 import hx.widgets.styles.DialogStyle;
 import wx.widgets.Dialog in WxDialog;
 
@@ -13,23 +15,25 @@ class Dialog extends Window {
             style = DialogStyle.DEFAULT_DIALOG_STYLE;
         }
         if (_ref == null) {
-            var dialogRef:WxDialog = WxDialog.createInstance();
-            dialogRef.create(parent != null ? parent._ref : Window.nullWindowRef, id, title, Point.defaultPositionRef, Size.defaultSizeRef, style);
-            _ref = dialogRef;
+            _ref = WxDialog.createInstance();
+            dialogRef.ptr.create(Window.toRaw(parent), id, title, Point.defaultPosition.ref, Size.defaultSize.ref, style);
         }
         
         super(parent, id);
     }
     
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Instance functions
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
     public function showModal():Int {
-        return dialogRef.showModal();
+        return dialogRef.ptr.showModal();
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // HELPERS
+    // Helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    private var dialogRef(get, null):WxDialog;
-    private function get_dialogRef():WxDialog {
-        return cast _ref;
+    private var dialogRef(get, null):Pointer<WxDialog>;
+    private function get_dialogRef():Pointer<WxDialog> {
+        return Pointer.fromRaw(untyped __cpp__("(wxDialog*)(_ref->get_raw())"));
     }
 }

@@ -107,7 +107,6 @@ class Main {
             button.resize(100, 100);
             button.move(10, 10);
             button.bind(EventType.BUTTON, function(e:Event) {
-                /*
                 trace("click!");
                 trace(e.getEventType());
                 trace(e.getId());
@@ -118,7 +117,6 @@ class Main {
 
                 var dialog:Dialog = new Dialog(frame, "Non-modal Dialog");
                 dialog.show();
-                */
             });
             button.bind(EventType.LEFT_DOWN, function(e) {
                trace("Mouse down - " + e.convertTo(MouseEvent).x + "x" + e.convertTo(MouseEvent).y);
