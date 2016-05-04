@@ -24,15 +24,15 @@ class Main {
         var app = new App();
         app.init();
         
-        /*
         var platform:PlatformInfo = new PlatformInfo();
-        trace("OS Major Version: " + platform.getOSMajorVersion());
-        trace("OS Minor Version: " + platform.getOSMinorVersion());
-        trace("Arch Name: " + platform.getArchName());
-        trace("Operating System Family Name: " + platform.getOperatingSystemFamilyName());
-        trace("Operating System Id Name: " + platform.getOperatingSystemIdName());
-        trace("Operating System Id: " + platform.getOperatingSystemId());
-        
+        trace("OS Major Version: " + platform.osMajorVersion);
+        trace("OS Minor Version: " + platform.osMinorVersion);
+        trace("Arch Name: " + platform.archName);
+        trace("Operating System Family Name: " + platform.operatingSystemFamilyName);
+        trace("Operating System Id Name: " + platform.operatingSystemIdName);
+        trace("Operating System Id: " + platform.operatingSystemId);
+        platform.destroy();
+        /*
         trace("Screen X: " + SystemSettings.getMetric(SystemMetric.SCREEN_X));
         
         SystemOptions.setOption("msw.window.no-clip-children", 1);
