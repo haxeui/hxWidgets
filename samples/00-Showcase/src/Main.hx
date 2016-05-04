@@ -32,11 +32,13 @@ class Main {
         trace("Operating System Id Name: " + platform.operatingSystemIdName);
         trace("Operating System Id: " + platform.operatingSystemId);
         platform.destroy();
+        trace("Screen X: " + SystemSettings.getMetric(SystemMetric.SCREEN_X));
         /*
         trace("Screen X: " + SystemSettings.getMetric(SystemMetric.SCREEN_X));
         
         SystemOptions.setOption("msw.window.no-clip-children", 1);
         */
+        SystemOptions.setOption("msw.window.no-clip-children", 1);
         
         var frame:Frame = new Frame(null, "hxWidgets");
         frame.resize(800, 600);
