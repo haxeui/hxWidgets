@@ -222,6 +222,18 @@ class Main {
             gauge.move(120, 50);
             gauge.value = 50;
 
+            var scroll:ScrollBar = new ScrollBar(frame, ScrollBarStyle.HORIZONTAL);
+            scroll.move(120, 70);
+            scroll.setScrollbar(50, 10, 100, 20);
+            
+            var gauge:Gauge = new Gauge(frame, 100, GaugeStyle.VERTICAL);
+            gauge.move(620, 50);
+            gauge.value = 50;
+            
+            var scroll:ScrollBar = new ScrollBar(frame, ScrollBarStyle.VERTICAL);
+            scroll.move(640, 50);
+            scroll.setScrollbar(50, 10, 100, 20);
+
             
         /*
         
