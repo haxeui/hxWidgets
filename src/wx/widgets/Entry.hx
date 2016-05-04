@@ -22,8 +22,8 @@ class Entry {
         untyped __cpp__("char** argv = new char*[argc]");
 
         for (i in 0...argc) {
-            var arg:cpp.CastCharStar = args[i];
-            untyped __cpp__("argv[i] = arg");
+            var arg:cpp.ConstCharStar = args[i];
+            untyped __cpp__("argv[i] = (char *)arg");
         }
         untyped __cpp__("wxEntryStart(argc, argv)");
         untyped __cpp__("delete[] argv");
@@ -64,7 +64,7 @@ class Entry {
 				i++;
 			}
 			config.exitCode();
-			
+
 			if (new EReg("mac", "i").match(Sys.systemName()) && (os.major > 10 || (os.major == 10 && os.minor >= 7))) {
 				cflags += '\n<compilerflag value="-mmacosx-version-min=10.7" />\n<compilerflag value="-std=c++11" />\n<compilerflag value="-stdlib=libc++" />\n';
 				link.push('<compilerflag value="-std=c++11" />');
@@ -74,13 +74,13 @@ class Entry {
 
 			_class.get().meta.add(":buildXml", [{ expr:EConst( CString( '<set name="MAC_USE_CURRENT_SDK" value="1" if="macos" /><set name="HXCPP_GCC" value="1" if="macos" /><set name="HXCPP_M64" value="1" if="macos" /><files id="haxe">$cflags</files>\n<target id="haxe" tool="linker" toolid="exe">${link.join("\n")}</target>' ) ), pos:_pos }], _pos );
         }
-        
+
         // https://github.com/HaxeFoundation/hxcpp/issues/397
         haxe.macro.Compiler.define("source-header", "GeneratedByHaxe");
 
         return Context.getBuildFields();
     }
-    
+
     private static function getOSVersion():OSVersion {
         var version:OSVersion = {
             major: 0,
