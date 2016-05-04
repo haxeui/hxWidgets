@@ -14,6 +14,7 @@ import wx.widgets.Point in WxPoint;
 import wx.widgets.Font in WxFont;
 import wx.widgets.ClassInfo in WxClassInfo;
 
+@:unreflective
 class Window extends EvtHandler {
     private var _ref:Pointer<WxWindow>;
     public function new(parent:Window = null, id:Int = -1) {
@@ -30,14 +31,14 @@ class Window extends EvtHandler {
     public function hide():Bool {
         return _ref.ptr.hide();
     }
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Window deletion functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     public function close(force:Bool = false):Bool {
         return _ref.ptr.close(force);
     }
-    
+
     public function destroy():Bool {
         var r = _ref.ptr.destroy();
         if (r == true) {
@@ -45,7 +46,7 @@ class Window extends EvtHandler {
         }
         return r;
     }
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Child management functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -59,7 +60,7 @@ class Window extends EvtHandler {
         win._ref = Pointer.fromRaw(p);
         return autoConvert(win); // lets auto convert the class so it can be used with casts
     }
-    
+
     public var children(get, null):Array<Window>;
     private function get_children():Array<Window> {
         var list:Array<Window> = new Array<Window>();
@@ -73,7 +74,7 @@ class Window extends EvtHandler {
         }
         return list;
     }
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Sibling and parent management functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -84,24 +85,24 @@ class Window extends EvtHandler {
         win._ref = Pointer.fromRaw(p);
         return autoConvert(win); // lets auto convert the class so it can be used with casts
     }
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Drawing-related functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     public function refresh(eraseBackground:Bool = true) {
         _ref.ptr.refresh(eraseBackground);
     }
-    
+
     public function refreshRect(rect:Rect, eraseBackground:Bool = true) {
         var temp:Pointer<WxRect> = rect.createPointer();
         _ref.ptr.refreshRect(temp.ref, eraseBackground);
         temp.destroy();
     }
-    
+
     public function update() {
         _ref.ptr.update();
     }
-    
+
     public var backgroundColour(get, set):Int;
     private function get_backgroundColour():Int {
         var r = _ref.ptr.getBackgroundColour();
@@ -113,7 +114,7 @@ class Window extends EvtHandler {
         temp.destroy();
         return value;
     }
-    
+
     public var foregroundColour(get, set):Int;
     private function get_foregroundColour():Int {
         var r = _ref.ptr.getForegroundColour();
@@ -125,7 +126,7 @@ class Window extends EvtHandler {
         temp.destroy();
         return value;
     }
-    
+
     public var font(get, set):Font;
     private function get_font():Font {
         var r = _ref.ptr.getFont();
@@ -137,20 +138,20 @@ class Window extends EvtHandler {
         temp.destroy();
         return value;
     }
-    
+
     public function freeze() {
         _ref.ptr.freeze();
     }
-    
+
     public function thaw() {
         _ref.ptr.thaw();
     }
-    
+
     public var isFrozen(get, null):Bool;
     private function get_isFrozen():Bool {
         return _ref.ptr.isFrozen();
     }
-    
+
     public var backgroundStyle:BackgroundStyle;
     private function get_backgroundStyle():BackgroundStyle {
         return _ref.ptr.getBackgroundStyle();
@@ -163,18 +164,18 @@ class Window extends EvtHandler {
         #end
         return value;
     }
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Sizing functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     public function beginRepositioningChildren():Bool {
         return _ref.ptr.beginRepositioningChildren();
     }
-    
+
     public function endRepositioningChildren() {
         _ref.ptr.endRepositioningChildren();
     }
-    
+
     public var size(get, set):Size;
     private function get_size():Size {
         var r = _ref.ptr.getSize();
@@ -186,11 +187,11 @@ class Window extends EvtHandler {
         temp.destroy();
         return value;
     }
-    
+
     public function resize(width:Int, height:Int) { // bit of sugar - semantically works well with 'move'
         _ref.ptr.setSize(width, height);
     }
-    
+
     public var clientSize(get, set):Size;
     private function get_clientSize():Size {
         var r = _ref.ptr.getClientSize();
@@ -202,17 +203,17 @@ class Window extends EvtHandler {
         temp.destroy();
         return value;
     }
-    
+
     public function resizeClient(width:Int, height:Int) { // bit of sugar - semantically works well with 'move'
         _ref.ptr.setClientSize(width, height);
     }
-    
+
     public var bestSize(get, null):Size;
     private function get_bestSize():Size {
         var r = _ref.ptr.getBestSize();
         return Size.copy(Pointer.addressOf(r));
     }
-    
+
     public var virtualSize(get, set):Size;
     private function get_virtualSize():Size {
         var r = _ref.ptr.getVirtualSize();
@@ -224,18 +225,18 @@ class Window extends EvtHandler {
         temp.destroy();
         return value;
     }
-    
+
     public function resizeVirtual(width:Int, height:Int) { // bit of sugar - semantically works well with 'move'
         _ref.ptr.setVirtualSize(width, height);
     }
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Positioning functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     public function move(x:Int, y:Int) {
         _ref.ptr.move(x, y);
     }
-    
+
     public var position(get, set):Point;
     private function get_position():Point {
         var r = _ref.ptr.getPosition();
@@ -247,7 +248,7 @@ class Window extends EvtHandler {
         temp.destroy();
         return value;
     }
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Window styles functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -337,13 +338,13 @@ class Window extends EvtHandler {
     private function get_classInfo():ClassInfo {
         var t:Pointer<WxClassInfo> = _ref.ptr.getClassInfo();
         var info:ClassInfo = new ClassInfo();
-        
+
         var raw:RawPointer<WxClassInfo> = cast t.raw;
         info._ref = Pointer.fromRaw(raw);
-        
+
         return info;
     }
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Static helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -360,7 +361,7 @@ class Window extends EvtHandler {
         }
         return win;
     }
-    
+
     public static function convertTo<T>(win:Window, c:Class<T>):T {
         var t:T = Type.createEmptyInstance(c);
         var raw:RawPointer<WxWindow> = cast win._ref.raw;

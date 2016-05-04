@@ -4,13 +4,14 @@ import cpp.Pointer;
 import wx.widgets.Menu in WxMenu;
 import wx.widgets.MenuItem in WxMenuItem;
 
-class Menu extends Window {
+class Menu extends EvtHandler {
+    private var _ref:Pointer<WxMenu>;
     public function new(text:String = null, style:Int = 0) {
         if (_ref == null) {
             _ref = WxMenu.createInstance(text, style);
         }
-        
-        super(null, -1);
+
+        super();
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -23,11 +24,11 @@ class Menu extends Window {
         menuItem._ref = menuItemRef;
         return menuItem;
     }
-    
+
     public function append(id:Int, text:String = null):MenuItem {
         return appendItem(new MenuItem(this, text, null, id));
     }
-    
+
     @:access(hx.widgets.MenuItem)
     public function appendCheckItem(id:Int, text:String):MenuItem {
         var menuItemRef:Pointer<WxMenuItem> = Pointer.fromRaw(menuRef.ptr.appendCheckItem(id, text));
@@ -35,7 +36,7 @@ class Menu extends Window {
         menuItem._ref = menuItemRef;
         return menuItem;
     }
-    
+
     @:access(hx.widgets.MenuItem)
     public function appendRadioItem(id:Int, text:String):MenuItem {
         var menuItemRef:Pointer<WxMenuItem> = Pointer.fromRaw(menuRef.ptr.appendRadioItem(id, text));
@@ -43,7 +44,7 @@ class Menu extends Window {
         menuItem._ref = menuItemRef;
         return menuItem;
     }
-    
+
     @:access(hx.widgets.MenuItem)
     public function appendSeparator():MenuItem {
         var menuItemRef:Pointer<WxMenuItem> = Pointer.fromRaw(menuRef.ptr.appendSeparator());
@@ -51,7 +52,7 @@ class Menu extends Window {
         menuItem._ref = menuItemRef;
         return menuItem;
     }
-    
+
     @:access(hx.widgets.MenuItem)
     public function appendSubMenu(menu:Menu, text:String):MenuItem {
         var menuItemRef:Pointer<WxMenuItem> = Pointer.fromRaw(menuRef.ptr.appendSubMenu(menu.menuRef.get_raw(), text));
@@ -59,7 +60,7 @@ class Menu extends Window {
         menuItem._ref = menuItemRef;
         return menuItem;
     }
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -80,10 +81,10 @@ class Menu extends Window {
             var menuRef:WxMenu = WxMenu.createInstance(text, style);
             _ref = menuRef;
         }
-        
+
         super(null, -1);
     }
-    
+
     @:access(hx.widgets.MenuItem)
     public function appendItem(menuItem:MenuItem):MenuItem {
         var menuItemRef:WxMenuItem = menuRef.append(menuItem._ref);
@@ -91,11 +92,11 @@ class Menu extends Window {
         menuItem._ref = menuItemRef;
         return menuItem;
     }
-    
+
     public function append(id:Int, text:String = null):MenuItem {
         return appendItem(new MenuItem(this, text, null, id));
     }
-    
+
     @:access(hx.widgets.MenuItem)
     public function appendCheckItem(id:Int, text:String):MenuItem {
         var menuItemRef:WxMenuItem = menuRef.appendCheckItem(id, text);
@@ -103,7 +104,7 @@ class Menu extends Window {
         menuItem._ref = menuItemRef;
         return menuItem;
     }
-    
+
     @:access(hx.widgets.MenuItem)
     public function appendRadioItem(id:Int, text:String):MenuItem {
         var menuItemRef:WxMenuItem = menuRef.appendRadioItem(id, text);
@@ -111,7 +112,7 @@ class Menu extends Window {
         menuItem._ref = menuItemRef;
         return menuItem;
     }
-    
+
     @:access(hx.widgets.MenuItem)
     public function appendSeparator():MenuItem {
         var menuItemRef:WxMenuItem = menuRef.appendSeparator();
@@ -119,7 +120,7 @@ class Menu extends Window {
         menuItem._ref = menuItemRef;
         return menuItem;
     }
-    
+
     @:access(hx.widgets.MenuItem)
     public function appendSubMenu(menu:Menu, text:String):MenuItem {
         var menuItemRef:WxMenuItem = menuRef.appendSubMenu(menu.menuRef, text);
@@ -127,7 +128,7 @@ class Menu extends Window {
         menuItem._ref = menuItemRef;
         return menuItem;
     }
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // HELPERS
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

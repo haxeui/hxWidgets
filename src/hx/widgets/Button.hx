@@ -5,21 +5,22 @@ import cpp.RawPointer;
 import wx.widgets.Button in WxButton;
 import wx.widgets.Bitmap in WxBitmap;
 
+@:unreflective
 class Button extends Control {
     public function new(parent:Window, label:String, style:Int = 0, id:Int = -1) {
         if (_ref == null) {
             _ref = WxButton.createInstance();
             buttonRef.ptr.create(Window.toRaw(parent), id, label, Point.defaultPosition.ref, Size.defaultSize.ref, style);
         }
-        
+
         super(parent, id);
     }
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Instance functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     private var _hasBitmap:Bool = false; // we'll use this var to store if a bitmap has been set, this way we can set the position in any order
-    
+
     public var bitmap(get, set):Bitmap;
     @:access(hx.widgets.Bitmap)
     private function get_bitmap():Bitmap {
@@ -37,13 +38,13 @@ class Button extends Control {
         }
         return value;
     }
-    
+
     private var _bitmapPosition:Direction = Direction.LEFT;
     public var bitmapPosition(get, set):Direction;
     public function get_bitmapPosition():Direction {
         return _bitmapPosition;
     }
-    
+
     public function set_bitmapPosition(value:Direction):Direction {
         _bitmapPosition = value;
         if (_hasBitmap == false) {
@@ -57,7 +58,7 @@ class Button extends Control {
         #end
         return value;
     }
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -79,7 +80,7 @@ class Button extends Control {
             buttonRef.create(parent != null ? parent._ref : Window.nullWindowRef, id, label, Point.defaultPositionRef, Size.defaultSizeRef, style);
             _ref = buttonRef;
         }
-        
+
         super(parent, id);
     }
 
@@ -92,7 +93,7 @@ class Button extends Control {
         }
         _hasBitmap = true;
     }
-    
+
     private var _dir:Direction = Direction.LEFT;
     public function setBitmapPosition(dir:Direction) {
         if (_hasBitmap == false) {
@@ -101,7 +102,7 @@ class Button extends Control {
         }
         buttonRef.setBitmapPosition(#if (haxe_ver >= 3.3) dir #else untyped __cpp__("((wxDirection)dir)")#end);
     }
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // HELPERS
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

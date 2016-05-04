@@ -7,12 +7,12 @@ import cpp.RawPointer;
 @:include("wx/menu.h")
 @:unreflective
 @:native("wxMenu")
-extern class Menu extends Window {
+extern class Menu extends EvtHandler {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // creation functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    @:native("new wxMenu")              private static function _new(text:ConstCharStar, style:Int = 0):RawPointer<Window>;
-                                        public static inline function createInstance(text:ConstCharStar, style:Int = 0):Pointer<Window> return Pointer.fromRaw(_new(text, style));
+    @:native("new wxMenu")              private static function _new(text:ConstCharStar, style:Int = 0):RawPointer<Menu>;
+                                        public static inline function createInstance(text:ConstCharStar, style:Int = 0):Pointer<Menu> return Pointer.fromRaw(_new(text, style));
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Instance functions
