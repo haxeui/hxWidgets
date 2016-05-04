@@ -1,9 +1,8 @@
 package wx.widgets;
 
 #if (haxe_ver >= 3.3)
-@:headerCode("#include <wx/settings.h>")
 @:unreflective
-@:enum extern abstract SystemMetric(Int) to Int from Int {
+@:enum extern abstract SystemMetric(SystemMetricImpl) {
     @:native("wxSYS_MOUSE_BUTTONS")      var MOUSE_BUTTONS;
     @:native("wxSYS_BORDER_X")           var BORDER_X;
     @:native("wxSYS_BORDER_Y")           var BORDER_Y;
@@ -41,6 +40,12 @@ package wx.widgets;
     @:native("wxSYS_PENWINDOWS_PRESENT") var PENWINDOWS_PRESENT;
     @:native("wxSYS_SHOW_SOUNDS")        var SHOW_SOUNDS;
     @:native("wxSYS_SWAP_BUTTONS")       var SWAP_BUTTONS;
+}
+
+@:include("wx/settings.h")
+@:unreflective
+@:native("wxSystemMetric")
+extern class SystemMetricImpl {
 }
 #else
 @:headerCode("#include <wx/settings.h>")
