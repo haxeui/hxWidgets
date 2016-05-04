@@ -264,6 +264,10 @@ class Main {
             slider.selectionStart = 25;
             slider.selectionEnd = 75;
             
+            // create a static bitmp
+            var staticBmp:StaticBitmap = new StaticBitmap(frame, Bitmap.fromHaxeResource("slinky_tiny_test.bmp"));
+            staticBmp.move(250, 150);
+            
             
         /*
         
