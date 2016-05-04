@@ -290,6 +290,54 @@ class Main {
             //scroller.setScrollbars(inc, 3, Std.int(totalCX / inc), 200);
             //scroller.refresh();
             
+            var s:Colour = new Colour(0xFF0000);
+            //frame.backgroundColour = 0xFF0000;
+            var panel:Panel = new Panel(frame);
+            //panel.setBackgroundStyle(BackgroundStyle.BG_PAINT);
+            //panel.backgroundColour = 0xFF0000;
+            panel.resize(150, 150);
+            panel.move(590, 280);
+            //panel.refresh();
+            
+            
+            // create an image list ready for use with the tabs
+            var imageList:ImageList = new ImageList(16, 16);
+            imageList.add(Bitmap.fromHaxeResource("inbox.png"));
+            imageList.add(Bitmap.fromHaxeResource("inbox--arrow.png"));
+        
+            // create a notebox (tab view)
+            var tabs:Notebook = new Notebook(frame);
+            tabs.imageList = imageList;
+            tabs.imageList.add(Bitmap.fromHaxeResource("inbox-document.png"));
+            tabs.resize(400, 200);
+            tabs.move(10, 270);
+            tabs.bind(EventType.NOTEBOOK_PAGE_CHANGED, function(e) {
+               trace("Page changed"); 
+            });
+            // create the panels and contents for the tab view
+                var panel1:Panel = new Panel(tabs);
+                    var button = new Button(panel1, "Tab Button 1a");
+                    button.resize( -1, 30);
+                    button.move(5, 5);
+
+                    var button = new Button(panel1, "Tab Button 1b");
+                    button.move(5, 40);
+        
+                tabs.addPage(panel1, "Tab 1", false, 0);
+
+                var panel2:Panel = new Panel(tabs);
+                    var button = new Button(panel2, "Tab Button 2a");
+                    button.resize(100, 30);
+                    button.move(5, 5);
+                    
+                tabs.addPage(panel2, "Tab 2", false, 1);
+
+                var panel3:Panel = new Panel(tabs);
+                    var button = new Button(panel3, "Tab Button 3a");
+                    button.resize(100, 30);
+                    button.move(5, 5);
+                tabs.addPage(panel3, "Tab 3", false, 2);
+            
         /*
         
         trace("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX " + fff.title);
