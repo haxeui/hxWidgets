@@ -234,6 +234,36 @@ class Main {
             scroll.move(640, 50);
             scroll.setScrollbar(50, 10, 100, 20);
 
+            // create a slider
+            var slider:Slider = new Slider(frame);
+            slider.resize(100, 50);
+            slider.move(120, 80);
+            slider.min = 25;
+            slider.max = 125;
+            slider.value = 50;
+            slider.bind(EventType.SLIDER, function(e) {
+                trace("Slider event: " + slider.value);
+                gauge.value = slider.value;
+            });
+
+            var slider:Slider = new Slider(frame);
+            slider.resize(100, 50);
+            slider.move(220, 80);
+            slider.windowStyle = SliderStyle.AUTOTICKS | SliderStyle.VALUE_LABEL | SliderStyle.SELRANGE;
+            slider.refresh();
+            slider.setSelection(25, 75);
+            
+            var slider:Slider = new Slider(frame, 50, 0, 100, SliderStyle.VERTICAL);
+            slider.resize(50, 100);
+            slider.move(320, 80);
+            
+            var slider:Slider = new Slider(frame, 50, 0, 100, SliderStyle.VERTICAL | SliderStyle.AUTOTICKS | SliderStyle.VALUE_LABEL | SliderStyle.SELRANGE);
+            //slider.move(350, 50);
+            slider.resize(60, 100);
+            slider.move(360, 80);
+            slider.selectionStart = 25;
+            slider.selectionEnd = 75;
+            
             
         /*
         
