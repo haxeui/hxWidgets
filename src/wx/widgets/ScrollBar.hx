@@ -26,7 +26,6 @@ extern class ScrollBar extends Control {
     @:native("GetThumbPosition")        public function getThumbPosition():Int;
     @:native("SetThumbPosition")        public function setThumbPosition(value:Int):Void;
     @:native("GetThumbSize")            public function getThumbSize():Int;
-    @:native("SetThumbSize")            public function setThumbSize(value:Int):Void;
 }
 
 /*

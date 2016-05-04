@@ -47,13 +47,9 @@ class ScrollBar extends Control {
         return value;
     }
     
-    public var thumbSize(get, set):Int;
+    public var thumbSize(get, null):Int;
     private function get_thumbSize():Int {
         return scrollBarRef.ptr.getThumbSize();
-    }
-    private function set_thumbSize(value:Int):Int {
-        scrollBarRef.ptr.setThumbSize(value);
-        return value;
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
