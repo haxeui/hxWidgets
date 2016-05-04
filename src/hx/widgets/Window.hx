@@ -2,6 +2,7 @@ package hx.widgets;
 
 import cpp.Pointer;
 import cpp.RawPointer;
+import cpp.Void;
 import hx.widgets.styles.BackgroundStyle;
 import wx.widgets.Window in WxWindow;
 import wx.widgets.Window.WindowList in WxWindowList;
@@ -274,6 +275,59 @@ class Window extends EvtHandler {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Scrolling and scrollbars functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public function getScrollPos(orientation:Int):Int {
+        return _ref.ptr.getScrollPos(orientation);
+    }
+    
+    public function setScrollPos(orientation:Int, pos:Int, refresh:Bool = true) {
+        _ref.ptr.setScrollPos(orientation, pos, refresh);
+    }
+    
+    public function getScrollRange(orientation:Int):Int {
+        return _ref.ptr.getScrollRange(orientation);
+    }
+    
+    public function getScrollThumb(orientation:Int):Int {
+        return _ref.ptr.getScrollThumb(orientation);
+    }
+    
+    public var hscrollPos(get, set):Int; // bit of API sugar
+    private function get_hscrollPos():Int {
+        return getScrollPos(Orientation.HORIZONTAL);
+    }
+    private function set_hscrollPos(value:Int):Int {
+        setScrollPos(Orientation.HORIZONTAL, value);
+        return value;
+    }
+    
+    public var vscrollPos(get, set):Int; // bit of API sugar
+    private function get_vscrollPos():Int {
+        return getScrollPos(Orientation.VERTICAL);
+    }
+    private function set_vscrollPos(value:Int):Int {
+        setScrollPos(Orientation.VERTICAL, value);
+        return value;
+    }
+    
+    public var hscrollRange(get, null):Int; // bit of API sugar
+    private function get_hscrollRange():Int {
+        return getScrollRange(Orientation.HORIZONTAL);
+    }
+    
+    public var vscrollRange(get, null):Int; // bit of API sugar
+    private function get_vscrollRange():Int {
+        return getScrollRange(Orientation.VERTICAL);
+    }
+    
+    public var hscrollThumb(get, null):Int; // bit of API sugar
+    private function get_hscrollThumb():Int {
+        return getScrollThumb(Orientation.HORIZONTAL);
+    }
+    
+    public var vscrollThumb(get, null):Int; // bit of API sugar
+    private function get_vscrollThumb():Int {
+        return getScrollThumb(Orientation.VERTICAL);
+    }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Misc functions

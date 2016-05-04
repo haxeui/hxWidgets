@@ -99,9 +99,9 @@ extern class Window {
     // Scrolling and scrollbars functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     @:native("GetScrollPos")                    public function getScrollPos(orientation:Int):Int;
+    @:native("SetScrollPos")                    public function setScrollPos(orientation:Int, pos:Int, refresh:Bool = true):Void;
     @:native("GetScrollRange")                  public function getScrollRange(orientation:Int):Int;
     @:native("GetScrollThumb")                  public function getScrollThumb(orientation:Int):Int;
-    @:native("SetScrollPos")                    public function setScrollPos(orientation:Int, pos:Int, refresh:Bool = true):Void;
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Misc functions
