@@ -53,13 +53,6 @@ class Window extends EvtHandler {
     }
 
     public function findWindowById(id:Int):Window {
-        /*
-        var p:Pointer<WxWindow> = _ref.ptr.findWindowById(id);
-        var win:Window = new Window();
-        var raw:RawPointer<WxWindow> = cast p.raw;
-        win._ref = Pointer.fromRaw(raw);
-        return autoConvert(win); // lets auto convert the class so it can be used with casts
-        */
         var p:RawPointer<WxWindow> = _ref.ptr.findWindowById(id);
         var win:Window = new Window();
         win._ref = Pointer.fromRaw(p);
@@ -74,7 +67,6 @@ class Window extends EvtHandler {
         for (i in 0...windowList.getCount()) {
             var child:RawPointer<WxWindow> = windowList.item(i).getData();
             var win:Window = new Window();
-            //var raw:RawPointer<WxWindow> = cast child.raw;
             win._ref = Pointer.fromRaw(child);
             list.push(autoConvert(win)); // lets auto convert the class so it can be used with casts
         }
@@ -86,13 +78,6 @@ class Window extends EvtHandler {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     public var parent(get, null):Window;
     private function get_parent():Window {
-        /*
-        var p:Pointer<WxWindow> = _ref.ptr.getParent();
-        var win:Window = new Window();
-        var raw:RawPointer<WxWindow> = cast p.raw;
-        win._ref = Pointer.fromRaw(raw);
-        return autoConvert(win); // lets auto convert the class so it can be used with casts
-        */
         var p:RawPointer<WxWindow> = _ref.ptr.getParent();
         var win:Window = new Window();
         win._ref = Pointer.fromRaw(p);
@@ -261,6 +246,34 @@ class Window extends EvtHandler {
         temp.destroy();
         return value;
     }
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Window styles functions
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public var windowStyle(get, set):Int;
+    private function get_windowStyle():Int {
+        return _ref.ptr.getWindowStyle();
+    }
+    private function set_windowStyle(value:Int):Int {
+        _ref.ptr.setWindowStyle(value);
+        return value;
+    }
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Window properties functions
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public var id(get, set):Int;
+    private function get_id():Int {
+        return _ref.ptr.getId();
+    }
+    private function set_id(value:Int):Int {
+        _ref.ptr.setId(value);
+        return value;
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Scrolling and scrollbars functions
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Misc functions
