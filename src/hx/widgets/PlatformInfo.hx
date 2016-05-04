@@ -2,6 +2,7 @@ package hx.widgets;
 
 import cpp.Pointer;
 import wx.widgets.PlatformInfo in WxPlatformInfo;
+import wx.widgets.WxString;
 
 class PlatformInfo {
     private var _ref:Pointer<WxPlatformInfo>;
@@ -27,12 +28,14 @@ class PlatformInfo {
     
     public var archName(get, null):String;
     private function get_archName():String {
-        return _ref.ptr.getArchName();
+        var r:WxString = _ref.ptr.getArchName();
+        return new String(r.c_str());
     }
     
     public var operatingSystemFamilyName(get, null):String;
     private function get_operatingSystemFamilyName():String {
-        return _ref.ptr.getOperatingSystemFamilyName();
+        var r:WxString = _ref.ptr.getOperatingSystemFamilyName();
+        return new String(r.c_str());
     }
     
     public var operatingSystemId(get, null):Int;
@@ -42,6 +45,7 @@ class PlatformInfo {
     
     public var operatingSystemIdName(get, null):String;
     private function get_operatingSystemIdName():String {
-        return _ref.ptr.getOperatingSystemIdName();
+        var r:WxString = _ref.ptr.getOperatingSystemIdName();
+        return new String(r.c_str());
     }
 }
