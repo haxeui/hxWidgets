@@ -2,6 +2,14 @@ package wx.widgets;
 
 @:include("wx/dcclient.h")
 @:unreflective
+@:native("wxBufferedDC")
+extern class BufferedDC extends MemoryDC {
+}
+
+
+/*
+@:include("wx/dcclient.h")
+@:unreflective
 @:native("cpp::Reference<wxBufferedDC>")
 extern class BufferedDC extends BufferedDCImpl {
 }
@@ -11,3 +19,4 @@ extern class BufferedDC extends BufferedDCImpl {
 @:native("wxBufferedDC")
 extern class BufferedDCImpl extends MemoryDC {
 }
+*/

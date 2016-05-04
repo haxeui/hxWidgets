@@ -2,6 +2,13 @@ package wx.widgets;
 
 @:include("wx/dcmemory.h")
 @:unreflective
+@:native("wxMemoryDC")
+extern class MemoryDC extends DC {
+}
+
+/*
+@:include("wx/dcmemory.h")
+@:unreflective
 @:native("cpp::Reference<wxMemoryDC>")
 extern class MemoryDC extends MemoryDCImpl {
 }
@@ -11,3 +18,4 @@ extern class MemoryDC extends MemoryDCImpl {
 @:native("wxMemoryDC")
 extern class MemoryDCImpl extends DC {
 }
+*/
