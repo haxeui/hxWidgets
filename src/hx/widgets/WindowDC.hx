@@ -1,5 +1,6 @@
 package hx.widgets;
 
+import cpp.Pointer;
 import wx.widgets.WindowDC in WxWindowDC;
 
 class WindowDC extends DC {
@@ -8,15 +9,15 @@ class WindowDC extends DC {
     public function new(window:Window) {
         super();
         if (window != null) {
-            _ref = WxWindowDC.createInstance(window._ref);
+            _ref = WxWindowDC.createInstance(Window.toRaw(window));
         }
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // HELPERS
+    // Helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    private var windowDCRef(get, null):WxWindowDC;
-    private function get_windowDCRef():WxWindowDC {
-        return cast _ref;
+    private var windowDCRef(get, null):Pointer<WxWindowDC>;
+    private function get_windowDCRef():Pointer<WxWindowDC> {
+        return Pointer.fromRaw(untyped __cpp__("(wxWindowDC*)(_ref->get_raw())"));
     }
 }

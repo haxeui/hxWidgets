@@ -297,6 +297,41 @@ class Main {
             panel.move(590, 280);
             //panel.refresh();
             
+            panel.bind(EventType.PAINT, function(e) {
+                var dc:PaintDC = new PaintDC(panel);
+                //var dc:GCDC = new GCDC(new WindowDC(panel));
+                //var bgb:Brush = new Brush();
+                //bgb.setRGBA(0, 0, 0, 255);
+                //dc.setBackground(StockBrushes.BRUSH_TRANSPARENT);
+                var brush:Brush = new Brush(0x00FF00);
+                //dc.background = StockBrushes.BRUSH_RED;
+                dc.background = brush;
+                //brush.colour = 0x00FFFF;
+                dc.background.colour = 0x00FFFF;
+                dc.background = dc.background;
+                dc.clear();
+                //var gc:GraphicsContext = new GraphicsContext(panel);
+                /*
+                var gc:GraphicsContext = GraphicsContext.fromWindowDC(dc);
+                
+                gc.setPen(new Pen(0xFF0000));
+                gc.strokeLine(0, 0, 150, 100);
+                gc.setPen(new Pen(0x00FF00, 3));
+                gc.setBrush(new Brush(0xFF00FF));
+                gc.setBrush(StockBrushes.BRUSH_TRANSPARENT);
+                gc.drawRoundedRectangle(35, 10, 100, 30, 5);
+                gc.setPen(new Pen(0x0000FF, 2));
+                gc.drawBitmap(Bitmap.fromHaxeResource("inbox.png"));
+                gc.setAnitaliasMode(AntialiasMode.NONE);
+                gc.drawBitmap(Bitmap.fromHaxeResource("inbox.png"), 0, 20, 32, 32);
+                gc.setAnitaliasMode(AntialiasMode.DEFAULT);
+                gc.setInterpolationQuality(InterpolationQuality.NONE);
+                gc.drawBitmap(Bitmap.fromHaxeResource("inbox.png"), 48, 20, 32, 32);
+                gc.drawBitmap(Bitmap.fromHaxeResource("slinky_tiny_test.bmp").getSubBitmap(new Rect(10, 10, 40, 30)), 10, 60);
+                gc.setFont(panel.font, 0x000000);
+                gc.drawText("Test", 10, 100);
+                */
+            });
             
             // create an image list ready for use with the tabs
             var imageList:ImageList = new ImageList(16, 16);

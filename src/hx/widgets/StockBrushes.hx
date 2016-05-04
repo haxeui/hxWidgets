@@ -1,5 +1,7 @@
 package hx.widgets;
 
+import cpp.Pointer;
+import cpp.RawPointer;
 import wx.widgets.Brush in WxBrush;
 import wx.widgets.StockBrushes in WxStockBrushes;
 
@@ -17,9 +19,10 @@ class StockBrushes {
     public static var BRUSH_WHITE(default, null):Brush          = createStockBrush(WxStockBrushes.BRUSH_WHITE);
     
     @:access(hx.widgets.Brush)
-    private static function createStockBrush(stock:WxBrush):Brush {
+    private static function createStockBrush(stock:Pointer<WxBrush>):Brush {
         var brush:Brush = new Brush();
-        brush._ref = stock;
+        brush.destroy();
+        brush._ref = Pointer.fromRaw(stock.get_raw());
         return brush;
     }
 }
