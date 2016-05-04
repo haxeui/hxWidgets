@@ -216,6 +216,13 @@ class Main {
             label2.foregroundColour = 0xFF00FF;
             label2.move(10, 40);
             
+            
+            // create a gauge (progress bar)
+            var gauge:Gauge = new Gauge(frame);
+            gauge.move(120, 50);
+            gauge.value = 50;
+
+            
         /*
         
         trace("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX " + fff.title);
