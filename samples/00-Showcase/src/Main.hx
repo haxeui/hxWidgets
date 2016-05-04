@@ -269,6 +269,27 @@ class Main {
             staticBmp.move(250, 150);
             
             
+            var scroller:ScrolledWindow = new ScrolledWindow(frame, WindowStyle.BORDER_THEME | WindowStyle.VSCROLL);
+            scroller.resize(150, 200);
+            scroller.move(430, 280);
+            //scroller.backgroundColour = 0x0000FF;
+            scroller.refresh();
+            for (a in 0...20) {
+                var b:Button = new Button(scroller, "Button " + a);
+                b.resize( -1, 25);
+                b.move(10, 10 + (a * 30));
+            }
+            //scroller.setClientSize(150, 200);
+            //scroller.setVirtualSize(6000, 3000);
+            //trace(scroller.getVirtualSize().width);
+            var inc = 10;
+            var totalCX = 120;
+            var totalCY = ((20 * 30) + 10);
+            trace(totalCY);
+            scroller.setScrollbars(inc, inc, Std.int(totalCX / inc), Std.int(totalCY / inc));
+            //scroller.setScrollbars(inc, 3, Std.int(totalCX / inc), 200);
+            //scroller.refresh();
+            
         /*
         
         trace("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX " + fff.title);
