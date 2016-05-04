@@ -1,6 +1,5 @@
 package wx.widgets;
 
-import cpp.ConstCharStar;
 import cpp.Pointer;
 import cpp.RawPointer;
 
@@ -20,20 +19,3 @@ extern class Image {
     @:native("GetWidth")                public function getWidth():Int;
     @:native("GetHeight")               public function getHeight():Int;
 }
-
-/*
-@:include("wx/image.h")
-@:unreflective
-@:native("cpp::Reference<wxImage>")
-extern class Image extends ImageImpl {
-    @:native("new wxImage")     public static function createInstance(stream:MemoryInputStream):Image;
-}
-
-@:include("wx/image.h")
-@:unreflective
-@:native("wxImage")
-extern class ImageImpl {
-    @:native("GetWidth")        public function getWidth():Int;
-    @:native("GetHeight")       public function getHeight():Int;
-}
-*/

@@ -1,6 +1,5 @@
 package wx.widgets;
 
-import cpp.ConstCharStar;
 import cpp.Pointer;
 import cpp.RawPointer;
 
@@ -28,18 +27,3 @@ extern class Font {
     @:native("GetWeight")               public function getWeight():FontWeight;
     @:native("GetUnderlined")           public function getUnderlined():Bool;
 }
-
-/*
-@:include("wx/font.h")
-@:unreflective
-@:native("cpp::Reference<wxFont>")
-extern class Font extends FontImpl {
-    @:native("new wxFont")               public static function createInstance(pointSize:Int, family:FontFamily, style:FontStyle, weight:FontWeight, underline:Bool = false):Font;
-    @:native("new wxFont")               public static function createInstanceFromFont(font:FontImpl):Font;
-}
-
-@:unreflective
-@:native("wxFont")
-extern class FontImpl {
-}
-*/

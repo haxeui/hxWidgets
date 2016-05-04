@@ -5,18 +5,3 @@ package wx.widgets;
 @:native("wxBufferedDC")
 extern class BufferedDC extends MemoryDC {
 }
-
-
-/*
-@:include("wx/dcclient.h")
-@:unreflective
-@:native("cpp::Reference<wxBufferedDC>")
-extern class BufferedDC extends BufferedDCImpl {
-}
-
-@:include("wx/dcclient.h")
-@:unreflective
-@:native("wxBufferedDC")
-extern class BufferedDCImpl extends MemoryDC {
-}
-*/

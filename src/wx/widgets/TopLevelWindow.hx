@@ -1,9 +1,5 @@
 package wx.widgets;
 
-import cpp.ConstCharStar;
-import cpp.Pointer;
-import cpp.RawPointer;
-
 @:include("wx/toplevel.h")
 @:unreflective
 @:native("wxTopLevelWindow")
