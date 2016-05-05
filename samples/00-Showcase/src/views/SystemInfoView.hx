@@ -24,7 +24,7 @@ class SystemInfoView extends View {
         sizer.addSizer(hsizer, 1, Stretch.EXPAND | Direction.ALL);
         sizer.addSpacer(5);
         
-        layout();
+        //layout();
     }
     
 }

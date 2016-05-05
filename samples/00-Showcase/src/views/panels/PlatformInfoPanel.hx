@@ -8,9 +8,9 @@ class PlatformInfoPanel extends View {
     public function new(parent:Window) {
         super(parent);
 
-        var boxSizer:StaticBoxSizer = new StaticBoxSizer(Orientation.VERTICAL, this, "Platform Info");
+        sizer = new BoxSizer(Orientation.VERTICAL);
         var grid:GridSizer = new GridSizer(2, 5, 5);
-        boxSizer.addSizer(grid, 1, Stretch.EXPAND);
+        var frame = createFrame("Platform Info", grid);
         
         var platform:PlatformInfo = new PlatformInfo();
 
@@ -36,8 +36,7 @@ class PlatformInfoPanel extends View {
         label(platform.archName, grid);
         
         platform.destroy();
-        layout();
-        setSizerAndFit(boxSizer);
+        sizer.add(frame);
     }
     
 }

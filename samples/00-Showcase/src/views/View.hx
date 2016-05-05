@@ -8,23 +8,23 @@ class View extends Panel {
         super(parent);
     }
      
-    private function createFrame(title:String, innerSizer:Sizer, parent:Window = null):Panel {
-        if (parent == null) {
-            parent = this;
+    private function createFrame(title:String, innerSizer:Sizer, parentWindow:Window = null):Panel {
+        if (parentWindow == null) {
+            parentWindow = this;
         }
         
-        var frame:Panel = new Panel(parent);
+        var frame:Panel = new Panel(parentWindow);
         frame.sizer = new StaticBoxSizer(Orientation.VERTICAL, frame, title);
-        frame.sizer.addSizer(innerSizer, 1, Stretch.GROW | Direction.ALL, 0);        
+        frame.sizer.addSizer(innerSizer, 1, Stretch.GROW | Direction.ALL, 5);        
         
         return frame;
     }
     
-    private function label(text:String, targetSizer:Sizer = null, parent:Window = null, bold:Bool = false, underlined:Bool = false) {
-        if (parent == null) {
-            parent = this;
+    private function label(text:String, targetSizer:Sizer = null, parentWindow:Window = null, bold:Bool = false, underlined:Bool = false) {
+        if (parentWindow == null) {
+            parentWindow = this;
         }
-        var label:StaticText = new StaticText(parent, text);
+        var label:StaticText = new StaticText(parentWindow, text);
         if (targetSizer == null) {
             targetSizer = this.sizer;
         }

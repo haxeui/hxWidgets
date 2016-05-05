@@ -46,6 +46,12 @@ class Main {
         app.init();
         
         var frame:Frame = new Frame(null, "hxWidgets");
+        
+        var platform:PlatformInfo  = new PlatformInfo();
+        if (platform.operatingSystemId == OperatingSystemId.WINDOWS) {
+            frame.backgroundColour = 0xFFFFFF;
+        }
+        
         frame.menuBar = buildMenu();
         frame.sizer = new BoxSizer(Orientation.VERTICAL);
         frame.resize(800, 600);
