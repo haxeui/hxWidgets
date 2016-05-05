@@ -10,7 +10,9 @@
 -resource assets/img/information-button.png@information-button.png
 -resource assets/img/ui-check-boxes-series.png@ui-check-boxes-series.png
 -resource assets/img/layer-shape-line.png@layer-shape-line.png
-
+-resource assets/img/haxe-logo.png@haxe-logo.png
+-resource assets/img/haxe-logo-small.png@haxe-logo-small.png
+-resource assets/img/wx-logo.png@wx-logo.png
 -lib hxWidgets
 -cp src/
 -main Main
