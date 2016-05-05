@@ -294,40 +294,40 @@ class Window extends EvtHandler {
 
     public var hscrollPos(get, set):Int; // bit of API sugar
     private function get_hscrollPos():Int {
-        return getScrollPos(HORIZONTAL);
+        return getScrollPos(Orientation.HORIZONTAL);
     }
     private function set_hscrollPos(value:Int):Int {
-        setScrollPos(HORIZONTAL, value);
+        setScrollPos(Orientation.HORIZONTAL, value);
         return value;
     }
 
     public var vscrollPos(get, set):Int; // bit of API sugar
     private function get_vscrollPos():Int {
-        return getScrollPos(VERTICAL);
+        return getScrollPos(Orientation.VERTICAL);
     }
     private function set_vscrollPos(value:Int):Int {
-        setScrollPos(VERTICAL, value);
+        setScrollPos(Orientation.VERTICAL, value);
         return value;
     }
 
     public var hscrollRange(get, null):Int; // bit of API sugar
     private function get_hscrollRange():Int {
-        return getScrollRange(HORIZONTAL);
+        return getScrollRange(Orientation.HORIZONTAL);
     }
 
     public var vscrollRange(get, null):Int; // bit of API sugar
     private function get_vscrollRange():Int {
-        return getScrollRange(VERTICAL);
+        return getScrollRange(Orientation.VERTICAL);
     }
 
     public var hscrollThumb(get, null):Int; // bit of API sugar
     private function get_hscrollThumb():Int {
-        return getScrollThumb(HORIZONTAL);
+        return getScrollThumb(Orientation.HORIZONTAL);
     }
 
     public var vscrollThumb(get, null):Int; // bit of API sugar
     private function get_vscrollThumb():Int {
-        return getScrollThumb(VERTICAL);
+        return getScrollThumb(Orientation.VERTICAL);
     }
 
     public function scrollLines(lines:Int):Bool {
