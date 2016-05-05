@@ -1,7 +1,6 @@
 package wx.widgets;
 
 #if (haxe_ver >= 3.3)
-@:unreflective
 @:enum extern abstract SystemMetric(SystemMetricImpl) {
     @:native("wxSYS_MOUSE_BUTTONS")      var MOUSE_BUTTONS;
     @:native("wxSYS_BORDER_X")           var BORDER_X;
@@ -43,8 +42,7 @@ package wx.widgets;
 }
 
 @:include("wx/settings.h")
-@:unreflective
-@:native("wxSystemMetric")
+@:native("cpp::Struct<wxSystemMetric, cpp::EnumHandler>")
 extern class SystemMetricImpl {
 }
 #else

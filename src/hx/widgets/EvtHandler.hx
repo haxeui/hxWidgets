@@ -10,7 +10,6 @@ void onEvent(wxEvent& e) {
     this->handleEvent(&e);
 }
 ")
-@:unreflective
 @:access(hx.widgets.Window)
 class EvtHandler {
     private var _eventMap:Map<Int, Map<Int, Array<Event->Void>>>;

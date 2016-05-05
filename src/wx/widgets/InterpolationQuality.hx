@@ -1,14 +1,18 @@
 package wx.widgets;
 
 #if (haxe_ver >= 3.3)
-@:headerCode("#include <wx/graphics.h>")
-@:unreflective
-@:enum extern abstract InterpolationQuality(Int) to Int from Int {
+@:include("wx/graphics.h")
+@:enum extern abstract InterpolationQuality(InterpolationQualityImpl) {
     @:native("wxINTERPOLATION_DEFAULT")         var DEFAULT;
     @:native("wxINTERPOLATION_NONE")            var NONE;
     @:native("wxINTERPOLATION_FAST")            var FAST;
     @:native("wxINTERPOLATION_GOOD")            var GOOD;
     @:native("wxINTERPOLATION_BEST")            var BEST;
+}
+
+@:include("wx/graphics.h")
+@:native("cpp::Struct<wxInterpolationQuality, cpp::EnumHandler>")
+extern class InterpolationQualityImpl {
 }
 #else
 @:headerCode("#include <wx/graphics.h>")

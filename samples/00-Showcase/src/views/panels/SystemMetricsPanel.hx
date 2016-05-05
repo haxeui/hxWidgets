@@ -11,7 +11,6 @@ import hx.widgets.Window;
 import views.View;
 import wx.widgets.SystemMetric;
 
-@:unreflective
 class SystemMetricsPanel extends View {
     public function new(parent:Window) {
         super(parent);
