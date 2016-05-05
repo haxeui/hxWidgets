@@ -276,19 +276,19 @@ class Window extends EvtHandler {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Scrolling and scrollbars functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public function getScrollPos(orientation:Int):Int {
+    public function getScrollPos(orientation:Orientation):Int {
         return _ref.ptr.getScrollPos(orientation);
     }
 
-    public function setScrollPos(orientation:Int, pos:Int, refresh:Bool = true) {
+    public function setScrollPos(orientation:Orientation, pos:Int, refresh:Bool = true) {
         _ref.ptr.setScrollPos(orientation, pos, refresh);
     }
 
-    public function getScrollRange(orientation:Int):Int {
+    public function getScrollRange(orientation:Orientation):Int {
         return _ref.ptr.getScrollRange(orientation);
     }
 
-    public function getScrollThumb(orientation:Int):Int {
+    public function getScrollThumb(orientation:Orientation):Int {
         return _ref.ptr.getScrollThumb(orientation);
     }
 
@@ -333,7 +333,7 @@ class Window extends EvtHandler {
     public function scrollLines(lines:Int):Bool {
         return _ref.ptr.scrollLines(lines);
     }
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Constraints, sizers and window layout functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
