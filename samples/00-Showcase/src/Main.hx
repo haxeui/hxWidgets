@@ -4,7 +4,6 @@ import views.BasicControlsView;
 import views.DrawingView;
 import views.LogView;
 import views.SystemInfoView;
-import views.ThreadView;
 
 
 /*
@@ -70,7 +69,7 @@ class Main {
         tabs.padding = new Size(6, 6);
         tabs.imageList = imageList;
 
-        frame.sizer.add(tabs, 3, Stretch.EXPAND | Direction.ALL);
+        frame.sizer.add(tabs, 3, Stretch.EXPAND | Direction.ALL, 10);
         
         var controlsView:BasicControlsView = new BasicControlsView(tabs);
         tabs.addPage(controlsView, "Basic Controls", false, 0);
@@ -81,9 +80,6 @@ class Main {
         var infoView:SystemInfoView = new SystemInfoView(tabs);
         tabs.addPage(infoView, "System Info", false, 2);
 
-        var threadView:ThreadView = new ThreadView(tabs);
-        tabs.addPage(threadView, "Threads / Timers", false, 3);
-        
         tabs.bind(EventType.NOTEBOOK_PAGE_CHANGED, function(e) {
            LogView.log('Notebook page changed: index=${tabs.selection}, text=${tabs.selectionText}'); 
         });

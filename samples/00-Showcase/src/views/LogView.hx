@@ -8,21 +8,10 @@ class LogView extends View {
     
     public function new(parent:Window) {
         super(parent);
-        /*
-        sizer = new StaticBoxSizer(Orientation.VERTICAL, this, "Log");
-        
-        _text = new TextCtrl(this, null, TextCtrlStyle.MULTILINE);
-        sizer.add(_text, 1, Stretch.EXPAND | Direction.ALL);
-        */
-        
+
         sizer = new BoxSizer(Orientation.VERTICAL);
-        //var innerSizer = new BoxSizer(Orientation.VERTICAL);
-        //var frame = createFrame("Log", innerSizer);
-        
         _text = new TextCtrl(this, null, TextCtrlStyle.MULTILINE);
         sizer.add(_text, 1, Stretch.EXPAND | Direction.ALL);
-        
-        //sizer.add(frame, 1, Stretch.EXPAND | Direction.ALL);
     }
     
     public static function log(text:String) {

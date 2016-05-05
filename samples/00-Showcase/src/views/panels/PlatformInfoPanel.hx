@@ -14,26 +14,26 @@ class PlatformInfoPanel extends View {
         
         var platform:PlatformInfo = new PlatformInfo();
 
-        label("Name", grid, null, true, true);
-        label("Value", grid, null, true, true);
+        label("Name", grid, frame, true, true);
+        label("Value", grid, frame, true, true);
         
-        label("Operating System Family Name:", grid);
-        label(platform.operatingSystemFamilyName, grid);
+        label("Operating System Family Name:", grid, frame);
+        label(platform.operatingSystemFamilyName, grid, frame);
 
-        label("Operating System Id Name:", grid);
-        label(platform.operatingSystemIdName, grid);
+        label("Operating System Id Name:", grid, frame);
+        label(platform.operatingSystemIdName, grid, frame);
 
-        label("Operating System Id:", grid);
-        label("" + platform.operatingSystemId, grid);
+        label("Operating System Id:", grid, frame);
+        label("" + platform.operatingSystemId, grid, frame);
 
-        label("OS Major Version:", grid);
-        label("" + platform.osMajorVersion, grid);
+        label("OS Major Version:", grid, frame);
+        label("" + platform.osMajorVersion, grid, frame);
 
-        label("OS Minor Version:", grid);
-        label("" + platform.osMinorVersion, grid);
+        label("OS Minor Version:", grid, frame);
+        label("" + platform.osMinorVersion, grid, frame);
 
-        label("Arch Name:", grid);
-        label(platform.archName, grid);
+        label("Arch Name:", grid, frame);
+        label(platform.archName, grid, frame);
         
         platform.destroy();
         sizer.add(frame);

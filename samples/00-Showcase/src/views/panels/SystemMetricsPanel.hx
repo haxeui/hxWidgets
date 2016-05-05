@@ -14,12 +14,10 @@ class SystemMetricsPanel extends View {
         var frame = createFrame("System Metrics", innerSizer);
         
         var scrollview:ScrolledWindow = new ScrolledWindow(frame);
-        //var scrollview:Panel = new Panel(frame, WindowStyle.BORDER_THEME);
         scrollview.sizer = new GridSizer(2, 0, 5);
         
         innerSizer.add(scrollview, 1, Stretch.EXPAND);
         sizer.add(frame, 1, Stretch.EXPAND);
-        //sizer.add(scrollview, 1, Stretch.EXPAND);
         
         label("Metric", scrollview.sizer, scrollview, true, true);
         label("Name", scrollview.sizer, scrollview, true, true);
@@ -63,7 +61,6 @@ class SystemMetricsPanel extends View {
         addMetric(scrollview, "SWAP_BUTTONS", SystemMetric.SWAP_BUTTONS);
 
         scrollview.setScrollbars(10, 10, 0, 0);
-        //layout();
     }
 
     private function addMetric(scrollview:ScrolledWindow, name:String, metric:SystemMetric) {

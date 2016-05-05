@@ -9,22 +9,19 @@ class SystemInfoView extends View {
     public function new(parent:Window) {
         super(parent);
         
-        this.sizer = new BoxSizer(Orientation.VERTICAL);
+        sizer = new BoxSizer(Orientation.VERTICAL);
+        var top = new BoxSizer(Orientation.VERTICAL);
         
         var hsizer:BoxSizer = new BoxSizer(Orientation.HORIZONTAL);
-        hsizer.addSpacer(5);
         var systemMetrics:SystemMetricsPanel = new SystemMetricsPanel(this);
         hsizer.add(systemMetrics, 1, Stretch.EXPAND | Direction.ALL);
         hsizer.addSpacer(5);
         var platformInfo:PlatformInfoPanel = new PlatformInfoPanel(this);
         hsizer.add(platformInfo);
-        hsizer.addSpacer(5);
         
-        sizer.addSpacer(5);
-        sizer.addSizer(hsizer, 1, Stretch.EXPAND | Direction.ALL);
-        sizer.addSpacer(5);
+        top.addSizer(hsizer, 1, Stretch.EXPAND);
         
-        //layout();
+        sizer.addSizer(top, 1, Stretch.EXPAND | Direction.ALL, 5);
     }
     
 }
