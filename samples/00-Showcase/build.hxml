@@ -13,6 +13,8 @@
 -resource assets/img/haxe-logo.png@haxe-logo.png
 -resource assets/img/haxe-logo-small.png@haxe-logo-small.png
 -resource assets/img/wx-logo.png@wx-logo.png
+-resource assets/img/wx-logo-small.png@wx-logo-small.png
+
 -lib hxWidgets
 -cp src/
 -main Main

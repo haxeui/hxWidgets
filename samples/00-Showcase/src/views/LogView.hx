@@ -20,6 +20,10 @@ class LogView extends View {
     }
     
     public static function log(text:String) {
-        _text.appendText(text + "\n");
+        if (_text.value.length == 0) {
+            _text.appendText(text);
+        } else {
+            _text.appendText("\n" + text);
+        }
     }
 }
