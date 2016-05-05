@@ -8,19 +8,23 @@ class TextCtrl extends Control {
     public function new(parent:Window, text:String = null, style:Int = 0, id:Int = -1) {
         if (_ref == null) {
             _ref = WxTextCtrl.createInstance();
-            textCtrlRef.ptr.create(Window.toRaw(parent), id, text, Point.defaultPosition.ref, Size.defaultSize.ref, style);
+            var str = WxString.createInstance(text);
+            textCtrlRef.ptr.create(Window.toRaw(parent), id, str.ref, Point.defaultPosition.ref, Size.defaultSize.ref, style);
+            str.destroy();
         }
-        
+
         super(parent, id);
     }
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Instance functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     public function appendText(value:String) {
-        textCtrlRef.ptr.appendText(value);
+        var str = WxString.createInstance(value);
+        textCtrlRef.ptr.appendText(str.ref);
+        str.destroy();
     }
-    
+
     public var insertionPoint(get, set):Int;
     private function get_insertionPoint():Int {
         return textCtrlRef.ptr.getInsertionPoint();
@@ -29,7 +33,7 @@ class TextCtrl extends Control {
         textCtrlRef.ptr.setInsertionPoint(value);
         return value;
     }
-    
+
     public var value(get, set):String;
     private function get_value():String {
         var r:WxString = textCtrlRef.ptr.getValue();
@@ -41,7 +45,7 @@ class TextCtrl extends Control {
         s.destroy();
         return value;
     }
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -58,14 +62,14 @@ class TextCtrl extends Control {
             textRef.create(parent != null ? parent._ref : Window.nullWindowRef, id, text, Point.defaultPositionRef, Size.defaultSizeRef, style);
             _ref = textRef;
         }
-        
+
         super(parent, id);
     }
-    
+
     public function appendText(value:String) {
         textRef.appendText(value);
     }
-    
+
     public var insertionPoint(get, set):Int;
     private function get_insertionPoint():Int {
         return textRef.getInsertionPoint();
@@ -74,7 +78,7 @@ class TextCtrl extends Control {
         textRef.setInsertionPoint(value);
         return value;
     }
-    
+
     public var value(get, set):String;
     private function get_value():String {
         return textRef.getValue();
@@ -83,7 +87,7 @@ class TextCtrl extends Control {
         textRef.setValue(value);
         return value;
     }
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // HELPERS
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

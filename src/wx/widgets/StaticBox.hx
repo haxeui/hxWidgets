@@ -1,6 +1,5 @@
 package wx.widgets;
 
-import cpp.ConstCharStar;
 import cpp.Pointer;
 import cpp.RawPointer;
 
@@ -14,7 +13,7 @@ extern class StaticBox extends Control {
     @:native("new wxStaticBox")         private static function _new():RawPointer<Window>;
                                         public static inline function createInstance():Pointer<Window> return Pointer.fromRaw(_new());
 
-    @:native("Create")                  @:overload(function(parent:RawPointer<Window>, id:Int, title:ConstCharStar):Bool {})
+    @:native("Create")                  @:overload(function(parent:RawPointer<Window>, id:Int, title:WxString):Bool {})
     @:native("Create")                  public override function create(parent:RawPointer<Window>, id:Int, point:Point, size:Size, style:Int):Bool;
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

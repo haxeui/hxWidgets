@@ -5,6 +5,6 @@ import cpp.ConstCharStar;
 @:unreflective
 @:native("wxSystemOptions")
 extern class SystemOptions {
-    @:native("wxSystemOptions::GetOptionInt")   public static function getOptionInt(name:ConstCharStar):Int;
-    @:native("wxSystemOptions::SetOption")      public static function setOption(name:ConstCharStar, value:Int):Void;
+    @:native("wxSystemOptions::GetOptionInt")   public static function getOptionInt(name:WxString):Int;
+    @:native("wxSystemOptions::SetOption")      public static function setOption(name:WxString, value:Int):Void;
 }

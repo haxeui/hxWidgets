@@ -11,15 +11,15 @@ extern class Menu extends EvtHandler {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // creation functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    @:native("new wxMenu")              private static function _new(text:ConstCharStar, style:Int = 0):RawPointer<Menu>;
-                                        public static inline function createInstance(text:ConstCharStar, style:Int = 0):Pointer<Menu> return Pointer.fromRaw(_new(text, style));
+    @:native("new wxMenu")              private static function _new(text:WxString, style:Int = 0):RawPointer<Menu>;
+                                        public static inline function createInstance(text:WxString, style:Int = 0):Pointer<Menu> return Pointer.fromRaw(_new(text, style));
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Instance functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     @:native("Append")                  public function append(menuItem:RawPointer<MenuItem>):RawPointer<MenuItem>;
-    @:native("AppendCheckItem")         public function appendCheckItem(id:Int, text:ConstCharStar):RawPointer<MenuItem>;
-    @:native("AppendRadioItem")         public function appendRadioItem(id:Int, text:ConstCharStar):RawPointer<MenuItem>;
+    @:native("AppendCheckItem")         public function appendCheckItem(id:Int, text:WxString):RawPointer<MenuItem>;
+    @:native("AppendRadioItem")         public function appendRadioItem(id:Int, text:WxString):RawPointer<MenuItem>;
     @:native("AppendSeparator")         public function appendSeparator():RawPointer<MenuItem>;
-    @:native("AppendSubMenu")           public function appendSubMenu(menu:RawPointer<Menu>, text:ConstCharStar):RawPointer<MenuItem>;
+    @:native("AppendSubMenu")           public function appendSubMenu(menu:RawPointer<Menu>, text:WxString):RawPointer<MenuItem>;
 }

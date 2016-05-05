@@ -13,22 +13,24 @@ class Notebook extends Control {
             _ref = WxNotebook.createInstance();
             notebookRef.ptr.create(Window.toRaw(parent), id, Point.defaultPosition.ref, Size.defaultSize.ref, style);
         }
-        
+
         super(parent, id);
     }
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Instance functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     public function addPage(page:Window, text:String, select:Bool = false, imageId:Int = -1):Bool {
-        return notebookRef.ptr.addPage(Window.toRaw(page), text, select, imageId);
+        var str = WxString.createInstance(text);
+        return notebookRef.ptr.addPage(Window.toRaw(page), str.ref, select, imageId);
+        str.destroy();
     }
-    
+
     public var pageCount(get, null):Int;
     private function get_pageCount():Int {
         return notebookRef.ptr.getPageCount();
     }
-    
+
     public var imageList(get, set):ImageList;
     @:access(hx.widgets.ImageList)
     private function get_imageList():ImageList {
@@ -41,7 +43,7 @@ class Notebook extends Control {
         notebookRef.ptr.setImageList(value._ref.get_raw());
         return value;
     }
-    
+
     public var selection(get, set):Int;
     private function get_selection():Int {
         return notebookRef.ptr.getSelection();
@@ -50,14 +52,15 @@ class Notebook extends Control {
         notebookRef.ptr.setSelection(value);
         return value;
     }
-    
-    public function calcSizeFromPage(pageSize:Size):Size {
+
+    //TODO can't find it in the doc
+    /*public function calcSizeFromPage(pageSize:Size):Size {
         var temp:Pointer<WxSize> = pageSize.createPointer();
         var r = notebookRef.ptr.calcSizeFromPage(temp.ref);
         temp.destroy();
         return Size.copy(Pointer.addressOf(r));
-    }
-    
+    }*/
+
     public var padding(null, set):Size;
     private function set_padding(value:Size):Size {
         var temp:Pointer<WxSize> = value.createPointer();
@@ -65,17 +68,17 @@ class Notebook extends Control {
         temp.destroy();
         return value;
     }
-    
+
     public function getPageText(page:Int):String {
         var r:WxString = notebookRef.ptr.getPageText(page);
         return new String(r.c_str());
     }
-    
+
     public var selectionText(get, null):String; // bit of sugar
     private function get_selectionText():String {
         return getPageText(selection);
     }
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

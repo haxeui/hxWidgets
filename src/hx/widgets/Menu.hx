@@ -3,12 +3,15 @@ package hx.widgets;
 import cpp.Pointer;
 import wx.widgets.Menu in WxMenu;
 import wx.widgets.MenuItem in WxMenuItem;
+import wx.widgets.WxString;
 
 class Menu extends EvtHandler {
     private var _ref:Pointer<WxMenu>;
     public function new(text:String = null, style:Int = 0) {
         if (_ref == null) {
-            _ref = WxMenu.createInstance(text, style);
+            var str = WxString.createInstance(text);
+            _ref = WxMenu.createInstance(str.ref, style);
+            str.destroy();
         }
 
         super();
@@ -31,7 +34,9 @@ class Menu extends EvtHandler {
 
     @:access(hx.widgets.MenuItem)
     public function appendCheckItem(id:Int, text:String):MenuItem {
-        var menuItemRef:Pointer<WxMenuItem> = Pointer.fromRaw(menuRef.ptr.appendCheckItem(id, text));
+        var str = WxString.createInstance(text);
+        var menuItemRef:Pointer<WxMenuItem> = Pointer.fromRaw(menuRef.ptr.appendCheckItem(id, str.ref));
+        str.destroy();
         var menuItem:MenuItem = new MenuItem();
         menuItem._ref = menuItemRef;
         return menuItem;
@@ -39,7 +44,9 @@ class Menu extends EvtHandler {
 
     @:access(hx.widgets.MenuItem)
     public function appendRadioItem(id:Int, text:String):MenuItem {
-        var menuItemRef:Pointer<WxMenuItem> = Pointer.fromRaw(menuRef.ptr.appendRadioItem(id, text));
+        var str = WxString.createInstance(text);
+        var menuItemRef:Pointer<WxMenuItem> = Pointer.fromRaw(menuRef.ptr.appendRadioItem(id, str.ref));
+        str.destroy();
         var menuItem:MenuItem = new MenuItem();
         menuItem._ref = menuItemRef;
         return menuItem;
@@ -55,7 +62,9 @@ class Menu extends EvtHandler {
 
     @:access(hx.widgets.MenuItem)
     public function appendSubMenu(menu:Menu, text:String):MenuItem {
-        var menuItemRef:Pointer<WxMenuItem> = Pointer.fromRaw(menuRef.ptr.appendSubMenu(menu.menuRef.get_raw(), text));
+        var str = WxString.createInstance(text);
+        var menuItemRef:Pointer<WxMenuItem> = Pointer.fromRaw(menuRef.ptr.appendSubMenu(menu.menuRef.get_raw(), str.ref));
+        str.destroy();
         var menuItem:MenuItem = new MenuItem();
         menuItem._ref = menuItemRef;
         return menuItem;
