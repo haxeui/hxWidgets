@@ -10,7 +10,7 @@ class ThreadView extends View {
         sizer = new BoxSizer(Orientation.HORIZONTAL);
         
         var frame:Panel = new Panel(this);
-        frame.sizer = new StaticBoxSizer(Orientation.VERTICAL, this, "Test");
+        frame.sizer = new StaticBoxSizer(Orientation.VERTICAL, frame, "Test");
         //frame.sizer = new BoxSizer(Orientation.VERTICAL);
         //sizer.add(frame, 0, Stretch.GROW);
         
