@@ -57,27 +57,27 @@ class DrawingView extends View {
             
 
             // no anti alias
-            gc.drawText("AntialiasMode.NONE", 170, 200);
+            gc.drawText("AntialiasMode.NONE", 270, 200);
             
             gc.antialiasMode = AntialiasMode.NONE;
             gc.pen = new Pen(0xFF0000, 3);
             gc.brush = new Brush(0x880000);
-            gc.drawRoundedRectangle(170, 220, 100, 50, 10);
+            gc.drawRoundedRectangle(270, 220, 100, 50, 10);
             
             gc.pen = new Pen(0x00FF00, 2);
             gc.brush = new Brush(0x008800);
-            gc.drawRoundedRectangle(190, 240, 100, 50, 5);
+            gc.drawRoundedRectangle(290, 240, 100, 50, 5);
             
             gc.pen = new Pen(0x0000FF, 1);
             gc.brush = new Brush(0x000088);
-            gc.drawRoundedRectangle(210, 260, 100, 50, 0);
+            gc.drawRoundedRectangle(310, 260, 100, 50, 0);
             
             gc.pen = new Pen(0xFFFFFF, 3);
-            gc.strokeLine(170, 320, 210, 360);
+            gc.strokeLine(270, 320, 310, 360);
             gc.pen = new Pen(0xFFFFFF, 2);
-            gc.strokeLine(190, 320, 230, 360);
+            gc.strokeLine(290, 320, 330, 360);
             gc.pen = new Pen(0xFFFFFF, 1);
-            gc.strokeLine(210, 320, 250, 360);
+            gc.strokeLine(310, 320, 350, 360);
             
             // image scaling
             var haxeLogSmall:Bitmap = Bitmap.fromHaxeResource("haxe-logo-small.png");
