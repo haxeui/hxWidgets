@@ -9,35 +9,27 @@ class ScrollBar extends Control {
             _ref = WxScrollBar.createInstance();
             scrollBarRef.ptr.create(Window.toRaw(parent), id, Point.defaultPosition.ref, Size.defaultSize.ref, style);
         }
-        
+
         super(parent, id);
     }
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Instance functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     public function setScrollbar(position:Int, thumbSize:Int, range:Int, pageSize:Int) {
         scrollBarRef.ptr.setScrollbar(position, thumbSize, range, pageSize);
     }
-    
-    public var pageSize(get, set):Int;
+
+    public var pageSize(get, never):Int;
     private function get_pageSize():Int {
         return scrollBarRef.ptr.getPageSize();
     }
-    private function set_pageSize(value:Int):Int {
-        scrollBarRef.ptr.setPageSize(value);
-        return value;
-    }
-    
-    public var range(get, set):Int;
+
+    public var range(get, never):Int;
     private function get_range():Int {
         return scrollBarRef.ptr.getRange();
     }
-    private function set_range(value:Int):Int {
-        scrollBarRef.ptr.setRange(value);
-        return value;
-    }
-    
+
     public var thumbPosition(get, set):Int;
     private function get_thumbPosition():Int {
         return scrollBarRef.ptr.getThumbPosition();
@@ -46,12 +38,12 @@ class ScrollBar extends Control {
         scrollBarRef.ptr.setThumbPosition(value);
         return value;
     }
-    
+
     public var thumbSize(get, null):Int;
     private function get_thumbSize():Int {
         return scrollBarRef.ptr.getThumbSize();
     }
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

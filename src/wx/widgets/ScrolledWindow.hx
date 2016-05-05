@@ -5,7 +5,7 @@ import cpp.RawPointer;
 
 @:include("wx/scrolwin.h")
 @:unreflective
-@:native("wxScrolledWindow")
+@:native("wxScrolledWindow") //note in 3.0 this is wxScrolled<wxPanel> and extends wxPanel
 extern class ScrolledWindow extends Window {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // creation functions

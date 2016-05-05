@@ -49,11 +49,11 @@ extern class Window {
     @:native("RefreshRect")                     public function refreshRect(rect:Rect, eraseBackground:Bool = true):Void;
     @:native("Update")                          public function update():Void;
     @:native("GetBackgroundColour")             public function getBackgroundColour():Colour;
-    @:native("SetBackgroundColour")             public function setBackgroundColour(colour:Colour):Void;
+    @:native("SetBackgroundColour")             public function setBackgroundColour(colour:Colour):Bool;
     @:native("GetForegroundColour")             public function getForegroundColour():Colour;
-    @:native("SetForegroundColour")             public function setForegroundColour(colour:Colour):Void;
+    @:native("SetForegroundColour")             public function setForegroundColour(colour:Colour):Bool;
     @:native("GetFont")                         public function getFont():Font;
-    @:native("SetFont")                         public function setFont(font:Font):Void;
+    @:native("SetFont")                         public function setFont(font:Font):Bool;
     @:native("Freeze")                          public function freeze():Void;
     @:native("Thaw")                            public function thaw():Void;
     @:native("IsFrozen")                        public function isFrozen():Bool;
@@ -115,7 +115,7 @@ extern class Window {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Misc functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    @:native("GetClassInfo")                    public function getClassInfo():Pointer<ClassInfo>;
+    @:native("GetClassInfo")                    public function getClassInfo():Pointer<ClassInfo>; //TODO should be in wxObject
 }
 
 @:include("wx/list.h")

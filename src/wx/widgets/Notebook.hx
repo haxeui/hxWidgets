@@ -17,12 +17,12 @@ extern class Notebook extends Control {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Instance functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    @:native("AddPage")                 public function addPage(page:RawPointer<Window>, text:ConstCharStar, select:Bool = false, imageId:Int = -1):Bool;
+    @:native("AddPage")                 public function addPage(page:RawPointer<Window>, text:WxString, select:Bool = false, imageId:Int = -1):Bool;
     @:native("GetPageCount")            public function getPageCount():Int;
     @:native("GetImageList")            public function getImageList():RawPointer<ImageList>;
     @:native("SetImageList")            public function setImageList(imageList:RawPointer<ImageList>):Void;
     @:native("GetSelection")            public function getSelection():Int;
-    @:native("SetSelection")            public function setSelection(page:Int):Void;
+    @:native("SetSelection")            public function setSelection(page:Int):Int;
     @:native("CalcSizeFromPage")        public function calcSizeFromPage(pageSize:Size):Size;
     @:native("SetPadding")              public function setPadding(padding:Size):Void;
     @:native("GetPageText")             public function getPageText(page:Int):WxString;
