@@ -15,7 +15,6 @@ import wx.widgets.Font in WxFont;
 import wx.widgets.ClassInfo in WxClassInfo;
 import wx.widgets.Sizer in WxSizer;
 
-@:unreflective
 class Window extends EvtHandler {
     private var _ref:Pointer<WxWindow>;
     public function new(parent:Window = null, id:Int = -1) {
@@ -261,7 +260,7 @@ class Window extends EvtHandler {
         _ref.ptr.setWindowStyle(value);
         return value;
     }
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Window properties functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -280,19 +279,19 @@ class Window extends EvtHandler {
     public function getScrollPos(orientation:Int):Int {
         return _ref.ptr.getScrollPos(orientation);
     }
-    
+
     public function setScrollPos(orientation:Int, pos:Int, refresh:Bool = true) {
         _ref.ptr.setScrollPos(orientation, pos, refresh);
     }
-    
+
     public function getScrollRange(orientation:Int):Int {
         return _ref.ptr.getScrollRange(orientation);
     }
-    
+
     public function getScrollThumb(orientation:Int):Int {
         return _ref.ptr.getScrollThumb(orientation);
     }
-    
+
     public var hscrollPos(get, set):Int; // bit of API sugar
     private function get_hscrollPos():Int {
         return getScrollPos(Orientation.HORIZONTAL);
@@ -301,7 +300,7 @@ class Window extends EvtHandler {
         setScrollPos(Orientation.HORIZONTAL, value);
         return value;
     }
-    
+
     public var vscrollPos(get, set):Int; // bit of API sugar
     private function get_vscrollPos():Int {
         return getScrollPos(Orientation.VERTICAL);
@@ -310,27 +309,27 @@ class Window extends EvtHandler {
         setScrollPos(Orientation.VERTICAL, value);
         return value;
     }
-    
+
     public var hscrollRange(get, null):Int; // bit of API sugar
     private function get_hscrollRange():Int {
         return getScrollRange(Orientation.HORIZONTAL);
     }
-    
+
     public var vscrollRange(get, null):Int; // bit of API sugar
     private function get_vscrollRange():Int {
         return getScrollRange(Orientation.VERTICAL);
     }
-    
+
     public var hscrollThumb(get, null):Int; // bit of API sugar
     private function get_hscrollThumb():Int {
         return getScrollThumb(Orientation.HORIZONTAL);
     }
-    
+
     public var vscrollThumb(get, null):Int; // bit of API sugar
     private function get_vscrollThumb():Int {
         return getScrollThumb(Orientation.VERTICAL);
     }
-    
+
     public function scrollLines(lines:Int):Bool {
         return _ref.ptr.scrollLines(lines);
     }
@@ -355,11 +354,11 @@ class Window extends EvtHandler {
     public function setSizerAndFit(sizer:Sizer, deleteOld:Bool = true) {
         _ref.ptr.setSizerAndFit(sizer._ref.get_raw(), deleteOld);
     }
-    
+
     public function layout():Bool {
         return _ref.ptr.layout();
     }
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Misc functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

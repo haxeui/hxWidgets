@@ -14,14 +14,14 @@ import wx.widgets.SystemMetric;
 class SystemMetricsPanel extends View {
     public function new(parent:Window) {
         super(parent);
-        
+
         sizer = new StaticBoxSizer(Orientation.VERTICAL, this, "System Metrics");
         var scrollview:ScrolledWindow = new ScrolledWindow(this);
         scrollview.sizer = new GridSizer(2, 0, 5);
-        
+
         label("Metric", scrollview.sizer, scrollview, true, true);
         label("Name", scrollview.sizer, scrollview, true, true);
-        
+
         addMetric(scrollview, "MOUSE_BUTTONS", SystemMetric.MOUSE_BUTTONS);
         addMetric(scrollview, "BORDER_X", SystemMetric.BORDER_X);
         addMetric(scrollview, "BORDER_Y", SystemMetric.BORDER_Y);
@@ -60,14 +60,14 @@ class SystemMetricsPanel extends View {
         addMetric(scrollview, "SHOW_SOUNDS", SystemMetric.SHOW_SOUNDS);
         addMetric(scrollview, "SWAP_BUTTONS", SystemMetric.SWAP_BUTTONS);
         scrollview.setScrollbars(10, 10, 0, 0);
-        
+
         sizer.add(scrollview, 1, Stretch.EXPAND | Direction.ALL);
         layout();
     }
-    
+
     private function addMetric(scrollview:ScrolledWindow, name:String, metric:SystemMetric) {
         label(name, scrollview.sizer, scrollview);
         label("" + SystemSettings.getMetric(metric), scrollview.sizer, scrollview);
     }
-    
+
 }

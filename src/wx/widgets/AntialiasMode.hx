@@ -1,11 +1,15 @@
 package wx.widgets;
 
 #if (haxe_ver >= 3.3)
-@:headerCode("#include <wx/graphics.h>")
-@:unreflective
-@:enum extern abstract AntialiasMode(Int) to Int from Int {
+@:include("wx/graphics.h")
+@:enum extern abstract AntialiasMode(AntialiasModeImpl)  {
     @:native("wxANTIALIAS_NONE")        var NONE;
     @:native("wxANTIALIAS_DEFAULT")     var DEFAULT;
+}
+
+@:include("wx/graphics.h")
+@:native("cpp::Struct<wxAntialiasMode, cpp::EnumHandler>")
+extern class AntialiasModeImpl {
 }
 #else
 @:headerCode("#include <wx/graphics.h>")

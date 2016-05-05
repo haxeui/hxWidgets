@@ -5,7 +5,6 @@ import cpp.RawPointer;
 import wx.widgets.Button in WxButton;
 import wx.widgets.Bitmap in WxBitmap;
 
-@:unreflective
 class Button extends Control {
     public function new(parent:Window, label:String, style:Int = 0, id:Int = -1) {
         if (_ref == null) {

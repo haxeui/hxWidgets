@@ -6,7 +6,6 @@ import wx.widgets.Font in WxFont;
 import wx.widgets.Colour in WxColour;
 import wx.widgets.WxString;
 
-@:unreflective
 class GraphicsContext {
     private var _ref:Pointer<WxGraphicsContext>;
 
