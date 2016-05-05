@@ -1,13 +1,14 @@
 package hx.widgets;
 
 import cpp.Pointer;
+import cpp.RawConstPointer;
 import cpp.RawPointer;
 import wx.widgets.Event in WxEvent;
 import wx.widgets.Window in WxWindow;
 
 @:headerClassCode("
 void onEvent(wxEvent& e) {
-    this->handleEvent(&e);
+    this->handleEvent(::cpp::Pointer_obj::fromRaw(&e));
 }
 ")
 @:access(hx.widgets.Window)
@@ -61,11 +62,10 @@ class EvtHandler {
         }
     }
 
-    private function handleEvent(e:RawPointer<WxEvent>):Void {
-        var event = Pointer.fromRaw(e);
-
-        executeHandlers(event, event.ptr.getId());
-        executeHandlers(event); // call any that were not added using control ids
+    private function handleEvent(e:Pointer<WxEvent>):Void {
+        executeHandlers(e, e.ptr.getId());
+        executeHandlers(e); // call any that were not added using control ids
+        
     }
 
     private function executeHandlers(e:Pointer<WxEvent>, id:Int = -1):Void {
