@@ -12,18 +12,21 @@ class BasicControlsView extends View {
         var hsizer:BoxSizer = new BoxSizer(Orientation.HORIZONTAL);
         
         createButtons(hsizer);
-        hsizer.addSpacer(5);
+        hsizer.addSpacer(10);
         createTextCtrls(hsizer);
-        hsizer.addSpacer(5);
-        createStaticComponents(hsizer);
+        hsizer.addSpacer(10);
+        createRadioCtrls(hsizer);
         sizer.addSizer(hsizer);
         
         sizer.addSpacer(5);
         
         var hsizer:BoxSizer = new BoxSizer(Orientation.HORIZONTAL);
         createHComponents(hsizer);
-        hsizer.addSpacer(5);
+        hsizer.addSpacer(10);
         createVComponents(hsizer);
+        hsizer.addSpacer(10);
+        createStaticComponents(hsizer);
+
         sizer.addSizer(hsizer);
         
         layout();
@@ -82,6 +85,13 @@ class BasicControlsView extends View {
         
         vsizer.addSpacer(5);
         
+        var textCtrl:TextCtrl = new TextCtrl(frame, "Text");
+        textCtrl.foregroundColour = 0xFF0000;
+        textCtrl.backgroundColour = 0x880000;
+        vsizer.add(textCtrl);
+        
+        vsizer.addSpacer(5);
+        
         var textCtrl:TextCtrl = new TextCtrl(frame, "Text", TextCtrlStyle.PASSWORD);
         vsizer.add(textCtrl);
 
@@ -98,6 +108,132 @@ class BasicControlsView extends View {
         textCtrlSizer.add(textCtrl, 1, Stretch.GROW);
         
         frame.sizer.addSizer(textCtrlSizer, 0, Stretch.SHRINK);
+    }
+    
+    private function createRadioCtrls(targetSizer:Sizer) {
+        var frame:StaticBox = new StaticBox(this, "Check / Radio Controls");
+        targetSizer.add(frame, 0, Stretch.GROW);
+        frame.sizer = new StaticBoxSizer(Orientation.HORIZONTAL, frame, "Check / Radio Controls");
+        
+
+        // checks
+        var vsizer:BoxSizer = new BoxSizer(Orientation.VERTICAL);
+        var check:CheckBox = new CheckBox(frame, "Check 1");
+        check.bind(EventType.CHECKBOX, function(e:Event) {
+            LogView.log('Checbox event: label=${check.label}, value=${check.value}');
+        });
+        vsizer.add(check);
+        vsizer.addSpacer(5);
+
+        var check:CheckBox = new CheckBox(frame, "Check 2");
+        check.bind(EventType.CHECKBOX, function(e:Event) {
+            LogView.log('Checbox event: label=${check.label}, value=${check.value}');
+        });
+        vsizer.add(check);
+        vsizer.addSpacer(5);
+
+        var check:CheckBox = new CheckBox(frame, "Check 3");
+        check.bind(EventType.CHECKBOX, function(e:Event) {
+            LogView.log('Checbox event: label=${check.label}, value=${check.value}');
+        });
+        vsizer.add(check);
+        check.value = true;
+        vsizer.addSpacer(5);
+
+        var check:CheckBox = new CheckBox(frame, "Check 4");
+        check.bind(EventType.CHECKBOX, function(e:Event) {
+            LogView.log('Checbox event: label=${check.label}, value=${check.value}');
+        });
+        vsizer.add(check);
+        vsizer.addSpacer(5);
+
+        var check:CheckBox = new CheckBox(frame, "Check 5");
+        check.bind(EventType.CHECKBOX, function(e:Event) {
+            LogView.log('Checbox event: label=${check.label}, value=${check.value}');
+        });
+        vsizer.add(check);
+        
+        frame.sizer.addSizer(vsizer);
+        frame.sizer.addSpacer(5);        
+        
+        // radio A
+        var vsizer:BoxSizer = new BoxSizer(Orientation.VERTICAL);
+        var radio:RadioButton = new RadioButton(frame, "Option 1A");
+        radio.bind(EventType.RADIOBUTTON, function(e:Event) {
+            LogView.log('Radio button event: label=${radio.label}, value=${radio.value}');
+        });
+        vsizer.add(radio);
+        vsizer.addSpacer(5);
+
+        var radio:RadioButton = new RadioButton(frame, "Option 2A");
+        radio.bind(EventType.RADIOBUTTON, function(e:Event) {
+            LogView.log('Radio button event: label=${radio.label}, value=${radio.value}');
+        });
+        vsizer.add(radio);
+        vsizer.addSpacer(5);
+
+        var radio:RadioButton = new RadioButton(frame, "Option 3A");
+        radio.bind(EventType.RADIOBUTTON, function(e:Event) {
+            LogView.log('Radio button event: label=${radio.label}, value=${radio.value}');
+        });
+        vsizer.add(radio);
+        radio.value = true;
+        vsizer.addSpacer(5);
+
+        var radio:RadioButton = new RadioButton(frame, "Option 4A");
+        radio.bind(EventType.RADIOBUTTON, function(e:Event) {
+            LogView.log('Radio button event: label=${radio.label}, value=${radio.value}');
+        });
+        vsizer.add(radio);
+        vsizer.addSpacer(5);
+
+        var radio:RadioButton = new RadioButton(frame, "Option 5A");
+        radio.bind(EventType.RADIOBUTTON, function(e:Event) {
+            LogView.log('Radio button event: label=${radio.label}, value=${radio.value}');
+        });
+        vsizer.add(radio);
+        
+        frame.sizer.addSizer(vsizer);
+        frame.sizer.addSpacer(5);        
+        
+        // radio B
+        var vsizer:BoxSizer = new BoxSizer(Orientation.VERTICAL);
+        var radio:RadioButton = new RadioButton(frame, "Option 1A", RadioButtonStyle.GROUP);
+        radio.bind(EventType.RADIOBUTTON, function(e:Event) {
+            LogView.log('Radio button event: label=${radio.label}, value=${radio.value}');
+        });
+        vsizer.add(radio);
+        vsizer.addSpacer(5);
+
+        var radio:RadioButton = new RadioButton(frame, "Option 2A");
+        radio.bind(EventType.RADIOBUTTON, function(e:Event) {
+            LogView.log('Radio button event: label=${radio.label}, value=${radio.value}');
+        });
+        vsizer.add(radio);
+        vsizer.addSpacer(5);
+
+        var radio:RadioButton = new RadioButton(frame, "Option 3A");
+        radio.bind(EventType.RADIOBUTTON, function(e:Event) {
+            LogView.log('Radio button event: label=${radio.label}, value=${radio.value}');
+        });
+        vsizer.add(radio);
+        radio.value = true;
+        vsizer.addSpacer(5);
+
+        var radio:RadioButton = new RadioButton(frame, "Option 4A");
+        radio.bind(EventType.RADIOBUTTON, function(e:Event) {
+            LogView.log('Radio button event: label=${radio.label}, value=${radio.value}');
+        });
+        vsizer.add(radio);
+        vsizer.addSpacer(5);
+
+        var radio:RadioButton = new RadioButton(frame, "Option 5A");
+        radio.bind(EventType.RADIOBUTTON, function(e:Event) {
+            LogView.log('Radio button event: label=${radio.label}, value=${radio.value}');
+        });
+        vsizer.add(radio);
+        
+        frame.sizer.addSizer(vsizer);
     }
     
     private function createStaticComponents(targetSizer:Sizer) {
@@ -131,7 +267,7 @@ class BasicControlsView extends View {
         label.foregroundColour = 0x0000FF;
         vsizer.add(label);
         
-        var label:StaticText = new StaticText(frame, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non sagittis nisl, vel accumsan arcu. Sed diam felis, laoreet eget iaculis sed, consequat in nulla. Cras sit amet interdum dolor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.");
+        var label:StaticText = new StaticText(frame, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non sagittis nisl, vel accumsan arcu. Sed diam felis, laoreet eget iaculis sed, consequat in nulla. Cras sit amet interdum dolor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse sed nunc mauris. Pellentesque eget dui sed nulla pharetra hendrerit eu ultrices arcu.");
         label.wrap(220);
         vsizer.add(label);
 

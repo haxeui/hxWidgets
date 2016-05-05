@@ -70,6 +70,7 @@ class Main {
         imageList.add(Bitmap.fromHaxeResource("ui-check-boxes-series.png"));
         imageList.add(Bitmap.fromHaxeResource("layer-shape-line.png"));
         imageList.add(Bitmap.fromHaxeResource("information-button.png"));
+        
         var tabs:Notebook = new Notebook(frame);
         tabs.padding = new Size(6, 6);
         tabs.imageList = imageList;
@@ -95,6 +96,8 @@ class Main {
         
         frame.layout();
         frame.show();
+        
+        LogView.log("Ready");
         
         /*
         var n = Stretch.EXPAND | Stretch.TILE;
