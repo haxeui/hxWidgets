@@ -10,11 +10,13 @@ class Event {
 
 	}
 
-	public function getEventType():Int {
+    public var eventType(get, null):Int;
+	private function get_eventType():Int {
 		return _ref.ptr.getEventType();
 	}
 
-	public function getId():Int {
+    public var id(get, null):Int;
+	private function get_id():Int {
 		return _ref.ptr.getId();
 	}
 

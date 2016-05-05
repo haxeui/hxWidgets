@@ -25,4 +25,5 @@ extern class Notebook extends Control {
     @:native("SetSelection")            public function setSelection(page:Int):Void;
     @:native("CalcSizeFromPage")        public function calcSizeFromPage(pageSize:Size):Size;
     @:native("SetPadding")              public function setPadding(padding:Size):Void;
+    @:native("GetPageText")             public function getPageText(page:Int):WxString;
 }

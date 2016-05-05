@@ -102,6 +102,7 @@ extern class Window {
     @:native("SetScrollPos")                    public function setScrollPos(orientation:Int, pos:Int, refresh:Bool = true):Void;
     @:native("GetScrollRange")                  public function getScrollRange(orientation:Int):Int;
     @:native("GetScrollThumb")                  public function getScrollThumb(orientation:Int):Int;
+    @:native("ScrollLines")                     public function scrollLines(lines:Int):Bool;
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Constraints, sizers and window layout functions

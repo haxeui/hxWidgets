@@ -2,6 +2,7 @@ import cpp.Lib;
 import haxe.Resource;
 import views.BasicControlsView;
 import views.DrawingView;
+import views.LogView;
 import views.SystemInfoView;
 
 import cpp.Pointer;
@@ -18,6 +19,35 @@ class Main {
     */
     private static var timer:Timer;
     
+    private static function buildMenu():MenuBar {
+        var menuBar:MenuBar = new MenuBar();
+            var file:Menu = new Menu();
+                file.append(1000, "Exit");
+            menuBar.append(file, "File");
+            
+            
+            var menu:Menu = new Menu();
+            menu.appendItem(new MenuItem(menu, "Something"));
+        
+                var subMenu = new Menu();
+                subMenu.append(1001, "Item 1");
+                subMenu.append(1002, "Item 2");
+                subMenu.append(1003, "Item 3");
+                subMenu.appendSeparator();
+                subMenu.appendCheckItem(1004, "Check 1");
+                subMenu.appendCheckItem(1005, "Check 2");
+                subMenu.appendCheckItem(1006, "Check 3");
+                subMenu.appendSeparator();
+                subMenu.appendRadioItem(1007, "Radio 1");
+                subMenu.appendRadioItem(1008, "Radio 2");
+                subMenu.appendRadioItem(1009, "Radio 3");
+            menu.appendSubMenu(subMenu, "Sub Menu");
+            
+        menuBar.append(menu, "Test Menu");
+        
+        return menuBar;    
+    }
+    
     public static function main() {
         /*
         worker = new ThreadWorker();
@@ -28,8 +58,13 @@ class Main {
         app.init();
         
         var frame:Frame = new Frame(null, "hxWidgets");
+        frame.menuBar = buildMenu();
         frame.sizer = new BoxSizer(Orientation.VERTICAL);
         frame.resize(800, 600);
+        
+        frame.bind(EventType.MENU, function(e:Event) {
+           LogView.log('Menu event: id=${e.id}');
+        });
         
         var imageList:ImageList = new ImageList(16, 16);
         imageList.add(Bitmap.fromHaxeResource("ui-check-boxes-series.png"));
@@ -39,7 +74,7 @@ class Main {
         tabs.padding = new Size(6, 6);
         tabs.imageList = imageList;
 
-        frame.sizer.add(tabs, 1, Stretch.EXPAND | Direction.ALL);
+        frame.sizer.add(tabs, 3, Stretch.EXPAND | Direction.ALL);
         
         var controlsView:BasicControlsView = new BasicControlsView(tabs);
         tabs.addPage(controlsView, "Basic Controls", false, 0);
@@ -49,6 +84,14 @@ class Main {
         
         var infoView:SystemInfoView = new SystemInfoView(tabs);
         tabs.addPage(infoView, "System Info", false, 2);
+
+        tabs.bind(EventType.NOTEBOOK_PAGE_CHANGED, function(e) {
+           LogView.log('Notebook page changed: index=${tabs.selection}, text=${tabs.selectionText}'); 
+        });
+        
+        var log:LogView = new LogView(frame);
+        log.resize( -1, 100);
+        frame.sizer.add(log, 1, Stretch.EXPAND | Direction.ALL);
         
         frame.layout();
         frame.show();

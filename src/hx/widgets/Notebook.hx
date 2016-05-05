@@ -5,6 +5,7 @@ import cpp.RawPointer;
 import cpp.Void;
 import wx.widgets.Notebook in WxNotebook;
 import wx.widgets.Size in WxSize;
+import wx.widgets.WxString;
 
 class Notebook extends Control {
     public function new(parent:Window, style:Int = 0, id:Int = -1) {
@@ -63,6 +64,16 @@ class Notebook extends Control {
         notebookRef.ptr.setPadding(temp.ref);
         temp.destroy();
         return value;
+    }
+    
+    public function getPageText(page:Int):String {
+        var r:WxString = notebookRef.ptr.getPageText(page);
+        return new String(r.c_str());
+    }
+    
+    public var selectionText(get, null):String; // bit of sugar
+    private function get_selectionText():String {
+        return getPageText(selection);
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
