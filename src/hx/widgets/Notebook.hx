@@ -53,13 +53,12 @@ class Notebook extends Control {
         return value;
     }
 
-    //TODO can't find it in the doc
-    /*public function calcSizeFromPage(pageSize:Size):Size {
+    public function calcSizeFromPage(pageSize:Size):Size {
         var temp:Pointer<WxSize> = pageSize.createPointer();
         var r = notebookRef.ptr.calcSizeFromPage(temp.ref);
         temp.destroy();
         return Size.copy(Pointer.addressOf(r));
-    }*/
+    }
 
     public var padding(null, set):Size;
     private function set_padding(value:Size):Size {

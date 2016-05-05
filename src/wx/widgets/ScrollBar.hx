@@ -1,6 +1,5 @@
 package wx.widgets;
 
-import cpp.ConstCharStar;
 import cpp.Pointer;
 import cpp.RawPointer;
 import cpp.Void;
@@ -20,9 +19,7 @@ extern class ScrollBar extends Control {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     @:native("SetScrollbar")            public function setScrollbar(position:Int, thumbSize:Int, range:Int, pageSize:Int):Void;
     @:native("GetPageSize")             public function getPageSize():Int;
-    //@:native("SetPageSize")             public function setPageSize(value:Int):Void; //TODO not in doc
     @:native("GetRange")                public function getRange():Int;
-    //@:native("SetRange")                public function setRange(value:Int):Void; //TODO not in doc
     @:native("GetThumbPosition")        public function getThumbPosition():Int;
     @:native("SetThumbPosition")        public function setThumbPosition(value:Int):Void;
     @:native("GetThumbSize")            public function getThumbSize():Int;

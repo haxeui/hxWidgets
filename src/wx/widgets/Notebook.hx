@@ -23,7 +23,7 @@ extern class Notebook extends Control {
     @:native("SetImageList")            public function setImageList(imageList:RawPointer<ImageList>):Void;
     @:native("GetSelection")            public function getSelection():Int;
     @:native("SetSelection")            public function setSelection(page:Int):Int;
-    //@:native("CalcSizeFromPage")        public function calcSizeFromPage(pageSize:Size):Size; //TODO Not in doc
+    @:native("CalcSizeFromPage")        public function calcSizeFromPage(pageSize:Size):Size;
     @:native("SetPadding")              public function setPadding(padding:Size):Void;
     @:native("GetPageText")             public function getPageText(page:Int):WxString;
 }
