@@ -3,7 +3,7 @@ package;
 import cpp.vm.Thread;
 
 class ThreadWorker {
-    public var count:Int = 0;
+    public var value:Int = 0;
     
     public var thread:Thread;
     private var _kill:Bool = false;

@@ -4,6 +4,7 @@ import views.BasicControlsView;
 import views.DrawingView;
 import views.LogView;
 import views.SystemInfoView;
+import views.ThreadView;
 
 
 /*
@@ -57,6 +58,7 @@ class Main {
         imageList.add(Bitmap.fromHaxeResource("ui-check-boxes-series.png"));
         imageList.add(Bitmap.fromHaxeResource("layer-shape-line.png"));
         imageList.add(Bitmap.fromHaxeResource("information-button.png"));
+        imageList.add(Bitmap.fromHaxeResource("clock.png"));
         
         var tabs:Notebook = new Notebook(frame);
         tabs.padding = new Size(6, 6);
@@ -73,6 +75,9 @@ class Main {
         var infoView:SystemInfoView = new SystemInfoView(tabs);
         tabs.addPage(infoView, "System Info", false, 2);
 
+        var threadView:ThreadView = new ThreadView(tabs);
+        tabs.addPage(threadView, "Threads / Timers", false, 3);
+        
         tabs.bind(EventType.NOTEBOOK_PAGE_CHANGED, function(e) {
            LogView.log('Notebook page changed: index=${tabs.selection}, text=${tabs.selectionText}'); 
         });
