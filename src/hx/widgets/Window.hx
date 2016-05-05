@@ -276,64 +276,64 @@ class Window extends EvtHandler {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Scrolling and scrollbars functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public function getScrollPos(orientation:Int):Int {
+    public function getScrollPos(orientation:Orientation):Int {
         return _ref.ptr.getScrollPos(orientation);
     }
 
-    public function setScrollPos(orientation:Int, pos:Int, refresh:Bool = true) {
+    public function setScrollPos(orientation:Orientation, pos:Int, refresh:Bool = true) {
         _ref.ptr.setScrollPos(orientation, pos, refresh);
     }
 
-    public function getScrollRange(orientation:Int):Int {
+    public function getScrollRange(orientation:Orientation):Int {
         return _ref.ptr.getScrollRange(orientation);
     }
 
-    public function getScrollThumb(orientation:Int):Int {
+    public function getScrollThumb(orientation:Orientation):Int {
         return _ref.ptr.getScrollThumb(orientation);
     }
 
     public var hscrollPos(get, set):Int; // bit of API sugar
     private function get_hscrollPos():Int {
-        return getScrollPos(Orientation.HORIZONTAL);
+        return getScrollPos(HORIZONTAL);
     }
     private function set_hscrollPos(value:Int):Int {
-        setScrollPos(Orientation.HORIZONTAL, value);
+        setScrollPos(HORIZONTAL, value);
         return value;
     }
 
     public var vscrollPos(get, set):Int; // bit of API sugar
     private function get_vscrollPos():Int {
-        return getScrollPos(Orientation.VERTICAL);
+        return getScrollPos(VERTICAL);
     }
     private function set_vscrollPos(value:Int):Int {
-        setScrollPos(Orientation.VERTICAL, value);
+        setScrollPos(VERTICAL, value);
         return value;
     }
 
     public var hscrollRange(get, null):Int; // bit of API sugar
     private function get_hscrollRange():Int {
-        return getScrollRange(Orientation.HORIZONTAL);
+        return getScrollRange(HORIZONTAL);
     }
 
     public var vscrollRange(get, null):Int; // bit of API sugar
     private function get_vscrollRange():Int {
-        return getScrollRange(Orientation.VERTICAL);
+        return getScrollRange(VERTICAL);
     }
 
     public var hscrollThumb(get, null):Int; // bit of API sugar
     private function get_hscrollThumb():Int {
-        return getScrollThumb(Orientation.HORIZONTAL);
+        return getScrollThumb(HORIZONTAL);
     }
 
     public var vscrollThumb(get, null):Int; // bit of API sugar
     private function get_vscrollThumb():Int {
-        return getScrollThumb(Orientation.VERTICAL);
+        return getScrollThumb(VERTICAL);
     }
 
     public function scrollLines(lines:Int):Bool {
         return _ref.ptr.scrollLines(lines);
     }
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Constraints, sizers and window layout functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

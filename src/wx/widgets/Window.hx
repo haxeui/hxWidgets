@@ -98,10 +98,10 @@ extern class Window {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Scrolling and scrollbars functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    @:native("GetScrollPos")                    public function getScrollPos(orientation:Int):Int;
-    @:native("SetScrollPos")                    public function setScrollPos(orientation:Int, pos:Int, refresh:Bool = true):Void;
-    @:native("GetScrollRange")                  public function getScrollRange(orientation:Int):Int;
-    @:native("GetScrollThumb")                  public function getScrollThumb(orientation:Int):Int;
+    @:native("GetScrollPos")                    public function getScrollPos(orientation:Orientation):Int;
+    @:native("SetScrollPos")                    public function setScrollPos(orientation:Orientation, pos:Int, refresh:Bool = true):Void;
+    @:native("GetScrollRange")                  public function getScrollRange(orientation:Orientation):Int;
+    @:native("GetScrollThumb")                  public function getScrollThumb(orientation:Orientation):Int;
     @:native("ScrollLines")                     public function scrollLines(lines:Int):Bool;
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -111,7 +111,7 @@ extern class Window {
     @:native("SetSizer")                        public function setSizer(sizer:RawPointer<Sizer>, deleteOld:Bool = true):Void;
     @:native("SetSizerAndFit")                  public function setSizerAndFit(sizer:RawPointer<Sizer>, deleteOld:Bool = true):Void;
     @:native("Layout")                          public function layout():Bool;
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Misc functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

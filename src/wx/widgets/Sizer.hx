@@ -10,7 +10,7 @@ extern class Sizer {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Instance functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    @:native("Add")                 @:overload(function(window:RawPointer<Sizer>, proportion:Int = 0, flag:Int = 0, border:Int = 0):Void {})
-    @:native("Add")                 public function add(window:RawPointer<Window>, proportion:Int = 0, flag:Int = 0, border:Int = 0):Void;
+    @:native("Add")                 @:overload(function(window:RawPointer<Sizer>, proportion:Int = 0, flag:SizerFlag = 0, border:Int = 0):Void {})
+    @:native("Add")                 public function add(window:RawPointer<Window>, proportion:Int = 0, flag:SizerFlag = 0, border:Int = 0):Void;
     @:native("AddSpacer")           public function addSpacer(size:Int):Void;
 }

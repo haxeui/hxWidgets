@@ -1,9 +1,9 @@
 package wx.widgets;
 
 #if (haxe_ver >= 3.3)
-@:headerCode("#include <wx/defs.h>")
+@:include("wx/defs.h")
 @:unreflective
-@:enum extern abstract Stretch(Int) to Int from Int {
+@:enum extern abstract Stretch(StretchImpl) {
     @:native("wxSTRETCH_NOT")       var STRETCH_NOT;
     @:native("wxSHRINK")            var SHRINK;
     @:native("wxGROW")              var GROW;
@@ -11,6 +11,16 @@ package wx.widgets;
     @:native("wxSHAPED")            var SHAPED;
     @:native("wxTILE")              var TILE;
     @:native("wxSTRETCH_MASK")      var STRETCH_MASK;
+
+    @:op(A | B) static inline function or(a:Stretch, b:SizerFlag):SizerFlag {
+        return SizerFlag.orFlags(cast a, b);
+    }
+}
+
+@:include("wx/defs.h")
+@:unreflective
+@:native("wxStretch")
+extern class StretchImpl {
 }
 #else
 @:headerCode("#include <wx/defs.h>")
