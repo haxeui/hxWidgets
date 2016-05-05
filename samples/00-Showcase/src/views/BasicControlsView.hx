@@ -38,21 +38,33 @@ class BasicControlsView extends View {
         var button:Button = new Button(frame, "Left");
         button.bitmap = Bitmap.fromHaxeResource("haxe-logo-small.png");
         buttonSizer.add(button);
+        button.bind(EventType.BUTTON, function(e:Event) {
+            LogView.log('Button event: label=${button.label}');
+        });
         
         var button:Button = new Button(frame, "Right");
         button.bitmap = Bitmap.fromHaxeResource("haxe-logo-small.png");
         button.bitmapPosition = Direction.RIGHT;
         buttonSizer.add(button);
+        button.bind(EventType.BUTTON, function(e:Event) {
+            LogView.log('Button event: label=${button.label}');
+        });
 
         var button:Button = new Button(frame, "Top");
         button.bitmap = Bitmap.fromHaxeResource("wx-logo-small.png");
         button.bitmapPosition = Direction.TOP;
         buttonSizer.add(button);
+        button.bind(EventType.BUTTON, function(e:Event) {
+            LogView.log('Button event: label=${button.label}');
+        });
         
         var button:Button = new Button(frame, "Bottom");
         button.bitmap = Bitmap.fromHaxeResource("wx-logo-small.png");
         button.bitmapPosition = Direction.BOTTOM;
         buttonSizer.add(button);
+        button.bind(EventType.BUTTON, function(e:Event) {
+            LogView.log('Button event: label=${button.label}');
+        });
         
         frame.sizer.addSizer(buttonSizer);
     }
@@ -151,24 +163,36 @@ class BasicControlsView extends View {
         
         var slider:Slider = new Slider(frame);
         frame.sizer.add(slider, 0, Stretch.EXPAND);
+        slider.bind(EventType.SLIDER, function(e) {
+            LogView.log('Slider event: value=${slider.value}');
+        });
         
         frame.sizer.addSpacer(5);
         
         var slider:Slider = new Slider(frame);
         slider.value = 50;
         frame.sizer.add(slider, 0, Stretch.EXPAND);
+        slider.bind(EventType.SLIDER, function(e) {
+            LogView.log('Slider event: value=${slider.value}');
+        });
         
         frame.sizer.addSpacer(5);
         
         var scrollbar:ScrollBar = new ScrollBar(frame, ScrollBarStyle.HORIZONTAL);
         scrollbar.setScrollbar(0, 10, 100, 10);
         frame.sizer.add(scrollbar, 0, Stretch.EXPAND);
+        scrollbar.bind(EventType.SCROLL_THUMBTRACK, function(e) {
+            LogView.log('Scroll thumbtrack event: value=${scrollbar.thumbPosition}');
+        });
 
         frame.sizer.addSpacer(5);
         
         var scrollbar:ScrollBar = new ScrollBar(frame, ScrollBarStyle.HORIZONTAL);
         scrollbar.setScrollbar(50, 10, 100, 10);
         frame.sizer.add(scrollbar, 0, Stretch.EXPAND);
+        scrollbar.bind(EventType.SCROLL_THUMBTRACK, function(e) {
+            LogView.log('Scroll thumbtrack event: value=${scrollbar.thumbPosition}');
+        });
     }
     
     private function createVComponents(targetSizer:Sizer) {
@@ -195,23 +219,35 @@ class BasicControlsView extends View {
         
         var slider:Slider = new Slider(frame, 0, 0, 100, SliderStyle.VERTICAL);
         frame.sizer.add(slider, 0, Stretch.EXPAND);
+        slider.bind(EventType.SLIDER, function(e) {
+            LogView.log('Slider event: value=${slider.value}');
+        });
         
         frame.sizer.addSpacer(5);
         
         var slider:Slider = new Slider(frame, 0, 0, 100, SliderStyle.VERTICAL);
         slider.value = 50;
         frame.sizer.add(slider, 0, Stretch.EXPAND);
+        slider.bind(EventType.SLIDER, function(e) {
+            LogView.log('Slider event: value=${slider.value}');
+        });
         
         frame.sizer.addSpacer(5);
         
         var scrollbar:ScrollBar = new ScrollBar(frame, ScrollBarStyle.VERTICAL);
         scrollbar.setScrollbar(0, 10, 100, 10);
         frame.sizer.add(scrollbar, 0, Stretch.EXPAND);
+        scrollbar.bind(EventType.SCROLL_THUMBTRACK, function(e) {
+            LogView.log('Scroll thumbtrack event: value=${scrollbar.thumbPosition}');
+        });
 
         frame.sizer.addSpacer(5);
         
         var scrollbar:ScrollBar = new ScrollBar(frame, ScrollBarStyle.VERTICAL);
         scrollbar.setScrollbar(50, 10, 100, 10);
         frame.sizer.add(scrollbar, 0, Stretch.EXPAND);
+        scrollbar.bind(EventType.SCROLL_THUMBTRACK, function(e) {
+            LogView.log('Scroll thumbtrack event: value=${scrollbar.thumbPosition}');
+        });
     }
 }
