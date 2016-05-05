@@ -8,6 +8,18 @@ class View extends Panel {
         super(parent);
     }
      
+    private function createFrame(title:String, innerSizer:Sizer, parent:Window = null):Panel {
+        if (parent == null) {
+            parent = this;
+        }
+        
+        var frame:Panel = new Panel(parent);
+        frame.sizer = new StaticBoxSizer(Orientation.VERTICAL, frame, title);
+        frame.sizer.addSizer(innerSizer, 1, Stretch.GROW | Direction.ALL, 0);        
+        
+        return frame;
+    }
+    
     private function label(text:String, targetSizer:Sizer = null, parent:Window = null, bold:Bool = false, underlined:Bool = false) {
         if (parent == null) {
             parent = this;

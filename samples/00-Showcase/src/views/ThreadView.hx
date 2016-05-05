@@ -9,6 +9,20 @@ class ThreadView extends View {
         
         sizer = new BoxSizer(Orientation.HORIZONTAL);
         
+        var innerSizer = new BoxSizer(Orientation.VERTICAL);
+        var frame = createFrame("Options", innerSizer);
+        var button:Button = new Button(frame, "Add Thread");
+        innerSizer.add(button);
+        var button:Button = new Button(frame, "Add Timer");
+        innerSizer.add(button);
+        var button:Button = new Button(frame, "Remove Last");
+        innerSizer.add(button);
+        
+        
+        sizer.add(frame);
+        
+        return;
+        
         var frame:Panel = new Panel(this);
         frame.sizer = new StaticBoxSizer(Orientation.VERTICAL, frame, "Test");
         

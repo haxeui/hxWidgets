@@ -84,6 +84,7 @@ class Main {
         
         var log:LogView = new LogView(frame);
         log.resize( -1, 100);
+        frame.sizer.addSpacer(5);
         frame.sizer.add(log, 1, Stretch.EXPAND | Direction.ALL);
         
         frame.layout();
