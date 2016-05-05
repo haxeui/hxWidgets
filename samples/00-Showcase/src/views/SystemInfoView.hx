@@ -1,10 +1,7 @@
 package views;
 
-import hx.widgets.BoxSizer;
-import hx.widgets.Direction;
-import hx.widgets.Orientation;
-import hx.widgets.Stretch;
-import hx.widgets.Window;
+import hx.widgets.*;
+import hx.widgets.styles.*;
 import views.panels.PlatformInfoPanel;
 import views.panels.SystemMetricsPanel;
 

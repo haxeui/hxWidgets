@@ -1,15 +1,8 @@
 package views.panels;
 
-import hx.widgets.Direction;
-import hx.widgets.GridSizer;
-import hx.widgets.Orientation;
-import hx.widgets.ScrolledWindow;
-import hx.widgets.StaticBoxSizer;
-import hx.widgets.Stretch;
-import hx.widgets.SystemSettings;
-import hx.widgets.Window;
+import hx.widgets.*;
+import hx.widgets.styles.*;
 import views.View;
-import wx.widgets.SystemMetric;
 
 class SystemMetricsPanel extends View {
     public function new(parent:Window) {

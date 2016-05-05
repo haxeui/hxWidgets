@@ -1,12 +1,7 @@
 package views;
 
-import hx.widgets.Font;
-import hx.widgets.FontWeight;
-import hx.widgets.Panel;
-import hx.widgets.Sizer;
-import hx.widgets.Window;
-import hx.widgets.StaticText;
-import hx.widgets.StaticBox;
+import hx.widgets.*;
+import hx.widgets.styles.*;
 
 class View extends Panel {
     public function new(parent:Window) {

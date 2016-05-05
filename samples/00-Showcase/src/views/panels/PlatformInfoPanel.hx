@@ -1,12 +1,8 @@
 package views.panels;
 
-import hx.widgets.GridSizer;
-import hx.widgets.PlatformInfo;
-import hx.widgets.StaticBoxSizer;
-import hx.widgets.Stretch;
-import hx.widgets.Window;
+import hx.widgets.*;
+import hx.widgets.styles.*;
 import views.View;
-import wx.widgets.Orientation;
 
 class PlatformInfoPanel extends View {
     public function new(parent:Window) {

@@ -1,12 +1,7 @@
 package views;
 
-import hx.widgets.Direction;
-import hx.widgets.Orientation;
-import hx.widgets.StaticBoxSizer;
-import hx.widgets.Stretch;
-import hx.widgets.TextCtrl;
-import hx.widgets.Window;
-import wx.widgets.styles.TextCtrlStyle;
+import hx.widgets.*;
+import hx.widgets.styles.*;
 
 class LogView extends View {
     private static var _text:TextCtrl;
