@@ -66,7 +66,9 @@ class Main {
         imageList.add(Bitmap.fromHaxeResource("clock.png"));
         
         var tabs:Notebook = new Notebook(frame);
-        tabs.padding = new Size(6, 6);
+        if (platform.operatingSystemId == OperatingSystemId.WINDOWS) {
+            tabs.padding = new Size(6, 6);
+        }
         tabs.imageList = imageList;
 
         frame.sizer.add(tabs, 3, Stretch.EXPAND | Direction.ALL, 10);
