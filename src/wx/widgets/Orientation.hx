@@ -12,8 +12,8 @@ package wx.widgets;
 extern class OrientationImpl {
 }
 #else
-@:include("wx/window.h")
-abstract Orientation(Int) {
+@:headerCode("#include <wx/window.h>")
+abstract Orientation(Int) to Int from Int {
     public static var VERTICAL:Int                = untyped __cpp__("wxVERTICAL");
     public static var HORIZONTAL:Int              = untyped __cpp__("wxHORIZONTAL");
 }
