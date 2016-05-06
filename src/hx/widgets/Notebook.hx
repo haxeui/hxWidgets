@@ -56,7 +56,8 @@ class Notebook extends Control {
         return value;
     }
 
-    public function calcSizeFromPage(pageSize:Size):Size {
+    public function calcSizeFromPage():Size {
+        var pageSize:Size = new Size();
         var temp:Pointer<WxSize> = pageSize.createPointer();
         var r = notebookRef.ptr.calcSizeFromPage(temp.ref);
         temp.destroy();
