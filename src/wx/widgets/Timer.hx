@@ -10,8 +10,8 @@ extern class Timer {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Creation functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    @:native("new wxTimer")     private static function _new(owner:RawPointer<EvtHandler>, id:Int = -1):RawPointer<Timer>;
-                                public static inline function createInstance(owner:RawPointer<EvtHandler>, id:Int = -1):Pointer<Timer> return Pointer.fromRaw(_new(owner, id));
+    @:native("new wxTimer")     private static function _new(owner:RawPointer<Window>, id:Int = -1):RawPointer<Timer>;
+                                public static inline function createInstance(owner:RawPointer<Window>, id:Int = -1):Pointer<Timer> return Pointer.fromRaw(_new(owner, id));
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Instance functions
