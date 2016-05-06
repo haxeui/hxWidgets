@@ -4,6 +4,13 @@
 
 Haxe externs (and wrappers) for wxWidgets
 
+**You need a development version of hxcpp for now**
+```
+git clone https://github.com/HaxeFoundation/hxcpp.git
+haxelib dev hxcpp hxcpp/
+```
+and then see https://github.com/HaxeFoundation/hxcpp#building for instruction on how to build it.
+
 # Windows
 * Download and install wxWidgets using installer from [https://www.wxwidgets.org/downloads/](https://www.wxwidgets.org/downloads/)
 * Create `WXWIN` environment var if setup didnt (eg: `C:\wxWidgets-3.1.0`)
