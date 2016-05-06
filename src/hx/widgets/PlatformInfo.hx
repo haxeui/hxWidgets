@@ -48,4 +48,22 @@ class PlatformInfo {
         var r:WxString = _ref.ptr.getOperatingSystemIdName();
         return new String(r.c_str());
     }
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Util functions
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public var isWindows(get, null):Bool;
+    private function get_isWindows():Bool {
+        return (operatingSystemId == OperatingSystemId.WINDOWS || operatingSystemId == OperatingSystemId.WINDOWS_NT);
+    }
+    
+    public var isMac(get, null):Bool;
+    private function get_isMac():Bool {
+        return (operatingSystemId == OperatingSystemId.MAC || operatingSystemId == OperatingSystemId.MAC_OS || operatingSystemId == OperatingSystemId.MAC_OSX_DARWIN);
+    }
+    
+    public var isLinux(get, null):Bool;
+    private function get_isLinux():Bool {
+        return (operatingSystemId == OperatingSystemId.UNIX_LINUX);
+    }
 }

@@ -47,7 +47,7 @@ class Main {
         var frame:Frame = new Frame(null, "hxWidgets");
         
         var platform:PlatformInfo  = new PlatformInfo();
-        if (platform.operatingSystemId == OperatingSystemId.WINDOWS) {
+        if (platform.isWindows) {
             frame.backgroundColour = 0xFFFFFF;
         }
         
@@ -66,7 +66,10 @@ class Main {
         imageList.add(Bitmap.fromHaxeResource("clock.png"));
         
         var tabs:Notebook = new Notebook(frame);
-        if (platform.operatingSystemId == OperatingSystemId.WINDOWS) {
+        if (platform.isMac) {
+            tabs.allowIcons = false;
+        }
+        if (platform.isWindows) {
             tabs.padding = new Size(6, 6);
         }
         tabs.imageList = imageList;
@@ -83,6 +86,7 @@ class Main {
         tabs.addPage(infoView, "System Info", false, 2);
 
         tabs.bind(EventType.NOTEBOOK_PAGE_CHANGED, function(e) {
+            e.skip(); // seems if you dont skip the event on osx then nothing shows - presumably this event handler is "stealing" the event
            LogView.log('Notebook page changed: index=${tabs.selection}, text=${tabs.selectionText}'); 
         });
         

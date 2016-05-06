@@ -1,20 +1,13 @@
 package views;
 
-import hx.widgets.AntialiasMode;
-import hx.widgets.Bitmap;
-import hx.widgets.Brush;
-import hx.widgets.EventType;
-import hx.widgets.GraphicsContext;
-import hx.widgets.InterpolationQuality;
-import hx.widgets.PaintDC;
-import hx.widgets.Pen;
-import hx.widgets.Rect;
-import hx.widgets.StockBrushes;
-import hx.widgets.Window;
+import hx.widgets.*;
+import hx.widgets.styles.*;
 
 class DrawingView extends View {
     public function new(parent:Window) {
         super(parent);
+        
+        var platform:PlatformInfo  = new PlatformInfo();
         
         bind(EventType.PAINT, function(e) {
             LogView.log('Paint event: width=${this.size.width},  height=${this.size.height}');
@@ -22,6 +15,10 @@ class DrawingView extends View {
             var dc:PaintDC = new PaintDC(this);
             dc.background = StockBrushes.BRUSH_BLACK;
             dc.clear();
+            
+            if (platform.isMac) { // This cause issues on osx - need to investigate
+                return;
+            }
             
             // images
             var gc:GraphicsContext = new GraphicsContext(this);

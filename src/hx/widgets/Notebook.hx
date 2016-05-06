@@ -21,6 +21,9 @@ class Notebook extends Control {
     // Instance functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     public function addPage(page:Window, text:String, select:Bool = false, imageId:Int = -1):Bool {
+        if (_allowIcons == false) {
+            imageId = -1;
+        }
         var str = WxString.createInstance(text);
         return notebookRef.ptr.addPage(Window.toRaw(page), str.ref, select, imageId);
         str.destroy();
@@ -78,6 +81,19 @@ class Notebook extends Control {
         return getPageText(selection);
     }
 
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Util functions
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    private var _allowIcons:Bool = true;
+    public var allowIcons(get, set):Bool;
+    private function get_allowIcons():Bool {
+        return _allowIcons;
+    }
+    private function set_allowIcons(value:Bool):Bool {
+        _allowIcons = value;
+        return value;
+    }
+    
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
