@@ -19,30 +19,7 @@
 		</files>
 
         <target id="haxe" tool="linker" toolid="exe">
-			<lib name="${WXWIN}\lib\${lib_folder}\wxmsw31u_xrc.lib" />
-			<lib name="${WXWIN}\lib\${lib_folder}\wxmsw31u_webview.lib" />
-			<lib name="${WXWIN}\lib\${lib_folder}\wxmsw31u_html.lib" />
-			<lib name="${WXWIN}\lib\${lib_folder}\wxmsw31u_qa.lib" />
-			<lib name="${WXWIN}\lib\${lib_folder}\wxmsw31u_adv.lib" />
-			<lib name="${WXWIN}\lib\${lib_folder}\wxmsw31u_aui.lib" />
-			<lib name="${WXWIN}\lib\${lib_folder}\wxmsw31u_core.lib" />
-			<lib name="${WXWIN}\lib\${lib_folder}\wxmsw31u_gl.lib" />
-			<lib name="${WXWIN}\lib\${lib_folder}\wxmsw31u_media.lib" />
-			<lib name="${WXWIN}\lib\${lib_folder}\wxmsw31u_propgrid.lib" />
-			<lib name="${WXWIN}\lib\${lib_folder}\wxmsw31u_ribbon.lib" />
-			<lib name="${WXWIN}\lib\${lib_folder}\wxmsw31u_richtext.lib" />
-			<lib name="${WXWIN}\lib\${lib_folder}\wxmsw31u_stc.lib" />
-			<lib name="${WXWIN}\lib\${lib_folder}\wxbase31u_xml.lib" />
-			<lib name="${WXWIN}\lib\${lib_folder}\wxbase31u_net.lib" />
-			<lib name="${WXWIN}\lib\${lib_folder}\wxbase31u.lib" />
-			<lib name="${WXWIN}\lib\${lib_folder}\wxexpat.lib" />
-			<lib name="${WXWIN}\lib\${lib_folder}\wxjpeg.lib" />
-			<lib name="${WXWIN}\lib\${lib_folder}\wxpng.lib" />
-			<lib name="${WXWIN}\lib\${lib_folder}\wxregexu.lib" />
-			<lib name="${WXWIN}\lib\${lib_folder}\wxscintilla.lib" />
-			<lib name="${WXWIN}\lib\${lib_folder}\wxtiff.lib" />
-			<lib name="${WXWIN}\lib\${lib_folder}\wxzlib.lib" />
-
+			<lib name="${WXWIN}\lib\${lib_folder}\*.lib" />
             <section if="WXSTATIC">
                 <flag value="/NODEFAULTLIB:LIBCMT" /> <!-- should remove this if using /MT but couldnt see an easy way -->
 
