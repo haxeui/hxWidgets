@@ -13,7 +13,7 @@ class App {
 
     public function new(setInstance:Bool = true) {
         _ref = WxApp.createInstance();
-        if (setInstance == true) {
+        if (setInstance) {
             App.setInstance(this);
         }
     }
