@@ -30,7 +30,7 @@ class Menu extends EvtHandler {
         return menuItem;
     }
 
-    public function append(id:Int, text = null):MenuItem {
+    public function append(id:Int, text:String = null):MenuItem {
         return appendItem(new MenuItem(this, text, null, id));
     }
 

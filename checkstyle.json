@@ -429,7 +429,7 @@
 		},
 		{
 			"props": {
-				"allowEmptyReturn": true,
+				"allowEmptyReturn": false,
 				"enforceReturnType": false,
 				"severity": "WARNING"
 			},
@@ -529,7 +529,7 @@
 		{
 			"props": {
 				"ignorePattern": "^$",
-				"severity": "IGNORE"
+				"severity": "ERROR"
 			},
 			"type": "TabForAligning"
 		},
