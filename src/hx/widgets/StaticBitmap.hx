@@ -1,21 +1,21 @@
 package hx.widgets;
 
 import cpp.Pointer;
-import cpp.RawPointer;
 import wx.widgets.StaticBitmap in WxStaticBitmap;
 import wx.widgets.Bitmap in WxBitmap;
 
 class StaticBitmap extends Control {
+
 	@:access(hx.widgets.Bitmap)
     public function new(parent:Window, bitmap:Bitmap, id:Int = -1) {
-        if (_ref == null) {     
+        if (_ref == null) {
             _ref = WxStaticBitmap.createInstance();
             bitmapRef.ptr.create(Window.toRaw(parent), id, bitmap._ref.ref);
         }
-        
+
         super(parent, id);
     }
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Instance functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -32,7 +32,7 @@ class StaticBitmap extends Control {
         bitmapRef.ptr.setBitmap(value._ref.ref);
         return value;
     }
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -40,4 +40,5 @@ class StaticBitmap extends Control {
     private function get_bitmapRef():Pointer<WxStaticBitmap> {
        return Pointer.fromRaw(untyped __cpp__("(wxStaticBitmap*)(_ref->get_raw())"));
     }
+
 }

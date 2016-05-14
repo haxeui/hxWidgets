@@ -5,6 +5,7 @@ import hx.widgets.styles.SliderStyle;
 import wx.widgets.Slider in WxSlider;
 
 class Slider extends Control {
+
     public function new(parent:Window, value:Int = 0, min:Int = 0, max:Int = 100, style:Int = -1, id:Int = -1) {
         if (style == -1) {
             style = SliderStyle.DEFAULT;
@@ -14,10 +15,10 @@ class Slider extends Control {
             _ref = WxSlider.createInstance();
             sliderRef.ptr.create(Window.toRaw(parent), id, value, min, max, Point.defaultPosition.ref, Size.defaultSize.ref, style);
         }
-        
+
         super(parent, id);
     }
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Instance functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -47,11 +48,11 @@ class Slider extends Control {
         sliderRef.ptr.setMax(value);
         return value;
     }
-    
+
     public function setSelection(startPos:Int, endPos:Int) {
         sliderRef.ptr.setSelection(startPos, endPos);
     }
-    
+
     public var selectionStart(get, set):Int;
     private function get_selectionStart():Int {
         return sliderRef.ptr.getSelStart();
@@ -69,7 +70,7 @@ class Slider extends Control {
         setSelection(selectionStart, value);
         return value;
     }
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helper
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -77,4 +78,5 @@ class Slider extends Control {
     private inline function get_sliderRef():Pointer<WxSlider> {
         return Pointer.fromRaw(untyped __cpp__("(wxSlider*)(_ref->get_raw())"));
     }
+
 }

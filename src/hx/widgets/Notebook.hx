@@ -1,14 +1,15 @@
 package hx.widgets;
 
 import cpp.Pointer;
-import cpp.RawPointer;
-import cpp.Void;
 import wx.widgets.Notebook in WxNotebook;
 import wx.widgets.Size in WxSize;
 import wx.widgets.WxString;
 
 class Notebook extends Control {
+
     public function new(parent:Window, style:Int = 0, id:Int = -1) {
+        allowIcons = false;
+
         if (_ref == null) {
             _ref = WxNotebook.createInstance();
             notebookRef.ptr.create(Window.toRaw(parent), id, Point.defaultPosition.ref, Size.defaultSize.ref, style);
@@ -21,7 +22,7 @@ class Notebook extends Control {
     // Instance functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     public function addPage(page:Window, text:String, select:Bool = false, imageId:Int = -1):Bool {
-        if (_allowIcons == false) {
+        if (!allowIcons) {
             imageId = -1;
         }
         var str = WxString.createInstance(text);
@@ -85,16 +86,8 @@ class Notebook extends Control {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Util functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    private var _allowIcons:Bool = true;
-    public var allowIcons(get, set):Bool;
-    private function get_allowIcons():Bool {
-        return _allowIcons;
-    }
-    private function set_allowIcons(value:Bool):Bool {
-        _allowIcons = value;
-        return value;
-    }
-    
+    public var allowIcons:Bool;
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -102,4 +95,5 @@ class Notebook extends Control {
     private inline function get_notebookRef():Pointer<WxNotebook> {
         return Pointer.fromRaw(untyped __cpp__("(wxNotebook*)(_ref->get_raw())"));
     }
+
 }

@@ -3,7 +3,7 @@ package hx.widgets;
 import wx.widgets.BufferedPaintDC in WxBufferedPaintDC;
 
 class BufferedPaintDC extends BufferedDC {
-    
+
 	@:access(hx.widgets.Window)
     public function new(window:Window) {
         super();
@@ -11,7 +11,7 @@ class BufferedPaintDC extends BufferedDC {
             _ref = WxBufferedPaintDC.createInstance(window._ref);
         }
     }
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // HELPERS
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -19,4 +19,5 @@ class BufferedPaintDC extends BufferedDC {
     private function get_bufferedDCRef():WxBufferedPaintDC {
         return cast _ref;
     }
+
 }

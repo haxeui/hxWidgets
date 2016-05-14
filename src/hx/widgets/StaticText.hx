@@ -1,11 +1,11 @@
 package hx.widgets;
 
 import cpp.Pointer;
-import cpp.RawPointer;
 import wx.widgets.StaticText in WxStaticText;
 import wx.widgets.WxString;
 
 class StaticText extends Control {
+
     public function new(parent:Window, text:String = null, style:Int = 0, id:Int = -1) {
         if (_ref == null) {
             _ref = WxStaticText.createInstance();
@@ -31,4 +31,5 @@ class StaticText extends Control {
     private function get_staticTextRef():Pointer<WxStaticText> {
        return Pointer.fromRaw(untyped __cpp__("(wxStaticText*)(_ref->get_raw())"));
     }
+
 }

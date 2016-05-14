@@ -5,6 +5,7 @@ package wx.widgets;
 #undef RegisterClass
 ")
 class GLOptions {
+
     public static var RGBA:Int                    = untyped __cpp__("WX_GL_RGBA");
     public static var BUFFER_SIZE:Int             = untyped __cpp__("WX_GL_BUFFER_SIZE");
     public static var LEVEL:Int                   = untyped __cpp__("WX_GL_LEVEL");
@@ -37,4 +38,5 @@ class GLOptions {
     //public static var RESET_ISOLATION:Int         = untyped __cpp__("WX_GL_RESET_ISOLATION");
     //public static var RELEASE_FLUSH:Int           = untyped __cpp__("WX_GL_RELEASE_FLUSH");
     //public static var RELEASE_NONE:Int            = untyped __cpp__("WX_GL_RELEASE_NONE");
+
 }

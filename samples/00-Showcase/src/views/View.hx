@@ -4,22 +4,23 @@ import hx.widgets.*;
 import hx.widgets.styles.*;
 
 class View extends Panel {
+
     public function new(parent:Window) {
         super(parent);
     }
-     
+
     private function createFrame(title:String, innerSizer:Sizer, parentWindow:Window = null):Panel {
         if (parentWindow == null) {
             parentWindow = this;
         }
-        
+
         var frame:Panel = new Panel(parentWindow);
         frame.sizer = new StaticBoxSizer(Orientation.VERTICAL, frame, title);
-        frame.sizer.addSizer(innerSizer, 1, Stretch.GROW | Direction.ALL, 5);        
-        
+        frame.sizer.addSizer(innerSizer, 1, Stretch.GROW | Direction.ALL, 5);
+
         return frame;
     }
-    
+
     private function label(text:String, targetSizer:Sizer = null, parentWindow:Window = null, bold:Bool = false, underlined:Bool = false) {
         if (parentWindow == null) {
             parentWindow = this;
@@ -28,17 +29,18 @@ class View extends Panel {
         if (targetSizer == null) {
             targetSizer = this.sizer;
         }
-        
-        if (bold == true || underlined == true) {
+
+        if (bold || underlined) {
             var font:Font = label.font;
-            if (bold == true) {
+            if (bold) {
                 font.weight = FontWeight.BOLD;
             }
-            if (underlined == true) {
+            if (underlined) {
                font.underlined = true;
             }
             label.font = font;
         }
         targetSizer.add(label);
     }
+
 }

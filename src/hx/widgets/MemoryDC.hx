@@ -3,10 +3,7 @@ package hx.widgets;
 import wx.widgets.MemoryDC in WxMemoryDC;
 
 class MemoryDC extends DC {
-    public function new() {
-        super();
-    }
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // HELPERS
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -14,4 +11,5 @@ class MemoryDC extends DC {
     private function get_memoryDCRef():WxMemoryDC {
         return cast _ref;
     }
+
 }

@@ -1,12 +1,11 @@
 package hx.widgets;
 
 import cpp.Pointer;
-import cpp.RawPointer;
 import wx.widgets.DC in WxDC;
-import wx.widgets.Brush in WxBrush;
 import wx.widgets.WxString;
 
 class DC {
+
     private var _ref:Pointer<WxDC>;
 
     public function new() {
@@ -21,26 +20,26 @@ class DC {
     }
 
     @:access(hx.widgets.Pen)
-    public function setPen(pen:Pen):Void {
+    public function setPen(pen:Pen) {
         _ref.ptr.setPen(pen._ref.ref);
     }
 
     @:access(hx.widgets.Brush)
-    public function setBrush(brush:Brush):Void {
+    public function setBrush(brush:Brush) {
         _ref.ptr.setBrush(brush._ref.ref);
     }
 
-    public function drawText(text:String, x:Int, y:Int):Void {
+    public function drawText(text:String, x:Int, y:Int) {
         var str = WxString.createInstance(text);
         _ref.ptr.drawText(str.ref, x, y);
         str.destroy();
     }
 
-    public function drawRoundedRectangle(x:Int, y:Int, width:Int, height:Int, radius:Float):Void {
+    public function drawRoundedRectangle(x:Int, y:Int, width:Int, height:Int, radius:Float) {
         _ref.ptr.drawRoundedRectangle(x, y, width, height, radius);
     }
 
-    public function drawCircle(x:Int, y:Int, radius:Int):Void {
+    public function drawCircle(x:Int, y:Int, radius:Int) {
         _ref.ptr.drawCircle(x, y, radius);
     }
 
@@ -50,4 +49,5 @@ class DC {
         _ref.ptr.setBackground(value._ref.ref);
         return value;
     }
+
 }

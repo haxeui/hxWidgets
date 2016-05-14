@@ -5,6 +5,7 @@ import wx.widgets.Pen in WxPen;
 import wx.widgets.Colour in WxColour;
 
 class Pen {
+
     private var _ref:Pointer<WxPen>;
 
     public function new(colour:Int = 0x000000, width:Int = 1) {
@@ -12,12 +13,12 @@ class Pen {
         this.colour = colour;
         this.width = width;
     }
-    
+
     public function destroy() {
         _ref.destroy();
         _ref = null;
     }
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Instance functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -33,7 +34,7 @@ class Pen {
         temp.destroy();
         return value;
     }
-    
+
     public var width(get, set):Int;
     private function get_width():Int {
         return _ref.ptr.getWidth();
@@ -42,4 +43,5 @@ class Pen {
         _ref.ptr.setWidth(value);
         return value;
     }
+
 }

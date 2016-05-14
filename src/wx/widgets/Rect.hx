@@ -1,6 +1,5 @@
 package wx.widgets;
 
-import cpp.ConstCharStar;
 import cpp.Pointer;
 import cpp.RawPointer;
 
@@ -9,11 +8,14 @@ import cpp.RawPointer;
 @:native("wxRect")
 @:structAccess
 extern class Rect {
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Creation functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     @:native("new wxRect")              private static function _new(x:Int, y:Int, width:Int, height:Int):RawPointer<Rect>;
-                                        public static inline function createInstance(x:Int, y:Int, width:Int, height:Int):Pointer<Rect> return Pointer.fromRaw(_new(x, y, width, height));
+                                        public static inline function createInstance(x:Int, y:Int, width:Int, height:Int):Pointer<Rect> {
+                                            return Pointer.fromRaw(_new(x, y, width, height));
+                                        }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Instance functions
@@ -27,4 +29,5 @@ extern class Rect {
     @:native("SetWidth")                public function setWidth(value:Int):Void;
     @:native("GetHeight")               public function getHeight():Int;
     @:native("SetHeight")               public function setHeight(value:Int):Void;
+
 }

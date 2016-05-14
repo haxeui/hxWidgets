@@ -4,7 +4,9 @@ package wx.widgets;
 @:unreflective
 @:native("wxEvent")
 extern class Event {
+
 	@:native("GetEventType")        public function getEventType():Int;
 	@:native("GetId")               public function getId():Int;
     @:native("Skip")                public function skip(skip:Bool = true):Void;
+
 }

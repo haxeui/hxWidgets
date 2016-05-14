@@ -10,11 +10,14 @@ import cpp.RawPointer;
 @:unreflective
 @:native("wxApp")
 extern class App {
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Creation functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     @:native("new wxApp")               private static function _new():RawPointer<App>;
-                                        public static inline function createInstance():Pointer<App> return Pointer.fromRaw(_new());
+                                        public static inline function createInstance():Pointer<App> {
+                                            return Pointer.fromRaw(_new());
+                                        }
     @:native("wxApp::SetInstance")      public static function setInstance(instance:RawPointer<App>):Void;
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -23,4 +26,5 @@ extern class App {
     @:native("OnInit")                  public function init():Bool;
     @:native("OnRun")                   public function run():Void;
     @:native("OnExit")                  public function exit():Void;
+
 }

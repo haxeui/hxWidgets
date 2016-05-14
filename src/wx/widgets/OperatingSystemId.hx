@@ -8,6 +8,7 @@ package wx.widgets;
 @:include("wx/wx.h")
 @:unreflective
 @:enum extern abstract OperatingSystemId(OperatingSystemIdImpl) {
+
     @:native("wxLEFT")                  var LEFT;
     @:native("wxOS_UNKNOWN")            var UNKNOWN;
     @:native("wxOS_MAC_OS")             var MAC_OS;
@@ -23,6 +24,7 @@ package wx.widgets;
     @:native("wxOS_UNIX_AIX")           var UNIX_AIX;
     @:native("wxOS_UNIX_HPUX")          var UNIX_HPUX;
     @:native("wxOS_UNIX")               var UNIX;
+
 }
 
 @:headerCode("
@@ -38,6 +40,7 @@ extern class OperatingSystemIdImpl {
 #undef RegisterClass
 ")
 abstract OperatingSystemId(Int) to Int from Int {
+
     public static var UNKNOWN:Int                = untyped __cpp__("wxOS_UNKNOWN");
     public static var MAC_OS:Int                 = untyped __cpp__("wxOS_MAC_OS");
     public static var MAC_OSX_DARWIN:Int         = untyped __cpp__("wxOS_MAC_OSX_DARWIN");
@@ -52,5 +55,6 @@ abstract OperatingSystemId(Int) to Int from Int {
     public static var UNIX_AIX:Int               = untyped __cpp__("wxOS_UNIX_AIX");
     public static var UNIX_HPUX:Int              = untyped __cpp__("wxOS_UNIX_HPUX");
     public static var UNIX:Int                   = untyped __cpp__("wxOS_UNIX");
+
 }
 #end

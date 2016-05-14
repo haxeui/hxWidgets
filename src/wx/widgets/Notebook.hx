@@ -1,6 +1,5 @@
 package wx.widgets;
 
-import cpp.ConstCharStar;
 import cpp.Pointer;
 import cpp.RawPointer;
 
@@ -8,11 +7,14 @@ import cpp.RawPointer;
 @:unreflective
 @:native("wxNotebook")
 extern class Notebook extends Control {
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // creation functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     @:native("new wxNotebook")          private static function _new():RawPointer<Window>;
-                                        public static inline function createInstance():Pointer<Window> return Pointer.fromRaw(_new());
+                                        public static inline function createInstance():Pointer<Window> {
+                                            return Pointer.fromRaw(_new());
+                                        }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Instance functions
@@ -26,4 +28,5 @@ extern class Notebook extends Control {
     @:native("CalcSizeFromPage")        public function calcSizeFromPage(pageSize:Size):Size;
     @:native("SetPadding")              public function setPadding(padding:Size):Void;
     @:native("GetPageText")             public function getPageText(page:Int):WxString;
+
 }

@@ -8,15 +8,14 @@ import cpp.RawPointer;
 @:native("wxFont")
 @:structAccess
 extern class Font {
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Creation functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    @:native("new wxFont")              private static function _new(pointSize:Int, family:FontFamily, style:FontStyle,
-                                                                     weight:FontWeight, underline:Bool = false):RawPointer<Font>;
-                                        public static inline function createInstance(pointSize:Int, family:FontFamily, style:FontStyle,
-                                                                                     weight:FontWeight, underline:Bool = false):Pointer<Font>
-                                                                                     return Pointer.fromRaw(_new(pointSize, family, style,
-                                                                                                                 weight, underline));
+    @:native("new wxFont")              private static function _new(pointSize:Int, family:FontFamily, style:FontStyle, weight:FontWeight, underline:Bool = false):RawPointer<Font>;
+                                        public static inline function createInstance(pointSize:Int, family:FontFamily, style:FontStyle, weight:FontWeight, underline:Bool = false):Pointer<Font> {
+                                            return Pointer.fromRaw(_new(pointSize, family, style, weight, underline));
+                                        }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Instance functions
@@ -26,4 +25,5 @@ extern class Font {
     @:native("GetStyle")                public function getStyle():FontStyle;
     @:native("GetWeight")               public function getWeight():FontWeight;
     @:native("GetUnderlined")           public function getUnderlined():Bool;
+
 }

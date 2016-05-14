@@ -5,9 +5,10 @@ import wx.widgets.MenuBar in WxMenuBar;
 import wx.widgets.WxString;
 
 class MenuBar extends Window {
+
     public function new(style:Int = 0, create:Bool = true) {
         super(null, -1);
-        if (create == true) {
+        if (create) {
             _ref = WxMenuBar.createInstance(style);
         }
     }
@@ -29,4 +30,5 @@ class MenuBar extends Window {
     private function get_menuBarRef():Pointer<WxMenuBar> {
         return Pointer.fromRaw(untyped __cpp__("(wxMenuBar*)(_ref->get_raw())"));
     }
+
 }

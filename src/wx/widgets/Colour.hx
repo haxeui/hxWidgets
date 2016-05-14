@@ -10,11 +10,14 @@ import cpp.UInt32;
 @:native("wxColour")
 @:structAccess
 extern class Colour {
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Creation functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     @:native("new wxColour")            private static function _new(colour:UInt32):RawPointer<Colour>;
-                                        public static inline function createInstance(colour:UInt32):Pointer<Colour> return Pointer.fromRaw(_new(colour));
+                                        public static inline function createInstance(colour:UInt32):Pointer<Colour> {
+                                            return Pointer.fromRaw(_new(colour));
+                                        }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Instance functions
@@ -24,4 +27,5 @@ extern class Colour {
     @:native("SetRGB")                  public function SetRGB(col:UInt32):Void;
     @:native("GetRGBA")                 public function GetRGBA():UInt32;
     @:native("SetRGBA")                 public function SetRGBA(col:UInt32):Void;
+
 }

@@ -1,11 +1,11 @@
 package hx.widgets;
 
 import cpp.Pointer;
-import cpp.RawPointer;
 import wx.widgets.MenuItem in WxMenuItem;
 import wx.widgets.WxString;
 
 class MenuItem {
+
     private var _ref:Pointer<WxMenuItem>;
 
     @:access(hx.widgets.Menu)
@@ -29,4 +29,5 @@ class MenuItem {
         _ref.ptr.setBitmap(value._ref.ref);
         return value;
     }
+
 }

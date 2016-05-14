@@ -4,6 +4,7 @@ import cpp.Pointer;
 import wx.widgets.Event in WxEvent;
 
 class Event {
+
 	private var _ref:Pointer<WxEvent>;
 
 	public function new() {
@@ -35,4 +36,5 @@ class Event {
 		event._ref = ptr;
 		return event;
 	}
+
 }

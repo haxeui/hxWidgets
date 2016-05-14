@@ -7,6 +7,7 @@ import wx.widgets.Colour in WxColour;
 import wx.widgets.WxString;
 
 class GraphicsContext {
+
     private var _ref:Pointer<WxGraphicsContext>;
 
     @:access(hx.widgets.Window)
@@ -34,18 +35,18 @@ class GraphicsContext {
         return value;
     }
 
-    public function drawText(text:String, x:Float, y:Float):Void {
+    public function drawText(text:String, x:Float, y:Float) {
         var str = WxString.createInstance(text);
         _ref.ptr.drawText(str.ref, x, y);
         str.destroy();
     }
 
-    public function drawRoundedRectangle(x:Float, y:Float, width:Float, height:Float, radius:Float):Void {
+    public function drawRoundedRectangle(x:Float, y:Float, width:Float, height:Float, radius:Float) {
         _ref.ptr.drawRoundedRectangle(x, y, width, height, radius);
     }
 
     @:access(hx.widgets.Bitmap)
-    public function drawBitmap(bmp:Bitmap, x:Float = 0, y:Float = 0, width:Float = -1, height:Float = -1):Void {
+    public function drawBitmap(bmp:Bitmap, x:Float = 0, y:Float = 0, width:Float = -1, height:Float = -1) {
         if (width == -1) {
             width = bmp.width;
         }
@@ -77,7 +78,7 @@ class GraphicsContext {
 
     @:access(hx.widgets.Font)
     @:access(hx.widgets.Colour)
-    public function setFont(font:Font, color:Int = 0):Void {
+    public function setFont(font:Font, color:Int = 0) {
         var p1:Pointer<WxFont> = font.createPointer();
         var c:Colour = new Colour(color);
         var p2:Pointer<WxColour> = c.createPointer();
@@ -85,4 +86,5 @@ class GraphicsContext {
         p1.destroy();
         p2.destroy();
     }
+
 }

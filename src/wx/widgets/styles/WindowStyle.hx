@@ -2,6 +2,7 @@ package wx.widgets.styles;
 
 @:headerCode("#include <wx/window.h>")
 class WindowStyle {
+
     public static var BORDER_DEFAULT:Int                    = untyped __cpp__("wxBORDER_DEFAULT");
     public static var BORDER_SIMPLE:Int                     = untyped __cpp__("wxBORDER_SIMPLE");
     public static var BORDER_SUNKEN:Int                     = untyped __cpp__("wxBORDER_SUNKEN");
@@ -19,4 +20,5 @@ class WindowStyle {
     public static var ALWAYS_SHOW_SB:Int                    = untyped __cpp__("wxALWAYS_SHOW_SB");
     public static var CLIP_CHILDREN:Int                     = untyped __cpp__("wxCLIP_CHILDREN");
     public static var FULL_REPAINT_ON_RESIZE:Int            = untyped __cpp__("wxFULL_REPAINT_ON_RESIZE");
+
 }

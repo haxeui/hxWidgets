@@ -5,6 +5,7 @@ import wx.widgets.CheckBox in WxCheckBox;
 import wx.widgets.WxString;
 
 class CheckBox extends Control {
+
     public function new(parent:Window, label:String, style:Int = 0, id:Int = -1) {
         if (_ref == null) {
             _ref = WxCheckBox.createInstance();
@@ -35,4 +36,5 @@ class CheckBox extends Control {
     private function get_checkboxRef():Pointer<WxCheckBox> {
         return Pointer.fromRaw(untyped __cpp__("(wxCheckBox*)(_ref->get_raw())"));
     }
+
 }

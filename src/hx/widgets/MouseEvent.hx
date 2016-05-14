@@ -5,9 +5,6 @@ import wx.widgets.MouseEvent in WxMouseEvent;
 import wx.widgets.Event in WxEvent;
 
 class MouseEvent extends Event {
-    public function new() {
-        super();
-    }
 
     public var x(get, null):Int;
     private function get_x():Int {
@@ -30,9 +27,10 @@ class MouseEvent extends Event {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // STATIC HELPERS
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-	public static override function fromPointer(ptr:Pointer<WxEvent>):Event {
+	override public static function fromPointer(ptr:Pointer<WxEvent>):Event {
 		var event:MouseEvent = new MouseEvent();
 		event._ref = ptr;
 		return event;
 	}
+
 }

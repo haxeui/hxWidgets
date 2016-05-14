@@ -5,18 +5,19 @@ import hx.widgets.styles.*;
 import views.View;
 
 class PlatformInfoPanel extends View {
+
     public function new(parent:Window) {
         super(parent);
 
         sizer = new BoxSizer(Orientation.VERTICAL);
         var grid:GridSizer = new GridSizer(2, 5, 5);
         var frame = createFrame("Platform Info", grid);
-        
+
         var platform:PlatformInfo = new PlatformInfo();
 
         label("Name", grid, frame, true, true);
         label("Value", grid, frame, true, true);
-        
+
         label("Operating System Family Name:", grid, frame);
         label(platform.operatingSystemFamilyName, grid, frame);
 
@@ -34,9 +35,9 @@ class PlatformInfoPanel extends View {
 
         label("Arch Name:", grid, frame);
         label(platform.archName, grid, frame);
-        
+
         platform.destroy();
         sizer.add(frame);
     }
-    
+
 }

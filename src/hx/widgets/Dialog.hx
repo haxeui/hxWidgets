@@ -1,7 +1,6 @@
 package hx.widgets;
 
 import cpp.Pointer;
-import cpp.RawPointer;
 import hx.widgets.styles.DialogStyle;
 import wx.widgets.Dialog in WxDialog;
 import wx.widgets.WxString;
@@ -11,6 +10,7 @@ import wx.widgets.WxString;
 #undef RegisterClass
 ")
 class Dialog extends Window {
+
     public function new(parent:Window, title:String, style:Int = 0, id:Int = -1) {
         if (style == 0) {
             style = DialogStyle.DEFAULT_DIALOG_STYLE;
@@ -39,4 +39,5 @@ class Dialog extends Window {
     private function get_dialogRef():Pointer<WxDialog> {
         return Pointer.fromRaw(untyped __cpp__("(wxDialog*)(_ref->get_raw())"));
     }
+
 }

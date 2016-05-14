@@ -2,21 +2,20 @@ package hx.widgets;
 
 import cpp.Pointer;
 import cpp.RawPointer;
-import cpp.Void;
 import hx.widgets.styles.BackgroundStyle;
 import wx.widgets.Window in WxWindow;
 import wx.widgets.Window.WindowList in WxWindowList;
-import wx.widgets.Window.WindowListNode in WxWindowListNode;
 import wx.widgets.Colour in WxColour;
 import wx.widgets.Size in WxSize;
 import wx.widgets.Rect in WxRect;
 import wx.widgets.Point in WxPoint;
 import wx.widgets.Font in WxFont;
 import wx.widgets.ClassInfo in WxClassInfo;
-import wx.widgets.Sizer in WxSizer;
 
 class Window extends EvtHandler {
+
     private var _ref:Pointer<WxWindow>;
+
     public function new(parent:Window = null, id:Int = -1) {
         super();
     }
@@ -41,7 +40,7 @@ class Window extends EvtHandler {
 
     public function destroy():Bool {
         var r = _ref.ptr.destroy();
-        if (r == true) {
+        if (r) {
             _ref.destroy();
         }
         return r;
@@ -63,15 +62,16 @@ class Window extends EvtHandler {
 
     public var children(get, null):Array<Window>;
     private function get_children():Array<Window> {
-        var list:Array<Window> = new Array<Window>();
+        var list:Array<Window> = [];
         var windowList:WxWindowList = _ref.ptr.getChildren();
-        trace(windowList.getCount());
+
         for (i in 0...windowList.getCount()) {
             var child:RawPointer<WxWindow> = windowList.item(i).getData();
             var win:Window = new Window();
             win._ref = Pointer.fromRaw(child);
             list.push(autoConvert(win)); // lets auto convert the class so it can be used with casts
         }
+
         return list;
     }
 
@@ -404,4 +404,5 @@ class Window extends EvtHandler {
         }
         return win._ref.get_raw();
     }
+
 }

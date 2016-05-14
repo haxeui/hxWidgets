@@ -1,6 +1,5 @@
 package wx.widgets;
 
-import cpp.ConstCharStar;
 import cpp.Pointer;
 import cpp.RawPointer;
 
@@ -12,7 +11,9 @@ extern class MenuItem {
     // creation functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     @:native("new wxMenuItem")          private static function _new(parent:RawPointer<Menu>, id:Int = 0, text:WxString = null, helpString:WxString = null):RawPointer<MenuItem>;
-                                        public static inline function createInstance(parent:RawPointer<Menu>, id:Int = 0, text:WxString = null, helpString:WxString = null):Pointer<MenuItem> return Pointer.fromRaw(_new(parent, id, text, helpString));
+                                        public static inline function createInstance(parent:RawPointer<Menu>, id:Int = 0, text:WxString = null, helpString:WxString = null):Pointer<MenuItem> {
+                                            return Pointer.fromRaw(_new(parent, id, text, helpString));
+                                        }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Instance functions

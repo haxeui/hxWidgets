@@ -4,12 +4,13 @@ import cpp.Pointer;
 import wx.widgets.Font in WxFont;
 
 class Font {
+
     private var _size:Int;
     private var _family:FontFamily;
     private var _style:FontStyle;
     private var _weight:FontWeight;
     private var _underlined:Bool;
-    
+
     public function new(size:Int = -1, family:FontFamily = null, style:FontStyle = null, weight:FontWeight = null, underlined = false) {
         if (family == null) {
             family = FontFamily.DEFAULT;
@@ -26,7 +27,7 @@ class Font {
         _weight = weight;
         _underlined = underlined;
     }
-    
+
     public var size(get, set):Int;
     private function get_size():Int {
         return _size;
@@ -35,7 +36,7 @@ class Font {
         _size = value;
         return value;
     }
-    
+
     public var family(get, set):FontFamily;
     private function get_family():FontFamily {
         return _family;
@@ -44,7 +45,7 @@ class Font {
         _family = value;
         return value;
     }
-    
+
     public var style(get, set):FontStyle;
     private function get_style():FontStyle {
         return _style;
@@ -53,7 +54,7 @@ class Font {
         _style = value;
         return value;
     }
-    
+
     public var weight(get, set):FontWeight;
     private function get_weight():FontWeight {
         return _weight;
@@ -62,7 +63,7 @@ class Font {
         _weight = value;
         return value;
     }
-    
+
     public var underlined(get, set):Bool;
     private function get_underlined():Bool {
         return _underlined;
@@ -71,14 +72,14 @@ class Font {
         _underlined = value;
         return value;
     }
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     public function createPointer():Pointer<WxFont> {
         return WxFont.createInstance(this._size, this._family, this._style, this._weight, this._underlined);
     }
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Static helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -86,4 +87,5 @@ class Font {
         var c:Font = new Font(ptr.ref.getPointSize(), ptr.ref.getFamily(), ptr.ref.getStyle(), ptr.ref.getWeight(), ptr.ref.getUnderlined());
         return c;
     }
+
 }

@@ -1,11 +1,10 @@
 package wx.widgets;
 
-import cpp.ConstCharStar;
-
 @:include("wx/dcclient.h")
 @:unreflective
 @:native("wxDC")
 extern class DC {
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Instance functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -18,4 +17,5 @@ extern class DC {
     @:native("DrawCircle")              public function drawCircle(x:Int, y:Int, radius:Int):Void;
     @:native("GetBackground")           public function getBackground():Brush;
     @:native("SetBackground")           public function setBackground(brush:Brush):Void;
+
 }
