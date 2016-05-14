@@ -11,7 +11,8 @@ git clone https://github.com/HaxeFoundation/hxcpp.git
 haxelib dev hxcpp hxcpp/
 ```
 
-and then see https://github.com/HaxeFoundation/hxcpp#building for instruction on how to build it.
+and then see <https://github.com/HaxeFoundation/hxcpp#building> for
+instruction on how to build it.
 
 ## Windows
 
@@ -20,6 +21,7 @@ and then see https://github.com/HaxeFoundation/hxcpp#building for instruction on
 * Run `vcvarsall.bat` from Visual Studio dir
 (eg: `"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat"`)
 * Build shared and static releases of wxWidgets:
+
   * `nmake.exe -f %WXWIN%\build\msw\makefile.vc BUILD=release`
   * `nmake.exe -f %WXWIN%\build\msw\makefile.vc BUILD=release SHARED=1`
 
