@@ -429,7 +429,7 @@
 		},
 		{
 			"props": {
-				"allowEmptyReturn": false,
+				"allowEmptyReturn": true,
 				"enforceReturnType": false,
 				"severity": "WARNING"
 			},
@@ -521,7 +521,7 @@
 		},
 		{
 			"props": {
-				"format": "TODO|FIXME|HACK|XXX|BUG",
+				"format": "TODO",
 				"severity": "INFO"
 			},
 			"type": "TODOComment"
