@@ -2,7 +2,7 @@ package hx.widgets;
 
 import cpp.Pointer;
 import cpp.RawPointer;
-import hx.widgets.styles.DirDialogStyle;
+import hx.widgets.styles.DialogStyle;
 import wx.widgets.DirDialog in WxDirDialog;
 import wx.widgets.WxString;
 
@@ -16,7 +16,7 @@ class DirDialog extends Dialog {
                 defaultPath = "";
             }
             if (style == 0) {
-                style = DirDialogStyle.DEFAULT_STYLE;
+                style = DialogStyle.DEFAULT_DIALOG_STYLE | DialogStyle.RESIZE_BORDER;
             }
             
             var messageStr = WxString.createInstance(message);
