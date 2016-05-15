@@ -12,7 +12,16 @@ class SimpleDialog extends Dialog {
         
         createRadioCtrls(top);
         
+        var hsizer:BoxSizer = new BoxSizer(Orientation.HORIZONTAL);
+        var button:Button = new Button(this, "Done");
+        button.bind(EventType.BUTTON, function(e) {
+            
+        });
+        hsizer.add(button);
+        top.addSizer(hsizer);
+        
         sizer.addSizer(top, 1, Stretch.EXPAND | Direction.ALL, 5);
+        fit();
     }
     
     private function createRadioCtrls(targetSizer:Sizer) {

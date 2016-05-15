@@ -176,6 +176,10 @@ class Window extends EvtHandler {
         _ref.ptr.endRepositioningChildren();
     }
 
+    public function fit() {
+        _ref.ptr.fit();
+    }
+    
     public var size(get, set):Size;
     private function get_size():Size {
         var r = _ref.ptr.getSize();

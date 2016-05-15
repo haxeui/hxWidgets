@@ -21,4 +21,6 @@ extern class Dialog extends TopLevelWindow {
     // Instance functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     @:native("ShowModal")               public function showModal():Int;
+    @:native("EndModal")                public function endModal(retCode:Int):Void;
+    @:native("IsModal")                 public function isModal():Bool;
 }

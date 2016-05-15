@@ -65,6 +65,7 @@ extern class Window {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     @:native("BeginRepositioningChildren")      public function beginRepositioningChildren():Bool;
     @:native("EndRepositioningChildren")        public function endRepositioningChildren():Void;
+    @:native("Fit")                             public function fit():Void;
     @:native("GetSize")                         public function getSize():Size;
     @:native("SetSize")                         @:overload(function(width:Int, height:Int):Void {})
     @:native("SetSize")                         public function setSize(size:Size):Void;

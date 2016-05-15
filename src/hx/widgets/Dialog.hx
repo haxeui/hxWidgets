@@ -32,6 +32,15 @@ class Dialog extends TopLevelWindow {
         return dialogRef.ptr.showModal();
     }
 
+    public function endModal(retCode:Int) {
+        dialogRef.ptr.endModal(retCode);
+    }
+
+    public var isModal(get, null):Bool;
+    private function get_isModal():Bool {
+        return dialogRef.ptr.isModal();
+    }
+    
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
