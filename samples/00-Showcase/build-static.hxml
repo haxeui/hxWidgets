@@ -6,6 +6,7 @@
 -resource assets/img/haxe-logo-small.png@haxe-logo-small.png
 -resource assets/img/wx-logo.png@wx-logo.png
 -resource assets/img/wx-logo-small.png@wx-logo-small.png
+-resource assets/img/application-dialog.png@application-dialog.png
 
 # by default wxwidgets uses /MD - so match for static linking
 # if wxWidgets is using /MT, remove this line

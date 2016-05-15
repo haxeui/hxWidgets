@@ -1,6 +1,7 @@
 import hx.widgets.*;
 import hx.widgets.styles.*;
 import views.BasicControlsView;
+import views.DialogView;
 import views.DrawingView;
 import views.LogView;
 import views.SystemInfoView;
@@ -63,7 +64,7 @@ class Main {
         imageList.add(Bitmap.fromHaxeResource("ui-check-boxes-series.png"));
         imageList.add(Bitmap.fromHaxeResource("layer-shape-line.png"));
         imageList.add(Bitmap.fromHaxeResource("information-button.png"));
-        imageList.add(Bitmap.fromHaxeResource("clock.png"));
+        imageList.add(Bitmap.fromHaxeResource("application-dialog.png"));
         
         var tabs:Notebook = new Notebook(frame);
         if (platform.isMac) {
@@ -84,6 +85,9 @@ class Main {
         
         var infoView:SystemInfoView = new SystemInfoView(tabs);
         tabs.addPage(infoView, "System Info", false, 2);
+
+        var dialogView:DialogView = new DialogView(tabs);
+        tabs.addPage(dialogView, "Dialogs", false, 3);
 
         tabs.bind(EventType.NOTEBOOK_PAGE_CHANGED, function(e) {
             e.skip(); // seems if you dont skip the event on osx then nothing shows - presumably this event handler is "stealing" the event
