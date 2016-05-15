@@ -1,10 +1,13 @@
 # hxWidgets
 
 [![Build Status](https://travis-ci.org/ianharrigan/hxWidgets.svg?branch=master)](https://travis-ci.org/ianharrigan/hxWidgets)
+[![Issue Count](https://codeclimate.com/github/ianharrigan/hxWidgets/badges/issue_count.svg)](https://codeclimate.com/github/ianharrigan/hxWidgets)
 
 Haxe externs (and wrappers) for wxWidgets
 
-**You need a development version of hxcpp for now**
+## Dependencies
+
+You need a development version of hxcpp for now.
 
 ```
 git clone https://github.com/HaxeFoundation/hxcpp.git
@@ -21,9 +24,8 @@ instruction on how to build it.
 * Run `vcvarsall.bat` from Visual Studio dir
 (eg: `"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat"`)
 * Build shared and static releases of wxWidgets:
-
-  * `nmake.exe -f %WXWIN%\build\msw\makefile.vc BUILD=release`
-  * `nmake.exe -f %WXWIN%\build\msw\makefile.vc BUILD=release SHARED=1`
+    * `nmake.exe -f %WXWIN%\build\msw\makefile.vc BUILD=release`
+    * `nmake.exe -f %WXWIN%\build\msw\makefile.vc BUILD=release SHARED=1`
 
 ## Requirements for Linux and Mac
 
