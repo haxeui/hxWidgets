@@ -38,8 +38,7 @@ class EntryMacro {
         var os:OSVersion = getOSVersion();
         if (~/windows/i.match(Sys.systemName())) {
 			_class.get().meta.add(":buildXml", [{ expr:EConst( CString( "<include name=\"${haxelib:hxWidgets}/../Build.xml\" />" ) ), pos:_pos }], _pos );
-		}
-        else {
+		} else {
             var makeFlag = function (s:String):String {
 				return '<compilerflag value="$s" />';
 			};
