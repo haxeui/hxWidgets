@@ -15,7 +15,11 @@ class SimpleDialog extends Dialog {
         var hsizer:BoxSizer = new BoxSizer(Orientation.HORIZONTAL);
         var button:Button = new Button(this, "Done");
         button.bind(EventType.BUTTON, function(e) {
-            
+            if (isModal) {
+                endModal(555);
+            } else {
+                hide();
+            }
         });
         hsizer.add(button);
         top.addSizer(hsizer);

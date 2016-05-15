@@ -15,5 +15,11 @@ extern class ColourDialog extends Dialog {
                                         public static inline function createInstance():Pointer<Window> return Pointer.fromRaw(_new());
 
     @:native("Create")                  @:overload(function(parent:RawPointer<Window>):Bool {})
+    @:native("Create")                  @:overload(function(parent:RawPointer<Window>, colourData:RawPointer<ColourData>):Bool {})
     @:native("Create")                  public override function create(parent:RawPointer<Window>, id:Int, point:Point, size:Size, style:Int):Bool;
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Instance functions
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    @:native("GetColourData")           public function getColourData():ColourData;
 }

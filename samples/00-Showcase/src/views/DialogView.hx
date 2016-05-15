@@ -5,6 +5,8 @@ import hx.widgets.styles.*;
 import views.dialogs.SimpleDialog;
 
 class DialogView extends View {
+    private var _selectedColour:Int = -1;
+    
     public function new(parent:Window) {
         super(parent);
         
@@ -18,6 +20,7 @@ class DialogView extends View {
         button.bind(EventType.BUTTON, function(e) {
             var dialog:Dialog = new SimpleDialog(this, "Modal Dialog");
             var r = dialog.showModal();
+            LogView.log('Dialog result: ${r}');
         });
         top.add(button, 0, Stretch.EXPAND);
         
@@ -32,8 +35,15 @@ class DialogView extends View {
         // colour dialog
         var button:Button = new Button(this, "Open Colour Dialog");
         button.bind(EventType.BUTTON, function(e) {
-            var dialog:ColourDialog = new ColourDialog(this);
+            var dialog:ColourDialog = new ColourDialog(this, _selectedColour, true);
             var r = dialog.showModal();
+            if (r == StandardId.OK) {
+                var hex:String = StringTools.hex(dialog.selectedColour, 6);
+                LogView.log('Colour selected: ${hex}');
+                _selectedColour = dialog.selectedColour;
+            } else {
+                LogView.log('Colour dialog cancelled');
+            }
         });
         top.add(button, 0, Stretch.EXPAND);
         
