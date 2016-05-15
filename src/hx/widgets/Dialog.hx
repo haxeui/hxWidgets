@@ -11,7 +11,7 @@ import wx.widgets.WxString;
 #undef RegisterClass
 ")
 class Dialog extends TopLevelWindow {
-    public function new(parent:Window, title:String, style:Int = 0, id:Int = -1) {
+    public function new(parent:Window, title:String = null, style:Int = 0, id:Int = -1) {
         if (style == 0) {
             style = DialogStyle.DEFAULT_DIALOG_STYLE;
         }
