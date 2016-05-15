@@ -1,11 +1,11 @@
 package hx.widgets;
 
 import cpp.Pointer;
-import cpp.RawPointer;
 import wx.widgets.ColourDialog in WxColourDialog;
 import wx.widgets.ColourData in WxColourData;
 
 class ColourDialog extends Dialog {
+
     public function new(parent:Window, colour:Int = -1, chooseFull:Bool = false) {
         if (_ref == null) {
             _ref = WxColourDialog.createInstance();
@@ -14,10 +14,10 @@ class ColourDialog extends Dialog {
             colourDialogRef.ptr.create(Window.toRaw(parent), pointer.get_raw());
             pointer.destroy();
         }
-        
+
         super(parent);
     }
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Instance functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -31,7 +31,7 @@ class ColourDialog extends Dialog {
     private function get_selectedColour():Int {
         return colourData.colour;
     }
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -39,4 +39,5 @@ class ColourDialog extends Dialog {
     private function get_colourDialogRef():Pointer<WxColourDialog> {
         return Pointer.fromRaw(untyped __cpp__("(wxColourDialog*)(_ref->get_raw())"));
     }
+
 }

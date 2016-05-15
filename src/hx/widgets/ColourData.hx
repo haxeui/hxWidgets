@@ -5,36 +5,23 @@ import wx.widgets.ColourData in WxColourData;
 import wx.widgets.Colour in WxColour;
 
 class ColourData {
+
     public function new(colour:Int = -1, chooseFull:Bool = false) {
         if (colour != -1) {
-            _colour = Colour.convertColor(colour);
+            this.colour = Colour.convertColor(colour);
         }
-        _chooseFull = chooseFull;
+        else {
+            this.colour = -1;
+        }
+        this.chooseFull = chooseFull;
     }
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Instance functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    private var _colour:Int = -1;
-    public var colour(get, set):Int;
-    private function get_colour():Int {
-        return _colour;
-    }
-    private function set_colour(value:Int):Int {
-        _colour = value;
-        return value;
-    }
-    
-    private var _chooseFull:Bool;
-    public var chooseFull(get, set):Bool;
-    private function get_chooseFull():Bool {
-        return _chooseFull;
-    }
-    private function set_chooseFull(value:Bool):Bool {
-        _chooseFull = value;
-        return value;
-    }
-    
+    private var colour:Int;
+    private var chooseFull:Bool;
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -48,7 +35,7 @@ class ColourData {
         p.ref.setChooseFull(this._chooseFull);
         return p;
     }
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Static helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -58,4 +45,5 @@ class ColourData {
         c.chooseFull = ptr.ref.getChooseFull();
         return c;
     }
+
 }

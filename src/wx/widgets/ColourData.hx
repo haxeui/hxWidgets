@@ -8,11 +8,15 @@ import cpp.RawPointer;
 @:native("wxColourData")
 @:structAccess
 extern class ColourData {
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Creation functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     @:native("new wxColourData")        private static function _new():RawPointer<ColourData>;
-                                        public static inline function createInstance():Pointer<ColourData> return Pointer.fromRaw(_new());
+                                        public static inline function createInstance():Pointer<ColourData> {
+                                            return Pointer.fromRaw(_new());
+                                        }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Instance functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -20,4 +24,5 @@ extern class ColourData {
     @:native("SetColour")               public function setColour(colour:Colour):Void;
     @:native("GetChooseFull")           public function getChooseFull():Bool;
     @:native("SetChooseFull")           public function setChooseFull(flag:Bool):Void;
+
 }

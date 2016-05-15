@@ -1,12 +1,11 @@
 package hx.widgets;
 
 import cpp.Pointer;
-import cpp.RawPointer;
-import hx.widgets.styles.DialogStyle;
 import wx.widgets.TextEntryDialog in WxTextEntryDialog;
 import wx.widgets.WxString;
 
 class TextEntryDialog extends Dialog {
+
     public function new(parent:Window, message:String, caption:String = null, value:String = null, style:Int = 0) {
         if (_ref == null) {
             if (message == null) {
@@ -21,7 +20,7 @@ class TextEntryDialog extends Dialog {
             if (style == 0) {
                 style = Defs.OK | Defs.CANCEL | Defs.CENTRE;
             }
-            
+
             var messageStr = WxString.createInstance(message);
             var captionStr = WxString.createInstance(caption);
             var valueStr = WxString.createInstance(value);
@@ -30,10 +29,10 @@ class TextEntryDialog extends Dialog {
             captionStr.destroy();
             valueStr.destroy();
         }
-        
+
         super(parent);
     }
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -41,4 +40,5 @@ class TextEntryDialog extends Dialog {
     private function get_textEntryDialogRef():Pointer<WxTextEntryDialog> {
         return Pointer.fromRaw(untyped __cpp__("(wxTextEntryDialog*)(_ref->get_raw())"));
     }
+
 }

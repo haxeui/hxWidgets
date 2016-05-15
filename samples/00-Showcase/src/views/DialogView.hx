@@ -5,13 +5,16 @@ import hx.widgets.styles.*;
 import views.dialogs.SimpleDialog;
 
 class DialogView extends View {
-    private var _selectedColour:Int = -1;
-    
+
+    private var _selectedColour:Int;
+
     public function new(parent:Window) {
+        _selectedColour = -1;
+
         super(parent);
-        
+
         var platform:PlatformInfo = new PlatformInfo();
-        
+
         sizer = new BoxSizer(Orientation.VERTICAL);
         var top = new GridSizer(2, 5, 5);
 
@@ -23,7 +26,7 @@ class DialogView extends View {
             LogView.log('Dialog result: ${r}');
         });
         top.add(button, 0, Stretch.EXPAND);
-        
+
         // non modal
         var button:Button = new Button(this, "Open Non-Modal Dialog");
         button.bind(EventType.BUTTON, function(e) {
@@ -31,7 +34,7 @@ class DialogView extends View {
             dialog.show();
         });
         top.add(button, 0, Stretch.EXPAND);
-        
+
         // colour dialog
         var button:Button = new Button(this, "Open Colour Dialog");
         button.bind(EventType.BUTTON, function(e) {
@@ -41,12 +44,13 @@ class DialogView extends View {
                 var hex:String = StringTools.hex(dialog.selectedColour, 6);
                 LogView.log('Colour selected: ${hex}');
                 _selectedColour = dialog.selectedColour;
-            } else {
-                LogView.log('Colour dialog cancelled');
+            }
+            else {
+                LogView.log("Colour dialog cancelled");
             }
         });
         top.add(button, 0, Stretch.EXPAND);
-        
+
         // font dialog
         var button:Button = new Button(this, "Open Font Dialog");
         button.bind(EventType.BUTTON, function(e) {
@@ -54,7 +58,7 @@ class DialogView extends View {
             var r = dialog.showModal();
         });
         top.add(button, 0, Stretch.EXPAND);
-        
+
         // file dialog
         var button:Button = new Button(this, "Open File Dialog");
         button.bind(EventType.BUTTON, function(e) {
@@ -62,7 +66,7 @@ class DialogView extends View {
             var r = dialog.showModal();
         });
         top.add(button, 0, Stretch.EXPAND);
-        
+
         /*
         if (platform.isWindows) {
             // dir dialog
@@ -74,7 +78,7 @@ class DialogView extends View {
             top.add(button, 0, Stretch.EXPAND);
         }
         */
-        
+
         // text entry dialog
         var button:Button = new Button(this, "Open Text Entry Dialog");
         button.bind(EventType.BUTTON, function(e) {
@@ -82,7 +86,7 @@ class DialogView extends View {
             var r = dialog.showModal();
         });
         top.add(button, 0, Stretch.EXPAND);
-        
+
         // password entry dialog
         var button:Button = new Button(this, "Open Password Entry Dialog");
         button.bind(EventType.BUTTON, function(e) {
@@ -90,7 +94,7 @@ class DialogView extends View {
             var r = dialog.showModal();
         });
         top.add(button, 0, Stretch.EXPAND);
-        
+
         // default message dialog
         var button:Button = new Button(this, "Open Default Message Dialog");
         button.bind(EventType.BUTTON, function(e) {
@@ -106,7 +110,7 @@ class DialogView extends View {
             var r = dialog.showModal();
         });
         top.add(button, 0, Stretch.EXPAND);
-        
+
         // error message dialog
         var button:Button = new Button(this, "Open Error Message Dialog");
         button.bind(EventType.BUTTON, function(e) {
@@ -114,7 +118,7 @@ class DialogView extends View {
             var r = dialog.showModal();
         });
         top.add(button, 0, Stretch.EXPAND);
-        
+
         // question message dialog
         var button:Button = new Button(this, "Open Question Message Dialog");
         button.bind(EventType.BUTTON, function(e) {
@@ -122,23 +126,25 @@ class DialogView extends View {
             var r = dialog.showModal();
         });
         top.add(button, 0, Stretch.EXPAND);
-        
+
         // single choice dialog
         var button:Button = new Button(this, "Open Single Choice Dialog");
         button.bind(EventType.BUTTON, function(e) {
-            var dialog:SingleChoiceDialog = new SingleChoiceDialog(this, "Select a single option from the list below and click 'OK'", "Single Choice Dialog", ["Option 1", "Option 2", "Option 3", "Option 4", "Option 5", "Option 6"]);
+            var dialog:SingleChoiceDialog = new SingleChoiceDialog(this, "Select a single option from the list below and click 'OK'", "Single Choice Dialog",
+                ["Option 1", "Option 2", "Option 3", "Option 4", "Option 5", "Option 6"]);
             var r = dialog.showModal();
         });
         top.add(button, 0, Stretch.EXPAND);
-        
+
         // multi choice dialog
         var button:Button = new Button(this, "Open Multi Choice Dialog");
         button.bind(EventType.BUTTON, function(e) {
-            var dialog:MultiChoiceDialog = new MultiChoiceDialog(this, "Select multiple options from the list below and click 'OK'", "Multiple Choice Dialog", ["Option 1", "Option 2", "Option 3", "Option 4", "Option 5", "Option 6"]);
+            var dialog:MultiChoiceDialog = new MultiChoiceDialog(this, "Select multiple options from the list below and click 'OK'", "Multiple Choice Dialog",
+                ["Option 1", "Option 2", "Option 3", "Option 4", "Option 5", "Option 6"]);
             var r = dialog.showModal();
         });
         top.add(button, 0, Stretch.EXPAND);
-        
+
         sizer.addSizer(top, 0, Stretch.GROW | Direction.ALL, 5);
     }
 }

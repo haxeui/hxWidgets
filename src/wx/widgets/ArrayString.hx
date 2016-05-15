@@ -7,13 +7,18 @@ import cpp.RawPointer;
 @:unreflective
 @:native("wxArrayString")
 extern class ArrayString {
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // creation functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     @:native("new wxArrayString")           private static function _new():RawPointer<ArrayString>;
-                                            public static inline function createInstance():Pointer<ArrayString> return Pointer.fromRaw(_new());
+                                            public static inline function createInstance():Pointer<ArrayString> {
+                                                return Pointer.fromRaw(_new());
+                                            }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // instance functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     @:native("Add")                         public function add(str:WxString):Int;
+
 }

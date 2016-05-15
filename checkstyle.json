@@ -197,7 +197,7 @@
 		},
 		{
 			"props": {
-				"max": 200,
+				"max": 220,
 				"ignorePattern": "^$",
 				"severity": "ERROR"
 			},
@@ -521,7 +521,7 @@
 		},
 		{
 			"props": {
-				"format": "^\\s*[TODO|FIXME|HACK|XXX|BUG]",
+				"format": "^[TODO|FIXME|HACK|XXX|BUG]",
 				"severity": "INFO"
 			},
 			"type": "TODOComment"

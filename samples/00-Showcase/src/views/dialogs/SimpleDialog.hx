@@ -4,34 +4,36 @@ import hx.widgets.*;
 import hx.widgets.styles.*;
 
 class SimpleDialog extends Dialog {
+
     public function new(parent:Window, title:String) {
         super(parent, title);
-        
+
         sizer = new BoxSizer(Orientation.VERTICAL);
         var top = new BoxSizer(Orientation.VERTICAL);
-        
+
         createRadioCtrls(top);
-        
+
         var hsizer:BoxSizer = new BoxSizer(Orientation.HORIZONTAL);
         var button:Button = new Button(this, "Done");
         button.bind(EventType.BUTTON, function(e) {
             if (isModal) {
                 endModal(555);
-            } else {
+            }
+            else {
                 hide();
             }
         });
         hsizer.add(button);
         top.addSizer(hsizer);
-        
+
         sizer.addSizer(top, 1, Stretch.EXPAND | Direction.ALL, 5);
         fit();
     }
-    
+
     private function createRadioCtrls(targetSizer:Sizer) {
         var innerSizer:BoxSizer = new BoxSizer(Orientation.HORIZONTAL);
         var frame = createFrame("Check / Radio Controls", innerSizer, this);
-        
+
         // checks
         var vsizer:BoxSizer = new BoxSizer(Orientation.VERTICAL);
         var check:CheckBox = new CheckBox(frame, "Check 1");
@@ -68,10 +70,10 @@ class SimpleDialog extends Dialog {
             LogView.log('Checbox event: label=${check.label}, value=${check.value}');
         });
         vsizer.add(check);
-        
+
         innerSizer.addSizer(vsizer);
-        innerSizer.addSpacer(5);        
-        
+        innerSizer.addSpacer(5);
+
         // radio A
         var vsizer:BoxSizer = new BoxSizer(Orientation.VERTICAL);
         var radio:RadioButton = new RadioButton(frame, "Option 1A");
@@ -108,10 +110,10 @@ class SimpleDialog extends Dialog {
             LogView.log('Radio button event: label=${radio.label}, value=${radio.value}');
         });
         vsizer.add(radio);
-        
+
         innerSizer.addSizer(vsizer);
-        innerSizer.addSpacer(5);        
-        
+        innerSizer.addSpacer(5);
+
         // radio B
         var vsizer:BoxSizer = new BoxSizer(Orientation.VERTICAL);
         var radio:RadioButton = new RadioButton(frame, "Option 1A", RadioButtonStyle.GROUP);
@@ -148,22 +150,22 @@ class SimpleDialog extends Dialog {
             LogView.log('Radio button event: label=${radio.label}, value=${radio.value}');
         });
         vsizer.add(radio);
-        
+
         innerSizer.addSizer(vsizer);
-        
+
         targetSizer.add(frame, 0, Stretch.GROW);
     }
-    
+
     private function createFrame(title:String, innerSizer:Sizer, parentWindow:Window = null):Panel {
         if (parentWindow == null) {
             parentWindow = this;
         }
-        
+
         var frame:Panel = new Panel(parentWindow);
         frame.sizer = new StaticBoxSizer(Orientation.VERTICAL, frame, title);
-        frame.sizer.addSizer(innerSizer, 1, Stretch.GROW | Direction.ALL, 5);        
-        
+        frame.sizer.addSizer(innerSizer, 1, Stretch.GROW | Direction.ALL, 5);
+
         return frame;
     }
-    
+
 }

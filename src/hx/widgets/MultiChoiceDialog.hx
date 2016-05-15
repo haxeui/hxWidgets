@@ -1,12 +1,10 @@
 package hx.widgets;
 
-import cpp.Pointer;
-import cpp.RawPointer;
-import hx.widgets.ArrayString;
 import wx.widgets.MultiChoiceDialog in WxMultiChoiceDialog;
 import wx.widgets.WxString;
 
 class MultiChoiceDialog extends Dialog {
+
     @:access(hx.widgets.ArrayString)
     public function new(parent:Window, message:String, caption:String = null, choices:Array<String> = null) {
         if (_ref == null) {
@@ -27,8 +25,8 @@ class MultiChoiceDialog extends Dialog {
             captionStr.destroy();
             choicesArr.destroy();
         }
-        
+
         super(parent);
     }
-    
+
 }
