@@ -11,7 +11,7 @@ class Notebook extends Control {
         allowIcons = false;
 
         if (_ref == null) {
-            _ref = WxNotebook.createInstance();
+            _ref = WxNotebook.createInstance().reinterpret();
             notebookRef.ptr.create(Window.toRaw(parent), id, Point.defaultPosition.ref, Size.defaultSize.ref, style);
         }
 
@@ -92,8 +92,8 @@ class Notebook extends Control {
     // Helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     private var notebookRef(get, null):Pointer<WxNotebook>;
-    private inline function get_notebookRef():Pointer<WxNotebook> {
-        return Pointer.fromRaw(untyped __cpp__("(wxNotebook*)(_ref->get_raw())"));
+    private function get_notebookRef():Pointer<WxNotebook> {
+        return _ref.reinterpret();
     }
 
 }

@@ -77,7 +77,7 @@ class Menu extends EvtHandler {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     private var menuRef(get, null):Pointer<WxMenu>;
     private function get_menuRef():Pointer<WxMenu> {
-        return Pointer.fromRaw(untyped __cpp__("(wxMenu*)(_ref->get_raw())"));
+        return _ref.reinterpret();
     }
 
 }

@@ -197,7 +197,7 @@
 		},
 		{
 			"props": {
-				"max": 220,
+				"max": 225,
 				"ignorePattern": "^$",
 				"severity": "ERROR"
 			},

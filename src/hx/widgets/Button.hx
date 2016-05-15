@@ -11,7 +11,7 @@ class Button extends Control {
         bitmapPosition = Direction.LEFT;
 
         if (_ref == null) {
-            _ref = WxButton.createInstance();
+            _ref = WxButton.createInstance().reinterpret();
             buttonRef.ptr.create(Window.toRaw(parent), id, label, Point.defaultPosition.ref, Size.defaultSize.ref, style);
         }
 
@@ -61,7 +61,7 @@ class Button extends Control {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     private var buttonRef(get, null):Pointer<WxButton>;
     private function get_buttonRef():Pointer<WxButton> {
-       return Pointer.fromRaw(untyped __cpp__("(wxButton*)(_ref->get_raw())"));
+       return _ref.reinterpret();
     }
 
 }

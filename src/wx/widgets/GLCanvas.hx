@@ -1,12 +1,7 @@
 package wx.widgets;
 
 import cpp.Pointer;
-
-@:include("wx/glcanvas.h")
-@:unreflective
-@:native("cpp::Reference<wxGLCanvas>")
-extern class GLCanvas extends GLCanvasImpl {
-}
+import cpp.RawPointer;
 
 @:include("wx/glcanvas.h")
 @:unreflective

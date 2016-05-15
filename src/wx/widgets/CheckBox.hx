@@ -12,8 +12,8 @@ extern class CheckBox extends Control {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // creation functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    @:native("new wxCheckBox")          private static function _new():RawPointer<Window>;
-                                        public static inline function createInstance():Pointer<Window> {
+    @:native("new wxCheckBox")          private static function _new():RawPointer<CheckBox>;
+                                        public static inline function createInstance():Pointer<CheckBox> {
                                             return Pointer.fromRaw(_new());
                                         }
 

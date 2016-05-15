@@ -21,7 +21,7 @@ class MouseEvent extends Event {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     private var mouseEventRef(get, null):Pointer<WxMouseEvent>;
     private function get_mouseEventRef():Pointer<WxMouseEvent> {
-        return Pointer.fromRaw(untyped __cpp__("(wxMouseEvent*)(_ref->get_raw())"));
+        return _ref.reinterpret();
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

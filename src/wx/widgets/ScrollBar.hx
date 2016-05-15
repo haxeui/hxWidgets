@@ -12,8 +12,8 @@ extern class ScrollBar extends Control {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // creation functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    @:native("new wxScrollBar")         private static function _new():RawPointer<Window>;
-                                        public static inline function createInstance():Pointer<Window> {
+    @:native("new wxScrollBar")         private static function _new():RawPointer<ScrollBar>;
+                                        public static inline function createInstance():Pointer<ScrollBar> {
                                             return Pointer.fromRaw(_new());
                                         }
 

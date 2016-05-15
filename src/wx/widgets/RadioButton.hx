@@ -11,8 +11,8 @@ extern class RadioButton extends Control {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // creation functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    @:native("new wxRadioButton")       private static function _new():RawPointer<Window>;
-                                        public static inline function createInstance():Pointer<Window> {
+    @:native("new wxRadioButton")       private static function _new():RawPointer<RadioButton>;
+                                        public static inline function createInstance():Pointer<RadioButton> {
                                             return Pointer.fromRaw(_new());
                                         }
 

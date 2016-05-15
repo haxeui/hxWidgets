@@ -11,8 +11,8 @@ extern class StaticText extends Control {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // creation functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    @:native("new wxStaticText")        private static function _new():RawPointer<Window>;
-                                        public static inline function createInstance():Pointer<Window> {
+    @:native("new wxStaticText")        private static function _new():RawPointer<StaticText>;
+                                        public static inline function createInstance():Pointer<StaticText> {
                                             return Pointer.fromRaw(_new());
                                         }
 

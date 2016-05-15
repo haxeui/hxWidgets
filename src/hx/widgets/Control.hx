@@ -8,7 +8,7 @@ class Control extends Window {
 
     public function new(parent:Window, style:Int = 0, id:Int = -1) {
         if (_ref == null) {
-            _ref = WxControl.createInstance();
+            _ref = WxControl.createInstance().reinterpret();
             controlRef.ptr.create(Window.toRaw(parent), id, Point.defaultPosition.ref, Size.defaultSize.ref, style);
         }
 
@@ -35,7 +35,7 @@ class Control extends Window {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     private var controlRef(get, null):Pointer<WxControl>;
     private function get_controlRef():Pointer<WxControl> {
-        return Pointer.fromRaw(untyped __cpp__("(wxControl*)(_ref->get_raw())"));
+        return _ref.reinterpret();
     }
 
 }

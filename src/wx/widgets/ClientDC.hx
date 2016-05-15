@@ -11,8 +11,8 @@ extern class ClientDC extends WindowDC {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // creation functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    @:native("new wxClientDC")          private static function _new(window:RawPointer<Window>):RawPointer<DC>;
-                                        public static inline function createInstance(window:RawPointer<Window>):Pointer<DC> {
+    @:native("new wxClientDC")          private static function _new(window:RawPointer<Window>):RawPointer<ClientDC>;
+                                        public static inline function createInstance(window:RawPointer<Window>):Pointer<ClientDC> {
                                             return Pointer.fromRaw(_new(window));
                                         }
 

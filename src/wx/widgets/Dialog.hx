@@ -11,8 +11,8 @@ extern class Dialog extends TopLevelWindow {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // creation functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    @:native("new wxDialog")            private static function _new():RawPointer<Window>;
-                                        public static inline function createInstance():Pointer<Window> {
+    @:native("new wxDialog")            private static function _new():RawPointer<Dialog>;
+                                        public static inline function createInstance():Pointer<Dialog> {
                                             return Pointer.fromRaw(_new());
                                         }
 

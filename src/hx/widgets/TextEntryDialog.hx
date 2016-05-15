@@ -24,7 +24,7 @@ class TextEntryDialog extends Dialog {
             var messageStr = WxString.createInstance(message);
             var captionStr = WxString.createInstance(caption);
             var valueStr = WxString.createInstance(value);
-            _ref = WxTextEntryDialog.createInstance(Window.toRaw(parent), messageStr.ref, captionStr.ref, valueStr.ref, style);
+            _ref = WxTextEntryDialog.createInstance(Window.toRaw(parent), messageStr.ref, captionStr.ref, valueStr.ref, style).reinterpret();
             messageStr.destroy();
             captionStr.destroy();
             valueStr.destroy();
@@ -38,7 +38,7 @@ class TextEntryDialog extends Dialog {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     private var textEntryDialogRef(get, null):Pointer<WxTextEntryDialog>;
     private function get_textEntryDialogRef():Pointer<WxTextEntryDialog> {
-        return Pointer.fromRaw(untyped __cpp__("(wxTextEntryDialog*)(_ref->get_raw())"));
+        return _ref.reinterpret();
     }
 
 }

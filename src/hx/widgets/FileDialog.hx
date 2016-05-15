@@ -29,7 +29,7 @@ class FileDialog extends Dialog {
             var defaultDirStr = WxString.createInstance(defaultDir);
             var defaultFileStr = WxString.createInstance(defaultFile);
             var wildcardStr = WxString.createInstance(wildcard);
-            _ref = WxFileDialog.createInstance(Window.toRaw(parent), messageStr.ref, defaultDirStr.ref, defaultFileStr.ref, wildcardStr.ref, style);
+            _ref = WxFileDialog.createInstance(Window.toRaw(parent), messageStr.ref, defaultDirStr.ref, defaultFileStr.ref, wildcardStr.ref, style).reinterpret();
             messageStr.destroy();
             defaultDirStr.destroy();
             defaultFileStr.destroy();
@@ -44,7 +44,7 @@ class FileDialog extends Dialog {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     private var fileDialogRef(get, null):Pointer<WxFileDialog>;
     private function get_fileDialogRef():Pointer<WxFileDialog> {
-        return Pointer.fromRaw(untyped __cpp__("(wxFileDialog*)(_ref->get_raw())"));
+        return _ref.reinterpret();
     }
 
 }

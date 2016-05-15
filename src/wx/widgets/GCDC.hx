@@ -11,8 +11,8 @@ extern class GCDC extends DC {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // creation functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    @:native("new wxGCDC")          private static function _new(windowDC:WindowDC):RawPointer<DC>;
-                                    public static inline function createInstance(windowDC:WindowDC):Pointer<DC> {
+    @:native("new wxGCDC")          private static function _new(windowDC:WindowDC):RawPointer<GCDC>;
+                                    public static inline function createInstance(windowDC:WindowDC):Pointer<GCDC> {
                                         return Pointer.fromRaw(_new(windowDC));
                                     }
 

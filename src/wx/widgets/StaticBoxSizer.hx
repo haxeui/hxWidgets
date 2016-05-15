@@ -11,8 +11,8 @@ extern class StaticBoxSizer extends BoxSizer {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Creation functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    @:native("new wxStaticBoxSizer")    private static function _new(orient:Orientation, window:RawPointer<Window>, title:WxString):RawPointer<Sizer>;
-                                        public static inline function createInstance(orient:Orientation, window:RawPointer<Window>, title:WxString):Pointer<Sizer> {
+    @:native("new wxStaticBoxSizer")    private static function _new(orient:Orientation, window:RawPointer<Window>, title:WxString):RawPointer<StaticBoxSizer>;
+                                        public static inline function createInstance(orient:Orientation, window:RawPointer<Window>, title:WxString):Pointer<StaticBoxSizer> {
                                             return Pointer.fromRaw(_new(orient, window, title));
                                         }
 

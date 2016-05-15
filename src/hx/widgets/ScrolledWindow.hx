@@ -7,7 +7,7 @@ class ScrolledWindow extends Window {
 
     public function new(parent:Window, style:Int = 0, id:Int = -1) {
         if (_ref == null) {
-            _ref = WxScrolledWindow.createInstance();
+            _ref = WxScrolledWindow.createInstance().reinterpret();
             scrolledWindowRef.ptr.create(Window.toRaw(parent), id, Point.defaultPosition.ref, Size.defaultSize.ref, style);
         }
 
@@ -25,8 +25,8 @@ class ScrolledWindow extends Window {
     // Helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     private var scrolledWindowRef(get, null):Pointer<WxScrolledWindow>;
-    private inline function get_scrolledWindowRef():Pointer<WxScrolledWindow> {
-        return Pointer.fromRaw(untyped __cpp__("(wxScrolledWindow*)(_ref->get_raw())"));
+    private function get_scrolledWindowRef():Pointer<WxScrolledWindow> {
+        return _ref.reinterpret();
     }
 
 }

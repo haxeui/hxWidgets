@@ -11,7 +11,7 @@ class Gauge extends Control {
             style = GaugeStyle.HORIZONTAL;
         }
         if (_ref == null) {
-            _ref = WxGauge.createInstance();
+            _ref = WxGauge.createInstance().reinterpret();
             gaugeRef.ptr.create(Window.toRaw(parent), id, range, Point.defaultPosition.ref, Size.defaultSize.ref, style);
         }
 
@@ -38,8 +38,8 @@ class Gauge extends Control {
     // Helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     private var gaugeRef(get, null):Pointer<WxGauge>;
-    private inline function get_gaugeRef():Pointer<WxGauge> {
-        return Pointer.fromRaw(untyped __cpp__("(wxGauge*)(_ref->get_raw())"));
+    private function get_gaugeRef():Pointer<WxGauge> {
+        return _ref.reinterpret();
     }
 
 }

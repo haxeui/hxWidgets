@@ -8,7 +8,7 @@ class ColourDialog extends Dialog {
 
     public function new(parent:Window, colour:Int = -1, chooseFull:Bool = false) {
         if (_ref == null) {
-            _ref = WxColourDialog.createInstance();
+            _ref = WxColourDialog.createInstance().reinterpret();
             var colourData = new ColourData(colour, chooseFull);
             var pointer:Pointer<WxColourData> = colourData.createPointer();
             colourDialogRef.ptr.create(Window.toRaw(parent), pointer.get_raw());
@@ -37,7 +37,7 @@ class ColourDialog extends Dialog {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     private var colourDialogRef(get, null):Pointer<WxColourDialog>;
     private function get_colourDialogRef():Pointer<WxColourDialog> {
-        return Pointer.fromRaw(untyped __cpp__("(wxColourDialog*)(_ref->get_raw())"));
+        return _ref.reinterpret();
     }
 
 }

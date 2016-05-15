@@ -20,7 +20,7 @@ class MessageDialog extends Dialog {
 
             var messageStr = WxString.createInstance(message);
             var captionStr = WxString.createInstance(caption);
-            _ref = WxMessageDialog.createInstance(Window.toRaw(parent), messageStr.ref, captionStr.ref, style);
+            _ref = WxMessageDialog.createInstance(Window.toRaw(parent), messageStr.ref, captionStr.ref, style).reinterpret();
             messageStr.destroy();
             captionStr.destroy();
         }
@@ -33,7 +33,7 @@ class MessageDialog extends Dialog {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     private var messageDialogRef(get, null):Pointer<WxMessageDialog>;
     private function get_messageDialogRef():Pointer<WxMessageDialog> {
-        return Pointer.fromRaw(untyped __cpp__("(wxMessageDialog*)(_ref->get_raw())"));
+        return _ref.reinterpret();
     }
 
 }

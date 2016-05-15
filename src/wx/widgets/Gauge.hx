@@ -11,8 +11,8 @@ extern class Gauge extends Control {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // creation functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    @:native("new wxGauge")             private static function _new():RawPointer<Window>;
-                                        public static inline function createInstance():Pointer<Window> {
+    @:native("new wxGauge")             private static function _new():RawPointer<Gauge>;
+                                        public static inline function createInstance():Pointer<Gauge> {
                                             return Pointer.fromRaw(_new());
                                         }
 

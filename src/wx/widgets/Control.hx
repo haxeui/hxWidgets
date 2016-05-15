@@ -10,8 +10,8 @@ extern class Control extends Window {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // creation functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    @:native("new wxControl")           private static function _new():RawPointer<Window>;
-                                        public static inline function createInstance():Pointer<Window> {
+    @:native("new wxControl")           private static function _new():RawPointer<Control>;
+                                        public static inline function createInstance():Pointer<Control> {
                                             return Pointer.fromRaw(_new());
                                         }
 

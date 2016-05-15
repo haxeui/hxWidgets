@@ -13,7 +13,7 @@ class Frame extends TopLevelWindow {
         }
 
         if (_ref == null) {
-            _ref = WxFrame.createInstance();
+            _ref = WxFrame.createInstance().reinterpret();
             var str = WxString.createInstance(title);
             frameRef.ptr.create(Window.toRaw(parent), id, str.ref, Point.defaultPosition.ref, Size.defaultSize.ref, style);
             str.destroy();
@@ -29,8 +29,8 @@ class Frame extends TopLevelWindow {
     @:access(hx.widgets.MenuBar)
     private function get_menuBar():MenuBar {
         var m:MenuBar = new MenuBar(0, false);
-        var p = frameRef.ptr.getMenuBar();
-        m._ref = Pointer.fromRaw(untyped __cpp__("(wxWindow*)({0})", p));
+        var p = Pointer.fromRaw(frameRef.ptr.getMenuBar());
+        m._ref = p.reinterpret();
         return m;
     }
     @:access(hx.widgets.MenuBar)
@@ -44,7 +44,7 @@ class Frame extends TopLevelWindow {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     private var frameRef(get, null):Pointer<WxFrame>;
     private function get_frameRef():Pointer<WxFrame> {
-        return Pointer.fromRaw(untyped __cpp__("(wxFrame*)(_ref->get_raw())"));
+        return _ref.reinterpret();
     }
 
 }

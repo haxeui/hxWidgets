@@ -23,7 +23,7 @@ class PasswordEntryDialog extends TextEntryDialog {
             var messageStr = WxString.createInstance(message);
             var captionStr = WxString.createInstance(caption);
             var valueStr = WxString.createInstance(value);
-            _ref = WxPasswordEntryDialog.createInstance(Window.toRaw(parent), messageStr.ref, captionStr.ref, valueStr.ref, style);
+            _ref = WxPasswordEntryDialog.createInstance(Window.toRaw(parent), messageStr.ref, captionStr.ref, valueStr.ref, style).reinterpret();
             messageStr.destroy();
             captionStr.destroy();
             valueStr.destroy();

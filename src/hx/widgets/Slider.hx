@@ -12,7 +12,7 @@ class Slider extends Control {
         }
 
         if (_ref == null) {
-            _ref = WxSlider.createInstance();
+            _ref = WxSlider.createInstance().reinterpret();
             sliderRef.ptr.create(Window.toRaw(parent), id, value, min, max, Point.defaultPosition.ref, Size.defaultSize.ref, style);
         }
 
@@ -75,8 +75,8 @@ class Slider extends Control {
     // Helper
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     private var sliderRef(get, null):Pointer<WxSlider>;
-    private inline function get_sliderRef():Pointer<WxSlider> {
-        return Pointer.fromRaw(untyped __cpp__("(wxSlider*)(_ref->get_raw())"));
+    private function get_sliderRef():Pointer<WxSlider> {
+        return _ref.reinterpret();
     }
 
 }

@@ -34,7 +34,7 @@ class DirDialog extends Dialog {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     private var dirDialogRef(get, null):Pointer<WxDirDialog>;
     private function get_dirDialogRef():Pointer<WxDirDialog> {
-        return Pointer.fromRaw(untyped __cpp__("(wxDirDialog*)(_ref->get_raw())"));
+        return _ref.reinterpret();
     }
 
 }

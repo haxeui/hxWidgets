@@ -5,14 +5,14 @@ import cpp.RawPointer;
 
 @:include("wx/scrolwin.h")
 @:unreflective
-@:native("wxScrolledWindow") //note in 3.0 this is wxScrolled<wxPanel> and extends wxPanel
+@:native("wxScrolledWindow") //TODO: in 3.0 this is wxScrolled<wxPanel> and extends wxPanel
 extern class ScrolledWindow extends Window {
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // creation functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    @:native("new wxScrolledWindow")        private static function _new():RawPointer<Window>;
-                                            public static inline function createInstance():Pointer<Window> {
+    @:native("new wxScrolledWindow")        private static function _new():RawPointer<ScrolledWindow>;
+                                            public static inline function createInstance():Pointer<ScrolledWindow> {
                                                 return Pointer.fromRaw(_new());
                                             }
 

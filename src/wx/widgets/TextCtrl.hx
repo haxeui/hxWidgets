@@ -11,8 +11,8 @@ extern class TextCtrl extends Control {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // creation functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    @:native("new wxTextCtrl")          private static function _new():RawPointer<Window>;
-                                        public static inline function createInstance():Pointer<Window> {
+    @:native("new wxTextCtrl")          private static function _new():RawPointer<TextCtrl>;
+                                        public static inline function createInstance():Pointer<TextCtrl> {
                                             return Pointer.fromRaw(_new());
                                         }
 

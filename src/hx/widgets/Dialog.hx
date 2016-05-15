@@ -16,7 +16,7 @@ class Dialog extends TopLevelWindow {
             style = DialogStyle.DEFAULT_DIALOG_STYLE;
         }
         if (_ref == null) {
-            _ref = WxDialog.createInstance();
+            _ref = WxDialog.createInstance().reinterpret();
             var str = WxString.createInstance(title);
             dialogRef.ptr.create(Window.toRaw(parent), id, str.ref, Point.defaultPosition.ref, Size.defaultSize.ref, style);
             str.destroy();
@@ -46,7 +46,7 @@ class Dialog extends TopLevelWindow {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     private var dialogRef(get, null):Pointer<WxDialog>;
     private function get_dialogRef():Pointer<WxDialog> {
-        return Pointer.fromRaw(untyped __cpp__("(wxDialog*)(_ref->get_raw())"));
+        return _ref.reinterpret();
     }
 
 }

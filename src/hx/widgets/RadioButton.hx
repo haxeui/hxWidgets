@@ -8,7 +8,7 @@ class RadioButton extends Control {
 
     public function new(parent:Window, label:String, style:Int = 0, id:Int = -1) {
         if (_ref == null) {
-            _ref = WxRadioButton.createInstance();
+            _ref = WxRadioButton.createInstance().reinterpret();
             var str = WxString.createInstance(label);
             radioButtonRef.ptr.create(Window.toRaw(parent), id, str.ref, Point.defaultPosition.ref, Size.defaultSize.ref, style);
             str.destroy();
@@ -34,7 +34,7 @@ class RadioButton extends Control {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     private var radioButtonRef(get, null):Pointer<WxRadioButton>;
     private function get_radioButtonRef():Pointer<WxRadioButton> {
-        return Pointer.fromRaw(untyped __cpp__("(wxRadioButton*)(_ref->get_raw())"));
+        return _ref.reinterpret();
     }
 
 }

@@ -11,8 +11,8 @@ extern class FontDialog extends Dialog {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // creation functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    @:native("new wxFontDialog")        private static function _new():RawPointer<Window>;
-                                        public static inline function createInstance():Pointer<Window> {
+    @:native("new wxFontDialog")        private static function _new():RawPointer<FontDialog>;
+                                        public static inline function createInstance():Pointer<FontDialog> {
                                             return Pointer.fromRaw(_new());
                                         }
 

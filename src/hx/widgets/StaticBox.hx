@@ -22,7 +22,7 @@ class StaticBox extends Control {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     private var staticBoxRef(get, null):Pointer<WxStaticBox>;
     private function get_staticBoxRef():Pointer<WxStaticBox> {
-       return Pointer.fromRaw(untyped __cpp__("(wxStaticBox*)(_ref->get_raw())"));
+       return _ref.reinterpret();
     }
 
 }

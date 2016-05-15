@@ -12,8 +12,8 @@ extern class Button extends Control {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // creation functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    @:native("new wxButton")            private static function _new():RawPointer<Window>;
-                                        public static inline function createInstance():Pointer<Window> {
+    @:native("new wxButton")            private static function _new():RawPointer<Button>;
+                                        public static inline function createInstance():Pointer<Button> {
                                             return Pointer.fromRaw(_new());
                                         }
 

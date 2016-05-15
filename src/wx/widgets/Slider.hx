@@ -11,8 +11,8 @@ extern class Slider extends Control {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // creation functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    @:native("new wxSlider")            private static function _new():RawPointer<Window>;
-                                        public static inline function createInstance():Pointer<Window> {
+    @:native("new wxSlider")            private static function _new():RawPointer<Slider>;
+                                        public static inline function createInstance():Pointer<Slider> {
                                             return Pointer.fromRaw(_new());
                                         }
 

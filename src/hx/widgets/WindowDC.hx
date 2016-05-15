@@ -9,7 +9,7 @@ class WindowDC extends DC {
     public function new(window:Window) {
         super();
         if (window != null) {
-            _ref = WxWindowDC.createInstance(Window.toRaw(window));
+            _ref = WxWindowDC.createInstance(Window.toRaw(window)).reinterpret();
         }
     }
 
@@ -18,7 +18,7 @@ class WindowDC extends DC {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     private var windowDCRef(get, null):Pointer<WxWindowDC>;
     private function get_windowDCRef():Pointer<WxWindowDC> {
-        return Pointer.fromRaw(untyped __cpp__("(wxWindowDC*)(_ref->get_raw())"));
+        return _ref.reinterpret();
     }
 
 }

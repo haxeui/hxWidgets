@@ -7,7 +7,7 @@ class FontDialog extends Dialog {
 
     public function new(parent:Window) {
         if (_ref == null) {
-            _ref = WxFontDialog.createInstance();
+            _ref = WxFontDialog.createInstance().reinterpret();
             fontDialogRef.ptr.create(Window.toRaw(parent));
         }
 
@@ -19,7 +19,7 @@ class FontDialog extends Dialog {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     private var fontDialogRef(get, null):Pointer<WxFontDialog>;
     private function get_fontDialogRef():Pointer<WxFontDialog> {
-        return Pointer.fromRaw(untyped __cpp__("(wxFontDialog*)(_ref->get_raw())"));
+        return _ref.reinterpret();
     }
 
 }

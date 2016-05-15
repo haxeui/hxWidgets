@@ -11,8 +11,8 @@ extern class StaticBox extends Control {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // creation functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    @:native("new wxStaticBox")         private static function _new():RawPointer<Window>;
-                                        public static inline function createInstance():Pointer<Window> {
+    @:native("new wxStaticBox")         private static function _new():RawPointer<StaticBox>;
+                                        public static inline function createInstance():Pointer<StaticBox> {
                                             return Pointer.fromRaw(_new());
                                         }
 

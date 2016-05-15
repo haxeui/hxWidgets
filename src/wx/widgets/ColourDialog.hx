@@ -11,8 +11,8 @@ extern class ColourDialog extends Dialog {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // creation functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    @:native("new wxColourDialog")      private static function _new():RawPointer<Window>;
-                                        public static inline function createInstance():Pointer<Window> {
+    @:native("new wxColourDialog")      private static function _new():RawPointer<ColourDialog>;
+                                        public static inline function createInstance():Pointer<ColourDialog> {
                                             return Pointer.fromRaw(_new());
                                         }
 

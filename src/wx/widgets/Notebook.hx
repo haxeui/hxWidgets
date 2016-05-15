@@ -11,8 +11,8 @@ extern class Notebook extends Control {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // creation functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    @:native("new wxNotebook")          private static function _new():RawPointer<Window>;
-                                        public static inline function createInstance():Pointer<Window> {
+    @:native("new wxNotebook")          private static function _new():RawPointer<Notebook>;
+                                        public static inline function createInstance():Pointer<Notebook> {
                                             return Pointer.fromRaw(_new());
                                         }
 

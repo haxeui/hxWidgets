@@ -6,7 +6,7 @@ class BoxSizer extends Sizer {
 
     public function new(orient:Orientation = null) {
         if (_ref == null) {
-            _ref = WxBoxSizer.createInstance(orient);
+            _ref = WxBoxSizer.createInstance(orient).reinterpret();
         }
 
         super();

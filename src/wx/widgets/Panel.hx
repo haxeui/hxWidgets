@@ -11,8 +11,8 @@ extern class Panel extends Window {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // creation functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    @:native("new wxPanel")             private static function _new():RawPointer<Window>;
-                                        public static inline function createInstance():Pointer<Window> {
+    @:native("new wxPanel")             private static function _new():RawPointer<Panel>;
+                                        public static inline function createInstance():Pointer<Panel> {
                                             return Pointer.fromRaw(_new());
                                         }
 

@@ -26,7 +26,7 @@ class TopLevelWindow extends Window {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     private var topLevelWindowRef(get, null):Pointer<WxTopLevelWindow>;
     private function get_topLevelWindowRef():Pointer<WxTopLevelWindow> {
-        return Pointer.fromRaw(untyped __cpp__("(wxTopLevelWindow*)(_ref->get_raw())"));
+        return _ref.reinterpret();
     }
 
 }

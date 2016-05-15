@@ -50,7 +50,7 @@ class ScrollBar extends Control {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     private var scrollBarRef(get, null):Pointer<WxScrollBar>;
     private function get_scrollBarRef():Pointer<WxScrollBar> {
-        return Pointer.fromRaw(untyped __cpp__("(wxScrollBar*)(_ref->get_raw())"));
+        return _ref.reinterpret();
     }
 
 }

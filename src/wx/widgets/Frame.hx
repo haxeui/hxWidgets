@@ -11,8 +11,8 @@ extern class Frame extends TopLevelWindow {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // creation functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    @:native("new wxFrame") private static function _new():RawPointer<Window>;
-                            public static inline function createInstance():Pointer<Window> {
+    @:native("new wxFrame") private static function _new():RawPointer<Frame>;
+                            public static inline function createInstance():Pointer<Frame> {
                                 return Pointer.fromRaw(_new());
                             }
 

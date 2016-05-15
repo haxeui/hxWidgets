@@ -11,8 +11,8 @@ extern class StaticBitmap extends Control {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // creation functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    @:native("new wxStaticBitmap")          private static function _new():RawPointer<Window>;
-                                            public static inline function createInstance():Pointer<Window> {
+    @:native("new wxStaticBitmap")          private static function _new():RawPointer<StaticBitmap>;
+                                            public static inline function createInstance():Pointer<StaticBitmap> {
                                                 return Pointer.fromRaw(_new());
                                             }
 
