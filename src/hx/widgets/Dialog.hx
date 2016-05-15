@@ -10,7 +10,7 @@ import wx.widgets.WxString;
 #include <wx/dialog.h>
 #undef RegisterClass
 ")
-class Dialog extends Window {
+class Dialog extends TopLevelWindow {
     public function new(parent:Window, title:String, style:Int = 0, id:Int = -1) {
         if (style == 0) {
             style = DialogStyle.DEFAULT_DIALOG_STYLE;
