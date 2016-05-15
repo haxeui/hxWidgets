@@ -53,6 +53,7 @@ class DialogView extends View {
         });
         top.add(button, 0, Stretch.EXPAND);
         
+        /*
         if (platform.isWindows) {
             // dir dialog
             var button:Button = new Button(this, "Open Dir Dialog");
@@ -62,6 +63,7 @@ class DialogView extends View {
             });
             top.add(button, 0, Stretch.EXPAND);
         }
+        */
         
         // text entry dialog
         var button:Button = new Button(this, "Open Text Entry Dialog");
