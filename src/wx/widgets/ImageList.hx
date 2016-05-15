@@ -7,11 +7,14 @@ import cpp.RawPointer;
 @:unreflective
 @:native("wxImageList")
 extern class ImageList {
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // creation functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     @:native("new wxImageList")         private static function _new():RawPointer<ImageList>;
-                                        public static inline function createInstance():Pointer<ImageList> return Pointer.fromRaw(_new());
+                                        public static inline function createInstance():Pointer<ImageList> {
+                                            return Pointer.fromRaw(_new());
+                                        }
 
     @:native("Create")                  public function create(width:Int, height:Int):Bool;
 
@@ -19,4 +22,5 @@ extern class ImageList {
     // Instance functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     @:native("Add")                     public function add(bitmap:Bitmap):Int;
+
 }

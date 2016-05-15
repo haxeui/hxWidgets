@@ -7,9 +7,13 @@ import cpp.RawPointer;
 @:unreflective
 @:native("wxEvtHandler")
 extern class EvtHandler {
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // creation functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     @:native("new wxEvtHandler")        private static function _new():RawPointer<EvtHandler>;
-                                        public static inline function createInstance():Pointer<EvtHandler> return Pointer.fromRaw(_new());
+                                        public static inline function createInstance():Pointer<EvtHandler> {
+                                            return Pointer.fromRaw(_new());
+                                        }
+
 }

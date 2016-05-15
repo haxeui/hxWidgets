@@ -6,7 +6,9 @@ import wx.widgets.MenuItem in WxMenuItem;
 import wx.widgets.WxString;
 
 class Menu extends EvtHandler {
+
     private var _ref:Pointer<WxMenu>;
+
     public function new(text:String = null, style:Int = 0) {
         if (_ref == null) {
             var str = WxString.createInstance(text);
@@ -77,4 +79,5 @@ class Menu extends EvtHandler {
     private function get_menuRef():Pointer<WxMenu> {
         return Pointer.fromRaw(untyped __cpp__("(wxMenu*)(_ref->get_raw())"));
     }
+
 }

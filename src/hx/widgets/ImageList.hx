@@ -4,6 +4,7 @@ import cpp.Pointer;
 import wx.widgets.ImageList in WxImageList;
 
 class ImageList {
+
     private var _ref:Pointer<WxImageList>;
 
     public function new(width:Int = -1, height:Int = -1) {
@@ -17,4 +18,5 @@ class ImageList {
     public function add(bitmap:Bitmap):Int {
         return _ref.ptr.add(bitmap._ref.ref);
     }
+
 }

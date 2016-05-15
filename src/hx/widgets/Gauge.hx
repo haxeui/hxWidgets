@@ -5,6 +5,7 @@ import wx.widgets.Gauge in WxGauge;
 import hx.widgets.styles.GaugeStyle;
 
 class Gauge extends Control {
+
     public function new(parent:Window, range:Int = 100, style:Int = -1, id:Int = -1) {
         if (style == -1) {
             style = GaugeStyle.HORIZONTAL;
@@ -13,7 +14,7 @@ class Gauge extends Control {
             _ref = WxGauge.createInstance();
             gaugeRef.ptr.create(Window.toRaw(parent), id, range, Point.defaultPosition.ref, Size.defaultSize.ref, style);
         }
-        
+
         super(parent, id);
     }
 
@@ -28,11 +29,11 @@ class Gauge extends Control {
         gaugeRef.ptr.setValue(value);
         return value;
     }
-    
+
     public function pulse() {
         gaugeRef.ptr.pulse();
     }
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -40,4 +41,5 @@ class Gauge extends Control {
     private inline function get_gaugeRef():Pointer<WxGauge> {
         return Pointer.fromRaw(untyped __cpp__("(wxGauge*)(_ref->get_raw())"));
     }
+
 }

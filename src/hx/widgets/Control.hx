@@ -5,15 +5,16 @@ import wx.widgets.Control in WxControl;
 import wx.widgets.WxString;
 
 class Control extends Window {
+
     public function new(parent:Window, style:Int = 0, id:Int = -1) {
         if (_ref == null) {
             _ref = WxControl.createInstance();
             controlRef.ptr.create(Window.toRaw(parent), id, Point.defaultPosition.ref, Size.defaultSize.ref, style);
         }
-        
+
         super(parent, id);
     }
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Instance functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -28,7 +29,7 @@ class Control extends Window {
         s.destroy();
         return value;
     }
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -36,4 +37,5 @@ class Control extends Window {
     private function get_controlRef():Pointer<WxControl> {
         return Pointer.fromRaw(untyped __cpp__("(wxControl*)(_ref->get_raw())"));
     }
+
 }

@@ -2,6 +2,7 @@ package wx.widgets.styles;
 
 @:headerCode("#include <wx/textctrl.h>")
 class TextCtrlStyle {
+
     public static var PROCESS_ENTER:Int     = untyped __cpp__("wxTE_PROCESS_ENTER");
     public static var PROCESS_TAB:Int       = untyped __cpp__("wxTE_PROCESS_TAB");
     public static var MULTILINE:Int         = untyped __cpp__("wxTE_MULTILINE");
@@ -21,4 +22,5 @@ class TextCtrlStyle {
     public static var WORDWRAP:Int          = untyped __cpp__("wxTE_WORDWRAP");
     public static var BESTWRAP:Int          = untyped __cpp__("wxTE_BESTWRAP");
     public static var CAPITALIZE:Int        = untyped __cpp__("wxTE_CAPITALIZE");
+
 }

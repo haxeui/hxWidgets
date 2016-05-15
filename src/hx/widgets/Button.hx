@@ -1,12 +1,15 @@
 package hx.widgets;
 
 import cpp.Pointer;
-import cpp.RawPointer;
 import wx.widgets.Button in WxButton;
 import wx.widgets.Bitmap in WxBitmap;
 
 class Button extends Control {
+
     public function new(parent:Window, label:String, style:Int = 0, id:Int = -1) {
+        _hasBitmap = false;
+        bitmapPosition = Direction.LEFT;
+
         if (_ref == null) {
             _ref = WxButton.createInstance();
             buttonRef.ptr.create(Window.toRaw(parent), id, label, Point.defaultPosition.ref, Size.defaultSize.ref, style);
@@ -18,7 +21,7 @@ class Button extends Control {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Instance functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    private var _hasBitmap:Bool = false; // we'll use this var to store if a bitmap has been set, this way we can set the position in any order
+    private var _hasBitmap:Bool; // we'll use this var to store if a bitmap has been set, this way we can set the position in any order
 
     public var bitmap(get, set):Bitmap;
     @:access(hx.widgets.Bitmap)
@@ -31,22 +34,17 @@ class Button extends Control {
     @:access(hx.widgets.Bitmap)
     private function set_bitmap(value:Bitmap):Bitmap {
         buttonRef.ptr.setBitmap(value._ref.ref);
-        if (_hasBitmap == false) {
+        if (!_hasBitmap) {
             _hasBitmap = true;
-            set_bitmapPosition(_bitmapPosition);
+            set_bitmapPosition(bitmapPosition);
         }
         return value;
     }
 
-    private var _bitmapPosition:Direction = Direction.LEFT;
-    public var bitmapPosition(get, set):Direction;
-    public function get_bitmapPosition():Direction {
-        return _bitmapPosition;
-    }
-
+    public var bitmapPosition(default, set):Direction;
     public function set_bitmapPosition(value:Direction):Direction {
-        _bitmapPosition = value;
-        if (_hasBitmap == false) {
+        bitmapPosition = value;
+        if (!_hasBitmap) {
             return value;
         }
 
@@ -65,4 +63,5 @@ class Button extends Control {
     private function get_buttonRef():Pointer<WxButton> {
        return Pointer.fromRaw(untyped __cpp__("(wxButton*)(_ref->get_raw())"));
     }
+
 }

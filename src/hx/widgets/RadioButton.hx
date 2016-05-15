@@ -5,6 +5,7 @@ import wx.widgets.RadioButton in WxRadioButton;
 import wx.widgets.WxString;
 
 class RadioButton extends Control {
+
     public function new(parent:Window, label:String, style:Int = 0, id:Int = -1) {
         if (_ref == null) {
             _ref = WxRadioButton.createInstance();
@@ -35,4 +36,5 @@ class RadioButton extends Control {
     private function get_radioButtonRef():Pointer<WxRadioButton> {
         return Pointer.fromRaw(untyped __cpp__("(wxRadioButton*)(_ref->get_raw())"));
     }
+
 }

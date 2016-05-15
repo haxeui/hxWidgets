@@ -2,11 +2,11 @@ package hx.widgets;
 
 import cpp.ConstPointer;
 import cpp.Pointer;
-import cpp.RawPointer;
 import wx.widgets.Brush in WxBrush;
 import wx.widgets.StockBrushes in WxStockBrushes;
 
 class StockBrushes {
+
     public static var BRUSH_BLACK(default, null):Brush          = createStockBrush(WxStockBrushes.BRUSH_BLACK);
     public static var BRUSH_BLUE(default, null):Brush           = createStockBrush(WxStockBrushes.BRUSH_BLUE);
     public static var BRUSH_CYAN(default, null):Brush           = createStockBrush(WxStockBrushes.BRUSH_CYAN);
@@ -26,4 +26,5 @@ class StockBrushes {
         brush._ref = Pointer.fromPointer(stock.ptr);
         return brush;
     }
+
 }

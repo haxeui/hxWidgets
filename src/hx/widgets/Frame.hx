@@ -3,10 +3,10 @@ package hx.widgets;
 import cpp.Pointer;
 import hx.widgets.styles.FrameStyle;
 import wx.widgets.Frame in WxFrame;
-import wx.widgets.MenuBar in WxMenuBar;
 import wx.widgets.WxString;
 
 class Frame extends TopLevelWindow {
+
     public function new(parent:Window, title:String, style:Int = 0, id:Int = -1) {
         if (style == 0) {
             style = FrameStyle.DEFAULT_FRAME_STYLE;
@@ -28,10 +28,10 @@ class Frame extends TopLevelWindow {
     public var menuBar(get, set):MenuBar;
     @:access(hx.widgets.MenuBar)
     private function get_menuBar():MenuBar {
-        var menuBar:MenuBar = new MenuBar(0, false);
+        var m:MenuBar = new MenuBar(0, false);
         var p = frameRef.ptr.getMenuBar();
-        menuBar._ref = Pointer.fromRaw(untyped __cpp__("(wxWindow*)(p)"));
-        return menuBar;
+        m._ref = Pointer.fromRaw(untyped __cpp__("(wxWindow*)({0})", p));
+        return m;
     }
     @:access(hx.widgets.MenuBar)
     private function set_menuBar(value:MenuBar):MenuBar {
@@ -46,4 +46,5 @@ class Frame extends TopLevelWindow {
     private function get_frameRef():Pointer<WxFrame> {
         return Pointer.fromRaw(untyped __cpp__("(wxFrame*)(_ref->get_raw())"));
     }
+
 }

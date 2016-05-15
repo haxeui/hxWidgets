@@ -8,6 +8,7 @@ package wx.widgets;
 #include <wx/notebook.h>
 ")
 class EventType {
+
     public static var BUTTON:Int                = untyped __cpp__("wxEVT_BUTTON");
     public static var CHECKBOX:Int              = untyped __cpp__("wxEVT_CHECKBOX");
     public static var RADIOBUTTON:Int           = untyped __cpp__("wxEVT_RADIOBUTTON");
@@ -24,14 +25,16 @@ class EventType {
     public static var TIMER:Int                 = untyped __cpp__("wxEVT_TIMER");
     public static var NOTEBOOK_PAGE_CHANGED:Int = untyped __cpp__("wxEVT_NOTEBOOK_PAGE_CHANGED");
     public static var SIZE:Int                  = untyped __cpp__("wxEVT_SIZE");
-    
+
     public static var PAINT:Int                 = untyped __cpp__("wxEVT_PAINT");
     public static var ERASE_BACKGROUND:Int      = untyped __cpp__("wxEVT_ERASE_BACKGROUND");
     /* commented out as it causes link errors on my mac for some reason - should investigate
     public static var HYPERLINK:Int             = untyped __cpp__("wxEVT_HYPERLINK");
     */
-    
-    public static var LEFT_DOWN:Int             = untyped __cpp__("wxEVT_LEFT_DOWN"); // Process a wxEVT_LEFT_DOWN event. The handler of this event should normally call event.Skip() to allow the default processing to take place as otherwise the window under mouse wouldn't get the focus.
+
+    /** Process a wxEVT_LEFT_DOWN event. The handler of this event should normally call event.Skip() to allow the default processing to take
+      * place as otherwise the window under mouse wouldn't get the focus. */
+    public static var LEFT_DOWN:Int             = untyped __cpp__("wxEVT_LEFT_DOWN");
     public static var LEFT_UP:Int               = untyped __cpp__("wxEVT_LEFT_UP");
     public static var LEFT_DCLICK:Int           = untyped __cpp__("wxEVT_LEFT_DCLICK");
     public static var MIDDLE_DOWN:Int           = untyped __cpp__("wxEVT_MIDDLE_DOWN");
@@ -44,4 +47,5 @@ class EventType {
     public static var ENTER_WINDOW:Int          = untyped __cpp__("wxEVT_ENTER_WINDOW");
     public static var LEAVE_WINDOW:Int          = untyped __cpp__("wxEVT_LEAVE_WINDOW");
     public static var MOUSEWHEEL:Int            = untyped __cpp__("wxEVT_MOUSEWHEEL");
+
 }

@@ -5,6 +5,7 @@ import haxe.io.Bytes;
 import wx.widgets.Image in WxImage;
 
 class Image {
+
     private var _ref:Pointer<WxImage>;
 
 	@:access(hx.widgets.MemoryInputStream)
@@ -13,7 +14,7 @@ class Image {
         _ref = WxImage.createInstance(stream._ref.ref);
         stream.destroy();
     }
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Instance functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -21,9 +22,10 @@ class Image {
     private function get_width():Int {
         return _ref.ptr.getWidth();
     }
-    
+
     public var height(get, null):Int;
     private function get_height():Int {
         return _ref.ptr.getHeight();
     }
+
 }

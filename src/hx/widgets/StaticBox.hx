@@ -1,11 +1,11 @@
 package hx.widgets;
 
 import cpp.Pointer;
-import cpp.RawPointer;
 import wx.widgets.StaticBox in WxStaticBox;
 import wx.widgets.WxString;
 
 class StaticBox extends Control {
+
     public function new(parent:Window, title:String = null, id:Int = -1) {
         if (_ref == null) {
             _ref = WxStaticBox.createInstance();
@@ -24,4 +24,5 @@ class StaticBox extends Control {
     private function get_staticBoxRef():Pointer<WxStaticBox> {
        return Pointer.fromRaw(untyped __cpp__("(wxStaticBox*)(_ref->get_raw())"));
     }
+
 }

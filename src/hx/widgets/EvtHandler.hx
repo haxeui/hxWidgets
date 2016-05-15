@@ -1,8 +1,6 @@
 package hx.widgets;
 
 import cpp.Pointer;
-import cpp.RawConstPointer;
-import cpp.RawPointer;
 import wx.widgets.Event in WxEvent;
 import wx.widgets.Window in WxWindow;
 
@@ -13,6 +11,7 @@ void onEvent(wxEvent& e) {
 ")
 @:access(hx.widgets.Window)
 class EvtHandler {
+
     private var _eventMap:Map<Int, Map<Int, Array<Event->Void>>>;
 
     public function new() {
@@ -28,7 +27,7 @@ class EvtHandler {
 
         var eventList:Array<Event->Void> = mapForId.get(event);
         if (eventList == null) {
-            eventList = new Array<Event->Void>();
+            eventList = [];
             mapForId.set(event, eventList);
         }
 
@@ -36,7 +35,7 @@ class EvtHandler {
 
         if (Std.is(this, Window)) {
             var win:Pointer<WxWindow> = cast(this, Window)._ref;
-            untyped __cpp__('win->ptr->Bind(event, &hx::widgets::EvtHandler_obj::onEvent, this, id)');
+            untyped __cpp__("win->ptr->Bind(event, &hx::widgets::EvtHandler_obj::onEvent, this, id)");
         }
     }
 
@@ -58,17 +57,17 @@ class EvtHandler {
 
         if (Std.is(this, Window)) {
             var win:Pointer<WxWindow> = cast(this, Window)._ref;
-            untyped __cpp__('win->ptr->Unbind(event, &hx::widgets::EvtHandler_obj::onEvent, this, id)');
+            untyped __cpp__("win->ptr->Unbind(event, &hx::widgets::EvtHandler_obj::onEvent, this, id)");
         }
     }
 
-    private function handleEvent(e:Pointer<WxEvent>):Void {
+    private function handleEvent(e:Pointer<WxEvent>) {
         executeHandlers(e, e.ptr.getId());
         executeHandlers(e); // call any that were not added using control ids
-        
+
     }
 
-    private function executeHandlers(e:Pointer<WxEvent>, id:Int = -1):Void {
+    private function executeHandlers(e:Pointer<WxEvent>, id:Int = -1) {
         var mapForId:Map<Int, Array<Event->Void>> = _eventMap.get(id);
         if (mapForId == null) {
             return;
@@ -83,4 +82,5 @@ class EvtHandler {
             fn(Event.fromPointer(e));
         }
     }
+
 }

@@ -8,14 +8,17 @@ import cpp.RawPointer;
 @:unreflective
 @:native("wxButton")
 extern class Button extends Control {
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // creation functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     @:native("new wxButton")            private static function _new():RawPointer<Window>;
-                                        public static inline function createInstance():Pointer<Window> return Pointer.fromRaw(_new());
+                                        public static inline function createInstance():Pointer<Window> {
+                                            return Pointer.fromRaw(_new());
+                                        }
 
     @:native("Create")                  @:overload(function(parent:RawPointer<Window>, id:Int, label:ConstCharStar, point:Point, size:Size, style:Int):Bool {})
-    @:native("Create")                  public override function create(parent:RawPointer<Window>, id:Int, point:Point, size:Size, style:Int):Bool;
+    @:native("Create")                  override public function create(parent:RawPointer<Window>, id:Int, point:Point, size:Size, style:Int):Bool;
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Instance functions
@@ -23,4 +26,5 @@ extern class Button extends Control {
     @:native("GetBitmap")               public function getBitmap():Bitmap;
     @:native("SetBitmap")               public function setBitmap(bitmap:Bitmap):Void;
     @:native("SetBitmapPosition")       public function setBitmapPosition(dir:Direction):Void;
+
 }

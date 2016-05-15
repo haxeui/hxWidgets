@@ -1,21 +1,21 @@
 package hx.widgets;
+
 import cpp.Pointer;
 import cpp.RawPointer;
-
 import wx.widgets.Sizer in WxSizer;
 
 class Sizer {
+
     private var _ref:Pointer<WxSizer>;
 
     public function new() {
-
     }
 
     public function destroy() {
         _ref.destroy();
         _ref = null;
     }
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Instance functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -27,11 +27,9 @@ class Sizer {
         _ref.ptr.add(Sizer.toRaw(sizer), proportion, flag, border);
     }
 
-
     public function addSpacer(size:Int) {
         _ref.ptr.addSpacer(size);
     }
-
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Static helpers
@@ -42,4 +40,5 @@ class Sizer {
         }
         return sizer._ref.get_raw();
     }
+
 }

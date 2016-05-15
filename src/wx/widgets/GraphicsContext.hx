@@ -1,6 +1,5 @@
 package wx.widgets;
 
-import cpp.ConstCharStar;
 import cpp.Pointer;
 import cpp.RawPointer;
 
@@ -8,11 +7,14 @@ import cpp.RawPointer;
 @:unreflective
 @:native("wxGraphicsContext")
 extern class GraphicsContext {
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // creation functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     @:native("wxGraphicsContext::Create")       private static function _new(window:RawPointer<Window>):RawPointer<GraphicsContext>;
-                                                public static inline function createInstance(window:RawPointer<Window>):Pointer<GraphicsContext> return Pointer.fromRaw(_new(window));
+                                                public static inline function createInstance(window:RawPointer<Window>):Pointer<GraphicsContext> {
+                                                    return Pointer.fromRaw(_new(window));
+                                                }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Instance functions
@@ -26,4 +28,5 @@ extern class GraphicsContext {
     @:native("DrawBitmap")                      public function drawBitmap(bmp:Bitmap, x:Float, y:Float, width:Float, height:Float):Void;
     @:native("SetAntialiasMode")                public function setAntialiasMode(mode:AntialiasMode):Bool;
     @:native("SetInterpolationQuality")         public function setInterpolationQuality(mode:InterpolationQuality):Bool;
+
 }

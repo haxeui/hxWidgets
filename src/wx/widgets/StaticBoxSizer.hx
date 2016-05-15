@@ -7,9 +7,13 @@ import cpp.RawPointer;
 @:unreflective
 @:native("wxStaticBoxSizer")
 extern class StaticBoxSizer extends BoxSizer {
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Creation functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     @:native("new wxStaticBoxSizer")    private static function _new(orient:Orientation, window:RawPointer<Window>, title:WxString):RawPointer<Sizer>;
-                                        public static inline function createInstance(orient:Orientation, window:RawPointer<Window>, title:WxString):Pointer<Sizer> return Pointer.fromRaw(_new(orient, window, title));
+                                        public static inline function createInstance(orient:Orientation, window:RawPointer<Window>, title:WxString):Pointer<Sizer> {
+                                            return Pointer.fromRaw(_new(orient, window, title));
+                                        }
+
 }

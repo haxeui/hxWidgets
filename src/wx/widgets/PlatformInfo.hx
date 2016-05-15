@@ -1,6 +1,5 @@
 package wx.widgets;
 
-import cpp.ConstCharStar;
 import cpp.Pointer;
 import cpp.RawPointer;
 
@@ -8,11 +7,14 @@ import cpp.RawPointer;
 @:unreflective
 @:native("wxPlatformInfo")
 extern class PlatformInfo {
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // creation functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     @:native("new wxPlatformInfo")                  private static function _new():RawPointer<PlatformInfo>;
-                                                    public static inline function createInstance():Pointer<PlatformInfo> return Pointer.fromRaw(_new());
+                                                    public static inline function createInstance():Pointer<PlatformInfo> {
+                                                        return Pointer.fromRaw(_new());
+                                                    }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Instance functions
@@ -23,4 +25,5 @@ extern class PlatformInfo {
     @:native("GetOperatingSystemFamilyName")        public function getOperatingSystemFamilyName():WxString;
     @:native("GetOperatingSystemId")                public function getOperatingSystemId():OperatingSystemId;
     @:native("GetOperatingSystemIdName")            public function getOperatingSystemIdName():WxString;
+
 }

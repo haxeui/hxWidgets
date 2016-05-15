@@ -5,20 +5,21 @@ import hx.widgets.styles.*;
 import views.View;
 
 class SystemMetricsPanel extends View {
+
     public function new(parent:Window) {
         super(parent);
 
         sizer = new BoxSizer(Orientation.VERTICAL);
-        
+
         var innerSizer = new BoxSizer(Orientation.VERTICAL);
         var frame = createFrame("System Metrics", innerSizer);
-        
+
         var scrollview:ScrolledWindow = new ScrolledWindow(frame);
         scrollview.sizer = new GridSizer(2, 0, 5);
-        
+
         innerSizer.add(scrollview, 1, Stretch.EXPAND);
         sizer.add(frame, 1, Stretch.EXPAND);
-        
+
         label("Metric", scrollview.sizer, scrollview, true, true);
         label("Name", scrollview.sizer, scrollview, true, true);
 

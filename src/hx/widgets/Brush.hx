@@ -5,18 +5,19 @@ import wx.widgets.Brush in WxBrush;
 import wx.widgets.Colour in WxColour;
 
 class Brush {
+
     private var _ref:Pointer<WxBrush>;
 
     public function new(colour:Int = 0x000000) {
         _ref = WxBrush.createInstance();
         this.colour = colour;
     }
-    
+
     public function destroy() {
         _ref.destroy();
         _ref = null;
     }
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Instance functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -32,4 +33,5 @@ class Brush {
         temp.destroy();
         return value;
     }
+
 }

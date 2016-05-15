@@ -1,6 +1,5 @@
 package wx.widgets;
 
-import cpp.ConstCharStar;
 import cpp.Pointer;
 import cpp.RawPointer;
 
@@ -9,11 +8,14 @@ import cpp.RawPointer;
 @:native("wxSize")
 @:structAccess
 extern class Size {
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Creation functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     @:native("new wxSize")              private static function _new(width:Int, height:Int):RawPointer<Size>;
-                                        public static inline function createInstance(width:Int, height:Int):Pointer<Size> return Pointer.fromRaw(_new(width, height));
+                                        public static inline function createInstance(width:Int, height:Int):Pointer<Size> {
+                                            return Pointer.fromRaw(_new(width, height));
+                                        }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Instance functions
@@ -22,4 +24,5 @@ extern class Size {
     @:native("GetHeight")               public function getHeight():Int;
     @:native("SetWidth")                public function setWidth(value:Int):Void;
     @:native("SetHeight")               public function setHeight(value:Int):Void;
+
 }

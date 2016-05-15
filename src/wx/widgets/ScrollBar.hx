@@ -8,11 +8,14 @@ import cpp.Void;
 @:unreflective
 @:native("wxScrollBar")
 extern class ScrollBar extends Control {
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // creation functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     @:native("new wxScrollBar")         private static function _new():RawPointer<Window>;
-                                        public static inline function createInstance():Pointer<Window> return Pointer.fromRaw(_new());
+                                        public static inline function createInstance():Pointer<Window> {
+                                            return Pointer.fromRaw(_new());
+                                        }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Instance functions
@@ -23,4 +26,5 @@ extern class ScrollBar extends Control {
     @:native("GetThumbPosition")        public function getThumbPosition():Int;
     @:native("SetThumbPosition")        public function setThumbPosition(value:Int):Void;
     @:native("GetThumbSize")            public function getThumbSize():Int;
+
 }

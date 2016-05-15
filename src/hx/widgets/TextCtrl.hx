@@ -5,6 +5,7 @@ import wx.widgets.TextCtrl in WxTextCtrl;
 import wx.widgets.WxString;
 
 class TextCtrl extends Control {
+
     public function new(parent:Window, text:String = null, style:Int = 0, id:Int = -1) {
         if (_ref == null) {
             _ref = WxTextCtrl.createInstance();
@@ -53,47 +54,5 @@ class TextCtrl extends Control {
     private function get_textCtrlRef():Pointer<WxTextCtrl> {
         return Pointer.fromRaw(untyped __cpp__("(wxTextCtrl*)(_ref->get_raw())"));
     }
+
 }
-/*
-class TextCtrl extends Control {
-    public function new(parent:Window, text:String = null, style:Int = 0, id:Int = -1) {
-        if (_ref == null) {
-            var textRef:WxTextCtrl = WxTextCtrl.createInstance();
-            textRef.create(parent != null ? parent._ref : Window.nullWindowRef, id, text, Point.defaultPositionRef, Size.defaultSizeRef, style);
-            _ref = textRef;
-        }
-
-        super(parent, id);
-    }
-
-    public function appendText(value:String) {
-        textRef.appendText(value);
-    }
-
-    public var insertionPoint(get, set):Int;
-    private function get_insertionPoint():Int {
-        return textRef.getInsertionPoint();
-    }
-    private function set_insertionPoint(value:Int):Int {
-        textRef.setInsertionPoint(value);
-        return value;
-    }
-
-    public var value(get, set):String;
-    private function get_value():String {
-        return textRef.getValue();
-    }
-    private function set_value(value:String):String {
-        textRef.setValue(value);
-        return value;
-    }
-
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // HELPERS
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    private var textRef(get, null):WxTextCtrl;
-    private inline function get_textRef():WxTextCtrl {
-        return cast _ref;
-    }
-}
-*/

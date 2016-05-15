@@ -1,6 +1,5 @@
 package wx.widgets;
 
-import cpp.ConstCharStar;
 import cpp.Pointer;
 import cpp.RawPointer;
 
@@ -8,14 +7,17 @@ import cpp.RawPointer;
 @:unreflective
 @:native("wxSlider")
 extern class Slider extends Control {
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // creation functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     @:native("new wxSlider")            private static function _new():RawPointer<Window>;
-                                        public static inline function createInstance():Pointer<Window> return Pointer.fromRaw(_new());
+                                        public static inline function createInstance():Pointer<Window> {
+                                            return Pointer.fromRaw(_new());
+                                        }
 
     @:native("Create")                  @:overload(function(parent:RawPointer<Window>, id:Int, value:Int, minValue:Int, maxValue:Int, point:Point, size:Size, style:Int):Bool {})
-    @:native("Create")                  public override function create(parent:RawPointer<Window>, id:Int, point:Point, size:Size, style:Int):Bool;
+    @:native("Create")                  override public function create(parent:RawPointer<Window>, id:Int, point:Point, size:Size, style:Int):Bool;
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Instance functions
@@ -29,4 +31,5 @@ extern class Slider extends Control {
     @:native("SetSelection")            public function setSelection(startPos:Int, endPos:Int):Void;
     @:native("GetSelStart")             public function getSelStart():Int;
     @:native("GetSelEnd")               public function getSelEnd():Int;
+
 }

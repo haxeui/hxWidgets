@@ -4,6 +4,7 @@ import cpp.Pointer;
 import wx.widgets.ScrollBar in WxScrollBar;
 
 class ScrollBar extends Control {
+
     public function new(parent:Window, style:Int = 0, id:Int = -1) {
         if (_ref == null) {
             _ref = WxScrollBar.createInstance();
@@ -51,4 +52,5 @@ class ScrollBar extends Control {
     private function get_scrollBarRef():Pointer<WxScrollBar> {
         return Pointer.fromRaw(untyped __cpp__("(wxScrollBar*)(_ref->get_raw())"));
     }
+
 }
