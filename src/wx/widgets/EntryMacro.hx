@@ -55,8 +55,7 @@ class EntryMacro {
 				if (libs[i] == "-framework") {
 					link.push('<vflag name="${libs[i]}" value="${libs[i+1]}"/>');
 					i++;
-				}
-                else if (libs[i] != "") {
+				} else if (libs[i] != "") {
 					link.push('<lib name="${libs[i]}" />');
 				}
 
