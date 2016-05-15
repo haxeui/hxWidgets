@@ -8,6 +8,8 @@ class DialogView extends View {
     public function new(parent:Window) {
         super(parent);
         
+        var platform:PlatformInfo = new PlatformInfo();
+        
         sizer = new BoxSizer(Orientation.VERTICAL);
         var top = new GridSizer(2, 5, 5);
 
@@ -51,13 +53,15 @@ class DialogView extends View {
         });
         top.add(button, 0, Stretch.EXPAND);
         
-        // dir dialog
-        var button:Button = new Button(this, "Open Dir Dialog");
-        button.bind(EventType.BUTTON, function(e) {
-            var dialog:DirDialog = new DirDialog(this);
-            var r = dialog.showModal();
-        });
-        top.add(button, 0, Stretch.EXPAND);
+        if (platform.isWindows) {
+            // dir dialog
+            var button:Button = new Button(this, "Open Dir Dialog");
+            button.bind(EventType.BUTTON, function(e) {
+                var dialog:DirDialog = new DirDialog(this);
+                var r = dialog.showModal();
+            });
+            top.add(button, 0, Stretch.EXPAND);
+        }
         
         // text entry dialog
         var button:Button = new Button(this, "Open Text Entry Dialog");
