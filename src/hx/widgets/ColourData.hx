@@ -19,20 +19,20 @@ class ColourData {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Instance functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    private var colour:Int;
-    private var chooseFull:Bool;
+    public var colour:Int;
+    public var chooseFull:Bool;
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     public function createPointer():Pointer<WxColourData> {
         var p:Pointer<WxColourData> = WxColourData.createInstance();
-        if (this._colour != -1) {
-            var color:Pointer<WxColour> = new Colour(this._colour).createPointer();
+        if (colour != -1) {
+            var color:Pointer<WxColour> = new Colour(colour).createPointer();
             p.ref.setColour(color.ref);
             color.destroy();
         }
-        p.ref.setChooseFull(this._chooseFull);
+        p.ref.setChooseFull(chooseFull);
         return p;
     }
 
