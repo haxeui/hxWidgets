@@ -1,7 +1,7 @@
 # hxWidgets
 
-[![Build Status](https://travis-ci.org/ianharrigan/hxWidgets.svg?branch=master)](https://travis-ci.org/ianharrigan/hxWidgets)
-[![Issue Count](https://codeclimate.com/github/ianharrigan/hxWidgets/badges/issue_count.svg)](https://codeclimate.com/github/ianharrigan/hxWidgets)
+[![Build Status](https://img.shields.io/travis/ianharrigan/hxWidgets.svg?maxAge=2592000?style=plastic)](https://travis-ci.org/ianharrigan/hxWidgets)
+[![Issue Count](https://img.shields.io/codeclimate/issues/github/ianharrigan/hxWidgets.svg?maxAge=2592000?style=plastic)](https://codeclimate.com/github/ianharrigan/hxWidgets/issues)
 
 Haxe externs (and wrappers) for wxWidgets
 
