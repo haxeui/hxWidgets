@@ -521,7 +521,7 @@
 		},
 		{
 			"props": {
-				"format": "TODO",
+				"format": "^\\s*[TODO|FIXME|HACK|XXX|BUG]",
 				"severity": "INFO"
 			},
 			"type": "TODOComment"
