@@ -6,7 +6,7 @@ import cpp.RawPointer;
 @:include("wx/arrstr.h")
 @:unreflective
 @:native("wxArrayString")
-extern class ArrayString {
+extern class ArrayString extends WxArray<String> {
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // creation functions

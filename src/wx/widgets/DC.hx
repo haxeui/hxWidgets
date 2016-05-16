@@ -3,7 +3,7 @@ package wx.widgets;
 @:include("wx/dcclient.h")
 @:unreflective
 @:native("wxDC")
-extern class DC {
+extern class DC extends Object {
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Instance functions

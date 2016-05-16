@@ -6,7 +6,7 @@ import cpp.RawPointer;
 @:include("wx/imaglist.h")
 @:unreflective
 @:native("wxImageList")
-extern class ImageList {
+extern class ImageList extends Object {
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // creation functions

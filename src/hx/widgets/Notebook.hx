@@ -5,7 +5,7 @@ import wx.widgets.Notebook in WxNotebook;
 import wx.widgets.Size in WxSize;
 import wx.widgets.WxString;
 
-class Notebook extends Control {
+class Notebook extends BookCtrlBase {
 
     public function new(parent:Window, style:Int = 0, id:Int = -1) {
         allowIcons = false;
@@ -39,12 +39,12 @@ class Notebook extends Control {
     @:access(hx.widgets.ImageList)
     private function get_imageList():ImageList {
         var list:ImageList = new ImageList();
-        list._ref = Pointer.fromRaw(notebookRef.ptr.getImageList());
+        list._ref = Pointer.fromRaw(notebookRef.ptr.getImageList()).reinterpret();
         return list;
     }
     @:access(hx.widgets.ImageList)
     private function set_imageList(value:ImageList):ImageList {
-        notebookRef.ptr.setImageList(value._ref.get_raw());
+        notebookRef.ptr.setImageList(value.imagelistRef.get_raw());
         return value;
     }
 

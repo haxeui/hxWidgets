@@ -3,7 +3,7 @@ package hx.widgets;
 import cpp.Pointer;
 import wx.widgets.Font in WxFont;
 
-class Font {
+class Font extends GDIObject {
 
     private var _size:Int;
     private var _family:FontFamily;

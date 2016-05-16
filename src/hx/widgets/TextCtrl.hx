@@ -4,7 +4,7 @@ import cpp.Pointer;
 import wx.widgets.TextCtrl in WxTextCtrl;
 import wx.widgets.WxString;
 
-class TextCtrl extends Control {
+class TextCtrl extends Control implements TextEntry {
 
     public function new(parent:Window, text:String = null, style:Int = 0, id:Int = -1) {
         if (_ref == null) {

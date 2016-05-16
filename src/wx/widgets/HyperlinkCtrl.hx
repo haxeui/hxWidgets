@@ -3,7 +3,7 @@ package wx.widgets;
 @:include("wx/hyperlink.h")
 @:unreflective
 @:native("wxHyperlinkCtrl")
-extern class HyperlinkCtrl {
+extern class HyperlinkCtrl extends Control {
 
     @:native("new wxHyperlinkCtrl")     private static function _new():RawPointer<HyperlinkCtrl>;
                                         public static inline function createInstance():Pointer<HyperlinkCtrl> {

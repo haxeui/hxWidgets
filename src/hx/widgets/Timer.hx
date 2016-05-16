@@ -3,7 +3,7 @@ package hx.widgets;
 import cpp.Pointer;
 import wx.widgets.Timer in WxTimer;
 
-class Timer {
+class Timer extends EvtHandler {
 
     private var _ref:Pointer<WxTimer>;
 

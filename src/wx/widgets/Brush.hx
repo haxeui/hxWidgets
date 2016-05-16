@@ -6,7 +6,7 @@ import cpp.RawPointer;
 @:include("wx/brush.h")
 @:unreflective
 @:native("wxBrush")
-extern class Brush {
+extern class Brush extends GDIObject {
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Creation functions

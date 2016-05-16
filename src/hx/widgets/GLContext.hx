@@ -2,7 +2,7 @@ package hx.widgets;
 
 import wx.widgets.GLContext in WxGLContext;
 
-class GLContext {
+class GLContext extends Object {
 
     private var _ref:WxGLContext;
 

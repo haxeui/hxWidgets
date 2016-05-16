@@ -3,7 +3,7 @@ package hx.widgets;
 import cpp.Pointer;
 import wx.widgets.Colour in WxColour;
 
-class Colour {
+class Colour extends Object {
 
     public function new(colour:Int = 0x000000) {
         rgb = colour;

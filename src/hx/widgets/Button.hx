@@ -4,7 +4,7 @@ import cpp.Pointer;
 import wx.widgets.Button in WxButton;
 import wx.widgets.Bitmap in WxBitmap;
 
-class Button extends Control {
+class Button extends AnyButton {
 
     public function new(parent:Window, label:String, style:Int = 0, id:Int = -1) {
         _hasBitmap = false;
@@ -28,12 +28,12 @@ class Button extends Control {
     private function get_bitmap():Bitmap {
         var b = buttonRef.ptr.getBitmap();
         var bmp:Bitmap = new Bitmap();
-        bmp._ref = WxBitmap.createInstanceFromBitmap(b);
+        bmp._ref = WxBitmap.createInstanceFromBitmap(b).reinterpret();
         return bmp;
     }
     @:access(hx.widgets.Bitmap)
     private function set_bitmap(value:Bitmap):Bitmap {
-        buttonRef.ptr.setBitmap(value._ref.ref);
+        buttonRef.ptr.setBitmap(value.bitmapRef.ref);
         if (!_hasBitmap) {
             _hasBitmap = true;
             set_bitmapPosition(bitmapPosition);

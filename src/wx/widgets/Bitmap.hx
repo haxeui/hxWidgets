@@ -6,7 +6,7 @@ import cpp.RawPointer;
 @:include("wx/bitmap.h")
 @:unreflective
 @:native("wxBitmap")
-extern class Bitmap {
+extern class Bitmap extends GDIObject {
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Creation functions

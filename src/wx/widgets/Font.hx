@@ -7,7 +7,7 @@ import cpp.RawPointer;
 @:unreflective
 @:native("wxFont")
 @:structAccess
-extern class Font {
+extern class Font extends GDIObject {
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Creation functions

@@ -4,12 +4,10 @@ import cpp.Pointer;
 import wx.widgets.Pen in WxPen;
 import wx.widgets.Colour in WxColour;
 
-class Pen {
-
-    private var _ref:Pointer<WxPen>;
+class Pen extends GDIObject {
 
     public function new(colour:Int = 0x000000, width:Int = 1) {
-        _ref = WxPen.createInstance();
+        _ref = WxPen.createInstance().reinterpret();
         this.colour = colour;
         this.width = width;
     }
@@ -24,24 +22,32 @@ class Pen {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     public var colour(get, set):Int;
     private function get_colour():Int {
-        var r = _ref.ptr.getColour();
+        var r = penRef.ptr.getColour();
         return Colour.copy(Pointer.addressOf(r)).rgb;
     }
     @:access(hx.widgets.Colour)
     private function set_colour(value:Int):Int {
         var temp:Pointer<WxColour> = WxColour.createInstance(Colour.convertColor(value));
-        _ref.ptr.setColour(temp.ref);
+        penRef.ptr.setColour(temp.ref);
         temp.destroy();
         return value;
     }
 
     public var width(get, set):Int;
     private function get_width():Int {
-        return _ref.ptr.getWidth();
+        return penRef.ptr.getWidth();
     }
     private function set_width(value:Int):Int {
-        _ref.ptr.setWidth(value);
+        penRef.ptr.setWidth(value);
         return value;
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Helpers
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    private var penRef(get, null):Pointer<WxPen>;
+    private function get_penRef():Pointer<WxPen> {
+        return _ref.reinterpret();
     }
 
 }

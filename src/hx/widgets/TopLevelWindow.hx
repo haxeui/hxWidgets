@@ -4,7 +4,7 @@ import cpp.Pointer;
 import wx.widgets.TopLevelWindow in WxTopLevelWindow;
 import wx.widgets.WxString;
 
-class TopLevelWindow extends Window {
+class TopLevelWindow extends NonOwnedWindow {
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Instance functions

@@ -9,7 +9,7 @@ import cpp.UInt32;
 @:unreflective
 @:native("wxColour")
 @:structAccess
-extern class Colour {
+extern class Colour extends Object {
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Creation functions

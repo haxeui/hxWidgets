@@ -6,7 +6,7 @@ import cpp.RawPointer;
 @:include("wx/graphics.h")
 @:unreflective
 @:native("wxGraphicsContext")
-extern class GraphicsContext {
+extern class GraphicsContext extends GraphicsObject {
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // creation functions

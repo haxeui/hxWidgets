@@ -4,7 +4,7 @@ import cpp.Pointer;
 import haxe.io.Bytes;
 import wx.widgets.MemoryInputStream in WxMemoryInputStream;
 
-class MemoryInputStream {
+class MemoryInputStream extends InputStream {
 
     private var _bytes:Bytes;
     private var _ref:Pointer<WxMemoryInputStream>;

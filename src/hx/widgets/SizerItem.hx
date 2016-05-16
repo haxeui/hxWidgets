@@ -1,4 +1,4 @@
 package hx.widgets;
 
-class SizerItem {
+class SizerItem extends Object {
 }

@@ -10,7 +10,7 @@ void onEvent(wxEvent& e) {
 }
 ")
 @:access(hx.widgets.Window)
-class EvtHandler {
+class EvtHandler extends Object implements Trackable {
 
     private var _eventMap:Map<Int, Map<Int, Array<Event->Void>>>;
 
@@ -34,7 +34,7 @@ class EvtHandler {
         eventList.push(fn);
 
         if (Std.is(this, Window)) {
-            var win:Pointer<WxWindow> = cast(this, Window)._ref;
+            var win:Pointer<WxWindow> = cast(this, Window).windowRef;
             untyped __cpp__("win->ptr->Bind(event, &hx::widgets::EvtHandler_obj::onEvent, this, id)");
         }
     }
@@ -56,7 +56,7 @@ class EvtHandler {
         }
 
         if (Std.is(this, Window)) {
-            var win:Pointer<WxWindow> = cast(this, Window)._ref;
+            var win:Pointer<WxWindow> = cast(this, Window).windowRef;
             untyped __cpp__("win->ptr->Unbind(event, &hx::widgets::EvtHandler_obj::onEvent, this, id)");
         }
     }

@@ -4,6 +4,7 @@ import cpp.Pointer;
 import wx.widgets.Size in WxSize;
 
 class Size {
+
     public var width:Int;
     public var height:Int;
 
@@ -34,4 +35,5 @@ class Size {
         var c:Size = new Size(ptr.ref.getWidth(), ptr.ref.getHeight());
         return c;
     }
+
 }

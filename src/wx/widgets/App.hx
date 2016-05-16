@@ -4,12 +4,12 @@ import cpp.Pointer;
 import cpp.RawPointer;
 
 @:headerCode("
-#include <wx/wx.h>
+#include <wx/app.h>
 #undef RegisterClass
 ")
 @:unreflective
 @:native("wxApp")
-extern class App {
+extern class App extends AppConsole {
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Creation functions

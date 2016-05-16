@@ -7,7 +7,7 @@ import cpp.RawPointer;
 @:unreflective
 @:native("wxColourData")
 @:structAccess
-extern class ColourData {
+extern class ColourData extends Object {
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Creation functions

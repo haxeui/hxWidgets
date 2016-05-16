@@ -10,7 +10,7 @@ class StaticBitmap extends Control {
     public function new(parent:Window, bitmap:Bitmap, id:Int = -1) {
         if (_ref == null) {
             _ref = WxStaticBitmap.createInstance().reinterpret();
-            bitmapRef.ptr.create(Window.toRaw(parent), id, bitmap._ref.ref);
+            bitmapRef.ptr.create(Window.toRaw(parent), id, bitmap.bitmapRef.ref);
         }
 
         super(parent, id);
@@ -24,12 +24,12 @@ class StaticBitmap extends Control {
     private function get_bitmap():Bitmap {
         var b = bitmapRef.ptr.getBitmap();
         var bmp:Bitmap = new Bitmap();
-        bmp._ref = WxBitmap.createInstanceFromBitmap(b);
+        bmp._ref = WxBitmap.createInstanceFromBitmap(b).reinterpret();
         return bmp;
     }
     @:access(hx.widgets.Bitmap)
     private function set_bitmap(value:Bitmap):Bitmap {
-        bitmapRef.ptr.setBitmap(value._ref.ref);
+        bitmapRef.ptr.setBitmap(value.bitmapRef.ref);
         return value;
     }
 

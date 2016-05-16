@@ -5,14 +5,12 @@ import haxe.io.Bytes;
 import haxe.Resource;
 import wx.widgets.Bitmap in WxBitmap;
 
-class Bitmap {
-
-    private var _ref:Pointer<WxBitmap>;
+class Bitmap extends GDIObject {
 
 	@:access(hx.widgets.Image)
     public function new(image:Image = null) {
         if (image != null) {
-            _ref = WxBitmap.createInstance(image._ref.ref);
+            _ref = WxBitmap.createInstance(image.imageRef.ref).reinterpret();
         }
     }
 
@@ -21,27 +19,27 @@ class Bitmap {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     public var width(get, null):Int;
     private function get_width():Int {
-        return _ref.ptr.getWidth();
+        return bitmapRef.ptr.getWidth();
     }
 
     public var height(get, null):Int;
     private function get_height():Int {
-        return _ref.ptr.getHeight();
+        return bitmapRef.ptr.getHeight();
     }
 
     public var isOk(get, null):Bool;
     private function get_isOk():Bool {
-        return _ref.ptr.isOk();
+        return bitmapRef.ptr.isOk();
     }
 
     @:access(hx.widgets.Rect)
     public function getSubBitmap(rect:Rect):Bitmap {
         var r = rect.createPointer();
-        var sub:WxBitmap = _ref.ptr.getSubBitmap(r.ref);
+        var sub:WxBitmap = bitmapRef.ptr.getSubBitmap(r.ref);
         r.destroy();
 
         var bmp:Bitmap = new Bitmap();
-        bmp._ref = WxBitmap.createInstanceFromBitmap(sub);
+        bmp._ref = WxBitmap.createInstanceFromBitmap(sub).reinterpret();
 
         return bmp;
     }
@@ -60,6 +58,14 @@ class Bitmap {
 
         var image:Image = new Image(bytes);
         return new Bitmap(image);
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Helpers
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    private var bitmapRef(get, null):Pointer<WxBitmap>;
+    private function get_bitmapRef():Pointer<WxBitmap> {
+        return _ref.reinterpret();
     }
 
 }
