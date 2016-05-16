@@ -6,10 +6,8 @@ import wx.widgets.WxString;
 
 class ArrayString extends WxArray<String> {
 
-    private var _ref:Pointer<WxArrayString>;
-
     public function new() {
-        _ref = WxArrayString.createInstance();
+        _ref = WxArrayString.createInstance().reinterpret();
     }
 
     public function destroy() {
@@ -22,7 +20,7 @@ class ArrayString extends WxArray<String> {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     public function add(str:String):Int {
         var s:Pointer<WxString> = WxString.createInstance(str);
-        var n:Int = _ref.ptr.add(s.ref);
+        var n:Int = arraystringRef.ptr.add(s.ref);
         s.destroy();
         return n;
     }
@@ -36,6 +34,14 @@ class ArrayString extends WxArray<String> {
             a.add(item);
         }
         return a;
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Helpers
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    private var arraystringRef(get, null):Pointer<WxArrayString>;
+    private function get_arraystringRef():Pointer<WxArrayString> {
+        return _ref.reinterpret();
     }
 
 }
