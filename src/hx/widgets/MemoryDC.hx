@@ -1,5 +1,6 @@
 package hx.widgets;
 
+import cpp.Pointer;
 import wx.widgets.MemoryDC in WxMemoryDC;
 
 class MemoryDC extends DC {
@@ -7,9 +8,9 @@ class MemoryDC extends DC {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // HELPERS
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    private var memoryDCRef(get, null):WxMemoryDC;
-    private function get_memoryDCRef():WxMemoryDC {
-        return cast _ref;
+    private var memoryDCRef(get, null):Pointer<WxMemoryDC>;
+    private function get_memoryDCRef():Pointer<WxMemoryDC> {
+        return _ref.reinterpret();
     }
 
 }

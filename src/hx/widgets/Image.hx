@@ -9,7 +9,7 @@ class Image extends Object {
 	@:access(hx.widgets.MemoryInputStream)
     public function new(bytes:Bytes) {
         var stream = new MemoryInputStream(bytes);
-        _ref = WxImage.createInstance(stream._ref.ref).reinterpret();
+        _ref = WxImage.createInstance(stream.memoryinputstreamRef.ref).reinterpret();
         stream.destroy();
     }
 

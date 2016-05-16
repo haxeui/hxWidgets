@@ -20,7 +20,7 @@ class SingleChoiceDialog extends Dialog {
             var messageStr = WxString.createInstance(message);
             var captionStr = WxString.createInstance(caption);
             var choicesArr:ArrayString = ArrayString.fromArray(choices);
-            _ref = WxSingleChoiceDialog.createInstance(Window.toRaw(parent), messageStr.ref, captionStr.ref, choicesArr._ref.ref).reinterpret();
+            _ref = WxSingleChoiceDialog.createInstance(Window.toRaw(parent), messageStr.ref, captionStr.ref, choicesArr.arraystringRef.ref).reinterpret();
             messageStr.destroy();
             captionStr.destroy();
             choicesArr.destroy();

@@ -4,7 +4,10 @@ import cpp.Pointer;
 import wx.widgets.ArrayString in WxArrayString;
 import wx.widgets.WxString;
 
-class ArrayString extends WxArray<String> {
+class ArrayString { //extends WxArray<String> {
+
+    //TODO: WxArray doesn't work, check on how to template native classes
+    private var _ref:Pointer<WxArrayString>;
 
     public function new() {
         _ref = WxArrayString.createInstance().reinterpret();

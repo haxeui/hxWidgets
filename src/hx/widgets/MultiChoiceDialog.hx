@@ -20,7 +20,7 @@ class MultiChoiceDialog extends Dialog {
             var messageStr = WxString.createInstance(message);
             var captionStr = WxString.createInstance(caption);
             var choicesArr:ArrayString = ArrayString.fromArray(choices);
-            _ref = WxMultiChoiceDialog.createInstance(Window.toRaw(parent), messageStr.ref, captionStr.ref, choicesArr._ref.ref).reinterpret();
+            _ref = WxMultiChoiceDialog.createInstance(Window.toRaw(parent), messageStr.ref, captionStr.ref, choicesArr.arraystringRef.ref).reinterpret();
             messageStr.destroy();
             captionStr.destroy();
             choicesArr.destroy();
