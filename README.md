@@ -9,7 +9,7 @@ Haxe externs (and wrappers) for wxWidgets
 
 You need a development version of hxcpp for now.
 
-```
+```bash
 git clone https://github.com/HaxeFoundation/hxcpp.git
 haxelib dev hxcpp hxcpp/
 ```
@@ -41,7 +41,7 @@ You can install wxWidgets with:
 
 You need at least OSX 10.7 and you can install wxWidgets with:
 
-```
+```bash
 brew update
 brew install wxwidgets
 ```
