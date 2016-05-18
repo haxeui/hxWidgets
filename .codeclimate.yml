@@ -3,13 +3,6 @@ engines:
     enabled: true
   markdownlint:
     enabled: true
-    checks:
-      MD013:
-        enabled: false
-      MD029:
-        enabled: true
-        config:
-          style: "ordered"
 ratings:
   paths:
     - "**.hx"
