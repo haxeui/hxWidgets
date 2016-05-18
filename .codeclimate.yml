@@ -7,7 +7,9 @@ engines:
       MD013:
         enabled: false
       MD029:
-        style: "ordered"
+        enabled: true
+        config:
+          style: "ordered"
 ratings:
   paths:
     - "**.hx"
