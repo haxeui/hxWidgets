@@ -8,7 +8,7 @@ import wx.widgets.WxString;
 class Notebook extends BookCtrlBase {
 
     public function new(parent:Window, style:Int = 0, id:Int = -1) {
-        allowIcons = false;
+        allowIcons = true;
 
         if (_ref == null) {
             _ref = WxNotebook.createInstance().reinterpret();

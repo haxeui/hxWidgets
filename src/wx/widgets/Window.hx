@@ -84,6 +84,7 @@ extern class Window extends EvtHandler {
     @:native("Move")                            public function move(x:Int, y:Int):Void;
     @:native("GetPosition")                     public function getPosition():Point;
     @:native("SetPosition")                     public function setPosition(pos:Point):Void;
+    @:native("CenterOnParent")                  public function centerOnParent():Void;
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Window styles functions
