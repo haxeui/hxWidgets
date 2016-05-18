@@ -1,7 +1,7 @@
 hxWindows Library Licence
 ======================================
 
-Copyright (c) 1998-2005 Ian Harrigan, Valentin Lemière et al
+Copyright (c) 2016 Ian Harrigan, Valentin Lemière et al
 
 Everyone is permitted to copy and distribute verbatim copies
 of this licence document, but changing it is not allowed.
@@ -27,24 +27,21 @@ Floor, Boston, MA 02110-1301 USA.
 EXCEPTION NOTICE
 
 1. As a special exception, the copyright holders of this library give
-permission for additional uses of the text contained in this release of the
-library as licenced under the hxWindows Library Licence, applying either
-version 3.1 of the Licence, or (at your option) any later version of the
-Licence as published by the copyright holders of version 3.1 of the Licence
-document.
-
+   permission for additional uses of the text contained in this release of the
+   library as licenced under the hxWindows Library Licence, applying either
+   version 3.1 of the Licence, or (at your option) any later version of the
+   Licence as published by the copyright holders of version 3.1 of the Licence
+   document.
 2. The exception is that you may use, copy, link, modify and distribute
-under your own terms, binary object code versions of works based on the
-Library.
-
+   under your own terms, binary object code versions of works based on the
+   Library.
 3. If you copy code from files distributed under the terms of the GNU
-General Public Licence or the GNU Library General Public Licence into a
-copy of this library, as this licence permits, the exception does not apply
-to the code that you add in this way.  To avoid misleading anyone as to the
-status of such modified files, you must delete this exception notice from
-such code and/or adjust the licensing conditions notice accordingly.
-
+   General Public Licence or the GNU Library General Public Licence into a
+   copy of this library, as this licence permits, the exception does not apply
+   to the code that you add in this way.  To avoid misleading anyone as to the
+   status of such modified files, you must delete this exception notice from
+   such code and/or adjust the licensing conditions notice accordingly.
 4. If you write modifications of your own for this library, it is your
-choice whether to permit this exception to apply to your modifications.  If
-you do not wish that, you must delete the exception notice from such code
-and/or adjust the licensing conditions notice accordingly.
+   choice whether to permit this exception to apply to your modifications.  If
+   you do not wish that, you must delete the exception notice from such code
+   and/or adjust the licensing conditions notice accordingly.
