@@ -7,7 +7,7 @@ class ScrollBar extends Control {
 
     public function new(parent:Window, style:Int = 0, id:Int = -1) {
         if (_ref == null) {
-            _ref = WxScrollBar.createInstance();
+            _ref = WxScrollBar.createInstance().reinterpret();
             scrollBarRef.ptr.create(Window.toRaw(parent), id, Point.defaultPosition.ref, Size.defaultSize.ref, style);
         }
 
