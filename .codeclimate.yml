@@ -6,6 +6,8 @@ engines:
     checks:
       MD013:
         enabled: false
+      MD029:
+        style: "ordered"
 ratings:
   paths:
     - "**.hx"
