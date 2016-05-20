@@ -14,7 +14,8 @@ class SimpleDialog extends Dialog {
         createRadioCtrls(top);
 
         var hsizer:BoxSizer = new BoxSizer(Orientation.HORIZONTAL);
-        var button:Button = new Button(this, "Done");
+        var button:Button = new Button(this, "Done", 0, 12345);
+        this.addMainButtonId(12345);
         button.bind(EventType.BUTTON, function(e) {
             if (isModal) {
                 endModal(555);
