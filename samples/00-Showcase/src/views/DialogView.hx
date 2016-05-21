@@ -62,8 +62,15 @@ class DialogView extends View {
         // file dialog
         var button:Button = new Button(this, "Open File Dialog");
         button.bind(EventType.BUTTON, function(e) {
-            var dialog:FileDialog = new FileDialog(this);
+            var dialog:FileDialog = new FileDialog(this, "Open a Haxe file", null, null, "All(*.*)|*.*|Haxe files (*.hx)|*.hx|Haxe build files (*.hxml)|*.hxml");
             var r = dialog.showModal();
+            if (r == StandardId.OK) {
+                LogView.log('FileDialog Opened: message: ${dialog.message}, path: ${dialog.path}, directory: ${dialog.directory}, file: ${dialog.filename}, filterIndex: ${dialog.filterIndex}, wildcard: ${dialog.wildcard}');
+            }
+            else {
+                LogView.log('FileDialog Cancelled: message: ${dialog.message}, path: ${dialog.path}, directory: ${dialog.directory}, file: ${dialog.filename}, filterIndex: ${dialog.filterIndex}, wildcard: ${dialog.wildcard}');
+            }
+
         });
         top.add(button, 0, Stretch.EXPAND);
 

@@ -16,4 +16,22 @@ extern class FileDialog extends Dialog {
                                             return Pointer.fromRaw(_new(parent, message, defaultDir, defaultFile, wildcard, style));
                                         }
 
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Instance functions
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    @:native("GetCurrentlySelectedFilename")  public function getCurrentlySelectedFilename():WxString;
+    @:native("GetDirectory")                  public function getDirectory():WxString;
+    @:native("GetFilename")                   public function getFilename():WxString;
+    @:native("GetFilenames")                  public function getFilenames(filenames:ArrayString):Void;
+    @:native("GetFilterIndex")                public function getFilterIndex():Int;
+    @:native("GetMessage")                    public function getMessage():WxString;
+    @:native("GetPath")                       public function getPath():WxString;
+    @:native("GetPaths")                      public function getPaths(paths:ArrayString):Void;
+    @:native("GetWildcard")                   public function getWildcard():WxString;
+    @:native("SetDirectory")                  public function setDirectory(directory:WxString):Void;
+    @:native("SetFilename")                   public function setFilename(filename:WxString):Void;
+    @:native("SetFilterIndex")                public function setFilterIndex(index:Int):Void;
+    @:native("SetMessage")                    public function setMessage(message:WxString):Void;
+    @:native("SetPath")                       public function setPath(path:WxString):Void;
+    @:native("SetWildcard")                   public function setWildcard(wildcard:WxString):Void;
 }
