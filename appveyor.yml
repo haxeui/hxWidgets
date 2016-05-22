@@ -35,6 +35,7 @@ install:
     - neko build.n clean
     - neko build.n windows-x86
     # Download wxWidgets
+    - cd # prints current directory
     - if not exist "wxWidgets-3.0.2.7z" (
         curl -fsSL -o wxWidgets-3.0.2.7z --retry 3 https://github.com/wxWidgets/wxWidgets/releases/download/v3.0.2/wxWidgets-3.0.2.7z
       )
@@ -42,6 +43,7 @@ install:
         curl -fsSL -o wxMSW-3.0.2_vc120_x64_Dev.7z --retry 3 https://github.com/wxWidgets/wxWidgets/releases/download/v3.0.2/wxMSW-3.0.2_vc120_x64_Dev.7z
       )
     # Install wxWidgets
+    - mkdir %WXWIDGETS_ROOT%
     - cd %WXWIDGETS_ROOT%
     - 7z x ..\wxWidgets-3.0.2.7z
     - 7z x ..\wxMSW-3.0.2_vc120_x64_Dev.7z
