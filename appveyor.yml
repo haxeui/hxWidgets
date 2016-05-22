@@ -6,6 +6,7 @@ clone_depth: 1
 
 environment:
     global:
+        ROOT: C:\projects\hxWidgets
         HXCPP_ROOT: C:\projects\hxcpp
         HAXELIB_ROOT: C:\projects\haxelib
         WXWIDGETS_ROOT: C:\projects\wxWidgets
@@ -15,7 +16,6 @@ cache:
     - wxMSW-3.0.2_vc120_x64_Dev.7z -> appveyor.yml
 
 install:
-    - cd
     # Install haxe, download the chocolatey package
     - cinst haxe -y
     - RefreshEnv
@@ -36,7 +36,7 @@ install:
     - neko build.n clean
     - neko build.n windows-x86
     # Download wxWidgets
-    - cd # prints current directory
+    - cd %ROOT%
     - if not exist "wxWidgets-3.0.2.7z" (
         curl -fsSL -o wxWidgets-3.0.2.7z --retry 3 https://github.com/wxWidgets/wxWidgets/releases/download/v3.0.2/wxWidgets-3.0.2.7z
       )
@@ -46,8 +46,8 @@ install:
     # Install wxWidgets
     - mkdir %WXWIDGETS_ROOT%
     - cd %WXWIDGETS_ROOT%
-    - 7z x ..\wxWidgets-3.0.2.7z
-    - 7z x ..\wxMSW-3.0.2_vc120_x64_Dev.7z
+    - 7z x %ROOT%\wxWidgets-3.0.2.7z
+    - 7z x %ROOT%\wxMSW-3.0.2_vc120_x64_Dev.7z
     - mv lib\vc120_x64_dll lib\vc_dll
     - SET WXWIN=%WXWIDGETS_ROOT%
 
