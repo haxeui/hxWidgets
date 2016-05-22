@@ -52,7 +52,7 @@ install:
     - SET WXWIN=%WXWIDGETS_ROOT%
 
 build_script:
-    - cd %ROOT% # Nothing to build but step required
+    - haxelib dev hxWidget %ROOT%
 
 test_script:
     - cd %APPVEYOR_BUILD_FOLDER%\samples\00-Showcase
