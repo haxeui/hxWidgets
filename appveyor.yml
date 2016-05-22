@@ -15,6 +15,7 @@ cache:
     - wxMSW-3.0.2_vc120_x64_Dev.7z -> appveyor.yml
 
 install:
+    - cd
     # Install haxe, download the chocolatey package
     - cinst haxe -y
     - RefreshEnv
