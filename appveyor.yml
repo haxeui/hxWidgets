@@ -35,8 +35,8 @@ install:
     - neko build.n clean
     - neko build.n windows-x86
     # Download wxWidgets
-    - curl -fsS -o wxWidgets-3.0.2.7z --retry 3 https://github.com/wxWidgets/wxWidgets/releases/download/v3.0.2/wxWidgets-3.0.2.7z
-    - curl -fsS -o wxMSW-3.0.2_vc120_x64_Dev.7z --retry 3 https://github.com/wxWidgets/wxWidgets/releases/download/v3.0.2/wxMSW-3.0.2_vc120_x64_Dev.7z
+    - ps: Start-FileDownload 'https://github.com/wxWidgets/wxWidgets/releases/download/v3.0.2/wxWidgets-3.0.2.7z'
+    - ps: Start-FileDownload 'https://github.com/wxWidgets/wxWidgets/releases/download/v3.0.2/wxMSW-3.0.2_vc120_x64_Dev.7z'
     # Install wxWidgets
     - 7z e wxWidgets-3.0.2.7z -o%WXWIDGETS_ROOT% * -r
     - 7z e wxMSW-3.0.2_vc120_x64_Dev.7z -o%WXWIDGETS_ROOT% * -r
