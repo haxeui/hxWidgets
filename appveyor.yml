@@ -51,6 +51,9 @@ install:
     - mv lib\vc120_x64_dll lib\vc_dll
     - SET WXWIN=%WXWIDGETS_ROOT%
 
+build_script:
+    - cd %ROOT% # Nothing to build but step required
+
 test_script:
     - cd %APPVEYOR_BUILD_FOLDER%\samples\00-Showcase
     - haxe build.hxml
