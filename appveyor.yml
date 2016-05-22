@@ -13,7 +13,7 @@ environment:
 
 cache:
     - wxWidgets-3.0.2.7z -> appveyor.yml
-    - wxMSW-3.0.2_vc120_x64_Dev.7z -> appveyor.yml
+    - wxMSW-3.0.2_vc120_Dev.7z -> appveyor.yml
 
 install:
     # Install haxe, download the chocolatey package
@@ -40,15 +40,15 @@ install:
     - if not exist "wxWidgets-3.0.2.7z" (
         curl -fsSL -o wxWidgets-3.0.2.7z --retry 3 https://github.com/wxWidgets/wxWidgets/releases/download/v3.0.2/wxWidgets-3.0.2.7z
       )
-    - if not exist "wxMSW-3.0.2_vc120_x64_Dev.7z" (
-        curl -fsSL -o wxMSW-3.0.2_vc120_x64_Dev.7z --retry 3 https://github.com/wxWidgets/wxWidgets/releases/download/v3.0.2/wxMSW-3.0.2_vc120_x64_Dev.7z
+    - if not exist "wxMSW-3.0.2_vc120_Dev.7z" (
+        curl -fsSL -o wxMSW-3.0.2_vc120_Dev.7z --retry 3 https://github.com/wxWidgets/wxWidgets/releases/download/v3.0.2/wxMSW-3.0.2_vc120_Dev.7z
       )
     # Install wxWidgets
     - mkdir %WXWIDGETS_ROOT%
     - cd %WXWIDGETS_ROOT%
     - 7z x %ROOT%\wxWidgets-3.0.2.7z
-    - 7z x %ROOT%\wxMSW-3.0.2_vc120_x64_Dev.7z
-    - mv lib\vc120_x64_dll lib\vc_dll
+    - 7z x %ROOT%\wxMSW-3.0.2_vc120_Dev.7z
+    - mv lib\vc120_dll lib\vc_dll
     - SET WXWIN=%WXWIDGETS_ROOT%
 
 build_script:
