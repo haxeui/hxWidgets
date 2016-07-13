@@ -1,8 +1,8 @@
 # hxWidgets
 
-[![Build Status linux/osx](https://img.shields.io/travis/ianharrigan/hxWidgets.svg?maxAge=2592000?style=plastic)](https://travis-ci.org/ianharrigan/hxWidgets)
+[![Build Status linux/osx](https://img.shields.io/travis/haxeui/hxWidgets.svg?maxAge=2592000?style=plastic)](https://travis-ci.org/haxeui/hxWidgets)
 [![Build status windows](https://ci.appveyor.com/api/projects/status/ura3uv2fsf2gjml0?svg=true)](https://ci.appveyor.com/project/ibilon/hxwidgets)
-[![Issue Count](https://img.shields.io/codeclimate/issues/github/ianharrigan/hxWidgets.svg?maxAge=2592000?style=plastic)](https://codeclimate.com/github/ianharrigan/hxWidgets/issues)
+[![Issue Count](https://img.shields.io/codeclimate/issues/github/haxeui/hxWidgets.svg?maxAge=2592000?style=plastic)](https://codeclimate.com/github/haxeui/hxWidgets/issues)
 
 Haxe externs (and wrappers) for wxWidgets
 
