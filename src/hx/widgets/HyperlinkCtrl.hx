@@ -1,7 +1,9 @@
 package hx.widgets;
 
-import hx.widgets.style.HyperlinkCtrlStyle;
+import cpp.Pointer;
+import hx.widgets.styles.HyperlinkCtrlStyle;
 import wx.widgets.HyperlinkCtrl in WxHyperlinkCtrl;
+import wx.widgets.WxString;
 
 class HyperlinkCtrl extends Control {
 
@@ -11,12 +13,22 @@ class HyperlinkCtrl extends Control {
         }
 
         if (_ref == null) {
-            var linkRef:WxHyperlinkCtrl = WxHyperlinkCtrl.createInstance();
-            linkRef.create(parent != null ? parent._ref : Window.nullWindowRef, id, text, url, Point.defaultPositionRef, Size.defaultSizeRef, style);
-            _ref = linkRef;
+            _ref = WxHyperlinkCtrl.createInstance().reinterpret();
+            var textStr = WxString.createInstance(label);
+            var urlStr = WxString.createInstance(label);
+            linkRef.ptr.create(Window.toRaw(parent), id, textStr.ref, urlStr.ref, Point.defaultPosition.ref, Size.defaultSize.ref, style);
+            textStr.destroy();
+            urlStr.destroy();
         }
 
         super(parent, id);
     }
 
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Helpers
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    private var linkRef(get, null):Pointer<WxHyperlinkCtrl>;
+    private function get_linkRef():Pointer<WxHyperlinkCtrl> {
+       return _ref.reinterpret();
+    }
 }

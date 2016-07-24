@@ -2,6 +2,7 @@ package hx.widgets;
 
 import cpp.NativeArray;
 import cpp.Pointer;
+import wx.widgets.WxString;
 
 import wx.widgets.GLCanvas in WxGLCanvas;
 
@@ -15,28 +16,29 @@ class GLCanvas extends Window {
                 attribList = NativeArray.address(options, 0);
             }
 
-            var canvasRef:WxGLCanvas = WxGLCanvas.createInstance(parent != null ? parent._ref : Window.nullWindowRef, id, attribList, Point.defaultPositionRef, Size.defaultSizeRef, style);
-            _ref = canvasRef;
+            _ref = WxGLCanvas.createInstance(Window.toRaw(parent), id, attribList.rawCast(), Point.defaultPosition.ref, Size.defaultSize.ref, style).reinterpret();
         }
 
         super(parent, id);
     }
 
     public function setColour(colour:String):Bool {
-        return canvasRef.setColour(colour);
+        var str = WxString.createInstance(colour);
+        return canvasRef.ptr.setColour(str.ref);
+        str.destroy();
     }
 
     @:access(hx.widgets.GLContext)
     public function setCurrent(current:GLContext):Bool {
-        return canvasRef.setCurrent(current._ref);
+        return canvasRef.ptr.setCurrent(current.glContextRef.ref);
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // HELPERS
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    private var canvasRef(get, null):WxGLCanvas;
-    private function get_canvasRef():WxGLCanvas {
-        return cast _ref;
+    private var canvasRef(get, null):Pointer<WxGLCanvas>;
+    private function get_canvasRef():Pointer<WxGLCanvas> {
+        return cast _ref.reinterpret();
     }
 
 }

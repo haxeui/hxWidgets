@@ -21,7 +21,7 @@ class DirDialog extends Dialog {
 
             var messageStr = WxString.createInstance(message);
             var defaultPathStr = WxString.createInstance(defaultPath);
-            _ref = WxDirDialog.createInstance(Window.toRaw(parent), messageStr.ref, defaultPathStr.ref, style);
+            _ref = WxDirDialog.createInstance(Window.toRaw(parent), messageStr.ref, defaultPathStr.ref, style).reinterpret();
             messageStr.destroy();
             defaultPathStr.destroy();
         }

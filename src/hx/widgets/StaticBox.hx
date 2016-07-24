@@ -8,7 +8,7 @@ class StaticBox extends Control {
 
     public function new(parent:Window, title:String = null, id:Int = -1) {
         if (_ref == null) {
-            _ref = WxStaticBox.createInstance();
+            _ref = WxStaticBox.createInstance().reinterpret();
             var str = WxString.createInstance(title);
             staticBoxRef.ptr.create(Window.toRaw(parent), id, str.ref);
             str.destroy();

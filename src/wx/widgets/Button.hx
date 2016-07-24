@@ -17,7 +17,8 @@ extern class Button extends AnyButton {
                                             return Pointer.fromRaw(_new());
                                         }
 
-    @:native("Create")                  @:overload(function(parent:RawPointer<Window>, id:Int, label:ConstCharStar, point:Point, size:Size, style:Int):Bool {})
+    @:native("Create")                  @:overload(function(parent:RawPointer<Window>, id:Int):Bool {})
+    @:native("Create")                  @:overload(function(parent:RawPointer<Window>, id:Int, label:WxString, point:Point, size:Size, style:Int):Bool {})
     @:native("Create")                  override public function create(parent:RawPointer<Window>, id:Int, point:Point, size:Size, style:Int):Bool;
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

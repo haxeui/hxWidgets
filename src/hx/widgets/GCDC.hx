@@ -7,7 +7,7 @@ class GCDC extends DC {
 	@:access(hx.widgets.WindowDC)
     public function new(windowDC:WindowDC) {
         super();
-        _ref = cast WxGCDC.createInstance(windowDC.windowDCRef);
+        _ref = WxGCDC.createInstance(windowDC.windowDCRef.ref).reinterpret();
     }
 
 }

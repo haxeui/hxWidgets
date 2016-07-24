@@ -8,7 +8,7 @@ class BufferedPaintDC extends BufferedDC {
     public function new(window:Window) {
         super();
         if (window != null) {
-            _ref = WxBufferedPaintDC.createInstance(window._ref);
+            ///_ref = WxBufferedPaintDC.createInstance(window._ref);
         }
     }
 

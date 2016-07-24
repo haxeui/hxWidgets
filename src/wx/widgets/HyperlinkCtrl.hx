@@ -1,5 +1,8 @@
 package wx.widgets;
 
+import cpp.Pointer;
+import cpp.RawPointer;
+
 @:include("wx/hyperlink.h")
 @:unreflective
 @:native("wxHyperlinkCtrl")
@@ -10,6 +13,6 @@ extern class HyperlinkCtrl extends Control {
                                             return Pointer.fromRaw(_new());
                                         }
 
-    @:native("Create")                  public function create(parent:RawPointer<Window>, id:Int, text:WxString, url:WxString, point:Point, size:Size, style:Int):Bool;
-
+    @:native("Create")                  @:overload(function (parent:RawPointer<Window>, id:Int, text:WxString, url:WxString, point:Point, size:Size, style:Int):Bool {})
+    @:native("Create")                  override public function create(parent:RawPointer<Window>, id:Int, point:Point, size:Size, style:Int):Bool;
 }
