@@ -4,4 +4,6 @@ package wx.widgets;
 @:unreflective
 @:native("wxMouseEvent")
 extern class MouseEvent extends Event implements MouseState {
+    @:native("GetX")               public function getX():Int;
+    @:native("GetY")               public function getY():Int;
 }
