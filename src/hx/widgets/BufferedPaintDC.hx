@@ -1,5 +1,6 @@
 package hx.widgets;
 
+import cpp.Pointer;
 import wx.widgets.BufferedPaintDC in WxBufferedPaintDC;
 
 class BufferedPaintDC extends BufferedDC {
@@ -15,9 +16,9 @@ class BufferedPaintDC extends BufferedDC {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // HELPERS
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    private var bufferedDCRef(get, null):WxBufferedPaintDC;
-    private function get_bufferedDCRef():WxBufferedPaintDC {
-        return cast _ref;
+    private var bufferedDCRef(get, null):Pointer<WxBufferedPaintDC>;
+    private function get_bufferedDCRef():Pointer<WxBufferedPaintDC> {
+        return _ref.reinterpret();
     }
 
 }

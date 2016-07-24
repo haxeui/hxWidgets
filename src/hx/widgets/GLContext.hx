@@ -3,11 +3,11 @@ package hx.widgets;
 import cpp.Pointer;
 import wx.widgets.GLContext in WxGLContext;
 
+@:headerCode("#undef RegisterClass")
 class GLContext extends Object {
 
-    @:access(hx.widgets.GLCanvas)
-    public function new(win:GLCanvas) {
-         _ref = WxGLContext.createInstance(cast win._ref).reinterpret();
+    public function new(canvas:GLCanvas) {
+         _ref = WxGLContext.createInstance(canvas._ref.rawCast()).reinterpret();
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -15,6 +15,6 @@ class GLContext extends Object {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     private var glContextRef(get, null):Pointer<WxGLContext>;
     private function get_glContextRef():Pointer<WxGLContext> {
-        return cast _ref.reinterpret();
+        return _ref.reinterpret();
     }
 }

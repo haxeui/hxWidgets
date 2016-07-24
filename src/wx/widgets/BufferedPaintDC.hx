@@ -1,6 +1,6 @@
 package wx.widgets;
 
-@:include("wx/dcclient.h")
+@:include("wx/dcbuffer.h")
 @:unreflective
 @:native("wxBufferedPaintDC")
 extern class BufferedPaintDC extends BufferedDC {
