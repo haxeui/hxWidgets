@@ -70,7 +70,7 @@ class EntryMacro {
 				link.push('<lib name="-lc++" />');
 			}
 
-            cflags += '<compilerflag value="wxUSE_WEBVIEW_WEBKIT" />\n';
+            cflags += '<compilerflag value="-DwxUSE_WEBVIEW_WEBKIT" />\n';
             
             var buildXml = {
                 expr:EConst( CString( '<set name="MAC_USE_CURRENT_SDK" value="1" if="macos" />
