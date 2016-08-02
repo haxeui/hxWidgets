@@ -3,6 +3,7 @@ import hx.widgets.styles.*;
 import views.BasicControlsView;
 import views.DialogView;
 import views.DrawingView;
+import views.HTMLView;
 import views.LogView;
 import views.SystemInfoView;
 
@@ -64,6 +65,7 @@ class Main {
         imageList.add(Bitmap.fromHaxeResource("layer-shape-line.png"));
         imageList.add(Bitmap.fromHaxeResource("information-button.png"));
         imageList.add(Bitmap.fromHaxeResource("application-dialog.png"));
+        imageList.add(Bitmap.fromHaxeResource("globe-green.png"));
 
         var tabs:Notebook = new Notebook(frame);
         if (platform.isMac) {
@@ -88,6 +90,9 @@ class Main {
         var dialogView:DialogView = new DialogView(tabs);
         tabs.addPage(dialogView, "Dialogs", false, 3);
 
+        var htmlView:HTMLView = new HTMLView(tabs);
+        tabs.addPage(htmlView, "Web View", false, 4);
+        
         tabs.bind(EventType.NOTEBOOK_PAGE_CHANGED, function(e) {
             e.skip(); // seems if you dont skip the event on osx then nothing shows - presumably this event handler is "stealing" the event
            LogView.log('Notebook page changed: index=${tabs.selection}, text=${tabs.selectionText}');

@@ -3,28 +3,23 @@ package wx.widgets;
 import cpp.Pointer;
 import cpp.RawPointer;
 
-@:include("wx/button.h")
+@:include("wx/webview.h")
 @:unreflective
-@:native("wxButton")
-extern class Button extends AnyButton {
-
+@:native("wxWebView")
+extern class WebView extends Control {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // creation functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    @:native("new wxButton")            private static function _new():RawPointer<Button>;
-                                        public static inline function createInstance():Pointer<Button> {
+    @:native("wxWebView::New")          private static function _new():RawPointer<WebView>;
+                                        public static inline function createInstance():Pointer<WebView> {
                                             return Pointer.fromRaw(_new());
                                         }
-
-    @:native("Create")                  @:overload(function(parent:RawPointer<Window>, id:Int):Bool {})
-    @:native("Create")                  @:overload(function(parent:RawPointer<Window>, id:Int, label:WxString, point:Point, size:Size, style:Int):Bool {})
+                                        
+    @:native("Create")                  @:overload(function(parent:RawPointer<Window>, id:Int, url:WxString, point:Point, size:Size, style:Int):Bool {})
     @:native("Create")                  override public function create(parent:RawPointer<Window>, id:Int, point:Point, size:Size, style:Int):Bool;
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Instance functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    @:native("GetBitmap")               public function getBitmap():Bitmap;
-    @:native("SetBitmap")               public function setBitmap(bitmap:Bitmap):Void;
-    @:native("SetBitmapPosition")       public function setBitmapPosition(dir:Direction):Void;
-
+    @:native("LoadURL")                 public function loadURL(url:WxString):Void;
 }
