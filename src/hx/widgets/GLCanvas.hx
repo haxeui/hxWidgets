@@ -11,7 +11,7 @@ class GLCanvas extends Window {
 
     public function new(parent:Window, options:Array<Int> = null, style:Int = 0, id:Int = -1) {
         if (_ref == null) {
-            var attribList:Pointer<Int> = cast 0;
+            var attribList:Pointer<Int> = Pointer.fromRaw(cast 0);
             if (options != null) {
                 attribList = NativeArray.address(options, 0);
             }
