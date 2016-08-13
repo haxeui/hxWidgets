@@ -13,3 +13,6 @@
 -cp src/
 -main Main
 -cpp bin
+
+--macro include("hx.widgets")
+--macro include("wx.widgets")
