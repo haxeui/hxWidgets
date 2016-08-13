@@ -12,7 +12,7 @@ class GLCanvas extends Window {
 
     public function new(parent:Window, options:Array<Int> = null, style:Int = 0, id:Int = -1) {
         if (_ref == null) {
-            _ref = WxGLCanvas.createInstance(Window.toRaw(parent), id, options != null ? NativeArray.address(options, 0).raw : cast 0, Point.defaultPosition.ref, Size.defaultSize.ref, style).reinterpret();
+            _ref = WxGLCanvas.createInstance(Window.toRaw(parent), id, options != null ? NativeArray.address(options, 0).rawCast() : cast 0, Point.defaultPosition.ref, Size.defaultSize.ref, style).reinterpret();
         }
 
         super(parent, id);
