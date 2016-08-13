@@ -1,6 +1,7 @@
 package hx.widgets;
 
 import cpp.NativeArray;
+import cpp.RawPointer;
 import cpp.Pointer;
 import wx.widgets.WxString;
 
@@ -11,12 +12,7 @@ class GLCanvas extends Window {
 
     public function new(parent:Window, options:Array<Int> = null, style:Int = 0, id:Int = -1) {
         if (_ref == null) {
-            var attribList:Pointer<Int> = Pointer.fromRaw(cast 0);
-            if (options != null) {
-                attribList = NativeArray.address(options, 0);
-            }
-
-            _ref = WxGLCanvas.createInstance(Window.toRaw(parent), id, attribList.rawCast(), Point.defaultPosition.ref, Size.defaultSize.ref, style).reinterpret();
+            _ref = WxGLCanvas.createInstance(Window.toRaw(parent), id, options != null ? NativeArray.address(options, 0).raw : cast 0, Point.defaultPosition.ref, Size.defaultSize.ref, style).reinterpret();
         }
 
         super(parent, id);

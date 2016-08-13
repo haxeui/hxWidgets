@@ -3,7 +3,7 @@ package wx.widgets;
 import cpp.Pointer;
 import cpp.RawPointer;
 
-@:include("wx/dirdlg.h")
+@:include("wx/wx.h")
 @:unreflective
 @:native("wxDirDialog")
 extern class DirDialog extends Dialog {

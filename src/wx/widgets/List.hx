@@ -21,6 +21,7 @@ extern class ListImpl<T> {
 
 }
 
+/* //TODO: already in wx.widgets.Window
 @:include("wx/list.h")
 @:unreflective
 @:structAccess
@@ -40,3 +41,4 @@ extern class WindowListNode {
     @:native("GetData")            public function getData():Window;
 
 }
+*/

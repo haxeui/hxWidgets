@@ -1,7 +1,7 @@
 package wx.widgets.styles;
 
 @:headerCode("
-#include <wx/dirdlg.h>
+#include <wx/wx.h>
 #undef RegisterClass
 ")
 class DirDialogStyle {
