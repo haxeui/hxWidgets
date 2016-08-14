@@ -6,7 +6,7 @@ import wx.widgets.Bitmap in WxBitmap;
 
 class StaticBitmap extends Control {
 
-	@:access(hx.widgets.Bitmap)
+    @:access(hx.widgets.Bitmap)
     public function new(parent:Window, bitmap:Bitmap, id:Int = -1) {
         if (_ref == null) {
             _ref = WxStaticBitmap.createInstance().reinterpret();

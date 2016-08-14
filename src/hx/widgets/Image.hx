@@ -6,7 +6,7 @@ import wx.widgets.Image in WxImage;
 
 class Image extends Object {
 
-	@:access(hx.widgets.MemoryInputStream)
+    @:access(hx.widgets.MemoryInputStream)
     public function new(bytes:Bytes) {
         var stream = new MemoryInputStream(bytes);
         _ref = WxImage.createInstance(stream.memoryinputstreamRef.ref).reinterpret();

@@ -14,7 +14,7 @@ extern class WebView extends Control {
                                         public static inline function createInstance():Pointer<WebView> {
                                             return Pointer.fromRaw(_new());
                                         }
-                                        
+
     @:native("Create")                  @:overload(function(parent:RawPointer<Window>, id:Int, url:WxString, point:Point, size:Size, style:Int):Bool {})
     @:native("Create")                  override public function create(parent:RawPointer<Window>, id:Int, point:Point, size:Size, style:Int):Bool;
 

@@ -5,7 +5,7 @@ import wx.widgets.BufferedPaintDC in WxBufferedPaintDC;
 
 class BufferedPaintDC extends BufferedDC {
 
-	@:access(hx.widgets.Window)
+    @:access(hx.widgets.Window)
     public function new(window:Window) {
         super();
         if (window != null) {

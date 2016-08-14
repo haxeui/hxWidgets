@@ -1,25 +1,25 @@
 <xml>
     <set name="lib_folder" value="vc_dll" />
     <set name="lib_folder" value="vc_lib" if="WXSTATIC" />
-    
+
     <echo value="Using wxWidgets from: ${WXWIN}\lib\${lib_folder}" />
-    
-	<section if="windows">
-		<files id="haxe">
- 			<compilerflag value="-I${WXWIN}\include" />
-			<compilerflag value="-I${WXWIN}\lib\${lib_folder}\mswu" />
-			<compilerflag value="-DUNICODE" />
-			<compilerflag value="-D_UNICODE" />
-			<compilerflag value="-DwxMSVC_VERISON_AUTO" />
+
+    <section if="windows">
+        <files id="haxe">
+            <compilerflag value="-I${WXWIN}\include" />
+            <compilerflag value="-I${WXWIN}\lib\${lib_folder}\mswu" />
+            <compilerflag value="-DUNICODE" />
+            <compilerflag value="-D_UNICODE" />
+            <compilerflag value="-DwxMSVC_VERISON_AUTO" />
             <compilerflag value="-DWIN32" if="windows" />
             <compilerflag value="-D__WXMSW__" if="windows" />
             <compilerflag value="-D__WX__=1" />
-            
-			<compilerflag value="-DWXUSINGDLL" unless="WXSTATIC"/>
-		</files>
+
+            <compilerflag value="-DWXUSINGDLL" unless="WXSTATIC"/>
+        </files>
 
         <target id="haxe" tool="linker" toolid="exe">
-			<lib name="${WXWIN}\lib\${lib_folder}\*.lib" />
+            <lib name="${WXWIN}\lib\${lib_folder}\*.lib" />
             <section if="WXSTATIC">
                 <flag value="/NODEFAULTLIB:LIBCMT" /> <!-- should remove this if using /MT but couldnt see an easy way -->
 
@@ -34,7 +34,7 @@
                 <lib name="rpcrt4.lib" />
                 <lib name="shell32.lib" />
                 <lib name="kernel32.lib" />
-            </section>    
-		</target>
-	</section>
+            </section>
+        </target>
+    </section>
 </xml>

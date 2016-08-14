@@ -7,7 +7,7 @@ import wx.widgets.Bitmap in WxBitmap;
 
 class Bitmap extends GDIObject {
 
-	@:access(hx.widgets.Image)
+    @:access(hx.widgets.Image)
     public function new(image:Image = null) {
         if (image != null) {
             _ref = WxBitmap.createInstance(image.imageRef.ref).reinterpret();

@@ -12,7 +12,7 @@ class ImageList extends Object {
         }
     }
 
-	@:access(hx.widgets.Bitmap)
+    @:access(hx.widgets.Bitmap)
     public function add(bitmap:Bitmap):Int {
         return imagelistRef.ptr.add(bitmap.bitmapRef.ref);
     }

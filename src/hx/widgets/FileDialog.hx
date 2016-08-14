@@ -112,7 +112,7 @@ class FileDialog extends Dialog {
         return value;
     }
 
-    // TODO: 
+    // TODO:
     /*
     public function getPaths():Array<String> {
         return null;

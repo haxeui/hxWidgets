@@ -7,7 +7,7 @@ import wx.widgets.Event in WxEvent;
 class MouseEvent extends Event implements MouseState {
     public var x(get, null):Int;
     public var y(get, null):Int;
-    
+
     private function get_x():Int {
         return mouseEventRef.ptr.getX();
     }
@@ -27,10 +27,10 @@ class MouseEvent extends Event implements MouseState {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // STATIC HELPERS
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-	public static override function fromPointer(ptr:Pointer<WxEvent>):Event {
-		var event:MouseEvent = new MouseEvent();
-		event._ref = ptr;
-		return event;
-	}
+    public static override function fromPointer(ptr:Pointer<WxEvent>):Event {
+        var event:MouseEvent = new MouseEvent();
+        event._ref = ptr;
+        return event;
+    }
 
 }

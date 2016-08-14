@@ -92,7 +92,7 @@ class Main {
 
         var htmlView:HTMLView = new HTMLView(tabs);
         tabs.addPage(htmlView, "Web View", false, 4);
-        
+
         tabs.bind(EventType.NOTEBOOK_PAGE_CHANGED, function(e) {
             e.skip(); // seems if you dont skip the event on osx then nothing shows - presumably this event handler is "stealing" the event
            LogView.log('Notebook page changed: index=${tabs.selection}, text=${tabs.selectionText}');

@@ -5,7 +5,7 @@ import wx.widgets.WindowDC in WxWindowDC;
 
 class WindowDC extends DC {
 
-	@:access(hx.widgets.Window)
+    @:access(hx.widgets.Window)
     public function new(window:Window) {
         super();
         if (window != null) {
