@@ -9,11 +9,6 @@ class Sizer extends Object {
     public function new() {
     }
 
-    public function destroy() {
-        _ref.destroy();
-        _ref = null;
-    }
-
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Instance functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -25,10 +20,26 @@ class Sizer extends Object {
         sizerRef.ptr.add(Sizer.toRaw(sizer), proportion, flag, border);
     }
 
+    public function insert(index:Int, window:Window, proportion:Int = 0, flag:SizerFlag = SizerFlag.NONE, border:Int = 0) {
+        sizerRef.ptr.insert(index, Window.toRaw(window), proportion, flag, border);
+    }
+
+    public function insertSizer(index:Int, sizer:Sizer, proportion:Int = 0, flag:SizerFlag = SizerFlag.NONE, border:Int = 0) {
+        sizerRef.ptr.insert(index, Sizer.toRaw(sizer), proportion, flag, border);
+    }
+
     public function addSpacer(size:Int) {
         sizerRef.ptr.addSpacer(size);
     }
 
+    public function remove(index:Int):Bool {
+        return sizerRef.ptr.remove(index);
+    }
+    
+    public function layout() {
+        sizerRef.ptr.layout();
+    }
+    
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Static helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

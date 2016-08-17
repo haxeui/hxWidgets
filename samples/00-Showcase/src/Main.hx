@@ -4,6 +4,7 @@ import views.BasicControlsView;
 import views.DialogView;
 import views.DrawingView;
 import views.HTMLView;
+import views.ListsView;
 import views.LogView;
 import views.SystemInfoView;
 
@@ -63,6 +64,7 @@ class Main {
         var imageList:ImageList = new ImageList(16, 16);
         imageList.add(Bitmap.fromHaxeResource("ui-check-boxes-series.png"));
         imageList.add(Bitmap.fromHaxeResource("layer-shape-line.png"));
+        imageList.add(Bitmap.fromHaxeResource("ui-scroll-pane-list.png"));
         imageList.add(Bitmap.fromHaxeResource("information-button.png"));
         imageList.add(Bitmap.fromHaxeResource("application-dialog.png"));
         imageList.add(Bitmap.fromHaxeResource("globe-green.png"));
@@ -84,14 +86,17 @@ class Main {
         var drawingView:DrawingView = new DrawingView(tabs);
         tabs.addPage(drawingView, "Drawing", false, 1);
 
+        var listsView:ListsView = new ListsView(tabs);
+        tabs.addPage(listsView, "Lists", false, 2);
+
         var infoView:SystemInfoView = new SystemInfoView(tabs);
-        tabs.addPage(infoView, "System Info", false, 2);
+        tabs.addPage(infoView, "System Info", false, 3);
 
         var dialogView:DialogView = new DialogView(tabs);
-        tabs.addPage(dialogView, "Dialogs", false, 3);
+        tabs.addPage(dialogView, "Dialogs", false, 4);
 
         var htmlView:HTMLView = new HTMLView(tabs);
-        tabs.addPage(htmlView, "Web View", false, 4);
+        tabs.addPage(htmlView, "Web View", false, 5);
 
         tabs.bind(EventType.NOTEBOOK_PAGE_CHANGED, function(e) {
             e.skip(); // seems if you dont skip the event on osx then nothing shows - presumably this event handler is "stealing" the event

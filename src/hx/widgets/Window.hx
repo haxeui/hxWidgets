@@ -36,10 +36,10 @@ class Window extends EvtHandler {
         return windowRef.ptr.close(force);
     }
 
-    public function destroy():Bool {
+    public override function destroy():Bool {
         var r = windowRef.ptr.destroy();
         if (r) {
-            _ref.destroy();
+            _ref = null;
         }
         return r;
     }

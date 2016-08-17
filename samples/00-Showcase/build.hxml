@@ -4,10 +4,13 @@
 -resource assets/img/layer-shape-line.png@layer-shape-line.png
 -resource assets/img/haxe-logo.png@haxe-logo.png
 -resource assets/img/haxe-logo-small.png@haxe-logo-small.png
+-resource assets/img/haxe-logo-tiny.png@haxe-logo-tiny.png
 -resource assets/img/wx-logo.png@wx-logo.png
 -resource assets/img/wx-logo-small.png@wx-logo-small.png
+-resource assets/img/wx-logo-tiny.png@wx-logo-tiny.png
 -resource assets/img/application-dialog.png@application-dialog.png
 -resource assets/img/globe-green.png@globe-green.png
+-resource assets/img/ui-scroll-pane-list.png@ui-scroll-pane-list.png
 
 -lib hxWidgets
 -cp src/
