@@ -15,7 +15,7 @@ extern class ListCtrl extends Control {
                                         public static inline function createInstance():Pointer<ListCtrl> {
                                             return Pointer.fromRaw(_new());
                                         }
-                                        
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Instance functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

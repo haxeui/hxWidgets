@@ -15,7 +15,7 @@ extern class ListItem extends Object {
                                         public static inline function createInstance():Pointer<ListItem> {
                                             return Pointer.fromRaw(_new());
                                         }
-                                        
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // instance functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

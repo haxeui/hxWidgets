@@ -5,14 +5,14 @@ import hx.widgets.styles.*;
 
 class ListsView extends View {
     private var _top:Sizer;
-    
+
     private var _largeImageList:ImageList;
     private var _smallImageList:ImageList;
     private var _listview:ListView;
-    
+
     public function new(parent:Window) {
         super(parent);
-        
+
         sizer = new BoxSizer(Orientation.VERTICAL);
         _top = new BoxSizer(Orientation.VERTICAL);
 
@@ -25,12 +25,12 @@ class ListsView extends View {
         _smallImageList.add(Bitmap.fromHaxeResource("wx-logo-tiny.png"));
 
         sizer.addSizer(_top, 1, Stretch.EXPAND | Direction.ALL, 5);
-        
+
         recreateListView(ListCtrlStyle.ICON);
-        
-        
+
+
         var options:Sizer = new BoxSizer(Orientation.HORIZONTAL);
-        
+
         var option:RadioButton = new RadioButton(this, "Icon");
         option.value = true;
         option.bind(EventType.RADIOBUTTON, function(e:Event) {
@@ -55,23 +55,23 @@ class ListsView extends View {
             recreateListView(ListCtrlStyle.REPORT);
         });
         options.add(option);
-        
+
         _top.addSizer(options);
     }
-    
+
     private function recreateListView(type:Int) {
         if (_listview != null) {
             _top.remove(0);
             _listview.destroy();
         }
-        
+
         this.freeze();
-        
+
         _listview = new ListView(this, type);
-        
+
         _listview.largeImageList = _largeImageList;
         _listview.smallImageList = _smallImageList;
-        
+
         if (type == ListCtrlStyle.REPORT) {
             _listview.appendColumn("");
             _listview.appendColumn("Column A");
@@ -84,14 +84,14 @@ class ListsView extends View {
             _listview.appendColumn("Column H");
             _listview.appendColumn("Column I");
         }
-        
+
         for (n in 0...500) {
             if (n % 2 == 0) {
                 _listview.addItem(new ListItem("Item " + n, 0));
             } else {
                 _listview.addItem(new ListItem("Item " + n, 1));
             }
-            
+
             if (type == ListCtrlStyle.REPORT) {
                 _listview.setItem(new ListItem("Sub Item " + n + "A", -1, 1, n));
                 _listview.setItem(new ListItem("Sub Item " + n + "B", -1, 2, n));
@@ -104,10 +104,10 @@ class ListsView extends View {
                 _listview.setItem(new ListItem("Sub Item " + n + "I", -1, 9, n));
             }
         }
-        
+
         _top.insert(0, _listview, 1, Stretch.EXPAND | Direction.ALL, 5);
         _top.layout();
-        
+
         this.thaw();
     }
 }

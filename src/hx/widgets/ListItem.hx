@@ -9,7 +9,7 @@ class ListItem extends Object {
         if (_ref == null) {
             _ref = WxListItem.createInstance().reinterpret();
         }
-        
+
         if (text != null) {
             this.text = text;
         }
@@ -23,7 +23,7 @@ class ListItem extends Object {
             this.id = id;
         }
     }
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Instance functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -35,7 +35,7 @@ class ListItem extends Object {
         listItemRef.ptr.setId(value);
         return value;
     }
-    
+
     public var text(get, set):String;
     private function get_text():String {
         var r:WxString = listItemRef.ptr.getText();
@@ -47,7 +47,7 @@ class ListItem extends Object {
         s.destroy();
         return value;
     }
-    
+
     public var image(get, set):Int;
     private function get_image():Int {
         return listItemRef.ptr.getImage();
@@ -56,7 +56,7 @@ class ListItem extends Object {
         listItemRef.ptr.setImage(value);
         return value;
     }
-    
+
     public var column(get, set):Int;
     private function get_column():Int {
         return listItemRef.ptr.getColumn();
@@ -65,7 +65,7 @@ class ListItem extends Object {
         listItemRef.ptr.setColumn(value);
         return value;
     }
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

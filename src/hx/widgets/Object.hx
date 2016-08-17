@@ -14,5 +14,5 @@ class Object {
         }
         return true;
     }
-    
+
 }
