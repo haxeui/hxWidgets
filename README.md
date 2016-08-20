@@ -36,7 +36,7 @@ You need wxWidgets 3.x and wx-config available in your path.
 
 You can install wxWidgets with:
 
-* on debian/ubuntu: `apt-get install libwxgtk3.0-dev libwxbase3.0-dev`
+* on debian/ubuntu: `apt-get install libwxgtk3.0-dev libwxbase3.0-dev libwxgtk-webview3.0-dev`
 
 ### Mac
 
