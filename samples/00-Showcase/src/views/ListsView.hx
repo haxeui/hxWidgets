@@ -16,6 +16,26 @@ class ListsView extends View {
         sizer = new BoxSizer(Orientation.VERTICAL);
         _top = new BoxSizer(Orientation.VERTICAL);
 
+        var combo1:ComboBox = new ComboBox(this);
+        var combo2:ComboBox = new ComboBox(this, null, ComboBoxStyle.READONLY);
+        var combo3:ComboBox = new ComboBox(this, null, ComboBoxStyle.DROPDOWN);
+        var combo4:Choice = new Choice(this);
+        for (n in 0...20) {
+            combo1.append("Item #" + (n + 1));
+            combo2.append("Item #" + (n + 1));
+            combo3.append("Item #" + (n + 1));
+            combo4.append("Item #" + (n + 1));
+        }
+        var hbox = new BoxSizer(Orientation.HORIZONTAL);
+        hbox.add(combo1);
+        hbox.addSpacer(5);
+        hbox.add(combo2);
+        hbox.addSpacer(5);
+        hbox.add(combo3);
+        hbox.addSpacer(5);
+        hbox.add(combo4);
+        _top.addSizer(hbox);
+        
         _largeImageList = new ImageList(40, 40);
         _largeImageList.add(Bitmap.fromHaxeResource("haxe-logo-small.png"));
         _largeImageList.add(Bitmap.fromHaxeResource("wx-logo-small.png"));
@@ -61,7 +81,7 @@ class ListsView extends View {
 
     private function recreateListView(type:Int) {
         if (_listview != null) {
-            _top.remove(0);
+            _top.remove(1);
             _listview.destroy();
         }
 
@@ -105,7 +125,7 @@ class ListsView extends View {
             }
         }
 
-        _top.insert(0, _listview, 1, Stretch.EXPAND | Direction.ALL, 5);
+        _top.insert(1, _listview, 1, Stretch.EXPAND | Direction.ALL, 5);
         _top.layout();
 
         this.thaw();
