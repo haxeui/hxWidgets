@@ -1,5 +1,6 @@
 package wx.widgets;
 
+import cpp.ConstCharStar;
 import cpp.Pointer;
 import cpp.RawPointer;
 
@@ -19,6 +20,6 @@ extern class ClassInfo {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Instance functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    @:native("GetClassName")            public function getClassName():WxString;
+    @:native("GetClassName")            public function getClassName():ConstCharStar;
 
 }

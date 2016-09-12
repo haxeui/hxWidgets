@@ -103,8 +103,7 @@ class Window extends EvtHandler {
 
     public var backgroundColour(get, set):Int;
     private function get_backgroundColour():Int {
-        var r = windowRef.ptr.getBackgroundColour();
-        return Colour.copy(Pointer.addressOf(r)).rgb;
+        return windowRef.ptr.getBackgroundColour().GetRGB();
     }
     private function set_backgroundColour(value:Int):Int {
         var temp:Pointer<WxColour> = WxColour.createInstance(Colour.convertColor(value));
@@ -115,8 +114,7 @@ class Window extends EvtHandler {
 
     public var foregroundColour(get, set):Int;
     private function get_foregroundColour():Int {
-        var r = windowRef.ptr.getForegroundColour();
-        return Colour.copy(Pointer.addressOf(r)).rgb;
+        return windowRef.ptr.getForegroundColour().GetRGB();
     }
     private function set_foregroundColour(value:Int):Int {
         var temp:Pointer<WxColour> = WxColour.createInstance(Colour.convertColor(value));
@@ -128,7 +126,7 @@ class Window extends EvtHandler {
     public var font(get, set):Font;
     private function get_font():Font {
         var r = windowRef.ptr.getFont();
-        return Font.copy(Pointer.addressOf(r));
+        return Font.copy(r);
     }
     private function set_font(value:Font):Font {
         var temp:Pointer<WxFont> = value.createPointer();
@@ -181,7 +179,7 @@ class Window extends EvtHandler {
     public var size(get, set):Size;
     private function get_size():Size {
         var r = windowRef.ptr.getSize();
-        return Size.copy(Pointer.addressOf(r));
+        return Size.copy(r);
     }
     private function set_size(value:Size):Size {
         var temp:Pointer<WxSize> = value.createPointer();
@@ -197,7 +195,7 @@ class Window extends EvtHandler {
     public var clientSize(get, set):Size;
     private function get_clientSize():Size {
         var r = windowRef.ptr.getClientSize();
-        return Size.copy(Pointer.addressOf(r));
+        return Size.copy(r);
     }
     private function set_clientSize(value:Size):Size {
         var temp:Pointer<WxSize> = value.createPointer();
@@ -213,13 +211,13 @@ class Window extends EvtHandler {
     public var bestSize(get, null):Size;
     private function get_bestSize():Size {
         var r = windowRef.ptr.getBestSize();
-        return Size.copy(Pointer.addressOf(r));
+        return Size.copy(r);
     }
 
     public var virtualSize(get, set):Size;
     private function get_virtualSize():Size {
         var r = windowRef.ptr.getVirtualSize();
-        return Size.copy(Pointer.addressOf(r));
+        return Size.copy(r);
     }
     private function set_virtualSize(value:Size):Size {
         var temp:Pointer<WxSize> = value.createPointer();
@@ -242,7 +240,7 @@ class Window extends EvtHandler {
     public var position(get, set):Point;
     private function get_position():Point {
         var r = windowRef.ptr.getPosition();
-        return Point.copy(Pointer.addressOf(r));
+        return Point.copy(r);
     }
     private function set_position(value:Point):Point {
         var temp:Pointer<WxPoint> = value.createPointer();
@@ -371,10 +369,9 @@ class Window extends EvtHandler {
     @:access(hx.widgets.ClassInfo)
     private function get_classInfo():ClassInfo {
         var t:Pointer<WxClassInfo> = windowRef.ptr.getClassInfo();
+        
         var info:ClassInfo = new ClassInfo();
-
-        var raw:RawPointer<WxClassInfo> = t.rawCast();
-        info._ref = Pointer.fromRaw(raw);
+        info._ref = t.reinterpret();
 
         return info;
     }

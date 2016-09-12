@@ -62,7 +62,7 @@ class Notebook extends BookCtrlBase {
         var temp:Pointer<WxSize> = pageSize.createPointer();
         var r = notebookRef.ptr.calcSizeFromPage(temp.ref);
         temp.destroy();
-        return Size.copy(Pointer.addressOf(r));
+        return Size.copy(r);
     }
 
     public var padding(null, set):Size;

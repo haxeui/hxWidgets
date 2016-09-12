@@ -17,8 +17,7 @@ class Pen extends GDIObject {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     public var colour(get, set):Int;
     private function get_colour():Int {
-        var r = penRef.ptr.getColour();
-        return Colour.copy(Pointer.addressOf(r)).rgb;
+        return penRef.ptr.getColour().GetRGB();
     }
     @:access(hx.widgets.Colour)
     private function set_colour(value:Int):Int {
