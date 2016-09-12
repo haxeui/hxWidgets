@@ -2,7 +2,10 @@ package wx.widgets;
 
 import cpp.ConstCharStar;
 
-@:include("wx/wx.h")
+@:headerCode("
+#include <wx/wx.h>
+#undef RegisterClass
+")
 @:unreflective
 @:native("wxCStrData")
 @:structAccess
