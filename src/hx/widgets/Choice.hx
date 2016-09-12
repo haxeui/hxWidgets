@@ -36,7 +36,7 @@ class Choice extends Control implements ItemContainer {
     
     public function getString(n:Int):String {
         var r:WxString = choiceRef.ptr.getString(n);
-        return new String(r.c_str());
+        return new String(r.c_str().asChar());
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
