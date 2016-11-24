@@ -30,13 +30,13 @@ class PlatformInfo {
     public var archName(get, null):String;
     private function get_archName():String {
         var r:WxString = _ref.ptr.getArchName();
-        return new String(r.c_str());
+        return new String(r.c_str().asChar());
     }
 
     public var operatingSystemFamilyName(get, null):String;
     private function get_operatingSystemFamilyName():String {
         var r:WxString = _ref.ptr.getOperatingSystemFamilyName();
-        return new String(r.c_str());
+        return new String(r.c_str().asChar());
     }
 
     public var operatingSystemId(get, null):OperatingSystemId;
@@ -47,7 +47,7 @@ class PlatformInfo {
     public var operatingSystemIdName(get, null):String;
     private function get_operatingSystemIdName():String {
         var r:WxString = _ref.ptr.getOperatingSystemIdName();
-        return new String(r.c_str());
+        return new String(r.c_str().asChar());
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

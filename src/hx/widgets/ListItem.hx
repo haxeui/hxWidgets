@@ -39,7 +39,7 @@ class ListItem extends Object {
     public var text(get, set):String;
     private function get_text():String {
         var r:WxString = listItemRef.ptr.getText();
-        return new String(r.c_str());
+        return new String(r.c_str().asChar());
     }
     private function set_text(value:String):String {
         var s = WxString.createInstance(value);

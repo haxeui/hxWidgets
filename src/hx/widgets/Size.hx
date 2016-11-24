@@ -31,9 +31,8 @@ class Size {
         return defaultSize;
     }
 
-    public static function copy(ptr:Pointer<WxSize>):Size {
-        var c:Size = new Size(ptr.ref.getWidth(), ptr.ref.getHeight());
-        return c;
+    public static function copy(other:WxSize):Size {
+        return new Size(other.getWidth(), other.getHeight());
     }
 
 }

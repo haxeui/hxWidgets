@@ -15,8 +15,7 @@ class ClassInfo {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     public var className(get, null):String;
     private function get_className():String {
-        var c = _ref.ptr.getClassName();
-        return new String(c.c_str());
+        return new String(_ref.ptr.getClassName());
     }
 
 }

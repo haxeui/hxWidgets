@@ -16,8 +16,7 @@ class Brush extends GDIObject {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     public var colour(get, set):Int;
     private function get_colour():Int {
-        var r = brushRef.ptr.getColour();
-        return Colour.copy(Pointer.addressOf(r)).rgb;
+        return brushRef.ptr.getColour().GetRGB();
     }
     @:access(hx.widgets.Colour)
     private function set_colour(value:Int):Int {

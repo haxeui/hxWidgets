@@ -38,7 +38,7 @@ class TextCtrl extends Control implements TextEntry {
     public var value(get, set):String;
     private function get_value():String {
         var r:WxString = textCtrlRef.ptr.getValue();
-        return new String(r.c_str());
+        return new String(r.c_str().asChar());
     }
     private function set_value(value:String):String {
         var s = WxString.createInstance(value);

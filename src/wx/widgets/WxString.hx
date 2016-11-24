@@ -22,6 +22,6 @@ extern class WxString {
     // Instance functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     @:native("Length")                  public function length():Int;
-    @:native("c_str")                   public function c_str():ConstCharStar;
+    @:native("c_str")                   public function c_str():CStrData;
 
 }

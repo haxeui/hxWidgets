@@ -1,6 +1,5 @@
 package hx.widgets;
 
-import cpp.NativeArray;
 import cpp.Pointer;
 import wx.widgets.ComboBox in WxComboBox;
 import wx.widgets.WxString;
@@ -11,11 +10,11 @@ class ComboBox extends Control implements ItemContainer {
             _ref = WxComboBox.createInstance().reinterpret();
             if (value != null) {
                 var str = WxString.createInstance(value);
-                comboBoxRef.ptr.create(Window.toRaw(parent), id, str.ref, Point.defaultPosition.ref, Size.defaultSize.ref, 0, NativeArray.address([], 0).rawCast(), style);
+                comboBoxRef.ptr.create(Window.toRaw(parent), id, str.ref, Point.defaultPosition.ref, Size.defaultSize.ref, 0, cast 0, style);
                 str.destroy();
             } else {
                 var str = WxString.createInstance("");
-                comboBoxRef.ptr.create(Window.toRaw(parent), id, str.ref, Point.defaultPosition.ref, Size.defaultSize.ref, 0, NativeArray.address([], 0).rawCast(), style);
+                comboBoxRef.ptr.create(Window.toRaw(parent), id, str.ref, Point.defaultPosition.ref, Size.defaultSize.ref, 0, cast 0, style);
                 str.destroy();
             }
         }
@@ -44,7 +43,7 @@ class ComboBox extends Control implements ItemContainer {
     
     public function getString(n:Int):String {
         var r:WxString = comboBoxRef.ptr.getString(n);
-        return new String(r.c_str());
+        return new String(r.c_str().asChar());
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

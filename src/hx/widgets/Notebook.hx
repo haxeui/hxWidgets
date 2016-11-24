@@ -62,7 +62,7 @@ class Notebook extends BookCtrlBase {
         var temp:Pointer<WxSize> = pageSize.createPointer();
         var r = notebookRef.ptr.calcSizeFromPage(temp.ref);
         temp.destroy();
-        return Size.copy(Pointer.addressOf(r));
+        return Size.copy(r);
     }
 
     public var padding(null, set):Size;
@@ -75,7 +75,7 @@ class Notebook extends BookCtrlBase {
 
     public function getPageText(page:Int):String {
         var r:WxString = notebookRef.ptr.getPageText(page);
-        return new String(r.c_str());
+        return new String(r.c_str().asChar());
     }
 
     public var selectionText(get, null):String; // bit of sugar

@@ -31,8 +31,8 @@ class Point {
         return defaultPosition;
     }
 
-    public static function copy(ptr:Pointer<WxPoint>):Point {
-        var c:Point = new Point(ptr.ref.x, ptr.ref.y);
+    public static function copy(other:WxPoint):Point {
+        var c:Point = new Point(other.x, other.y);
         return c;
     }
 

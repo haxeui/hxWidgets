@@ -83,9 +83,8 @@ class Font extends GDIObject {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Static helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public static function copy(ptr:Pointer<WxFont>):Font {
-        var c:Font = new Font(ptr.ref.getPointSize(), ptr.ref.getFamily(), ptr.ref.getStyle(), ptr.ref.getWeight(), ptr.ref.getUnderlined());
-        return c;
+    public static function copy(other:WxFont):Font {
+        return new Font(other.getPointSize(), other.getFamily(), other.getStyle(), other.getWeight(), other.getUnderlined());
     }
 
 }

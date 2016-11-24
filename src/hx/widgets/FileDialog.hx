@@ -45,13 +45,13 @@ class FileDialog extends Dialog {
     public var currentlySelectedFilename(get, null):String;
     private function get_currentlySelectedFilename():String {
         var r:WxString = fileDialogRef.ptr.getCurrentlySelectedFilename();
-        return new String(r.c_str());
+        return new String(r.c_str().asChar());
     }
 
     public var directory(get, set):String;
     private function get_directory():String {
         var r:WxString = fileDialogRef.ptr.getDirectory();
-        return new String(r.c_str());
+        return new String(r.c_str().asChar());
     }
     private function set_directory(value:String):String {
         var s = WxString.createInstance(value);
@@ -63,7 +63,7 @@ class FileDialog extends Dialog {
     public var filename(get, set):String;
     private function get_filename():String {
         var r:WxString = fileDialogRef.ptr.getFilename();
-        return new String(r.c_str());
+        return new String(r.c_str().asChar());
     }
     private function set_filename(value:String):String {
         var s = WxString.createInstance(value);
@@ -91,7 +91,7 @@ class FileDialog extends Dialog {
     public var message(get, set):String;
     private function get_message():String {
         var r:WxString = fileDialogRef.ptr.getMessage();
-        return new String(r.c_str());
+        return new String(r.c_str().asChar());
     }
     private function set_message(value:String):String {
         var s = WxString.createInstance(value);
@@ -103,7 +103,7 @@ class FileDialog extends Dialog {
     public var path(get, set):String;
     private function get_path():String {
         var r:WxString = fileDialogRef.ptr.getPath();
-        return new String(r.c_str());
+        return new String(r.c_str().asChar());
     }
     private function set_path(value:String):String {
         var s = WxString.createInstance(value);
@@ -122,7 +122,7 @@ class FileDialog extends Dialog {
     public var wildcard(get, set):String;
     private function get_wildcard():String {
         var r:WxString = fileDialogRef.ptr.getWildcard();
-        return new String(r.c_str());
+        return new String(r.c_str().asChar());
     }
     private function set_wildcard(value:String):String {
         var s = WxString.createInstance(value);
