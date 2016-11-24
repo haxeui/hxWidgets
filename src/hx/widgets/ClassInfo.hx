@@ -2,6 +2,7 @@ package hx.widgets;
 
 import cpp.Pointer;
 import wx.widgets.ClassInfo in WxClassInfo;
+import wx.widgets.WxString;
 
 class ClassInfo {
 
@@ -15,7 +16,8 @@ class ClassInfo {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     public var className(get, null):String;
     private function get_className():String {
-        return new String(_ref.ptr.getClassName());
+        var r:WxString = _ref.ptr.getClassName();
+        return new String(r.c_str().asChar());
     }
 
 }

@@ -3,6 +3,7 @@ package hx.widgets;
 import cpp.Pointer;
 import wx.widgets.Size in WxSize;
 
+@:unreflective
 class Size {
 
     public var width:Int;
@@ -34,5 +35,4 @@ class Size {
     public static function copy(other:WxSize):Size {
         return new Size(other.getWidth(), other.getHeight());
     }
-
 }

@@ -3,6 +3,7 @@ package hx.widgets;
 import cpp.Pointer;
 import wx.widgets.Point in WxPoint;
 
+@:unreflective
 class Point {
 
     public var x:Int;

@@ -3,6 +3,7 @@ package hx.widgets;
 import cpp.Pointer;
 import wx.widgets.Font in WxFont;
 
+@:unreflective
 class Font extends GDIObject {
 
     private var _size:Int;
