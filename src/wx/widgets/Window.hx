@@ -116,10 +116,16 @@ extern class Window extends EvtHandler {
     @:native("Layout")                          public function layout():Bool;
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Coordinate conversion functions
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    @:native("ClientToScreen")                  public function clientToScreen(pt:Point):Point;
+    @:native("ScreenToClient")                  public function screenToClient(pt:Point):Point;
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Misc functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     @:native("GetClassInfo")                    public function getClassInfo():Pointer<ClassInfo>; //TODO should be in wxObject
-
+    @:native("HitTest")                         public function hitTest(pt:Point):HitTest; //TODO should be in wxObject
 }
 
 @:include("wx/list.h")

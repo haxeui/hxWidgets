@@ -365,6 +365,23 @@ class Window extends EvtHandler {
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Coordinate conversion functions
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public function clientToScreen(pt:Point):Point {
+        var temp:Pointer<WxPoint> = pt.createPointer();
+        var converted:WxPoint = windowRef.ptr.clientToScreen(temp.ref);
+        temp.destroy();
+        return new Point(converted.x, converted.y);
+    }
+    
+    public function screenToClient(pt:Point):Point {
+        var temp:Pointer<WxPoint> = pt.createPointer();
+        var converted:WxPoint = windowRef.ptr.screenToClient(temp.ref);
+        temp.destroy();
+        return new Point(converted.x, converted.y);
+    }
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Misc functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     public var classInfo(get, null):ClassInfo;
@@ -379,6 +396,13 @@ class Window extends EvtHandler {
         return info;
     }
 
+    public function hitTest(pt:Point):HitTest {
+        var temp:Pointer<WxPoint> = pt.createPointer();
+        var result = windowRef.ptr.hitTest(temp.ref);
+        temp.destroy();
+        return result;
+    }
+    
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Static helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
