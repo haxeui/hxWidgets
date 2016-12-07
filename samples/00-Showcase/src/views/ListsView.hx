@@ -26,6 +26,11 @@ class ListsView extends View {
             combo3.append("Item #" + (n + 1));
             combo4.append("Item #" + (n + 1));
         }
+        
+        combo4.bind(EventType.CHOICE, function(e:Event) {
+            LogView.log('Choice event: index=${combo4.selection}, value=${combo4.selectedString}');
+        });
+        
         var hbox = new BoxSizer(Orientation.HORIZONTAL);
         hbox.add(combo1);
         hbox.addSpacer(5);
