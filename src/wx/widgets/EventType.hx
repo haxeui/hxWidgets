@@ -25,6 +25,7 @@ class EventType {
     public static var TIMER:Int                 = untyped __cpp__("wxEVT_TIMER");
     public static var NOTEBOOK_PAGE_CHANGED:Int = untyped __cpp__("wxEVT_NOTEBOOK_PAGE_CHANGED");
     public static var SIZE:Int                  = untyped __cpp__("wxEVT_SIZE");
+    public static var CHOICE:Int                = untyped __cpp__("wxEVT_CHOICE");
 
     public static var PAINT:Int                 = untyped __cpp__("wxEVT_PAINT");
     public static var ERASE_BACKGROUND:Int      = untyped __cpp__("wxEVT_ERASE_BACKGROUND");

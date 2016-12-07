@@ -46,6 +46,27 @@ class Choice extends Control implements ItemContainer {
         return new String(r.c_str().asChar());
     }
     
+    public var selection(get, set):Int;
+    private function get_selection():Int {
+        return choiceRef.ptr.getSelection();
+    }
+    private function set_selection(value:Int):Int {
+        choiceRef.ptr.setSelection(value);
+        return value;
+    }
+    
+    public var selectedString(get, set):String;
+    private function get_selectedString():String {
+        var r:WxString = choiceRef.ptr.getStringSelection();
+        return new String(r.c_str().asChar());
+    }
+    private function set_selectedString(value:String):String {
+        var s = WxString.createInstance(value);
+        choiceRef.ptr.setStringSelection(s.ref);
+        s.destroy();
+        return value;
+    }
+    
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

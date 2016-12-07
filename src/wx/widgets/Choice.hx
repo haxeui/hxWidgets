@@ -32,4 +32,9 @@ extern class Choice extends Control implements ItemContainer {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     @:native("SetString")           public function setString(n:Int, string:WxString):Void;
     @:native("GetString")           public function getString(n:Int):WxString;
+
+    @:native("SetSelection")        public function setSelection(n:Int):Void;
+    @:native("GetSelection")        public function getSelection():Int;
+    @:native("SetStringSelection")  public function setStringSelection(string:WxString):Void;
+    @:native("GetStringSelection")  public function getStringSelection():WxString;
 }
