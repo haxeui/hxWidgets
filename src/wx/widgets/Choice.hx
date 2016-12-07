@@ -24,6 +24,8 @@ extern class Choice extends Control implements ItemContainer {
     // ItemContainer
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     @:native("Append")              public function append(string:WxString):Int;
+    @:native("Delete")              public function delete(n:Int):Void;
+    @:native("Clear")               public function clear():Void;
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // ItemContainerImmutable
