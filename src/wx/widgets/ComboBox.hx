@@ -15,7 +15,7 @@ extern class ComboBox extends Control implements ItemContainer {
                                     public static inline function createInstance():Pointer<ComboBox> {
                                         return Pointer.fromRaw(_new());
                                     }
-    
+
     @:native("Create")              @:overload(function(parent:RawPointer<Window>, id:Int):Bool {})
     @:native("Create")              @:overload(function(parent:RawPointer<Window>, id:Int, value:WxString, point:Point, size:Size, n:Int, choices:cpp.RawPointer<WxString>, style:Int):Bool {})
     @:native("Create")              override public function create(parent:RawPointer<Window>, id:Int, point:Point, size:Size, style:Int):Bool;
@@ -24,7 +24,7 @@ extern class ComboBox extends Control implements ItemContainer {
     // ItemContainer
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     @:native("Append")              public function append(string:WxString):Int;
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // ItemContainerImmutable
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

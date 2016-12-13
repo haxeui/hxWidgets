@@ -15,7 +15,7 @@ extern class Choice extends Control implements ItemContainer {
                                     public static inline function createInstance():Pointer<Choice> {
                                         return Pointer.fromRaw(_new());
                                     }
-    
+
     @:native("Create")              @:overload(function(parent:RawPointer<Window>, id:Int):Bool {})
     @:native("Create")              @:overload(function(parent:RawPointer<Window>, id:Int, point:Point, size:Size, n:Int, choices:cpp.RawPointer<WxString>, style:Int):Bool {})
     @:native("Create")              override public function create(parent:RawPointer<Window>, id:Int, point:Point, size:Size, style:Int):Bool;
@@ -26,7 +26,7 @@ extern class Choice extends Control implements ItemContainer {
     @:native("Append")              public function append(string:WxString):Int;
     @:native("Delete")              public function delete(n:Int):Void;
     @:native("Clear")               public function clear():Void;
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // ItemContainerImmutable
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

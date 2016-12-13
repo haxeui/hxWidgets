@@ -371,14 +371,14 @@ class Window extends EvtHandler {
         temp.destroy();
         return new Point(converted.x, converted.y);
     }
-    
+
     public function screenToClient(pt:Point):Point {
         var temp:Pointer<WxPoint> = pt.createPointer();
         var converted:WxPoint = windowRef.ptr.screenToClient(temp.ref);
         temp.destroy();
         return new Point(converted.x, converted.y);
     }
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Misc functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -386,7 +386,7 @@ class Window extends EvtHandler {
     @:access(hx.widgets.ClassInfo)
     private function get_classInfo():ClassInfo {
         var t:Pointer<WxClassInfo> = windowRef.ptr.getClassInfo();
-        
+
         var info:ClassInfo = new ClassInfo();
         info._ref = t.reinterpret();
 
@@ -399,7 +399,7 @@ class Window extends EvtHandler {
         temp.destroy();
         return result;
     }
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Static helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

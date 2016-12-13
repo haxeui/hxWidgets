@@ -10,7 +10,7 @@ class Choice extends Control implements ItemContainer {
             _ref = WxChoice.createInstance().reinterpret();
             choiceRef.ptr.create(Window.toRaw(parent), id, Point.defaultPosition.ref, Size.defaultSize.ref, 0, cast 0, style);
         }
-        
+
         super(parent, id);
     }
 
@@ -23,15 +23,15 @@ class Choice extends Control implements ItemContainer {
         s.destroy();
         return n;
     }
-    
+
     public function delete(n:Int):Void {
         choiceRef.ptr.delete(n);
     }
-    
+
     public function clear():Void {
         choiceRef.ptr.clear();
     }
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // ItemContainerImmutable
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -40,12 +40,12 @@ class Choice extends Control implements ItemContainer {
         choiceRef.ptr.setString(n, s.ref);
         s.destroy();
     }
-    
+
     public function getString(n:Int):String {
         var r:WxString = choiceRef.ptr.getString(n);
         return new String(r.c_str().asChar());
     }
-    
+
     public var selection(get, set):Int;
     private function get_selection():Int {
         return choiceRef.ptr.getSelection();
@@ -54,7 +54,7 @@ class Choice extends Control implements ItemContainer {
         choiceRef.ptr.setSelection(value);
         return value;
     }
-    
+
     public var selectedString(get, set):String;
     private function get_selectedString():String {
         var r:WxString = choiceRef.ptr.getStringSelection();
@@ -66,7 +66,7 @@ class Choice extends Control implements ItemContainer {
         s.destroy();
         return value;
     }
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

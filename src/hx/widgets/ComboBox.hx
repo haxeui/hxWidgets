@@ -18,7 +18,7 @@ class ComboBox extends Control implements ItemContainer {
                 str.destroy();
             }
         }
-        
+
         super(parent, id);
     }
 
@@ -31,7 +31,7 @@ class ComboBox extends Control implements ItemContainer {
         s.destroy();
         return n;
     }
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // ItemContainerImmutable
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -40,12 +40,12 @@ class ComboBox extends Control implements ItemContainer {
         comboBoxRef.ptr.setString(n, s.ref);
         s.destroy();
     }
-    
+
     public function getString(n:Int):String {
         var r:WxString = comboBoxRef.ptr.getString(n);
         return new String(r.c_str().asChar());
     }
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
