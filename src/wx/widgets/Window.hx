@@ -24,6 +24,8 @@ extern class Window extends EvtHandler {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     @:native("Show")                            public function show(value:Bool = true):Bool;
     @:native("Hide")                            public function hide():Bool;
+    @:native("Enable")                          public function enable(enabled:Bool = true):Bool;
+    @:native("IsEnabled")                       public function isEnabled():Bool;
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Window deletion functions
