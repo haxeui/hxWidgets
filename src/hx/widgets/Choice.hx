@@ -8,7 +8,7 @@ class Choice extends Control implements ItemContainer {
     public function new(parent:Window, style:Int = 0, id:Int = -1) {
         if (_ref == null) {
             _ref = WxChoice.createInstance().reinterpret();
-            choiceRef.ptr.create(Window.toRaw(parent), id, Point.defaultPosition.ref, Size.defaultSize.ref, 0, cast 0, style);
+            choiceRef.ptr.create(Window.toRaw(parent), id, Point.defaultPosition.ref, Size.defaultSize.ref, 0, null, style);
         }
 
         super(parent, id);

@@ -10,11 +10,11 @@ class ComboBox extends Control implements ItemContainer {
             _ref = WxComboBox.createInstance().reinterpret();
             if (value != null) {
                 var str = WxString.createInstance(value);
-                comboBoxRef.ptr.create(Window.toRaw(parent), id, str.ref, Point.defaultPosition.ref, Size.defaultSize.ref, 0, cast 0, style);
+                comboBoxRef.ptr.create(Window.toRaw(parent), id, str.ref, Point.defaultPosition.ref, Size.defaultSize.ref, 0, null, style);
                 str.destroy();
             } else {
                 var str = WxString.createInstance("");
-                comboBoxRef.ptr.create(Window.toRaw(parent), id, str.ref, Point.defaultPosition.ref, Size.defaultSize.ref, 0, cast 0, style);
+                comboBoxRef.ptr.create(Window.toRaw(parent), id, str.ref, Point.defaultPosition.ref, Size.defaultSize.ref, 0, null, style);
                 str.destroy();
             }
         }
