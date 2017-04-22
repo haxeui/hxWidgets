@@ -6,6 +6,7 @@ import cpp.RawPointer;
 @:include("wx/event.h")
 @:unreflective
 @:native("wxEvtHandler")
+@:structAccess
 extern class EvtHandler extends Object implements Trackable {
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

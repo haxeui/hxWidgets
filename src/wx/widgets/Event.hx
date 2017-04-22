@@ -3,6 +3,7 @@ package wx.widgets;
 @:include("wx/event.h")
 @:unreflective
 @:native("wxEvent")
+@:structAccess
 extern class Event extends Object {
 
     @:native("GetEventType")        public function getEventType():Int;

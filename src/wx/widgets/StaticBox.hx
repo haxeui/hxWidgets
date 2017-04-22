@@ -6,6 +6,7 @@ import cpp.RawPointer;
 @:include("wx/statbox.h")
 @:unreflective
 @:native("wxStaticBox")
+@:structAccess
 extern class StaticBox extends Control {
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

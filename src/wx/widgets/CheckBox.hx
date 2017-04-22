@@ -7,6 +7,7 @@ import cpp.RawPointer;
 @:include("wx/checkbox.h")
 @:unreflective
 @:native("wxCheckBox")
+@:structAccess
 extern class CheckBox extends Control {
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

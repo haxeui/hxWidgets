@@ -3,6 +3,7 @@ package wx.widgets;
 @:include("wx/toplevel.h")
 @:unreflective
 @:native("wxTopLevelWindow")
+@:structAccess
 extern class TopLevelWindow extends NonOwnedWindow {
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

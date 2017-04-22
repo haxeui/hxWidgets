@@ -6,6 +6,7 @@ import cpp.RawPointer;
 @:include("wx/platinfo.h")
 @:unreflective
 @:native("wxPlatformInfo")
+@:structAccess
 extern class PlatformInfo {
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

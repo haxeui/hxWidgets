@@ -6,6 +6,7 @@ import cpp.RawPointer;
 @:include("wx/slider.h")
 @:unreflective
 @:native("wxSlider")
+@:structAccess
 extern class Slider extends Control {
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

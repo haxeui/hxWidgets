@@ -6,6 +6,7 @@ import cpp.RawPointer;
 @:include("wx/textdlg.h")
 @:unreflective
 @:native("wxTextEntryDialog")
+@:structAccess
 extern class TextEntryDialog extends Dialog {
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

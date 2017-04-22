@@ -6,6 +6,7 @@ import cpp.RawPointer;
 @:include("wx/webview.h")
 @:unreflective
 @:native("wxWebView")
+@:structAccess
 extern class WebView extends Control {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // creation functions

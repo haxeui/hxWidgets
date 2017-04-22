@@ -6,6 +6,7 @@ import cpp.RawPointer;
 @:include("wx/dcclient.h")
 @:unreflective
 @:native("wxClientDC")
+@:structAccess
 extern class ClientDC extends WindowDC {
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

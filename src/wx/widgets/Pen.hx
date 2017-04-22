@@ -6,6 +6,7 @@ import cpp.RawPointer;
 @:include("wx/pen.h")
 @:unreflective
 @:native("wxPen")
+@:structAccess
 extern class Pen extends GDIObject {
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

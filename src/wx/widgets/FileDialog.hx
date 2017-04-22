@@ -6,6 +6,7 @@ import cpp.RawPointer;
 @:include("wx/filedlg.h")
 @:unreflective
 @:native("wxFileDialog")
+@:structAccess
 extern class FileDialog extends Dialog {
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

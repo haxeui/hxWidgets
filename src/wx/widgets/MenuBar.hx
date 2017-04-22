@@ -6,6 +6,7 @@ import cpp.RawPointer;
 @:include("wx/menu.h")
 @:unreflective
 @:native("wxMenuBar")
+@:structAccess
 extern class MenuBar extends Window {
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

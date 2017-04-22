@@ -6,7 +6,7 @@ import cpp.RawPointer;
 @:include("wx/frame.h")
 @:unreflective
 @:native("wxFrame")
-
+@:structAccess
 extern class Frame extends TopLevelWindow {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // creation functions

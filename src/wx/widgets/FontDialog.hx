@@ -6,6 +6,7 @@ import cpp.RawPointer;
 @:include("wx/fontdlg.h")
 @:unreflective
 @:native("wxFontDialog")
+@:structAccess
 extern class FontDialog extends Dialog {
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -6,6 +6,7 @@ import cpp.RawPointer;
 @:include("wx/sizer.h")
 @:unreflective
 @:native("wxGridSizer")
+@:structAccess
 extern class GridSizer extends Sizer {
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

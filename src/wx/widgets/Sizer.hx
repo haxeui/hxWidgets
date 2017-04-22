@@ -5,6 +5,7 @@ import cpp.RawPointer;
 @:include("wx/sizer.h")
 @:unreflective
 @:native("wxSizer")
+@:structAccess
 extern class Sizer extends Object {
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

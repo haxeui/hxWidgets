@@ -6,6 +6,7 @@ import cpp.RawPointer;
 @:include("wx/listctrl.h")
 @:unreflective
 @:native("wxListCtrl")
+@:structAccess
 extern class ListCtrl extends Control {
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

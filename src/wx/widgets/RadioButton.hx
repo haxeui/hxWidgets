@@ -6,6 +6,7 @@ import cpp.RawPointer;
 @:include("wx/radiobut.h")
 @:unreflective
 @:native("wxRadioButton")
+@:structAccess
 extern class RadioButton extends Control {
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

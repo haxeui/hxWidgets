@@ -6,6 +6,7 @@ import cpp.RawPointer;
 @:include("wx/statbmp.h")
 @:unreflective
 @:native("wxStaticBitmap")
+@:structAccess
 extern class StaticBitmap extends Control {
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

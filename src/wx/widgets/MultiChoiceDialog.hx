@@ -6,6 +6,7 @@ import cpp.RawPointer;
 @:include("wx/choicdlg.h")
 @:unreflective
 @:native("wxMultiChoiceDialog")
+@:structAccess
 extern class MultiChoiceDialog extends Dialog {
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

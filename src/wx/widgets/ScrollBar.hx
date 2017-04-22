@@ -7,6 +7,7 @@ import cpp.Void;
 @:include("wx/scrolbar.h")
 @:unreflective
 @:native("wxScrollBar")
+@:structAccess
 extern class ScrollBar extends Control {
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -6,6 +6,7 @@ import cpp.RawPointer;
 @:include("wx/gauge.h")
 @:unreflective
 @:native("wxGauge")
+@:structAccess
 extern class Gauge extends Control {
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

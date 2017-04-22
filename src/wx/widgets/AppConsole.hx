@@ -6,5 +6,6 @@ package wx.widgets;
 ")
 @:unreflective
 @:native("wxAppConsole")
+@:structAccess
 extern class AppConsole extends EvtHandler implements EventFilter {
 }

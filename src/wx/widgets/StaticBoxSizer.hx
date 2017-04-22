@@ -6,6 +6,7 @@ import cpp.RawPointer;
 @:include("wx/sizer.h")
 @:unreflective
 @:native("wxStaticBoxSizer")
+@:structAccess
 extern class StaticBoxSizer extends BoxSizer {
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

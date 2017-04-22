@@ -6,6 +6,7 @@ import cpp.RawPointer;
 @:include("wx/glcanvas.h")
 @:unreflective
 @:native("wxGLCanvas")
+@:structAccess
 extern class GLCanvas extends Window {
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

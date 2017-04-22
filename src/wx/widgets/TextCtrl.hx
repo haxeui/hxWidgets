@@ -6,6 +6,7 @@ import cpp.RawPointer;
 @:include("wx/textctrl.h")
 @:unreflective
 @:native("wxTextCtrl")
+@:structAccess
 extern class TextCtrl extends Control implements TextEntry {
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

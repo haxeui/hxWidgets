@@ -6,6 +6,7 @@ import cpp.RawPointer;
 @:include("wx/menu.h")
 @:unreflective
 @:native("wxMenu")
+@:structAccess
 extern class Menu extends EvtHandler {
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

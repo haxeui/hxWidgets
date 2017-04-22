@@ -6,6 +6,7 @@ import cpp.RawPointer;
 @:include("wx/dialog.h")
 @:unreflective
 @:native("wxDialog")
+@:structAccess
 extern class Dialog extends TopLevelWindow {
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

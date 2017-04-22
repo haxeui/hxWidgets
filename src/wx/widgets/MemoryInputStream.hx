@@ -7,6 +7,7 @@ import cpp.RawPointer;
 @:include("wx/mstream.h")
 @:unreflective
 @:native("wxMemoryInputStream")
+@:structAccess
 extern class MemoryInputStream extends InputStream {
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

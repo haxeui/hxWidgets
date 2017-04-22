@@ -6,6 +6,7 @@ import cpp.RawPointer;
 @:include("wx/image.h")
 @:unreflective
 @:native("wxImage")
+@:structAccess
 extern class Image extends Object {
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

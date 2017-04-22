@@ -7,6 +7,7 @@ import wx.widgets.styles.BackgroundStyle;
 @:include("wx/window.h")
 @:unreflective
 @:native("wxWindow")
+@:structAccess
 extern class Window extends EvtHandler {
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

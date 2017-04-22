@@ -6,6 +6,7 @@ import cpp.RawPointer;
 @:include("wx/combobox.h")
 @:unreflective
 @:native("wxComboBox")
+@:structAccess
 extern class ComboBox extends Control implements ItemContainer {
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

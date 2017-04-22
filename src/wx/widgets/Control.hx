@@ -6,6 +6,7 @@ import cpp.RawPointer;
 @:include("wx/control.h")
 @:unreflective
 @:native("wxControl")
+@:structAccess
 extern class Control extends Window {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // creation functions

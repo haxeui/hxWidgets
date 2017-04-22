@@ -13,6 +13,7 @@ extern class List<T> extends ListImpl<T>  {
 @:include("wx/list.h")
 @:unreflective
 @:native("wxList")
+@:structAccess
 extern class ListImpl<T> {
 
     @:native("Append")            public function append(object:T):Void;

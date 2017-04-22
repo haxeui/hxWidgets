@@ -6,6 +6,7 @@ import cpp.RawPointer;
 @:include("wx/colordlg.h")
 @:unreflective
 @:native("wxColourDialog")
+@:structAccess
 extern class ColourDialog extends Dialog {
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

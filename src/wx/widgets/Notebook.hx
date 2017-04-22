@@ -6,6 +6,7 @@ import cpp.RawPointer;
 @:include("wx/notebook.h")
 @:unreflective
 @:native("wxNotebook")
+@:structAccess
 extern class Notebook extends BookCtrlBase {
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

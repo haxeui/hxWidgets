@@ -6,6 +6,7 @@ import cpp.RawPointer;
 @:include("wx/panel.h")
 @:unreflective
 @:native("wxPanel")
+@:structAccess
 extern class Panel extends Window {
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

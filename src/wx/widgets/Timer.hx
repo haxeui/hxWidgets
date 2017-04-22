@@ -6,6 +6,7 @@ import cpp.RawPointer;
 @:include("wx/timer.h")
 @:unreflective
 @:native("wxTimer")
+@:structAccess
 extern class Timer extends EvtHandler {
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

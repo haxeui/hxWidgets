@@ -6,6 +6,7 @@ import cpp.RawPointer;
 @:include("wx/hyperlink.h")
 @:unreflective
 @:native("wxHyperlinkCtrl")
+@:structAccess
 extern class HyperlinkCtrl extends Control {
 
     @:native("new wxHyperlinkCtrl")     private static function _new():RawPointer<HyperlinkCtrl>;

@@ -6,6 +6,7 @@ import cpp.RawPointer;
 @:include("wx/choice.h")
 @:unreflective
 @:native("wxChoice")
+@:structAccess
 extern class Choice extends Control implements ItemContainer {
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

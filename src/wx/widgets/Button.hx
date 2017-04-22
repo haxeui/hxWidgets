@@ -6,6 +6,7 @@ import cpp.RawPointer;
 @:include("wx/button.h")
 @:unreflective
 @:native("wxButton")
+@:structAccess
 extern class Button extends AnyButton {
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
