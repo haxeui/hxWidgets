@@ -8,7 +8,7 @@ package wx.widgets;
 class Entry {
 
     public static function start(args:Array<String>) {
-        var args = [#if (haxe_ver >= 3.3) Sys.programPath() #else Sys.executablePath() #end].concat(args);
+        var args = [Sys.programPath()].concat(args);
         var argc = args.length;
         untyped __cpp__("char** argv = new char*[argc]");
 

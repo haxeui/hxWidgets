@@ -56,21 +56,13 @@ class GraphicsContext extends GraphicsObject {
 
     public var antialiasMode(null, set):AntialiasMode;
     private function set_antialiasMode(value:AntialiasMode):AntialiasMode {
-        #if (haxe_ver >= 3.3)
         graphicscontextRef.ptr.setAntialiasMode(value);
-        #else
-        graphicscontextRef.ptr.setAntialiasMode(untyped __cpp__("((wxAntialiasMode)value)"));
-        #end
         return value;
     }
 
     public var interpolationQuality(null, set):InterpolationQuality;
     private function set_interpolationQuality(value:InterpolationQuality):InterpolationQuality {
-        #if (haxe_ver >= 3.3)
         graphicscontextRef.ptr.setInterpolationQuality(value);
-        #else
-        graphicscontextRef.ptr.setInterpolationQuality(untyped __cpp__("((wxInterpolationQuality)value)"));
-        #end
         return value;
     }
 

@@ -8,15 +8,7 @@ Haxe externs (and wrappers) for wxWidgets
 
 ## Dependencies
 
-You need a development version of hxcpp for now.
-
-```bash
-git clone https://github.com/HaxeFoundation/hxcpp.git
-haxelib dev hxcpp hxcpp/
-```
-
-and then see <https://github.com/HaxeFoundation/hxcpp#building> for
-instruction on how to build it.
+You need the [hxcpp](https://lib.haxe.org/p/hxcpp) library and **at least Haxe 3.4**.
 
 ## Windows
 

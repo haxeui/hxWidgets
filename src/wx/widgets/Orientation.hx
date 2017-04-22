@@ -1,6 +1,5 @@
 package wx.widgets;
 
-#if (haxe_ver >= 3.3)
 @:include("wx/window.h")
 @:enum extern abstract Orientation(OrientationImpl) {
 
@@ -13,12 +12,3 @@ package wx.widgets;
 @:native("cpp::Struct<wxOrientation, cpp::EnumHandler>")
 extern class OrientationImpl {
 }
-#else
-@:headerCode("#include <wx/window.h>")
-abstract Orientation(Int) to Int from Int {
-
-    public static var VERTICAL:Int                = untyped __cpp__("wxVERTICAL");
-    public static var HORIZONTAL:Int              = untyped __cpp__("wxHORIZONTAL");
-
-}
-#end

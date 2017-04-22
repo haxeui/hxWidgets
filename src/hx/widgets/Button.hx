@@ -55,11 +55,7 @@ class Button extends AnyButton {
             return value;
         }
 
-        #if (haxe_ver >= 3.3)
         buttonRef.ptr.setBitmapPosition(value);
-        #else
-        buttonRef.ptr.setBitmapPosition(untyped __cpp__("((wxDirection)value)"));
-        #end
         return value;
     }
 

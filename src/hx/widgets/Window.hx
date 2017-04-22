@@ -162,11 +162,7 @@ class Window extends EvtHandler {
         return windowRef.ptr.getBackgroundStyle();
     }
     private function set_backgroundStyle(value:BackgroundStyle):BackgroundStyle {
-        #if (haxe_ver >= 3.3)
         windowRef.ptr.setBackgroundStyle(cast value);
-        #else
-        windowRef.ptr.setBackgroundStyle(untyped __cpp__("((wxBackgroundStyle)value)"));
-        #end
         return value;
     }
 
