@@ -24,7 +24,12 @@ class Main {
             menu.appendItem(new MenuItem(menu, "Something"));
 
                 var subMenu = new Menu();
-                subMenu.append(1001, "Item 1");
+
+                // bitmap must be set before the item is added
+                var item1 = new MenuItem(subMenu, "Item 1", 1001);
+                item1.bitmap = Bitmap.fromHaxeResource("haxe-logo-small.png");
+                subMenu.appendItem(item1);
+
                 subMenu.append(1002, "Item 2");
                 subMenu.append(1003, "Item 3");
                 subMenu.appendSeparator();
