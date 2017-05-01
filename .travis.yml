@@ -24,6 +24,8 @@ env:
 
 matrix:
   exclude:
+  - haxe: "3.4.0"
+    env: HXCPP=dev
   - haxe: "3.4.2"
     env: HXCPP=dev
   - haxe: development
