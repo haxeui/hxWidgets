@@ -8,7 +8,7 @@ Haxe externs (and wrappers) for wxWidgets
 
 ## Dependencies
 
-You need the [hxcpp](https://lib.haxe.org/p/hxcpp) library and **at least Haxe 3.4.0**, we recommand [Haxe 3.4.2](https://haxe.org/download/version/3.4.2/).
+You need the [hxcpp](https://lib.haxe.org/p/hxcpp) library and **at least Haxe 3.4.0**, we recommend [Haxe 3.4.2](https://haxe.org/download/version/3.4.2/).
 
 ## Windows
 
