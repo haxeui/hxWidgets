@@ -21,9 +21,8 @@ class TextCtrl extends Control implements TextEntry {
     // Instance functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     public function appendText(value:String) {
-        var str = WxString.createInstance(value);
-        textCtrlRef.ptr.appendText(str.ref);
-        str.destroy();
+        var s = WxString.fromUTF8(value);
+        textCtrlRef.ptr.appendText(s);
     }
 
     public var insertionPoint(get, set):Int;
@@ -41,9 +40,8 @@ class TextCtrl extends Control implements TextEntry {
         return new String(r.c_str().asChar());
     }
     private function set_value(value:String):String {
-        var s = WxString.createInstance(value);
-        textCtrlRef.ptr.setValue(s.ref);
-        s.destroy();
+        var s = WxString.fromUTF8(value);
+        textCtrlRef.ptr.setValue(s);
         return value;
     }
 
