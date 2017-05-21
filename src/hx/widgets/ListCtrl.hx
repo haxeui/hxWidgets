@@ -77,9 +77,8 @@ class ListCtrl extends Control {
     }
 
     public function appendColumn(heading:String):Int {
-        var s = WxString.createInstance(heading);
-        var n:Int = listCtrlRef.ptr.appendColumn(s.ref);
-        s.destroy();
+        var s = WxString.fromUTF8(heading);
+        var n:Int = listCtrlRef.ptr.appendColumn(s);
         return n;
     }
 

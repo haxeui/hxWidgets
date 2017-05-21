@@ -18,11 +18,9 @@ class MessageDialog extends Dialog {
                 style = Defs.OK | Defs.CENTRE;
             }
 
-            var messageStr = WxString.createInstance(message);
-            var captionStr = WxString.createInstance(caption);
-            _ref = WxMessageDialog.createInstance(Window.toRaw(parent), messageStr.ref, captionStr.ref, style).reinterpret();
-            messageStr.destroy();
-            captionStr.destroy();
+            var messageStr = WxString.fromUTF8(message);
+            var captionStr = WxString.fromUTF8(caption);
+            _ref = WxMessageDialog.createInstance(Window.toRaw(parent), messageStr, captionStr, style).reinterpret();
         }
 
         super(parent);

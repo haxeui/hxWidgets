@@ -6,16 +6,14 @@ import wx.widgets.WxString;
 class SystemOptions extends Object {
 
     public static function getOption(name:String):Int {
-        var str = WxString.createInstance(name);
-        var result:Int = WxSystemOptions.getOptionInt(str.ref);
-        str.destroy();
+        var str = WxString.fromUTF8(name);
+        var result:Int = WxSystemOptions.getOptionInt(str);
         return result;
     }
 
     public static function setOption(name:String, value:Int) {
-        var str = WxString.createInstance(name);
-        WxSystemOptions.setOption(str.ref, value);
-        str.destroy();
+        var str = WxString.fromUTF8(name);
+        WxSystemOptions.setOption(str, value);
     }
 
 }

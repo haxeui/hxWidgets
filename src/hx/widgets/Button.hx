@@ -14,9 +14,8 @@ class Button extends AnyButton {
         if (_ref == null) {
             _ref = WxButton.createInstance().reinterpret();
             if (label != null) {
-                var str = WxString.createInstance(label);
-                buttonRef.ptr.create(Window.toRaw(parent), id, str.ref, Point.defaultPosition.ref, Size.defaultSize.ref, style);
-                str.destroy();
+                var str = WxString.fromUTF8(label);
+                buttonRef.ptr.create(Window.toRaw(parent), id, str, Point.defaultPosition.ref, Size.defaultSize.ref, style);
             } else {
                 buttonRef.ptr.create(Window.toRaw(parent), id);
             }

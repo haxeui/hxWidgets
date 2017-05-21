@@ -42,9 +42,8 @@ class ListItem extends Object {
         return new String(r.c_str().asChar());
     }
     private function set_text(value:String):String {
-        var s = WxString.createInstance(value);
-        listItemRef.ptr.setText(s.ref);
-        s.destroy();
+        var s = WxString.fromUTF8(value);
+        listItemRef.ptr.setText(s);
         return value;
     }
 

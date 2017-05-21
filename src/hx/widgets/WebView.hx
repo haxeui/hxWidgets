@@ -9,9 +9,8 @@ class WebView extends Control {
     public function new(parent:Window, url:String, style:Int = 0, id:Int = -1) {
         if (_ref == null) {
             _ref = WxWebView.createInstance().reinterpret();
-            var str = WxString.createInstance(url);
-            webViewRef.ptr.create(Window.toRaw(parent), id, str.ref, Point.defaultPosition.ref, Size.defaultSize.ref, style);
-            str.destroy();
+            var str = WxString.fromUTF8(url);
+            webViewRef.ptr.create(Window.toRaw(parent), id, str, Point.defaultPosition.ref, Size.defaultSize.ref, style);
         }
 
         super(parent, id);

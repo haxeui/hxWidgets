@@ -25,9 +25,8 @@ class Notebook extends BookCtrlBase {
         if (!allowIcons) {
             imageId = -1;
         }
-        var str = WxString.createInstance(text);
-        return notebookRef.ptr.addPage(Window.toRaw(page), str.ref, select, imageId);
-        str.destroy();
+        var str = WxString.fromUTF8(text);
+        return notebookRef.ptr.addPage(Window.toRaw(page), str, select, imageId);
     }
 
     public var pageCount(get, null):Int;

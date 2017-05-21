@@ -20,9 +20,8 @@ class GLCanvas extends Window {
     }
 
     public function setColour(colour:String):Bool {
-        var str = WxString.createInstance(colour);
-        return canvasRef.ptr.setColour(str.ref);
-        str.destroy();
+        var str = WxString.fromUTF8(colour);
+        return canvasRef.ptr.setColour(str);
     }
 
     @:access(hx.widgets.GLContext)

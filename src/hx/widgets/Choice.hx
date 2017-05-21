@@ -18,9 +18,8 @@ class Choice extends Control implements ItemContainer {
     // ItemContainer
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     public function append(string:String):Int {
-        var s = WxString.createInstance(string);
-        var n:Int = choiceRef.ptr.append(s.ref);
-        s.destroy();
+        var s = WxString.fromUTF8(string);
+        var n:Int = choiceRef.ptr.append(s);
         return n;
     }
 
@@ -36,9 +35,8 @@ class Choice extends Control implements ItemContainer {
     // ItemContainerImmutable
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     public function setString(n:Int, string:String):Void {
-        var s = WxString.createInstance(string);
-        choiceRef.ptr.setString(n, s.ref);
-        s.destroy();
+        var s = WxString.fromUTF8(string);
+        choiceRef.ptr.setString(n, s);
     }
 
     public function getString(n:Int):String {
@@ -61,9 +59,8 @@ class Choice extends Control implements ItemContainer {
         return new String(r.c_str().asChar());
     }
     private function set_selectedString(value:String):String {
-        var s = WxString.createInstance(value);
-        choiceRef.ptr.setStringSelection(s.ref);
-        s.destroy();
+        var s = WxString.fromUTF8(value);
+        choiceRef.ptr.setStringSelection(s);
         return value;
     }
 

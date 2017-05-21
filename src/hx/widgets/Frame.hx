@@ -14,9 +14,8 @@ class Frame extends TopLevelWindow {
 
         if (_ref == null) {
             _ref = WxFrame.createInstance().reinterpret();
-            var str = WxString.createInstance(title);
-            frameRef.ptr.create(Window.toRaw(parent), id, str.ref, Point.defaultPosition.ref, Size.defaultSize.ref, style);
-            str.destroy();
+            var str = WxString.fromUTF8(title);
+            frameRef.ptr.create(Window.toRaw(parent), id, str, Point.defaultPosition.ref, Size.defaultSize.ref, style);
         }
 
         super(parent, id);
