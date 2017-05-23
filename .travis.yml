@@ -45,7 +45,7 @@ addons:
 
 install:
   - mkdir haxelib
-  - haxelib set haxelib
+  - haxelib setup haxelib
   # Build wxWidgets for linux (because webview is only in ubuntu 16.04+), brew it for osx
   - if [ "${TRAVIS_OS_NAME}" = "linux" ]; then
       wget https://github.com/wxWidgets/wxWidgets/releases/download/v3.0.2/wxWidgets-3.0.2.tar.bz2;
