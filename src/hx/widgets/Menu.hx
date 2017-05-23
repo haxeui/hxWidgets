@@ -9,9 +9,8 @@ class Menu extends EvtHandler {
 
     public function new(text:String = null, style:Int = 0) {
         if (_ref == null) {
-            var str = WxString.createInstance(text);
-            _ref = WxMenu.createInstance(str.ref, style).reinterpret();
-            str.destroy();
+            var str = WxString.fromUTF8(text);
+            _ref = WxMenu.createInstance(str, style).reinterpret();
         }
 
         super();
@@ -34,9 +33,8 @@ class Menu extends EvtHandler {
 
     @:access(hx.widgets.MenuItem)
     public function appendCheckItem(id:Int, text:String):MenuItem {
-        var str = WxString.createInstance(text);
-        var menuItemRef:Pointer<WxMenuItem> = Pointer.fromRaw(menuRef.ptr.appendCheckItem(id, str.ref));
-        str.destroy();
+        var str = WxString.fromUTF8(text);
+        var menuItemRef:Pointer<WxMenuItem> = Pointer.fromRaw(menuRef.ptr.appendCheckItem(id, str));
         var menuItem:MenuItem = new MenuItem();
         menuItem._ref = menuItemRef.reinterpret();
         return menuItem;
@@ -44,9 +42,8 @@ class Menu extends EvtHandler {
 
     @:access(hx.widgets.MenuItem)
     public function appendRadioItem(id:Int, text:String):MenuItem {
-        var str = WxString.createInstance(text);
-        var menuItemRef:Pointer<WxMenuItem> = Pointer.fromRaw(menuRef.ptr.appendRadioItem(id, str.ref));
-        str.destroy();
+        var str = WxString.fromUTF8(text);
+        var menuItemRef:Pointer<WxMenuItem> = Pointer.fromRaw(menuRef.ptr.appendRadioItem(id, str));
         var menuItem:MenuItem = new MenuItem();
         menuItem._ref = menuItemRef.reinterpret();
         return menuItem;
@@ -62,9 +59,8 @@ class Menu extends EvtHandler {
 
     @:access(hx.widgets.MenuItem)
     public function appendSubMenu(menu:Menu, text:String):MenuItem {
-        var str = WxString.createInstance(text);
-        var menuItemRef:Pointer<WxMenuItem> = Pointer.fromRaw(menuRef.ptr.appendSubMenu(menu.menuRef.get_raw(), str.ref));
-        str.destroy();
+        var str = WxString.fromUTF8(text);
+        var menuItemRef:Pointer<WxMenuItem> = Pointer.fromRaw(menuRef.ptr.appendSubMenu(menu.menuRef.get_raw(), str));
         var menuItem:MenuItem = new MenuItem();
         menuItem._ref = menuItemRef.reinterpret();
         return menuItem;

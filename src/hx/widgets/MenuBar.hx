@@ -18,9 +18,8 @@ class MenuBar extends Window {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     @:access(hx.widgets.Menu)
     public function append(menu:Menu, title:String) {
-        var str = WxString.createInstance(title);
-        menuBarRef.ptr.append(menu.menuRef.get_raw(), str.ref);
-        str.destroy();
+        var str = WxString.fromUTF8(title);
+        menuBarRef.ptr.append(menu.menuRef.get_raw(), str);
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
