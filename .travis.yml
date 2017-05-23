@@ -1,5 +1,7 @@
 language: haxe
 
+dist: trusty
+
 os:
   - linux
   - osx
@@ -38,6 +40,8 @@ addons:
     packages:
     - libwebkitgtk-dev
     - libgtk2.0-dev
+    - zlib1g
+    - libpcre3
 
 install:
   # Build wxWidgets for linux (because webview is only in ubuntu 16.04+), brew it for osx
@@ -51,6 +55,7 @@ install:
     else
       brew update;
       brew install wxwidgets;
+      brew install libgc;
     fi
   # Print wx-config to know more
   - wx-config --cxxflags
