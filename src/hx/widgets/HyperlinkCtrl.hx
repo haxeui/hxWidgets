@@ -14,8 +14,8 @@ class HyperlinkCtrl extends Control {
 
         if (_ref == null) {
             _ref = WxHyperlinkCtrl.createInstance().reinterpret();
-            var textStr = WxString.fromUTF8(label);
-            var urlStr = WxString.fromUTF8(label);
+            var textStr = WxString.fromUTF8(text);
+            var urlStr = WxString.fromUTF8(url);
             linkRef.ptr.create(Window.toRaw(parent), id, textStr, urlStr, Point.defaultPosition.ref, Size.defaultSize.ref, style);
         }
 
