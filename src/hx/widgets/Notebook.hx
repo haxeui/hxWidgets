@@ -74,7 +74,7 @@ class Notebook extends BookCtrlBase {
 
     public function getPageText(page:Int):String {
         var r:WxString = notebookRef.ptr.getPageText(page);
-        return new String(r.c_str().asChar());
+        return new String(r.toUTF8().data());
     }
 
     public var selectionText(get, null):String; // bit of sugar

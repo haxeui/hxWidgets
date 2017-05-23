@@ -12,7 +12,7 @@ class TopLevelWindow extends NonOwnedWindow {
     public var title(get, set):String;
     private function get_title():String {
         var r:WxString = topLevelWindowRef.ptr.getTitle();
-        return new String(r.c_str().asChar());
+        return new String(r.toUTF8().data());
     }
     private function set_title(value:String):String {
         var s = WxString.createInstance(value);
