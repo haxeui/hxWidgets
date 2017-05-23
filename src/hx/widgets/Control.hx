@@ -21,7 +21,7 @@ class Control extends Window {
     public var label(get, set):String;
     private function get_label():String {
         var r:WxString = controlRef.ptr.getLabel();
-        return new String(r.c_str().asChar());
+        return new String(r.toUTF8().data());
     }
     private function set_label(value:String):String {
         var s = WxString.createInstance(value);

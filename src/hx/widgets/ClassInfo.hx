@@ -17,7 +17,7 @@ class ClassInfo {
     public var className(get, null):String;
     private function get_className():String {
         var r:WxString = _ref.ptr.getClassName();
-        return new String(r.c_str().asChar());
+        return new String(r.toUTF8().data());
     }
 
 }
