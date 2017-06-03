@@ -40,8 +40,6 @@ addons:
     packages:
     - libwebkitgtk-dev
     - libgtk2.0-dev
-    - zlib1g
-    - libpcre3
 
 install:
   - mkdir haxelib
@@ -57,7 +55,6 @@ install:
     else
       brew update;
       brew install wxwidgets;
-      brew install libgc;
     fi
   # Print wx-config to know more
   - wx-config --cxxflags
