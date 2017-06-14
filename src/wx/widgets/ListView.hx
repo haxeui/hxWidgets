@@ -16,4 +16,10 @@ extern class ListView extends ListCtrl {
                                         public static inline function createInstance():Pointer<ListView> {
                                             return Pointer.fromRaw(_new());
                                         }
+                                        
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Instance functions
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    @:native("GetColumnWidth")          public function getColumnWidth(col:Int):Int;
+    @:native("SetColumnWidth")          public function setColumnWidth(col:Int, width:Int):Bool;
 }

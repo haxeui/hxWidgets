@@ -4,7 +4,7 @@ import cpp.Pointer;
 import wx.widgets.ListView in WxListView;
 import hx.widgets.styles.ListCtrlStyle;
 
-class ListView extends ListCtrl{
+class ListView extends ListCtrl {
     public function new(parent:Window, style:Int = 0, id:Int = -1) {
 
         if (style == 0) {
@@ -19,6 +19,17 @@ class ListView extends ListCtrl{
         super(parent, style, id);
     }
 
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Instance functions
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public function getColumnWidth(col:Int):Int {
+        return listViewRef.ptr.getColumnWidth(col);
+    }
+    
+    public function setColumnWidth(col:Int, width:Int):Bool {
+        return listViewRef.ptr.setColumnWidth(col, width);
+    }
+    
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
