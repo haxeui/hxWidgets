@@ -3,6 +3,7 @@ import hx.widgets.styles.*;
 import views.BasicControlsView;
 import views.DialogView;
 import views.DrawingView;
+import views.EventsView;
 import views.HTMLView;
 import views.ListsView;
 import views.LogView;
@@ -102,6 +103,9 @@ class Main {
 
         var htmlView:HTMLView = new HTMLView(tabs);
         tabs.addPage(htmlView, "Web View", false, 5);
+
+        var eventsView:EventsView = new EventsView(tabs);
+        tabs.addPage(eventsView, "Events", false, 5);
 
         tabs.bind(EventType.NOTEBOOK_PAGE_CHANGED, function(e) {
             e.skip(); // seems if you dont skip the event on osx then nothing shows - presumably this event handler is "stealing" the event
