@@ -9,9 +9,8 @@ class TextCtrl extends Control implements TextEntry {
     public function new(parent:Window, text:String = null, style:Int = 0, id:Int = -1) {
         if (_ref == null) {
             _ref = WxTextCtrl.createInstance().reinterpret();
-            var str = WxString.createInstance(text);
-            textCtrlRef.ptr.create(Window.toRaw(parent), id, str.ref, Point.defaultPosition.ref, Size.defaultSize.ref, style);
-            str.destroy();
+            var str = WxString.fromUTF8(text);
+            textCtrlRef.ptr.create(Window.toRaw(parent), id, str, Point.defaultPosition.ref, Size.defaultSize.ref, style);
         }
 
         super(parent, id);
@@ -21,9 +20,8 @@ class TextCtrl extends Control implements TextEntry {
     // Instance functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     public function appendText(value:String) {
-        var str = WxString.createInstance(value);
-        textCtrlRef.ptr.appendText(str.ref);
-        str.destroy();
+        var s = WxString.fromUTF8(value);
+        textCtrlRef.ptr.appendText(s);
     }
 
     public var insertionPoint(get, set):Int;
@@ -38,12 +36,11 @@ class TextCtrl extends Control implements TextEntry {
     public var value(get, set):String;
     private function get_value():String {
         var r:WxString = textCtrlRef.ptr.getValue();
-        return new String(r.c_str().asChar());
+        return new String(r.toUTF8().data());
     }
     private function set_value(value:String):String {
-        var s = WxString.createInstance(value);
-        textCtrlRef.ptr.setValue(s.ref);
-        s.destroy();
+        var s = WxString.fromUTF8(value);
+        textCtrlRef.ptr.setValue(s);
         return value;
     }
 

@@ -9,9 +9,8 @@ class CheckBox extends Control {
     public function new(parent:Window, label:String, style:Int = 0, id:Int = -1) {
         if (_ref == null) {
             _ref = WxCheckBox.createInstance().reinterpret();
-            var str = WxString.createInstance(label);
-            checkboxRef.ptr.create(Window.toRaw(parent), id, str.ref, Point.defaultPosition.ref, Size.defaultSize.ref, style);
-            str.destroy();
+            var str = WxString.fromUTF8(label);
+            checkboxRef.ptr.create(Window.toRaw(parent), id, str, Point.defaultPosition.ref, Size.defaultSize.ref, style);
         }
 
         super(parent, id);

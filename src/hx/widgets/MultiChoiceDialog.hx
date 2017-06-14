@@ -17,12 +17,10 @@ class MultiChoiceDialog extends Dialog {
             if (choices == null) {
                 choices = [];
             }
-            var messageStr = WxString.createInstance(message);
-            var captionStr = WxString.createInstance(caption);
+            var messageStr = WxString.fromUTF8(message);
+            var captionStr = WxString.fromUTF8(caption);
             var choicesArr:ArrayString = ArrayString.fromArray(choices);
-            _ref = WxMultiChoiceDialog.createInstance(Window.toRaw(parent), messageStr.ref, captionStr.ref, choicesArr.arraystringRef.ref).reinterpret();
-            messageStr.destroy();
-            captionStr.destroy();
+            _ref = WxMultiChoiceDialog.createInstance(Window.toRaw(parent), messageStr, captionStr, choicesArr.arraystringRef.ref).reinterpret();
             choicesArr.destroy();
         }
 

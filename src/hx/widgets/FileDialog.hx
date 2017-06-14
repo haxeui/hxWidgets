@@ -25,15 +25,11 @@ class FileDialog extends Dialog {
                 style = FileDialogStyle.DEFAULT_STYLE;
             }
 
-            var messageStr = WxString.createInstance(message);
-            var defaultDirStr = WxString.createInstance(defaultDir);
-            var defaultFileStr = WxString.createInstance(defaultFile);
-            var wildcardStr = WxString.createInstance(wildcard);
-            _ref = WxFileDialog.createInstance(Window.toRaw(parent), messageStr.ref, defaultDirStr.ref, defaultFileStr.ref, wildcardStr.ref, style).reinterpret();
-            messageStr.destroy();
-            defaultDirStr.destroy();
-            defaultFileStr.destroy();
-            wildcardStr.destroy();
+            var messageStr = WxString.fromUTF8(message);
+            var defaultDirStr = WxString.fromUTF8(defaultDir);
+            var defaultFileStr = WxString.fromUTF8(defaultFile);
+            var wildcardStr = WxString.fromUTF8(wildcard);
+            _ref = WxFileDialog.createInstance(Window.toRaw(parent), messageStr, defaultDirStr, defaultFileStr, wildcardStr, style).reinterpret();
         }
 
         super(parent);
@@ -45,30 +41,28 @@ class FileDialog extends Dialog {
     public var currentlySelectedFilename(get, null):String;
     private function get_currentlySelectedFilename():String {
         var r:WxString = fileDialogRef.ptr.getCurrentlySelectedFilename();
-        return new String(r.c_str().asChar());
+        return new String(r.toUTF8().data());
     }
 
     public var directory(get, set):String;
     private function get_directory():String {
         var r:WxString = fileDialogRef.ptr.getDirectory();
-        return new String(r.c_str().asChar());
+        return new String(r.toUTF8().data());
     }
     private function set_directory(value:String):String {
-        var s = WxString.createInstance(value);
-        fileDialogRef.ptr.setDirectory(s.ref);
-        s.destroy();
+        var s = WxString.fromUTF8(value);
+        fileDialogRef.ptr.setDirectory(s);
         return value;
     }
 
     public var filename(get, set):String;
     private function get_filename():String {
         var r:WxString = fileDialogRef.ptr.getFilename();
-        return new String(r.c_str().asChar());
+        return new String(r.toUTF8().data());
     }
     private function set_filename(value:String):String {
-        var s = WxString.createInstance(value);
-        fileDialogRef.ptr.setFilename(s.ref);
-        s.destroy();
+        var s = WxString.fromUTF8(value);
+        fileDialogRef.ptr.setFilename(s);
         return value;
     }
 
@@ -91,24 +85,22 @@ class FileDialog extends Dialog {
     public var message(get, set):String;
     private function get_message():String {
         var r:WxString = fileDialogRef.ptr.getMessage();
-        return new String(r.c_str().asChar());
+        return new String(r.toUTF8().data());
     }
     private function set_message(value:String):String {
-        var s = WxString.createInstance(value);
-        fileDialogRef.ptr.setMessage(s.ref);
-        s.destroy();
+        var s = WxString.fromUTF8(value);
+        fileDialogRef.ptr.setMessage(s);
         return value;
     }
 
     public var path(get, set):String;
     private function get_path():String {
         var r:WxString = fileDialogRef.ptr.getPath();
-        return new String(r.c_str().asChar());
+        return new String(r.toUTF8().data());
     }
     private function set_path(value:String):String {
-        var s = WxString.createInstance(value);
-        fileDialogRef.ptr.setPath(s.ref);
-        s.destroy();
+        var s = WxString.fromUTF8(value);
+        fileDialogRef.ptr.setPath(s);
         return value;
     }
 
@@ -122,12 +114,11 @@ class FileDialog extends Dialog {
     public var wildcard(get, set):String;
     private function get_wildcard():String {
         var r:WxString = fileDialogRef.ptr.getWildcard();
-        return new String(r.c_str().asChar());
+        return new String(r.toUTF8().data());
     }
     private function set_wildcard(value:String):String {
-        var s = WxString.createInstance(value);
-        fileDialogRef.ptr.setWildcard(s.ref);
-        s.destroy();
+        var s = WxString.fromUTF8(value);
+        fileDialogRef.ptr.setWildcard(s);
         return value;
     }
 

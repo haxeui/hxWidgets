@@ -1,5 +1,7 @@
 language: haxe
 
+dist: trusty
+
 os:
   - linux
   - osx
@@ -14,6 +16,7 @@ notifications:
     on_start: never     # options: [always|never|change] default: always
 
 haxe:
+  - "3.4.0"
   - "3.4.2"
   - development
 
@@ -23,6 +26,8 @@ env:
 
 matrix:
   exclude:
+  - haxe: "3.4.0"
+    env: HXCPP=dev
   - haxe: "3.4.2"
     env: HXCPP=dev
   - haxe: development
@@ -35,8 +40,12 @@ addons:
     packages:
     - libwebkitgtk-dev
     - libgtk2.0-dev
+    - zlib1g
+    - libpcre3
 
 install:
+  - mkdir haxelib
+  - haxelib setup haxelib
   # Build wxWidgets for linux (because webview is only in ubuntu 16.04+), brew it for osx
   - if [ "${TRAVIS_OS_NAME}" = "linux" ]; then
       wget https://github.com/wxWidgets/wxWidgets/releases/download/v3.0.2/wxWidgets-3.0.2.tar.bz2;
@@ -48,6 +57,7 @@ install:
     else
       brew update;
       brew install wxwidgets;
+      brew install libgc;
     fi
   # Print wx-config to know more
   - wx-config --cxxflags

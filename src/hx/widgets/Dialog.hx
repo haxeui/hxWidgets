@@ -17,9 +17,8 @@ class Dialog extends TopLevelWindow {
         }
         if (_ref == null) {
             _ref = WxDialog.createInstance().reinterpret();
-            var str = WxString.createInstance(title);
-            dialogRef.ptr.create(Window.toRaw(parent), id, str.ref, Point.defaultPosition.ref, Size.defaultSize.ref, style);
-            str.destroy();
+            var str = WxString.fromUTF8(title);
+            dialogRef.ptr.create(Window.toRaw(parent), id, str, Point.defaultPosition.ref, Size.defaultSize.ref, style);
         }
 
         super(parent, id);

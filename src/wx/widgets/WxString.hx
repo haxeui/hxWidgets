@@ -19,10 +19,12 @@ extern class WxString {
                                             return Pointer.fromRaw(_new(s));
                                         }
 
+    @:native("wxString::FromUTF8")      public static function fromUTF8(s:ConstCharStar):WxString;
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Instance functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     @:native("Length")                  public function length():Int;
     @:native("c_str")                   public function c_str():CStrData;
+    @:native("ToUTF8")                   public function toUTF8():ScopedCharBuffer;
 
 }

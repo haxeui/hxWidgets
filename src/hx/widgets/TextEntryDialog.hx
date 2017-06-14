@@ -21,13 +21,10 @@ class TextEntryDialog extends Dialog {
                 style = Defs.OK | Defs.CANCEL | Defs.CENTRE;
             }
 
-            var messageStr = WxString.createInstance(message);
-            var captionStr = WxString.createInstance(caption);
-            var valueStr = WxString.createInstance(value);
-            _ref = WxTextEntryDialog.createInstance(Window.toRaw(parent), messageStr.ref, captionStr.ref, valueStr.ref, style).reinterpret();
-            messageStr.destroy();
-            captionStr.destroy();
-            valueStr.destroy();
+            var messageStr = WxString.fromUTF8(message);
+            var captionStr = WxString.fromUTF8(caption);
+            var valueStr = WxString.fromUTF8(value);
+            _ref = WxTextEntryDialog.createInstance(Window.toRaw(parent), messageStr, captionStr, valueStr, style).reinterpret();
         }
 
         super(parent);

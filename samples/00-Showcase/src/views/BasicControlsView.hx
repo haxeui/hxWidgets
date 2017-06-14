@@ -343,6 +343,9 @@ class BasicControlsView extends View {
         label.foregroundColour = 0x0000FF;
         vsizer.add(label);
 
+        var link = new HyperlinkCtrl(frame, "hxWidgets", "https://github.com/haxeui/hxWidgets");
+        vsizer.add(link);
+
         var label:StaticText = new StaticText(frame, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non sagittis nisl, vel accumsan arcu. Sed diam felis,
         laoreet eget iaculis sed, consequat in nulla. Cras sit amet interdum dolor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
         egestas. Suspendisse sed nunc mauris. Pellentesque eget dui sed nulla pharetra hendrerit eu ultrices arcu.");

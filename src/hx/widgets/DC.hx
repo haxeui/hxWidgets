@@ -28,9 +28,8 @@ class DC extends Object {
     }
 
     public function drawText(text:String, x:Int, y:Int) {
-        var str = WxString.createInstance(text);
-        dcRef.ptr.drawText(str.ref, x, y);
-        str.destroy();
+        var str = WxString.fromUTF8(text);
+        dcRef.ptr.drawText(str, x, y);
     }
 
     public function drawRoundedRectangle(x:Int, y:Int, width:Int, height:Int, radius:Float) {

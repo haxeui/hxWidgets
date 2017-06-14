@@ -9,9 +9,8 @@ class StaticText extends Control {
     public function new(parent:Window, text:String = null, style:Int = 0, id:Int = -1) {
         if (_ref == null) {
             _ref = WxStaticText.createInstance().reinterpret();
-            var str = WxString.createInstance(text);
-            staticTextRef.ptr.create(Window.toRaw(parent), id, str.ref, Point.defaultPosition.ref, Size.defaultSize.ref, style);
-            str.destroy();
+            var str = WxString.fromUTF8(text);
+            staticTextRef.ptr.create(Window.toRaw(parent), id, str, Point.defaultPosition.ref, Size.defaultSize.ref, style);
         }
 
         super(parent, id);

@@ -34,9 +34,8 @@ class GraphicsContext extends GraphicsObject {
     }
 
     public function drawText(text:String, x:Float, y:Float) {
-        var str = WxString.createInstance(text);
-        graphicscontextRef.ptr.drawText(str.ref, x, y);
-        str.destroy();
+        var str = WxString.fromUTF8(text);
+        graphicscontextRef.ptr.drawText(str, x, y);
     }
 
     public function drawRoundedRectangle(x:Float, y:Float, width:Float, height:Float, radius:Float) {

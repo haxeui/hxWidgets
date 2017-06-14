@@ -25,9 +25,8 @@ class Notebook extends BookCtrlBase {
         if (!allowIcons) {
             imageId = -1;
         }
-        var str = WxString.createInstance(text);
-        return notebookRef.ptr.addPage(Window.toRaw(page), str.ref, select, imageId);
-        str.destroy();
+        var str = WxString.fromUTF8(text);
+        return notebookRef.ptr.addPage(Window.toRaw(page), str, select, imageId);
     }
 
     public var pageCount(get, null):Int;
@@ -75,7 +74,7 @@ class Notebook extends BookCtrlBase {
 
     public function getPageText(page:Int):String {
         var r:WxString = notebookRef.ptr.getPageText(page);
-        return new String(r.c_str().asChar());
+        return new String(r.toUTF8().data());
     }
 
     public var selectionText(get, null):String; // bit of sugar
