@@ -25,6 +25,10 @@ class Event {
         _ref.ptr.skip(skip);
     }
 
+    public function stopPropagation() {
+        _ref.ptr.stopPropagation();
+    }
+
     public function convertTo<T>(clz:Class<T>):T {
         var event:T = Type.createInstance(clz, []);
         cast(event, Event)._ref = _ref;

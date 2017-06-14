@@ -23,7 +23,7 @@ class EventsView extends View {
         
         inner.bind(EventType.MOTION, function(e) {
             trace("MOTION IN INNER");
-            e.skip(true);
+            e.stopPropagation();
         });
     }
 }

@@ -9,5 +9,6 @@ extern class Event extends Object {
     @:native("GetEventType")        public function getEventType():Int;
     @:native("GetId")               public function getId():Int;
     @:native("Skip")                public function skip(skip:Bool = true):Void;
+    @:native("StopPropagation")     public function stopPropagation():Void;
 
 }

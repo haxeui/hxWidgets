@@ -5,7 +5,9 @@ import wx.widgets.Event in WxEvent;
 import wx.widgets.Window in WxWindow;
 
 @:headerClassCode("
-void onEvent(wxEvent& e) {
+void onEvent(wxEvent & e) {
+    e.ResumePropagation(wxEVENT_PROPAGATE_MAX);
+    e.Skip();
     this->handleEvent(::cpp::Pointer_obj::fromRaw(&e));
 }
 ")
@@ -35,7 +37,7 @@ class EvtHandler extends Object implements Trackable {
 
         if (Std.is(this, Window)) {
             var win:Pointer<WxWindow> = cast(this, Window).windowRef;
-            untyped __cpp__("win->ptr->Bind(event, &hx::widgets::EvtHandler_obj::onEvent, this, id)");
+            untyped __cpp__("{0}->ptr->Bind({1}, &hx::widgets::EvtHandler_obj::onEvent, this, {2})", win, event, id);
         }
     }
 
