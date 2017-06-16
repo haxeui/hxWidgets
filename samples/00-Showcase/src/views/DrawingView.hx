@@ -109,6 +109,8 @@ class DrawingView extends View {
             gc.drawBitmap(haxeLogSmallSub, 620, 250, 10, 10);
             gc.drawBitmap(haxeLogSmallSub, 640, 250);
             gc.drawBitmap(haxeLogSmallSub, 670, 250, 40, 40);
+            
+            e.stopPropagation();
         });
     }
 
