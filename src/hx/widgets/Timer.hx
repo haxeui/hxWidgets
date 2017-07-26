@@ -9,7 +9,7 @@ class Timer extends EvtHandler {
     public function new(window:Window, milliseconds:Int = -1, oneShot:Bool = false, id:Int = -1) {
         super();
         _ref = WxTimer.createInstance(Window.toRaw(window), id).reinterpret();
-        if (milliseconds > 0) {
+        if (milliseconds > -1) {
             start(milliseconds, oneShot);
         }
     }
