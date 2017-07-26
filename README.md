@@ -20,6 +20,8 @@ You need the [hxcpp](https://lib.haxe.org/p/hxcpp) library and **at least Haxe 3
   * `nmake.exe -f %WXWIN%\build\msw\makefile.vc BUILD=release`
   * `nmake.exe -f %WXWIN%\build\msw\makefile.vc BUILD=release SHARED=1`
 
+_Note_: If the above `nmake` commands dont work as expected then cd up to the `%WXWIN%\build\msw\` directory and use the makefile without the path (eg: `nmake.exe -f makefile.vc BUILD=release`)
+
 ## Requirements for Linux and Mac
 
 You need wxWidgets 3.x and wx-config available in your path.
