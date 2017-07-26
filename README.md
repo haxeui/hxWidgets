@@ -17,10 +17,9 @@ You need the [hxcpp](https://lib.haxe.org/p/hxcpp) library and **at least Haxe 3
 * Run `vcvarsall.bat` from Visual Studio dir
   (eg: `"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat"`)
 * Build shared and static releases of wxWidgets:
-  * `nmake.exe -f %WXWIN%\build\msw\makefile.vc BUILD=release`
-  * `nmake.exe -f %WXWIN%\build\msw\makefile.vc BUILD=release SHARED=1`
-
-_Note_: If the above `nmake` commands dont work as expected then cd up to the `%WXWIN%\build\msw\` directory and use the makefile without the path (eg: `nmake.exe -f makefile.vc BUILD=release`)
+  * `cd %WXWIN%\build\msw\`
+  * `nmake.exe -f makefile.vc BUILD=release`
+  * `nmake.exe -f makefile.vc BUILD=release SHARED=1`
 
 ## Requirements for Linux and Mac
 
