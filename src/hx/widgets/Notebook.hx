@@ -29,6 +29,14 @@ class Notebook extends BookCtrlBase {
         return notebookRef.ptr.addPage(Window.toRaw(page), str, select, imageId);
     }
 
+    public function deletePage(page:Int):Bool {
+        return notebookRef.ptr.deletePage(page);
+    }
+    
+    public function deleteAllPages():Bool {
+        return notebookRef.ptr.deleteAllPages();
+    }
+    
     public var pageCount(get, null):Int;
     private function get_pageCount():Int {
         return notebookRef.ptr.getPageCount();

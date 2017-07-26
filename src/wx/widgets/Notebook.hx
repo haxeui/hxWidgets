@@ -21,6 +21,8 @@ extern class Notebook extends BookCtrlBase {
     // Instance functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     @:native("AddPage")                 public function addPage(page:RawPointer<Window>, text:WxString, select:Bool = false, imageId:Int = -1):Bool;
+    @:native("DeletePage")              public function deletePage(page:Int):Bool;
+    @:native("DeleteAllPages")          public function deleteAllPages():Bool;
     @:native("GetPageCount")            public function getPageCount():Int;
     @:native("GetImageList")            public function getImageList():RawPointer<ImageList>;
     @:native("SetImageList")            public function setImageList(imageList:RawPointer<ImageList>):Void;
@@ -29,5 +31,4 @@ extern class Notebook extends BookCtrlBase {
     @:native("CalcSizeFromPage")        public function calcSizeFromPage(pageSize:Size):Size;
     @:native("SetPadding")              public function setPadding(padding:Size):Void;
     @:native("GetPageText")             public function getPageText(page:Int):WxString;
-
 }
