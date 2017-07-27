@@ -24,5 +24,6 @@ extern class Frame extends TopLevelWindow {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     @:native("GetMenuBar")          public function getMenuBar():RawPointer<MenuBar>;
     @:native("SetMenuBar")          public function setMenuBar(menuBar:RawPointer<MenuBar>):Void;
+    @:native("Center")              public function center():Void;
 
 }
