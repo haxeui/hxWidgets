@@ -20,6 +20,6 @@ package wx.widgets;
 
 @:include("wx/defs.h")
 @:unreflective
-@:native("wxStretch")
+@:native("cpp::Struct<wxStretch, cpp::EnumHandler>")
 extern class StretchImpl {
 }

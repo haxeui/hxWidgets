@@ -30,7 +30,6 @@ package wx.widgets;
 #include <wx/wx.h>
 #undef RegisterClass
 ")
-@:unreflective
-@:native("wxOperatingSystemId")
+@:native("cpp::Struct<wxOperatingSystemId, cpp::EnumHandler>")
 extern class OperatingSystemIdImpl {
 }
