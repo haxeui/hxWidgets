@@ -166,6 +166,17 @@ class Window extends EvtHandler {
         return value;
     }
 
+    public var canSetTransparent(get, null):Bool;
+    private function get_canSetTransparent():Bool {
+        return windowRef.ptr.canSetTransparent();
+    }
+    
+    public var transparent(null, set):Int;
+    private function set_transparent(value:Int):Int {
+        windowRef.ptr.setTransparent(value);
+        return value;
+    }
+    
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Sizing functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

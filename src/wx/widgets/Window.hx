@@ -63,6 +63,8 @@ extern class Window extends EvtHandler {
     @:native("IsFrozen")                        public function isFrozen():Bool;
     @:native("GetBackgroundStyle")              public function getBackgroundStyle():BackgroundStyle;
     @:native("SetBackgroundStyle")              public function setBackgroundStyle(style:BackgroundStyle):Void;
+    @:native("CanSetTransparent")               public function canSetTransparent():Bool;
+    @:native("SetTransparent")                  public function setTransparent(alpha:Int):Bool;
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Sizing functions
