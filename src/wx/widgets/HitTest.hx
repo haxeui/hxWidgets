@@ -22,6 +22,6 @@ package wx.widgets;
 
 @:include("wx/defs.h")
 @:unreflective
-@:native("cpp::Struct<wxHitTest, cpp::EnumHandler>")
+@:native("wxHitTest")
 extern class HitTestImpl {
 }

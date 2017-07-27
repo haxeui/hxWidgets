@@ -24,6 +24,6 @@ package wx.widgets;
 
 @:include("wx/defs.h")
 @:unreflective
-@:native("cpp::Struct<wxDirection, cpp::EnumHandler>")
+@:native("wxDirection")
 extern class DirectionImpl {
 }

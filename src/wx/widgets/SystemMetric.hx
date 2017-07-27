@@ -43,6 +43,7 @@ package wx.widgets;
 }
 
 @:include("wx/settings.h")
-@:native("cpp::Struct<wxSystemMetric, cpp::EnumHandler>")
+@:unreflective
+@:native("wxSystemMetric")
 extern class SystemMetricImpl {
 }

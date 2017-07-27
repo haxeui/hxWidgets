@@ -9,6 +9,7 @@ package wx.widgets;
 }
 
 @:include("wx/window.h")
-@:native("cpp::Struct<wxOrientation, cpp::EnumHandler>")
+@:unreflective
+@:native("wxOrientation")
 extern class OrientationImpl {
 }

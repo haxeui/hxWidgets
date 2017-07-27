@@ -9,6 +9,7 @@ package wx.widgets;
 }
 
 @:include("wx/graphics.h")
-@:native("cpp::Struct<wxAntialiasMode, cpp::EnumHandler>")
+@:unreflective
+@:native("wxAntialiasMode")
 extern class AntialiasModeImpl {
 }

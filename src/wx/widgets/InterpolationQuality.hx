@@ -12,6 +12,7 @@ package wx.widgets;
 }
 
 @:include("wx/graphics.h")
-@:native("cpp::Struct<wxInterpolationQuality, cpp::EnumHandler>")
+@:unreflective
+@:native("wxInterpolationQuality")
 extern class InterpolationQualityImpl {
 }

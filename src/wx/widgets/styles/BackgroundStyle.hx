@@ -15,6 +15,6 @@ package wx.widgets.styles;
 
 @:headerCode("#include <wx/defs.h>")
 @:unreflective
-@:native("cpp::Struct<wxBackgroundStyle, cpp::EnumHandler>")
+@:native("wxBackgroundStyle")
 extern class BackgroundStyleImpl {
 }
