@@ -3,6 +3,7 @@ package hx.widgets;
 import cpp.Pointer;
 import wx.widgets.Event in WxEvent;
 import wx.widgets.Window in WxWindow;
+import wx.widgets.EvtHandler in WxEvtHandler;
 
 @:headerClassCode("
 void onEvent(wxEvent & e) {
@@ -85,4 +86,19 @@ class EvtHandler extends Object implements Trackable {
         }
     }
 
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Event queuing and processing functions
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    @:access(hx.widgets.Event)
+    public function queueEvent(event:Event):Void {
+        evtHandlerRef.ptr.queueEvent(event.eventRef.get_raw());
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Helpers
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    private var evtHandlerRef(get, null):Pointer<WxEvtHandler>;
+    private function get_evtHandlerRef():Pointer<WxEvtHandler> {
+        return _ref.reinterpret();
+    }
 }

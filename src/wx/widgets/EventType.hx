@@ -49,4 +49,5 @@ class EventType {
     public static var LEAVE_WINDOW:Int          = untyped __cpp__("wxEVT_LEAVE_WINDOW");
     public static var MOUSEWHEEL:Int            = untyped __cpp__("wxEVT_MOUSEWHEEL");
 
+    public static var THREAD:Int                = untyped __cpp__("wxEVT_THREAD");
 }

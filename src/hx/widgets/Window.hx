@@ -11,6 +11,7 @@ import wx.widgets.Rect in WxRect;
 import wx.widgets.Point in WxPoint;
 import wx.widgets.Font in WxFont;
 import wx.widgets.ClassInfo in WxClassInfo;
+import wx.widgets.EvtHandler in WxEvtHandler;
 
 class Window extends EvtHandler {
 
@@ -379,6 +380,21 @@ class Window extends EvtHandler {
         return windowRef.ptr.layout();
     }
 
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Event handling functions
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public var eventHandler(get, null):EvtHandler;
+    private function get_eventHandler():EvtHandler {
+        var p:RawPointer<WxEvtHandler> = windowRef.ptr.getEventHandler();
+        var evtHandler:EvtHandler = new EvtHandler();
+        evtHandler._ref = Pointer.fromRaw(p).reinterpret();
+        return evtHandler;
+    }
+    
+    public override function queueEvent(event:Event) { // bit of sugar
+        eventHandler.queueEvent(event);
+    }
+    
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Coordinate conversion functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

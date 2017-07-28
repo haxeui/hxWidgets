@@ -17,4 +17,8 @@ extern class EvtHandler extends Object implements Trackable {
                                             return Pointer.fromRaw(_new());
                                         }
 
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Event queuing and processing functions
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    @:native("QueueEvent")              public function queueEvent(sizer:RawPointer<Event>):Void;
 }
