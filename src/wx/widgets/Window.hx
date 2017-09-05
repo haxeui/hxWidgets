@@ -102,6 +102,8 @@ extern class Window extends EvtHandler {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     @:native("GetId")                           public function getId():Int;
     @:native("SetId")                           public function setId(id:Int):Void;
+    @:native("GetWindowVariant")                public function getWindowVariant():WindowVariant;
+    @:native("SetWindowVariant")                public function setWindowVariant(variant:WindowVariant):Void;
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Scrolling and scrollbars functions

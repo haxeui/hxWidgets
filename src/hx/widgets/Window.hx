@@ -294,6 +294,15 @@ class Window extends EvtHandler {
         return value;
     }
 
+    public var windowVariant(get, set):WindowVariant;
+    private function get_windowVariant():WindowVariant {
+        return windowRef.ptr.getWindowVariant();
+    }
+    private function set_windowVariant(value:WindowVariant):WindowVariant {
+        windowRef.ptr.setWindowVariant(value);
+        return value;
+    }
+    
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Scrolling and scrollbars functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
