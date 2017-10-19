@@ -22,6 +22,8 @@
             <lib name="${WXWIN}\lib\${lib_folder}\*.lib" />
             <section if="WXSTATIC">
                 <flag value="/NODEFAULTLIB:LIBCMT" /> <!-- should remove this if using /MT but couldnt see an easy way -->
+                <flag value="/MANIFEST:EMBED" />
+                <flag value="/MANIFESTINPUT:${haxelib:hxWidgets}/hxWidgets.manifest" />
 
                 <lib name="user32.lib" />
                 <lib name="winspool.lib" />
