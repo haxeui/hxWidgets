@@ -8,6 +8,7 @@
         <files id="haxe">
             <compilerflag value="-I${WXWIN}\include" />
             <compilerflag value="-I${WXWIN}\lib\${lib_folder}\mswu" />
+            <compilerflag value="-I${haxelib:hxWidgets}\..\include" />
             <compilerflag value="-DUNICODE" />
             <compilerflag value="-D_UNICODE" />
             <compilerflag value="-DwxMSVC_VERISON_AUTO" />
