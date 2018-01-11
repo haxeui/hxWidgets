@@ -133,6 +133,10 @@ class ListsView extends View {
         _top.insert(1, _listview, 1, Stretch.EXPAND | Direction.ALL, 5);
         _top.layout();
 
+        _listview.bind(EventType.LIST_ITEM_SELECTED, function(e) {
+            LogView.log('ListView item selected: ${_listview.selectedItemCount}/${_listview.itemCount}, indexes: ${_listview.selectedIndexes}');
+        });
+        
         this.thaw();
     }
 }

@@ -50,6 +50,17 @@ class ListCtrl extends Control {
         return listCtrlRef.ptr.getItemCount();
     }
 
+    public var selectedItemCount(get, null):Int;
+    private function get_selectedItemCount():Int {
+        return listCtrlRef.ptr.getSelectedItemCount();
+    }
+
+    public var enableAlternateRowColours(null, set):Bool;
+    private function set_enableAlternateRowColours(value:Bool):Bool {
+        listCtrlRef.ptr.enableAlternateRowColours(value);
+        return value;
+    }
+
     public var largeImageList(get, set):ImageList;
     @:access(hx.widgets.ImageList)
     private function get_largeImageList():ImageList {
@@ -82,6 +93,23 @@ class ListCtrl extends Control {
         return n;
     }
 
+    public function getNextItem(item:Int, state:Int):Int {
+        return listCtrlRef.ptr.getNextItem(item, untyped __cpp__("wxLIST_NEXT_ALL"), state);
+    }
+    
+    // sugar
+    public var selectedIndexes(get, null):Array<Int>;
+    private function get_selectedIndexes():Array<Int> {
+        var indexes:Array<Int> = [];
+        
+        var itemIndex = -1;
+        while ((itemIndex = getNextItem(itemIndex, ListState.SELECTED)) != -1) {
+            indexes.push(itemIndex);
+        }
+        
+        return indexes;
+    }
+    
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
