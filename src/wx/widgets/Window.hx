@@ -40,6 +40,8 @@ extern class Window extends EvtHandler {
     @:native("DestroyChildren")                 public function destroyChildren():Bool;
     @:native("FindWindow")                      public function findWindowById(id:Int):RawPointer<Window>;
     @:native("GetChildren")                     public function getChildren():WindowList;
+    @:native("AddChild")                        public function addChild(child:RawPointer<Window>):Void;
+    @:native("RemoveChild")                     public function removeChild(child:RawPointer<Window>):Void;
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Sibling and parent management functions

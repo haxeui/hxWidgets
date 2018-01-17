@@ -83,6 +83,14 @@ class Window extends EvtHandler {
         return list;
     }
 
+    public function addChild(child:Window):Void {
+        windowRef.ptr.addChild(child.windowRef.get_raw());
+    }
+    
+    public function removeChild(child:Window):Void {
+        windowRef.ptr.removeChild(child.windowRef.get_raw());
+    }
+    
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Sibling and parent management functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
