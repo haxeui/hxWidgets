@@ -25,6 +25,8 @@ extern class Gauge extends Control {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     @:native("SetValue")                public function setValue(value:Int):Void;
     @:native("GetValue")                public function getValue():Int;
+    @:native("SetRange")                public function setRange(value:Int):Void;
+    @:native("GetRange")                public function getRange():Int;
     @:native("Pulse")                   public function pulse():Void;
 
 }

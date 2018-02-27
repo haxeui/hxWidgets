@@ -30,6 +30,15 @@ class Gauge extends Control {
         return value;
     }
 
+    public var range(get, set):Int;
+    private function get_range():Int {
+        return gaugeRef.ptr.getRange();
+    }
+    private function set_range(value:Int):Int {
+        gaugeRef.ptr.setRange(value);
+        return value;
+    }
+
     public function pulse() {
         gaugeRef.ptr.pulse();
     }
