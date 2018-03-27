@@ -116,6 +116,25 @@ class Main {
         });
 
         frame.bind(EventType.CLOSE_WINDOW, function(e) {
+            var closeEvent = e.convertTo(CloseEvent);
+            if (closeEvent.canVeto) {
+                var dialog:MessageDialog = new MessageDialog(frame, "Do you wish to minimise this window instead of closing it?", "Close / minimise?", MessageDialogStyle.YES_NO | MessageDialogStyle.CANCEL);
+                var r = dialog.showModal();
+                if (r == 5101) { // cancel
+                    closeEvent.veto();
+                    e.skip(false);
+                    e.stopPropagation();
+                    return;
+                } else if (r == 5103) { // yes
+                    frame.iconize();
+                    closeEvent.veto();
+                    e.skip(false);
+                    e.stopPropagation();
+                    return;
+                } else if (r == 5104) { // no
+                    
+                }
+            }
             taskBarIcon.destroy();
         });
         
