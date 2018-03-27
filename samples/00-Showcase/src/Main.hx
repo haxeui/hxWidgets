@@ -54,6 +54,9 @@ class Main {
 
         var frame:Frame = new Frame(null, "hxWidgets");
 
+        var taskBarIcon = new TaskBarIcon();
+        taskBarIcon.setBitmap(Bitmap.fromHaxeResource("haxe-logo-tiny.png"), "Some tooltip");
+        
         var platform:PlatformInfo  = new PlatformInfo();
         if (platform.isWindows) {
             frame.backgroundColour = 0xFFFFFF;
@@ -112,6 +115,10 @@ class Main {
            LogView.log('Notebook page changed: index=${tabs.selection}, text=${tabs.selectionText}');
         });
 
+        frame.bind(EventType.CLOSE_WINDOW, function(e) {
+            taskBarIcon.destroy();
+        });
+        
         var log:LogView = new LogView(frame);
         log.resize( -1, 100);
         frame.sizer.addSpacer(5);
