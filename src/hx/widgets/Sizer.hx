@@ -32,6 +32,10 @@ class Sizer extends Object {
         sizerRef.ptr.addSpacer(size);
     }
 
+    public function addStretchSpacer(size:Int) {
+        sizerRef.ptr.addStretchSpacer(size);
+    }
+    
     public function remove(index:Int):Bool {
         return sizerRef.ptr.remove(index);
     }
