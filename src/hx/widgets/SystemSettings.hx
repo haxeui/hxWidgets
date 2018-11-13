@@ -9,4 +9,7 @@ class SystemSettings extends Object {
         return WxSystemSettings.getMetric(metric, Window.toRaw(window));
     }
 
+    public static function getColour(index:SystemColour):Int {
+        return WxSystemSettings.getColour(index).GetRGB();
+    }
 }

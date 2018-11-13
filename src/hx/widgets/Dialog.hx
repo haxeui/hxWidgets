@@ -1,8 +1,10 @@
 package hx.widgets;
 
 import cpp.Pointer;
+import cpp.RawPointer;
 import hx.widgets.styles.DialogStyle;
 import wx.widgets.Dialog in WxDialog;
+import wx.widgets.Sizer in WxSizer;
 import wx.widgets.WxString;
 
 @:headerCode("
@@ -44,6 +46,14 @@ class Dialog extends TopLevelWindow {
         dialogRef.ptr.addMainButtonId(id);
     }
 
+    public function createSeparatedButtonSizer(flags:Int):Sizer {
+        var p:RawPointer<WxSizer> = dialogRef.ptr.createSeparatedButtonSizer(flags);
+        var sizer:Sizer = new Sizer();
+        sizer._ref = Pointer.fromRaw(p).reinterpret();
+        return sizer;
+    }
+    
+    
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
