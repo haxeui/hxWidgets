@@ -40,7 +40,7 @@ class EntryMacro {
 
         var os:OSVersion = getOSVersion();
         if (~/windows/i.match(Sys.systemName())) {
-            _class.get().meta.add(":buildXml", [{ expr:EConst( CString( "<include name=\"${haxelib:hxWidgets}/../Build.xml\" />" ) ), pos:_pos }], _pos );
+            _class.get().meta.add(":buildXml", [{ expr:EConst( CString( "<include name=\"${haxelib:hxWidgets}/Build.xml\" />" ) ), pos:_pos }], _pos );
         } else {
             if (!checkWxConfig()) {
                 Context.fatalError("The wx-config executable wasn't found in your PATH, and is required for compilation", _pos);
