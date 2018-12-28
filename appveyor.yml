@@ -12,8 +12,8 @@ environment:
         WXWIDGETS_ROOT: C:\projects\wxWidgets
 
 cache:
-    - wxWidgets-3.0.2.7z -> appveyor.yml
-    - wxMSW-3.0.2_vc120_Dev.7z -> appveyor.yml
+    - wxWidgets-3.1.2.7z -> appveyor.yml
+    - wxMSW-3.1.2_vc140_Dev.7z -> appveyor.yml
 
 install:
     # change windows update settings to get chocolatey working on appveyor
@@ -40,18 +40,18 @@ install:
     - neko build.n windows-x86
     # Download wxWidgets
     - cd %ROOT%
-    - if not exist "wxWidgets-3.0.2.7z" (
-        curl -fsSL -o wxWidgets-3.0.2.7z --retry 3 https://github.com/wxWidgets/wxWidgets/releases/download/v3.0.2/wxWidgets-3.0.2.7z
+    - if not exist "wxWidgets-3.1.2.7z" (
+        curl -fsSL -o wxWidgets-3.1.2.7z --retry 3 https://github.com/wxWidgets/wxWidgets/releases/download/v3.1.2/wxWidgets-3.1.2.7z
       )
-    - if not exist "wxMSW-3.0.2_vc120_Dev.7z" (
-        curl -fsSL -o wxMSW-3.0.2_vc120_Dev.7z --retry 3 https://github.com/wxWidgets/wxWidgets/releases/download/v3.0.2/wxMSW-3.0.2_vc120_Dev.7z
+    - if not exist "wxMSW-3.1.2_vc140_Dev.7z" (
+        curl -fsSL -o wxMSW-3.1.2_vc140_Dev.7z --retry 3 https://github.com/wxWidgets/wxWidgets/releases/download/v3.1.2/wxMSW-3.1.2_vc140_Dev.7z
       )
     # Install wxWidgets
     - mkdir %WXWIDGETS_ROOT%
     - cd %WXWIDGETS_ROOT%
-    - 7z x %ROOT%\wxWidgets-3.0.2.7z
-    - 7z x %ROOT%\wxMSW-3.0.2_vc120_Dev.7z
-    - mv lib\vc120_dll lib\vc_dll
+    - 7z x %ROOT%\wxWidgets-3.1.2.7z
+    - 7z x %ROOT%\wxMSW-3.1.2_vc140_Dev.7z
+    - mv lib\vc140_dll lib\vc_dll
     - SET WXWIN=%WXWIDGETS_ROOT%
 
 build_script:
