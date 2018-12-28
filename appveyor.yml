@@ -16,6 +16,9 @@ cache:
     - wxMSW-3.0.2_vc120_Dev.7z -> appveyor.yml
 
 install:
+    # change windows update settings to get chocolatey working on appveyor
+    # https://help.appveyor.com/discussions/problems/5616-not-able-to-build-due-to-problem-in-chocolateyinstallps1
+    - ps: Set-Service wuauserv -StartupType Manual
     # Install haxe, download the chocolatey package
     - cinst haxe -y
     - RefreshEnv
