@@ -20,4 +20,9 @@ extern class ToggleButton extends AnyButton {
     @:native("Create")                  @:overload(function(parent:RawPointer<Window>, id:Int, label:WxString):Bool {})
     @:native("Create")                  override public function create(parent:RawPointer<Window>, id:Int, point:Point, size:Size, style:Int):Bool;
    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Instance functions
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    @:native("SetValue")                public function setValue(value:Bool):Void;
+    @:native("GetValue")                public function getValue():Bool;
 }

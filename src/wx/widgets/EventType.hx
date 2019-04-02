@@ -7,10 +7,12 @@ package wx.widgets;
 #include <wx/timer.h>
 #include <wx/notebook.h>
 #include <wx/listctrl.h>
+#include <wx/tglbtn.h>
 ")
 class EventType {
 
     public static var BUTTON:Int                = untyped __cpp__("wxEVT_BUTTON");
+    public static var TOGGLEBUTTON:Int          = untyped __cpp__("wxEVT_TOGGLEBUTTON");
     public static var CHECKBOX:Int              = untyped __cpp__("wxEVT_CHECKBOX");
     public static var RADIOBUTTON:Int           = untyped __cpp__("wxEVT_RADIOBUTTON");
     public static var SLIDER:Int                = untyped __cpp__("wxEVT_SLIDER");

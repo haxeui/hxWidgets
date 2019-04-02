@@ -4,4 +4,4 @@ if %1 == debug (
 ) else (
 	bin\Main.exe
 )
-rem pause
+pause
