@@ -1,7 +1,7 @@
 package wx.widgets;
 
 // Note: custom, not in wxWidgets
-abstract SizerFlag(Int) {
+abstract SizerFlag(Int) from Int {
 
     public static inline var NONE:SizerFlag = cast 0;
 
