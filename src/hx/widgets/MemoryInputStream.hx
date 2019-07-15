@@ -1,5 +1,6 @@
 package hx.widgets;
 
+import cpp.NativeArray;
 import cpp.Pointer;
 import haxe.io.Bytes;
 import wx.widgets.MemoryInputStream in WxMemoryInputStream;
@@ -10,7 +11,8 @@ class MemoryInputStream extends InputStream {
 
     public function new(bytes:Bytes) {
         _bytes = bytes;
-        _ref = WxMemoryInputStream.createInstance(_bytes.toString(), _bytes.length).reinterpret();
+        var p = NativeArray.address(_bytes.getData(), 0);
+        _ref = WxMemoryInputStream.createInstance(p, _bytes.length).reinterpret();
     }
 
     public function destroy() {

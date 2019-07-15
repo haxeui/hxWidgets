@@ -10,8 +10,8 @@
 	],
 	"description": "Haxe externs (and wrappers) for wxWidgets",
 	"contributors": ["haxeui", "ianharrigan", "_ibilon"],
-	"releasenote": "Now building on windows, linux and mac",
-	"version": "1.0.0",
+	"releasenote": "Fix byte stream for images",
+	"version": "1.0.2",
 	"classPath": "src",
 	"url": "https://github.com/haxeui/hxwidgets",
 	"dependencies": {
