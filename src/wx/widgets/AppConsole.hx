@@ -8,4 +8,5 @@ package wx.widgets;
 @:native("wxAppConsole")
 @:structAccess
 extern class AppConsole extends EvtHandler implements EventFilter {
+    @:native("SetCLocale")      public function setCLocale():Void;
 }

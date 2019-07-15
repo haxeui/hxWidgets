@@ -1,6 +1,7 @@
 package hx.widgets;
 
 import cpp.Pointer;
+import wx.Locale;
 import wx.widgets.App in WxApp;
 
 @:headerCode("
@@ -8,7 +9,8 @@ import wx.widgets.App in WxApp;
 #undef RegisterClass
 ")
 class App extends AppConsole {
-
+    private var _locale:Pointer<Locale>;
+    
     public function new(setInstance:Bool = true) {
         _ref = WxApp.createInstance().reinterpret();
         if (setInstance) {
@@ -16,6 +18,8 @@ class App extends AppConsole {
         }
 
         super();
+        _locale = Locale.createInstance(Locale.getSystemLanguage());
+        setCLocale();
     }
 
     public function init():Bool {
@@ -28,6 +32,7 @@ class App extends AppConsole {
     }
 
     public function exit() {
+        _locale.destroy();
         appRef.ptr.exit();
         Entry.cleanup();
     }
@@ -36,6 +41,10 @@ class App extends AppConsole {
         WxApp.setInstance(instance.appRef.get_raw());
     }
 
+    public function setCLocale() {
+        appRef.ptr.setCLocale();
+    }
+    
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
