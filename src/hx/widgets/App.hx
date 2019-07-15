@@ -1,7 +1,7 @@
 package hx.widgets;
 
 import cpp.Pointer;
-import wx.Locale;
+import wx.widgets.Locale;
 import wx.widgets.App in WxApp;
 
 @:headerCode("
