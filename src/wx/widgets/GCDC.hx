@@ -16,4 +16,9 @@ extern class GCDC extends DC {
                                     public static inline function createInstance(gc:RawPointer<GraphicsContext>):Pointer<GCDC> {
                                         return Pointer.fromRaw(_new(gc));
                                     }
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // instance functions
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    @:native("GetGraphicsContext")  public function getGraphicsContext():RawPointer<GraphicsContext>;
 }
