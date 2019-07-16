@@ -10,6 +10,7 @@ package wx.widgets.styles;
     @:native("wxBG_STYLE_PAINT")            var BG_PAINT;
     @:native("wxBG_STYLE_COLOUR")           var BG_COLOUR;
     @:native("wxBG_STYLE_TRANSPARENT")      var BG_TRANSPARENT;
+    @:native("wxBG_STYLE_CUSTOM")           var BG_CUSTOM;
 
 }
 

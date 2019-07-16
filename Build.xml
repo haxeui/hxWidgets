@@ -12,11 +12,14 @@
             <compilerflag value="-DUNICODE" />
             <compilerflag value="-D_UNICODE" />
             <compilerflag value="-DwxMSVC_VERISON_AUTO" />
+            <compilerflag value="-DwxUSE_GRAPHICS_CONTEXT" />
             <compilerflag value="-DWIN32" if="windows" />
             <compilerflag value="-D__WXMSW__" if="windows" />
             <compilerflag value="-D__WX__=1" />
 
             <compilerflag value="-DWXUSINGDLL" unless="WXSTATIC"/>
+
+            <file name="${haxelib:hxWidgets}\include\custom\wxownerdrawnpanel.cpp" />
         </files>
 
         <target id="haxe" tool="linker" toolid="exe">

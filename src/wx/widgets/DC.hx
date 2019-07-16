@@ -18,5 +18,6 @@ extern class DC extends Object {
     @:native("DrawCircle")              public function drawCircle(x:Int, y:Int, radius:Int):Void;
     @:native("GetBackground")           public function getBackground():Brush;
     @:native("SetBackground")           public function setBackground(brush:Brush):Void;
+    @:native("DrawBitmap")              public function drawBitmap(bmp:Bitmap, x:Float, y:Float):Void;
 
 }

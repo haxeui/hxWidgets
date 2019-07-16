@@ -12,10 +12,8 @@ extern class GCDC extends DC {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // creation functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    /*
-    @:native("new wxGCDC")          private static function _new(windowDC:WindowDC):RawPointer<GCDC>;
-                                    public static inline function createInstance(windowDC:WindowDC):Pointer<GCDC> {
-                                        return Pointer.fromRaw(_new(windowDC));
+    @:native("new wxGCDC")          private static function _new(gc:RawPointer<GraphicsContext>):RawPointer<GCDC>;
+                                    public static inline function createInstance(gc:RawPointer<GraphicsContext>):Pointer<GCDC> {
+                                        return Pointer.fromRaw(_new(gc));
                                     }
-    */
 }

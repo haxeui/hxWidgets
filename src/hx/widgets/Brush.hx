@@ -1,6 +1,7 @@
 package hx.widgets;
 
 import cpp.Pointer;
+import hx.widgets.styles.BrushStyle;
 import wx.widgets.Brush in WxBrush;
 import wx.widgets.Colour in WxColour;
 
@@ -26,6 +27,15 @@ class Brush extends GDIObject {
         return value;
     }
 
+    public var style(get, set):BrushStyle;
+    private function get_style():BrushStyle {
+        return brushRef.ptr.getStyle();
+    }
+    private function set_style(value:BrushStyle):BrushStyle {
+        brushRef.ptr.setStyle(value);
+        return value;
+    }
+    
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

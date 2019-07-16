@@ -9,9 +9,12 @@ import wx.widgets.WxString;
 class GraphicsContext extends GraphicsObject {
 
     @:access(hx.widgets.Window)
-    public function new(window:Window = null) {
+    public function new(window:Window = null, dc:WindowDC = null) {
         if (window != null) {
             _ref = WxGraphicsContext.createInstance(Window.toRaw(window)).reinterpret();
+        }
+        if (dc != null) {
+            _ref = WxGraphicsContext.createInstanceFromDC(dc._ref.rawCast()).reinterpret();
         }
     }
 

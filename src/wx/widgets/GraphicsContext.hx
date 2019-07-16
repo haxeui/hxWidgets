@@ -17,6 +17,10 @@ extern class GraphicsContext extends GraphicsObject {
                                                     return Pointer.fromRaw(_new(window));
                                                 }
 
+    @:native("wxGraphicsContext::Create")       private static function _newFromDC(dc:RawPointer<WindowDC>):RawPointer<GraphicsContext>;
+                                                public static inline function createInstanceFromDC(dc:RawPointer<WindowDC>):Pointer<GraphicsContext> {
+                                                    return Pointer.fromRaw(_newFromDC(dc));
+                                                }
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Instance functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

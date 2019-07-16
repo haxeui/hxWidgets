@@ -17,14 +17,18 @@ class DC extends Object {
         dcRef.ptr.drawLine(x1, y1, x2, y2);
     }
 
+    public var pen(null, set):Pen;
     @:access(hx.widgets.Pen)
-    public function setPen(pen:Pen) {
-        dcRef.ptr.setPen(pen.penRef.ref);
+    private function set_pen(value:Pen):Pen {
+        dcRef.ptr.setPen(value.penRef.ref);
+        return value;
     }
 
+    public var brush(null, set):Brush;
     @:access(hx.widgets.Brush)
-    public function setBrush(brush:Brush) {
-        dcRef.ptr.setBrush(brush.brushRef.ref);
+    private function set_brush(value:Brush):Brush {
+        dcRef.ptr.setBrush(value.brushRef.ref);
+        return value;
     }
 
     public function drawText(text:String, x:Int, y:Int) {
@@ -47,6 +51,11 @@ class DC extends Object {
         return value;
     }
 
+    @:access(hx.widgets.Bitmap)
+    public function drawBitmap(bmp:Bitmap, x:Float = 0, y:Float = 0) {
+        dcRef.ptr.drawBitmap(bmp.bitmapRef.ref, x, y);
+    }
+    
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
