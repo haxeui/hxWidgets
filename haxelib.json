@@ -10,8 +10,8 @@
 	],
 	"description": "Haxe externs (and wrappers) for wxWidgets",
 	"contributors": ["haxeui", "ianharrigan", "_ibilon"],
-	"releasenote": "Locale and StringInputStream",
-	"version": "1.0.3",
+	"releasenote": "include missing files in haxelib",
+	"version": "1.0.4",
 	"classPath": "src",
 	"url": "https://github.com/haxeui/hxwidgets",
 	"dependencies": {
