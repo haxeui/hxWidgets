@@ -75,6 +75,8 @@ class EntryMacro {
             config.exitCode();
 
             cflags += "\n<compilerflag value=\"-I${haxelib:hxWidgets}/include\" />\n";
+            cflags += "\n<compilerflag value=\"-DwxUSE_GRAPHICS_CONTEXT\" />\n";
+            cflags += "\n<file name=\"${haxelib:hxWidgets}/include/custom/wxownerdrawnpanel.cpp\" />\n";
 
             if (~/mac/i.match(Sys.systemName()) && (os.major > 10 || (os.major == 10 && os.minor >= 7))) {
                 cflags += '\n<compilerflag value="-mmacosx-version-min=10.7" />\n<compilerflag value="-std=c++11" />\n<compilerflag value="-stdlib=libc++" />\n';
