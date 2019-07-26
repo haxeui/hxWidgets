@@ -19,4 +19,8 @@ extern class SpinCtrl extends Control {
                                             
     @:native("Create")                      @:overload(function(parent:RawPointer<Window>, id:Int, value:WxString, point:Point, size:Size, style:Int):Bool {})
     @:native("Create")                      override public function create(parent:RawPointer<Window>, id:Int, point:Point, size:Size, style:Int):Bool;
+    
+    @:native("GetValue")                    public function getValue():Int;
+    @:native("SetValue")                    public function setValue(value:Int):Void;
+    
 }

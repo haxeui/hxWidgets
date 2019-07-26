@@ -15,7 +15,16 @@ class SpinCtrl extends Control {
         super(parent, id);
     }
     
-
+    public var value(get, set):Int;
+    private function get_value():Int {
+        return spinCtrlRef.ref.getValue();
+    }
+    private function set_value(value:Int):Int {
+        spinCtrlRef.ref.setValue(value);
+        return value;
+    }
+    
+    
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
