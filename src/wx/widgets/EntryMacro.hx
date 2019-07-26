@@ -54,7 +54,11 @@ class EntryMacro {
             var cflags = config.stdout.readAll().toString().split("\n")[0].split(" ").map(makeFlag).join("\n");
             config.exitCode();
 
+            #if WEBVIEW
             var config = new Process("wx-config", ["--libs", "gl,std,webview"]);
+            #else
+            var config = new Process("wx-config", ["--libs", "gl,std"]);
+            #end
             var libs = config.stdout.readAll().toString().split("\n").join(" ").split(" ");
             var link = [];
             var i = 0;
