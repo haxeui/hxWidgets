@@ -13,8 +13,8 @@ class SimpleDialog extends Dialog {
 
         createRadioCtrls(top);
 
-        var hsizer:BoxSizer = new BoxSizer(Orientation.HORIZONTAL);
-        var button:Button = new Button(this, "Done", 0, 12345);
+        var buttons = createStdDialogButtonSizer(0);
+        var button =  new Button(this, "Done", 0, 12345);
         this.addMainButtonId(12345);
         button.bind(EventType.BUTTON, function(e) {
             if (isModal) {
@@ -24,10 +24,12 @@ class SimpleDialog extends Dialog {
                 hide();
             }
         });
-        hsizer.add(button);
-        top.addSizer(hsizer);
-
+        buttons.add(button);
+//        buttons.addButton(button);
+        
+        
         sizer.addSizer(top, 1, Stretch.EXPAND | Direction.ALL, 5);
+        sizer.addSizer(buttons, 0, Stretch.GROW | Direction.ALL, 5);
         fit();
     }
 

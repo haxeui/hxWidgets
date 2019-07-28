@@ -28,5 +28,5 @@ extern class Dialog extends TopLevelWindow {
     @:native("IsModal")                     public function isModal():Bool;
     @:native("AddMainButtonId")             public function addMainButtonId(id:Int):Void;
     @:native("CreateSeparatedButtonSizer")  public function createSeparatedButtonSizer(flags:Int):RawPointer<Sizer>;
-
+    @:native("CreateStdDialogButtonSizer")  public function createStdDialogButtonSizer(flags:Int):RawPointer<StdDialogButtonSizer>;
 }

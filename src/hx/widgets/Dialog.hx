@@ -5,6 +5,7 @@ import cpp.RawPointer;
 import hx.widgets.styles.DialogStyle;
 import wx.widgets.Dialog in WxDialog;
 import wx.widgets.Sizer in WxSizer;
+import wx.widgets.StdDialogButtonSizer in WxStdDialogButtonSizer;
 import wx.widgets.WxString;
 
 @:headerCode("
@@ -53,6 +54,12 @@ class Dialog extends TopLevelWindow {
         return sizer;
     }
     
+    public function createStdDialogButtonSizer(flags:Int):StdDialogButtonSizer {
+        var p:RawPointer<WxStdDialogButtonSizer> = dialogRef.ptr.createStdDialogButtonSizer(flags);
+        var sizer:StdDialogButtonSizer = new StdDialogButtonSizer(Pointer.fromRaw(p));
+        return sizer;
+    }
+    
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helpers
@@ -61,5 +68,4 @@ class Dialog extends TopLevelWindow {
     private function get_dialogRef():Pointer<WxDialog> {
         return _ref.reinterpret();
     }
-
 }

@@ -10,8 +10,8 @@
 	],
 	"description": "Haxe externs (and wrappers) for wxWidgets",
 	"contributors": ["haxeui", "ianharrigan", "_ibilon"],
-	"releasenote": "webview opt in",
-	"version": "1.0.6",
+	"releasenote": "disable precompiled headers and linux fixes",
+	"version": "1.0.7",
 	"classPath": "src",
 	"url": "https://github.com/haxeui/hxwidgets",
 	"dependencies": {
