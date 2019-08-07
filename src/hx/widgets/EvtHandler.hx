@@ -28,15 +28,17 @@ class EvtHandler extends Object implements Trackable {
             _eventMap.set(id, mapForId);
         }
 
+        var attach:Bool = false;
         var eventList:Array<Event->Void> = mapForId.get(event);
         if (eventList == null) {
             eventList = [];
             mapForId.set(event, eventList);
+            attach = true;
         }
 
         eventList.push(fn);
 
-        if (Std.is(this, Window)) {
+        if (Std.is(this, Window) && attach == true) {
             var win:Pointer<WxWindow> = cast(this, Window).windowRef;
             untyped __cpp__("{0}->ptr->Bind({1}, &hx::widgets::EvtHandler_obj::onEvent, this, {2})", win, event, id);
         }
@@ -53,19 +55,23 @@ class EvtHandler extends Object implements Trackable {
             return;
         }
 
+        var detach:Bool = false;
         eventList.remove(fn);
         if (eventList.length == 0) {
             mapForId.remove(event);
+            detach = true;
         }
 
-        if (Std.is(this, Window)) {
+        if (Std.is(this, Window) && detach == true) {
             var win:Pointer<WxWindow> = cast(this, Window).windowRef;
             untyped __cpp__("win->ptr->Unbind(event, &hx::widgets::EvtHandler_obj::onEvent, this, id)");
         }
     }
 
     private function handleEvent(e:Pointer<WxEvent>) {
-        executeHandlers(e, e.ptr.getId());
+        if (e.ptr.getId() != -1) {
+            executeHandlers(e, e.ptr.getId());
+        }
         executeHandlers(e); // call any that were not added using control ids
 
     }
