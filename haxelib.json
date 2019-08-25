@@ -1,14 +1,11 @@
 {
-    "version": "1.0.10",
     "contributors": [
         "haxeui",
         "ianharrigan",
         "_ibilon"
     ],
-    "dependencies": {
-        "hxcpp": ""
-    },
-    "releasenote": "ability to remove list items",
+    "version": "1.0.10",
+    "license": "MIT",
     "tags": [
         "ui",
         "gui",
@@ -16,7 +13,10 @@
         "hxcpp",
         "wxWidgets"
     ],
-    "license": "MIT",
+    "releasenote": "ability to remove list items",
+    "dependencies": {
+        "hxcpp": ""
+    },
     "name": "hxWidgets",
     "description": "Haxe externs (and wrappers) for wxWidgets",
     "classPath": "src",
