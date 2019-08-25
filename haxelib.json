@@ -1,20 +1,24 @@
 {
-	"name": "hxWidgets",
-	"license": "MIT",
-	"tags": [
-		"ui",
-		"gui",
-		"native",
-		"hxcpp",
-		"wxWidgets"
-	],
-	"description": "Haxe externs (and wrappers) for wxWidgets",
-	"contributors": ["haxeui", "ianharrigan", "_ibilon"],
-	"releasenote": "Dont always attach events",
-	"version": "1.0.8",
-	"classPath": "src",
-	"url": "https://github.com/haxeui/hxwidgets",
-	"dependencies": {
-		"hxcpp": ""
-	}
+    "version": "3.4.5",
+    "contributors": [
+        "haxeui",
+        "ianharrigan",
+        "_ibilon"
+    ],
+    "dependencies": {
+        "hxcpp": ""
+    },
+    "releasenote": "test release",
+    "tags": [
+        "ui",
+        "gui",
+        "native",
+        "hxcpp",
+        "wxWidgets"
+    ],
+    "license": "MIT",
+    "name": "hxWidgets",
+    "description": "Haxe externs (and wrappers) for wxWidgets",
+    "classPath": "src",
+    "url": "https://github.com/haxeui/hxwidgets"
 }
