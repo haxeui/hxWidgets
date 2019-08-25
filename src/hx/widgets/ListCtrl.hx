@@ -45,6 +45,14 @@ class ListCtrl extends Control {
         return insertItem(item, autoDestroy);
     }
 
+    public function deleteItem(index:Int):Bool {
+        return listCtrlRef.ptr.deleteItem(index);
+    }
+    
+    public function deleteAllItems():Bool {
+        return listCtrlRef.ptr.deleteAllItems();
+    }
+    
     public var itemCount(get, null):Int;
     private function get_itemCount():Int {
         return listCtrlRef.ptr.getItemCount();
