@@ -1,5 +1,5 @@
 {
-    "version": "3.4.5",
+    "version": "123",
     "contributors": [
         "haxeui",
         "ianharrigan",
@@ -8,7 +8,7 @@
     "dependencies": {
         "hxcpp": ""
     },
-    "releasenote": "test release",
+    "releasenote": "232321213213",
     "tags": [
         "ui",
         "gui",
