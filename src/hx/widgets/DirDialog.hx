@@ -27,6 +27,17 @@ class DirDialog extends Dialog {
         super(parent);
     }
 
+    public var path(get, set):String;
+    private function get_path():String {
+        var r:WxString = dirDialogRef.ptr.getPath();
+        return new String(r.toUTF8().data());
+    }
+    private function set_path(value:String):String {
+        var s = WxString.fromUTF8(value);
+        dirDialogRef.ptr.setPath(s);
+        return value;
+    }
+    
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -17,4 +17,6 @@ extern class DirDialog extends Dialog {
                                             return Pointer.fromRaw(_new(parent, message, defaultPath, style));
                                         }
 
+    @:native("GetPath")            public function getPath():WxString;
+    @:native("SetPath")            public function setPath(path:WxString):Void;
 }
