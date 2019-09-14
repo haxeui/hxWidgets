@@ -80,6 +80,7 @@ install:
       fi;
     fi
   - haxelib dev hxWidgets $TRAVIS_BUILD_DIR
+  - haxelib install hscript
 
 script:
   - cd $TRAVIS_BUILD_DIR/samples/00-Showcase
