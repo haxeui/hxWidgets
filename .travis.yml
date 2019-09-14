@@ -49,8 +49,8 @@ install:
   # Build wxWidgets for linux (because webview is only in ubuntu 16.04+), brew it for osx
   - if [ "${TRAVIS_OS_NAME}" = "linux" ]; then
       wget https://github.com/wxWidgets/wxWidgets/releases/download/v3.1.2/wxWidgets-3.1.2.tar.bz2;
-      tar xjf wxWidgets-3.0.2.tar.bz2;
-      cd wxWidgets-3.0.2;
+      tar xjf wxWidgets-3.1.2.tar.bz2;
+      cd wxWidgets-3.1.2;
       ./configure > log.txt || log.txt;
       make;
       export PATH=$(pwd):$PATH;
