@@ -1,11 +1,14 @@
 {
+    "version": "1.0.13",
     "contributors": [
         "haxeui",
         "ianharrigan",
         "_ibilon"
     ],
-    "version": "1.0.12",
-    "license": "MIT",
+    "dependencies": {
+        "hxcpp": ""
+    },
+    "releasenote": "StyledTextCtrl opt in",
     "tags": [
         "ui",
         "gui",
@@ -13,10 +16,7 @@
         "hxcpp",
         "wxWidgets"
     ],
-    "releasenote": "Preliminary scintilla support",
-    "dependencies": {
-        "hxcpp": ""
-    },
+    "license": "MIT",
     "name": "hxWidgets",
     "description": "Haxe externs (and wrappers) for wxWidgets",
     "classPath": "src",
