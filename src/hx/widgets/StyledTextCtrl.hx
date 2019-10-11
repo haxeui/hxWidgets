@@ -1,24 +1,34 @@
 package hx.widgets;
 
+#if STYLEDTEXTCTRL
+
 import cpp.Pointer;
 import wx.widgets.StyledTextCtrl in WxStyledTextCtrl;
 import wx.widgets.WxString;
 import wx.widgets.Colour in WxColour;
 
+#end
+
 class StyledTextCtrl extends Control {
     
     public function new(parent:Window, style:Int = 0, id:Int = -1) {
+        #if STYLEDTEXTCTRL
+        
         if (_ref == null) {
             _ref = WxStyledTextCtrl.createInstance().reinterpret();
             styledTextCtrlRef.ptr.create(Window.toRaw(parent), id, Point.defaultPosition.ref, Size.defaultSize.ref, style);
         }
 
+        #end
+        
         super(parent, id);
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Instance functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    #if STYLEDTEXTCTRL
+    
     public var text(get, set):String;
     private function get_text():String {
         var r:WxString = styledTextCtrlRef.ptr.getText();
@@ -69,11 +79,17 @@ class StyledTextCtrl extends Control {
         styledTextCtrlRef.ptr.styleClearAll();
     }
     
+    #end
+    
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    #if STYLEDTEXTCTRL
+    
     private var styledTextCtrlRef(get, null):Pointer<WxStyledTextCtrl>;
     private function get_styledTextCtrlRef():Pointer<WxStyledTextCtrl> {
         return _ref.reinterpret();
     }
+    
+    #end
 }
