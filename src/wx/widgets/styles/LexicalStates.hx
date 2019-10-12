@@ -5,6 +5,8 @@ package wx.widgets.styles;
 #undef RegisterClass
 ")
 class LexicalStates {
+    #if STYLEDTEXTCTRL
+    
     /// Lexical states for SCLEX_CPP, SCLEX_BULLANT, SCLEX_COBOL, SCLEX_TACL, SCLEX_TAL
     public static var C_DEFAULT:Int                         = untyped __cpp__("wxSTC_C_DEFAULT");
     public static var C_COMMENT:Int                         = untyped __cpp__("wxSTC_C_COMMENT");
@@ -76,4 +78,6 @@ class LexicalStates {
     public static var H_SGML_COMMENT:Int                    = untyped __cpp__("wxSTC_H_SGML_COMMENT");
     public static var H_SGML_1ST_PARAM_COMMENT:Int          = untyped __cpp__("wxSTC_H_SGML_1ST_PARAM_COMMENT");
     public static var H_SGML_BLOCK_DEFAULT:Int              = untyped __cpp__("wxSTC_H_SGML_BLOCK_DEFAULT");
+    
+    #end
 }
