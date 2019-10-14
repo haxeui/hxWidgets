@@ -39,3 +39,17 @@ You need at least OSX 10.7 and you can install wxWidgets with:
 brew update
 brew install wxwidgets
 ```
+
+## More About this Library
+
+hxWidgets is actually independent of haxeui-core (and haxeui-hxwidgets as well), and can be used on
+its own if you so desired (the showcase in this repo is an example of that). hxWidgets consists of two
+layers:
+
+  * `wx.widgets.*` (e.g., `wx.widgets.Button`) : these are externs for Haxe (hxcpp) for wxWidgets,
+    and could be used as-is — though, working with externs, esp. C++ externs, can be... difficult.
+    
+  * `hx.widgets.*` (e.g., `hx.widgets.Button`) : these are nice Haxe wrappers for the externs so
+    you can just do `new Button(...)` and be done with it (it manages all the pointers, etc.). They
+    also make things a little more "haxey" in the sense that you have `myButton.bitmap = ...` rather
+    than the traditional wx way `myButton.setBitmap(...)`.
