@@ -1,14 +1,11 @@
 {
-    "version": "1.0.13",
     "contributors": [
         "haxeui",
         "ianharrigan",
         "_ibilon"
     ],
-    "dependencies": {
-        "hxcpp": ""
-    },
-    "releasenote": "StyledTextCtrl opt in",
+    "version": "1.0.14",
+    "license": "MIT",
     "tags": [
         "ui",
         "gui",
@@ -16,7 +13,10 @@
         "hxcpp",
         "wxWidgets"
     ],
-    "license": "MIT",
+    "releasenote": "Replace haxelib:hxWidgets usage for lix support",
+    "dependencies": {
+        "hxcpp": ""
+    },
     "name": "hxWidgets",
     "description": "Haxe externs (and wrappers) for wxWidgets",
     "classPath": "src",
