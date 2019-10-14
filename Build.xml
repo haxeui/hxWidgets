@@ -8,7 +8,7 @@
         <files id="haxe">
             <compilerflag value="-I${WXWIN}\include" />
             <compilerflag value="-I${WXWIN}\lib\${lib_folder}\mswu" />
-            <compilerflag value="-I${haxelib:hxWidgets}\include" />
+            <compilerflag value="-I${HXWIDGETS_PATH}\include" />
             <compilerflag value="-DUNICODE" />
             <compilerflag value="-D_UNICODE" />
             <compilerflag value="-DwxMSVC_VERISON_AUTO" />
@@ -19,7 +19,7 @@
 
             <compilerflag value="-DWXUSINGDLL" unless="WXSTATIC"/>
 
-            <file name="${haxelib:hxWidgets}\include\custom\wxownerdrawnpanel.cpp" />
+            <file name="${HXWIDGETS_PATH}\include\custom\wxownerdrawnpanel.cpp" />
         </files>
 
         <target id="haxe" tool="linker" toolid="exe">
