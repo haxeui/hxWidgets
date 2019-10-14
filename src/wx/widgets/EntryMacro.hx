@@ -37,10 +37,20 @@ class EntryMacro {
     macro public static function wxconfig():Array<Field> {
         var _pos = Context.currentPos();
         var _class = Context.getLocalClass();
+        var _info = Context.getPosInfos(_pos);
+
+        var sourcePath = Path.directory(_info.file);
+        if( !Path.isAbsolute(sourcePath) ) {
+            sourcePath = Path.join([Sys.getCwd(), sourcePath]);
+        }
+        sourcePath = Path.normalize(sourcePath);
+
+        var libPath = Path.normalize(Path.join([sourcePath, '../../../']));
+        var define = '<set name="HXWIDGETS_PATH" value="$libPath/"/>';
 
         var os:OSVersion = getOSVersion();
         if (~/windows/i.match(Sys.systemName())) {
-            _class.get().meta.add(":buildXml", [{ expr:EConst( CString( "<include name=\"${haxelib:hxWidgets}/Build.xml\" />" ) ), pos:_pos }], _pos );
+            _class.get().meta.add(":buildXml", [{ expr:EConst( CString( '$define\n<include name="${libPath}/Build.xml"/>' ) ), pos:_pos }], _pos );
         } else {
             if (!checkWxConfig()) {
                 Context.fatalError("The wx-config executable wasn't found in your PATH, and is required for compilation", _pos);
@@ -74,9 +84,9 @@ class EntryMacro {
             }
             config.exitCode();
 
-            cflags += "\n<compilerflag value=\"-I${haxelib:hxWidgets}/include\" />\n";
+            cflags += "\n<compilerflag value=\"-I${HXWIDGETS_PATH}/include\" />\n";
             cflags += "\n<compilerflag value=\"-DwxUSE_GRAPHICS_CONTEXT\" />\n";
-            cflags += "\n<file name=\"${haxelib:hxWidgets}/include/custom/wxownerdrawnpanel.cpp\" />\n";
+            cflags += "\n<file name=\"${HXWIDGETS_PATH}/include/custom/wxownerdrawnpanel.cpp\" />\n";
 
             if (~/mac/i.match(Sys.systemName()) && (os.major > 10 || (os.major == 10 && os.minor >= 7))) {
                 cflags += '\n<compilerflag value="-mmacosx-version-min=10.7" />\n<compilerflag value="-std=c++11" />\n<compilerflag value="-stdlib=libc++" />\n';
@@ -86,7 +96,8 @@ class EntryMacro {
             }
 
             var buildXml = {
-                expr:EConst( CString( '<set name="MAC_USE_CURRENT_SDK" value="1" if="macos" />
+                expr:EConst( CString( '$define
+                                       <set name="MAC_USE_CURRENT_SDK" value="1" if="macos" />
                                        <set name="HXCPP_GCC" value="1" if="macos" />
                                        <set name="HXCPP_M64" value="1" if="macos" />
                                        <files id="haxe">$cflags</files>
