@@ -16,6 +16,6 @@ extern class StaticLine extends Control {
                                             return Pointer.fromRaw(_new());
                                         }
 
-    @:native("Create")                  @:overload(function(parent:RawPointer<Window>, id:Int, title:WxString, point:Point, size:Size):Bool {})
-    @:native("Create")                  override public function create(parent:RawPointer<Window>, id:Int, point:Point, size:Size):Bool;
+    @:native("Create")                  @:overload(function(parent:RawPointer<Window>, id:Int, point:Point, size:Size):Bool {})
+    @:native("Create")                  override public function create(parent:RawPointer<Window>, id:Int, point:Point, size:Size, style:Int):Bool;
 }
