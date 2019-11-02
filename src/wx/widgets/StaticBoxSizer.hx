@@ -17,4 +17,5 @@ extern class StaticBoxSizer extends BoxSizer {
                                             return Pointer.fromRaw(_new(orient, window, title));
                                         }
 
+    @:native("GetStaticBox")            public function getStaticBox():RawPointer<StaticBox>;
 }
