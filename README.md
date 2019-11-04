@@ -64,6 +64,6 @@ Sometimes is useful to have the most up-to-date version of wxWidgets running on 
 * enter folder: `cd wx_build`
 * configure: `../configure --with-opengl --disable-shared`
 * make: `make`
-* once built, install: `sudo make install`
+* once built, install: `make install` (may need `sudo` if not default `/usr/local` location)
 * `wx-config --version` should now show the version you just built
   * you may need to add the unzip folder to your $PATH var if it doesnt show the right version
