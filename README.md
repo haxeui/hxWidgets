@@ -53,3 +53,17 @@ layers:
     you can just do `new Button(...)` and be done with it (it manages all the pointers, etc.). They
     also make things a little more "haxey" in the sense that you have `myButton.bitmap = ...` rather
     than the traditional wx way `myButton.setBitmap(...)`.
+    
+    
+## Building WxWidgets From Source (Linux & OSX)
+Sometimes is useful to have the most up-to-date version of wxWidgets running on a linux or OSX system, to do this follow these steps:
+
+* download source archive from: https://www.wxwidgets.org/downloads/
+* unzip to, for example: `/home/users/username/wxwidgets3.1.3/`
+* create a folder there: `mkdir wx_build`
+* enter folder: `cd wx_build`
+* configure: `../configure --with-opengl --disable-shared`
+* make: `make`
+* once built, install: `sudo make install`
+* `wx-config --version` should now show the version you just built
+  * you may need to add the unzip folder to your $PATH var if it doesnt show the right version
