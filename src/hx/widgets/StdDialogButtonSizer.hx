@@ -16,6 +16,10 @@ class StdDialogButtonSizer extends BoxSizer {
         var buttonPtr:RawPointer<WxButton> = button.buttonRef.get_raw();
         stdDialogButtonSizerRef.ptr.addButton(buttonPtr);
     }
+
+    public function realize() {
+        stdDialogButtonSizerRef.ptr.realize();
+    }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helpers

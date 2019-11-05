@@ -8,4 +8,6 @@ import cpp.RawPointer;
 @:structAccess
 extern class StdDialogButtonSizer extends BoxSizer {
     @:native("AddButton")           public function addButton(button:RawPointer<Button>):Void;
+    @:native("Realize")             public function realize():Void;
+
 }
