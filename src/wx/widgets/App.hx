@@ -27,5 +27,6 @@ extern class App extends AppConsole {
     @:native("OnInit")                  public function init():Bool;
     @:native("OnRun")                   public function run():Void;
     @:native("OnExit")                  public function exit():Void;
+    @:native("GetTraits")               public function getTraits():RawPointer<AppTraits>;
 
 }

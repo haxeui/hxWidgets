@@ -45,6 +45,15 @@ class App extends AppConsole {
         appRef.ptr.setCLocale();
     }
     
+    public var traits(get, null):AppTraits;
+    @:access(hx.widgets.AppTraits)
+    private function get_traits():AppTraits {
+        var p = appRef.ptr.getTraits();
+        var appTraits = new AppTraits();
+        appTraits._ref = Pointer.fromRaw(p);
+        return appTraits;
+    }
+    
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -52,5 +61,4 @@ class App extends AppConsole {
     private function get_appRef():Pointer<WxApp> {
         return _ref.reinterpret();
     }
-
 }
