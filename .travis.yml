@@ -18,7 +18,7 @@ notifications:
 haxe:
   - "3.4.0"
   - "3.4.2"
-  - development
+  - "4.0.2"
 
 env:
   - HXCPP=haxelib
@@ -30,8 +30,8 @@ matrix:
     env: HXCPP=dev
   - haxe: "3.4.2"
     env: HXCPP=dev
-  - haxe: development
-    env: HXCPP=haxelib
+  - haxe: "4.0.2"
+    env: HXCPP=dev
 
 sudo: false
 
@@ -48,7 +48,7 @@ install:
   - haxelib setup haxelib
   # Build wxWidgets for linux (because webview is only in ubuntu 16.04+), brew it for osx
   - if [ "${TRAVIS_OS_NAME}" = "linux" ]; then
-      wget https://github.com/wxWidgets/wxWidgets/releases/download/v3.1.2/wxWidgets-3.1.2.tar.bz2;
+      wget https://github.com/wxWidgets/wxWidgets/releases/download/v3.1.3/wxWidgets-3.1.3.tar.bz2;
       tar xjf wxWidgets-3.1.2.tar.bz2;
       cd wxWidgets-3.1.2;
       ./configure > log.txt || log.txt;
