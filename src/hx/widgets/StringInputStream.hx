@@ -11,6 +11,7 @@ class StringInputStream extends InputStream {
         _s = s;
         var utf8 = WxString.fromUTF8(s);
         _ref = WxStringInputStream.createInstance(utf8).reinterpret();
+        super();
     }
 
     public function destroy() {

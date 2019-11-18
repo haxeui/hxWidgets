@@ -6,6 +6,7 @@ import wx.widgets.WxString;
 
 class StandardPaths {
     private var _ref:Pointer<WxStandardPaths>;
+    
     public function new() {
     }
 

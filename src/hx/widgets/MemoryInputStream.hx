@@ -13,6 +13,7 @@ class MemoryInputStream extends InputStream {
         _bytes = bytes;
         var p = NativeArray.address(_bytes.getData(), 0);
         _ref = WxMemoryInputStream.createInstance(p, _bytes.length).reinterpret();
+        super();
     }
 
     public function destroy() {

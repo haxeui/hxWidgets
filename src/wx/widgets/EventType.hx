@@ -8,6 +8,7 @@ package wx.widgets;
 #include <wx/notebook.h>
 #include <wx/listctrl.h>
 #include <wx/tglbtn.h>
+#include <wx/process.h>
 ")
 class EventType {
 
@@ -55,4 +56,5 @@ class EventType {
     public static var MOUSEWHEEL:Int            = untyped __cpp__("wxEVT_MOUSEWHEEL");
 
     public static var THREAD:Int                = untyped __cpp__("wxEVT_THREAD");
+    public static var END_PROCESS:Int           = untyped __cpp__("wxEVT_END_PROCESS");
 }

@@ -33,5 +33,4 @@ class Image extends Object {
     private function get_imageRef():Pointer<WxImage> {
         return _ref.reinterpret();
     }
-
 }

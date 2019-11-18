@@ -38,9 +38,9 @@ class EvtHandler extends Object implements Trackable {
 
         eventList.push(fn);
 
-        if (Std.is(this, Window) && attach == true) {
-            var win:Pointer<WxWindow> = cast(this, Window).windowRef;
-            untyped __cpp__("{0}->ptr->Bind({1}, &hx::widgets::EvtHandler_obj::onEvent, this, {2})", win, event, id);
+        if (attach == true) {
+            var ref:Pointer<WxEvtHandler> = evtHandlerRef;
+            untyped __cpp__("{0}->ptr->Bind({1}, &hx::widgets::EvtHandler_obj::onEvent, this, {2})", ref, event, id);
         }
     }
 
@@ -62,9 +62,9 @@ class EvtHandler extends Object implements Trackable {
             detach = true;
         }
 
-        if (Std.is(this, Window) && detach == true) {
-            var win:Pointer<WxWindow> = cast(this, Window).windowRef;
-            untyped __cpp__("win->ptr->Unbind(event, &hx::widgets::EvtHandler_obj::onEvent, this, id)");
+        if (detach == true) {
+            var ref:Pointer<WxEvtHandler> = evtHandlerRef;
+            untyped __cpp__("ref->ptr->Unbind(event, &hx::widgets::EvtHandler_obj::onEvent, this, id)");
         }
     }
 
