@@ -2,10 +2,13 @@ package hx.widgets;
 
 import cpp.Pointer;
 import wx.widgets.Process in WxProcess;
+import wx.widgets.WxString;
 
 class Process extends EvtHandler {
-    public function new(id:Int = -1) {
-        _ref = WxProcess.createInstance(id).reinterpret();
+    public function new(id:Int = -1, create:Bool = true) {
+        if (create == true) {
+            _ref = WxProcess.createInstance(id).reinterpret();
+        }
         super();
     }
     
@@ -31,8 +34,9 @@ class Process extends EvtHandler {
         }
         
         // could be ill concieved
-        while (isInputAvailable == false) {
+        while (isInputOpened == false) {
             // do nothing
+            Globals.yield();
         }
         
         _inputStream = new InputStream();
@@ -57,5 +61,14 @@ class Process extends EvtHandler {
     private var processRef(get, null):Pointer<WxProcess>;
     private function get_processRef():Pointer<WxProcess> {
         return _ref.reinterpret();
+    }
+    
+    public static function open(cmd:String):Process {
+        var s = WxString.createInstance(cmd);
+        var p = WxProcess.open(s.ref);
+        s.destroy();
+        var process = new Process(false);
+        process._ref = Pointer.fromRaw(p).reinterpret();
+        return process;
     }
 }

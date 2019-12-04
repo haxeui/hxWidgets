@@ -8,4 +8,5 @@ import cpp.RawPointer;
 extern class Globals {
     @:native("::wxShell")       public static function shell(command:WxString):Bool;
     @:native("::wxExecute")     public static function execute(command:WxString, flags:Int, callback:RawPointer<Process>, env:RawPointer<ExecuteEnv>):Int;
+    @:native("::wxYield")       public static function yield():Bool;
 }

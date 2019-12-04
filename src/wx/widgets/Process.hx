@@ -14,6 +14,8 @@ extern class Process extends EvtHandler {
                                             return Pointer.fromRaw(_new(id));
                                         }
                                         
+    @:native("wxProcess::Open")         public static function open(cmd:WxString):RawPointer<Process>;                                        
+                                        
     @:native("Redirect")                public function redirect():Void;
     @:native("GetInputStream")          public function getInputStream():RawPointer<InputStream>;
     @:native("IsInputAvailable")        public function isInputAvailable():Bool;

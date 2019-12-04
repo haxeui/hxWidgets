@@ -9,4 +9,5 @@ package wx.widgets;
 @:structAccess
 extern class AppConsole extends EvtHandler implements EventFilter {
     @:native("SetCLocale")      public function setCLocale():Void;
+    @:native("Yield")           public function yield(onlyIfNeeded:Bool = false):Bool;
 }

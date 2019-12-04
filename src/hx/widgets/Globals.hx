@@ -43,4 +43,8 @@ class Globals {
         
         return pid;
     }
+    
+    public static function yield():Bool {
+        return WxGlobals.yield();
+    }
 }
