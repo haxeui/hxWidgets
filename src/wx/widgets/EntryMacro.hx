@@ -89,10 +89,14 @@ class EntryMacro {
             cflags += "\n<file name=\"${HXWIDGETS_PATH}/include/custom/wxownerdrawnpanel.cpp\" />\n";
 
             if (~/mac/i.match(Sys.systemName()) && (os.major > 10 || (os.major == 10 && os.minor >= 7))) {
+                #if !NO_CPP_11
+
                 cflags += '\n<compilerflag value="-mmacosx-version-min=10.7" />\n<compilerflag value="-std=c++11" />\n<compilerflag value="-stdlib=libc++" />\n';
                 link.push('<compilerflag value="-std=c++11" />');
                 link.push('<compilerflag value="-stdlib=libc++" />');
                 link.push('<lib name="-lc++" />');
+
+                #end
             }
 
             var buildXml = {
@@ -106,9 +110,6 @@ class EntryMacro {
             };
             _class.get().meta.add(":buildXml", [buildXml], _pos );
         }
-
-        // https://github.com/HaxeFoundation/hxcpp/issues/397
-        haxe.macro.Compiler.define("source-header", "GeneratedByHaxe");
 
         return Context.getBuildFields();
     }
