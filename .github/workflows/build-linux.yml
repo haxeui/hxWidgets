@@ -31,6 +31,7 @@ jobs:
         ./configure > log.txt;
         make;
         echo ::add-path::$(pwd)
+        cd ..
         haxelib install hxcpp --always --quiet
         haxelib install hscript --always --quiet
         haxelib dev hxWidgets .
