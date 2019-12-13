@@ -36,3 +36,4 @@ jobs:
       run: |
         cd samples/00-Showcase
         haxe build.hxml
+        curl --fail -X POST https://api.github.com/repos/haxeui/haxeui-hxwidgets/dispatches -H 'Accept: application/vnd.github.everest-preview+json' -H 'Authorization: Bearer ${{ secrets.GH_TOKEN }}' --data "{\"event_type\": \"trigger_build\"}"
