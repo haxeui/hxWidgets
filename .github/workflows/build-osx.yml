@@ -9,7 +9,7 @@ jobs:
 
     strategy:
       matrix:
-        os: [ubuntu-latest]
+        os: [macos-latest]
         #haxe-version: [3.4.4, 4.0.3]
         haxe-version: [4.0.3]
 
