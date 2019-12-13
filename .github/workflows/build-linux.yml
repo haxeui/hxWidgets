@@ -34,8 +34,8 @@ jobs:
         tar xjf wxWidgets-3.1.3.tar.bz2
         cd wxWidgets-3.1.3
         ./configure --with-opengl --disable-shared > log.txt
-        make
-        make install
+        sudo make
+        sudo make install
         echo ::add-path::$(pwd)
         cd ..
         haxelib install hxcpp --always --quiet
