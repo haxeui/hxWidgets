@@ -65,9 +65,9 @@ class EntryMacro {
             config.exitCode();
 
             #if WEBVIEW
-            var config = new Process("wx-config", ["--libs", "gl,std,webview"]);
+            var config = new Process("wx-config", ["--libs", "gl,std,propgrid,webview"]);
             #else
-            var config = new Process("wx-config", ["--libs", "gl,std"]);
+            var config = new Process("wx-config", ["--libs", "gl,std,propgrid"]);
             #end
             var libs = config.stdout.readAll().toString().split("\n").join(" ").split(" ");
             var link = [];
