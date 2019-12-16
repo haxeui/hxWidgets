@@ -1,0 +1,9 @@
+# by default wxwidgets uses /MD - so match for static linking
+# if wxWidgets is using /MT, remove this line
+-D ABI=-MD
+-D WXSTATIC
+
+-lib hxWidgets
+-cp src/
+-main Main
+-cpp bin
