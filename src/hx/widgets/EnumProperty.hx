@@ -11,7 +11,7 @@ typedef EnumPropertyItem = {
 
 class EnumProperty extends PGProperty {
     @:access(hx.widgets.PGChoices)
-    public function new(label:String, name:String, choices:Array<EnumPropertyItem>) {
+    public function new(label:String, name:String, choices:Array<EnumPropertyItem>, value:Int = 0 ) {
         var choices = new PGChoices(choices);
         
         var strLabel = WxString.fromUTF8(label);
@@ -19,7 +19,7 @@ class EnumProperty extends PGProperty {
         
         var choicesRef = choices.choicesRef;
         
-        _ref = WxEnumProperty.createInstance(strLabel, strName, choicesRef.ref).reinterpret();
+        _ref = WxEnumProperty.createInstance(strLabel, strName, choicesRef.ref, value).reinterpret();
         
         super();
     }

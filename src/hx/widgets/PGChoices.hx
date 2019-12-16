@@ -16,12 +16,14 @@ class PGChoices {
         _ref = WxPGChoices.createInstance().reinterpret();
         
         if (items != null) {
+            var index = 0;
             for (item in items) {
                 var s = item.label;
                 var v = item.value;
                 if (v == null) {
-                    v = 0;
+                    v = index;
                 }
+                index++;
                 add(s, v);
             }
         }

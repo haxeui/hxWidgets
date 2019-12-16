@@ -1,6 +1,7 @@
 package hx.widgets;
 
 import cpp.Pointer;
+import hx.widgets.EnumProperty.EnumPropertyItem;
 import hx.widgets.styles.PropertyGridStyles;
 import wx.widgets.PropertyGrid in WxPropertyGrid;
 
@@ -23,6 +24,48 @@ class PropertyGrid extends Control {
         propertyGridRef.ptr.append(p.raw);
     }
     
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Util functions
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public function appendCategory(label:String, name:String = null) {
+        if (name == null) {
+            name = label;
+        }
+        var p = new PropertyCategory(label, name);
+        append(p);
+    }
+    
+    public function appendStringProperty(label:String, value:String, name:String = null) {
+        if (name == null) {
+            name = label;
+        }
+        var p = new StringProperty(label, name, value);
+        append(p);
+    }
+    
+    public function appendIntProperty(label:String, value:Int, name:String = null) {
+        if (name == null) {
+            name = label;
+        }
+        var p = new IntProperty(label, name, value);
+        append(p);
+    }
+    
+    public function appendBoolProperty(label:String, value:Bool, name:String = null) {
+        if (name == null) {
+            name = label;
+        }
+        var p = new BoolProperty(label, name, value);
+        append(p);
+    }
+    
+    public function appendEnumProperty(label:String, choices:Array<EnumPropertyItem>, value:Int = 0, name:String = null) {
+        if (name == null) {
+            name = label;
+        }
+        var p = new EnumProperty(label, name, choices, value);
+        append(p);
+    }
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
