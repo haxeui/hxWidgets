@@ -2,8 +2,10 @@ package hx.widgets;
 
 import cpp.Pointer;
 import hx.widgets.EnumProperty.EnumPropertyItem;
+import hx.widgets.styles.PropertyGridAttributes;
 import hx.widgets.styles.PropertyGridStyles;
 import wx.widgets.PropertyGrid in WxPropertyGrid;
+import wx.widgets.WxString;
 
 class PropertyGrid extends Control {
     public function new(parent:Window, style:Int = 0, id:Int = -1) {
@@ -22,6 +24,12 @@ class PropertyGrid extends Control {
     public function append(property:PGProperty) {
         var p = property.propertyRef;
         propertyGridRef.ptr.append(p.raw);
+    }
+    
+    public function setPropertyAttribute(id:String, attrName:String, value:Any, argFlags:Int = 0) {
+        var strId = WxString.fromUTF8(id);
+        var strAttrName = WxString.fromUTF8(attrName);
+        propertyGridRef.ptr.setPropertyAttribute(strId, strAttrName, value, argFlags);
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -57,6 +65,7 @@ class PropertyGrid extends Control {
         }
         var p = new BoolProperty(label, name, value);
         append(p);
+        setPropertyAttribute(name, PropertyGridAttributes.BOOL_USE_CHECKBOX, true);
     }
     
     public function appendEnumProperty(label:String, choices:Array<EnumPropertyItem>, value:Int = 0, name:String = null) {
