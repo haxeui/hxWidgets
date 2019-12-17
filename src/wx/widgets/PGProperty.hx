@@ -6,4 +6,5 @@ package wx.widgets;
 @:structAccess
 extern class PGProperty extends Object {
     @:native("GetValueAsString")        public function getValueAsString():WxString;
+    @:native("GetName")                 public function getName():WxString;
 }

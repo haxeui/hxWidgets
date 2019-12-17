@@ -14,6 +14,12 @@ class PGProperty extends Object {
         return new String(r.toUTF8().data());
     }
     
+    public var name(get, null):String;
+    private function get_name():String {
+        var r:WxString = propertyRef.ptr.getName();
+        return new String(r.toUTF8().data());
+    }
+    
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
