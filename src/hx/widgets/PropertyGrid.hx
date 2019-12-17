@@ -21,9 +21,23 @@ class PropertyGrid extends Control {
     }
     
     @:access(hx.widgets.PGProperty)
-    public function append(property:PGProperty) {
+    public function append(property:PGProperty):PGProperty {
         var p = property.propertyRef;
-        propertyGridRef.ptr.append(p.raw);
+        var r = propertyGridRef.ptr.append(p.raw);
+        var prop = new PGProperty();
+        prop._ref = Pointer.fromRaw(r).reinterpret();
+        return prop;
+    }
+
+    @:access(hx.widgets.Object)
+    public function getProperty(name:String):PGProperty {
+        var p = new PGProperty();
+        
+        var strName = WxString.fromUTF8(name);
+        var pProp = propertyGridRef.ptr.getProperty(strName);
+        p._ref = Pointer.fromRaw(pProp).reinterpret();
+        
+        return p;
     }
     
     public function setPropertyAttribute(id:String, attrName:String, value:Any, argFlags:Int = 0) {
@@ -35,45 +49,46 @@ class PropertyGrid extends Control {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Util functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public function appendCategory(label:String, name:String = null) {
+    public function appendCategory(label:String, name:String = null):PGProperty {
         if (name == null) {
             name = label;
         }
         var p = new PropertyCategory(label, name);
-        append(p);
+        return append(p);
     }
     
-    public function appendStringProperty(label:String, value:String, name:String = null) {
+    public function appendStringProperty(label:String, value:String, name:String = null):PGProperty {
         if (name == null) {
             name = label;
         }
         var p = new StringProperty(label, name, value);
-        append(p);
+        return append(p);
     }
     
-    public function appendIntProperty(label:String, value:Int, name:String = null) {
+    public function appendIntProperty(label:String, value:Int, name:String = null):PGProperty {
         if (name == null) {
             name = label;
         }
         var p = new IntProperty(label, name, value);
-        append(p);
+        return append(p);
     }
     
-    public function appendBoolProperty(label:String, value:Bool, name:String = null) {
+    public function appendBoolProperty(label:String, value:Bool, name:String = null):PGProperty {
         if (name == null) {
             name = label;
         }
         var p = new BoolProperty(label, name, value);
-        append(p);
+        var r = append(p);
         setPropertyAttribute(name, PropertyGridAttributes.BOOL_USE_CHECKBOX, true);
+        return r;
     }
     
-    public function appendEnumProperty(label:String, choices:Array<EnumPropertyItem>, value:Int = 0, name:String = null) {
+    public function appendEnumProperty(label:String, choices:Array<EnumPropertyItem>, value:Int = 0, name:String = null):PGProperty {
         if (name == null) {
             name = label;
         }
         var p = new EnumProperty(label, name, choices, value);
-        append(p);
+        return append(p);
     }
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helpers

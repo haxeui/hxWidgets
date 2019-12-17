@@ -19,5 +19,6 @@ extern class PropertyGrid extends Control {
     @:native("Create")                  override public function create(parent:RawPointer<Window>, id:Int, point:Point, size:Size, style:Int):Bool;
     
     @:native("Append")                  public function append(property:RawPointer<PGProperty>):RawPointer<PGProperty>;
+    @:native("GetProperty")             public function getProperty(name:WxString):RawPointer<PGProperty>;
     @:native("SetPropertyAttribute")    public function setPropertyAttribute(id:WxString, attrName:WxString, value:Bool, argFlags:Int = 0):Void;
 }

@@ -2,9 +2,16 @@ package hx.widgets;
 
 import cpp.Pointer;
 import wx.widgets.PGProperty in WxPGProperty;
+import wx.widgets.WxString;
 
 class PGProperty extends Object {
     public function new() {
+    }
+    
+    public var valueAsString(get, null):String;
+    private function get_valueAsString():String {
+        var r:WxString = propertyRef.ptr.getValueAsString();
+        return new String(r.toUTF8().data());
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

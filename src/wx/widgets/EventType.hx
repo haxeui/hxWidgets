@@ -9,6 +9,7 @@ package wx.widgets;
 #include <wx/listctrl.h>
 #include <wx/tglbtn.h>
 #include <wx/process.h>
+#include <wx/propgrid/propgrid.h>
 ")
 class EventType {
 
@@ -32,6 +33,7 @@ class EventType {
     public static var CHOICE:Int                = untyped __cpp__("wxEVT_CHOICE");
     public static var LIST_ITEM_SELECTED:Int    = untyped __cpp__("wxEVT_LIST_ITEM_SELECTED");
     public static var ICONIZE:Int               = untyped __cpp__("wxEVT_ICONIZE");
+    public static var PG_CHANGED:Int            = untyped __cpp__("wxEVT_PG_CHANGED");
 
     public static var PAINT:Int                 = untyped __cpp__("wxEVT_PAINT");
     public static var ERASE_BACKGROUND:Int      = untyped __cpp__("wxEVT_ERASE_BACKGROUND");
