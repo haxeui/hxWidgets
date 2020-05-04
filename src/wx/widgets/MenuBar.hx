@@ -22,4 +22,6 @@ extern class MenuBar extends Window {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     @:native("Append")                  public function append(menu:RawPointer<Menu>, title:WxString):Bool;
 
+
+    @:native("wxMenuBar::SetAutoWindowMenu")           public static function setAutoWindowMenu(enable:Bool):Void;
 }
