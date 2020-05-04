@@ -39,6 +39,14 @@ class EntryMacro {
         var _class = Context.getLocalClass();
         var _info = Context.getPosInfos(_pos);
 
+        if (~/mac/i.match(Sys.systemName())) {
+            haxe.macro.Compiler.define("PLATFORM_MAC");
+        } else if (~/windows/i.match(Sys.systemName())) {
+            haxe.macro.Compiler.define("PLATFORM_WINDOWS");
+        } else {
+            haxe.macro.Compiler.define("PLATFORM_OTHER");
+        }
+        
         var sourcePath = Path.directory(_info.file);
         if( !Path.isAbsolute(sourcePath) ) {
             sourcePath = Path.join([Sys.getCwd(), sourcePath]);
@@ -87,15 +95,6 @@ class EntryMacro {
             cflags += "\n<compilerflag value=\"-I${HXWIDGETS_PATH}/include\" />\n";
             cflags += "\n<compilerflag value=\"-DwxUSE_GRAPHICS_CONTEXT\" />\n";
             cflags += "\n<file name=\"${HXWIDGETS_PATH}/include/custom/wxownerdrawnpanel.cpp\" />\n";
-
-if (~/mac/i.match(Sys.systemName())) {
-haxe.macro.Compiler.define("bob");
-} else if (~/windows/i.match(Sys.systemName())) {
-haxe.macro.Compiler.define("bob");
-} else {
-haxe.macro.Compiler.define("bob");
-}
-
 
             if (~/mac/i.match(Sys.systemName()) && (os.major > 10 || (os.major == 10 && os.minor >= 7))) {
                 #if !NO_CPP_11
