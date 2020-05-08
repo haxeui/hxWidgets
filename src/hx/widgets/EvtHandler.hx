@@ -8,7 +8,7 @@ import wx.widgets.EvtHandler in WxEvtHandler;
 @:headerClassCode("
 void onEvent(wxEvent & e) {
     e.ResumePropagation(wxEVENT_PROPAGATE_MAX);
-    //e.Skip();
+    e.Skip();
     this->handleEvent(::cpp::Pointer_obj::fromRaw(&e));
 }
 ")

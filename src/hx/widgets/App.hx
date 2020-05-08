@@ -11,9 +11,12 @@ import wx.widgets.App in WxApp;
 class App extends AppConsole {
     private var _locale:Pointer<Locale>;
     
+    public static var instance:App;
+    
     public function new(setInstance:Bool = true) {
         _ref = WxApp.createInstance().reinterpret();
         if (setInstance) {
+            instance = this;
             App.setInstance(this);
         }
 
