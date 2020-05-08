@@ -25,6 +25,28 @@ class TopLevelWindow extends NonOwnedWindow {
         topLevelWindowRef.ptr.iconize(iconize);
     }
     
+    public var iconized(get, set):Bool;
+    private function get_iconized():Bool {
+        return topLevelWindowRef.ptr.isIconized();
+    }
+    private function set_iconized(value:Bool):Bool {
+        topLevelWindowRef.ptr.iconize(value);
+        return value;
+    }
+    
+    public function maximize(maximize:Bool = true) {
+        topLevelWindowRef.ptr.maximize(maximize);
+    }
+    
+    public var maximized(get, set):Bool;
+    private function get_maximized():Bool {
+        return topLevelWindowRef.ptr.isMaximized();
+    }
+    private function set_maximized(value:Bool):Bool {
+        topLevelWindowRef.ptr.maximize(value);
+        return value;
+    }
+    
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -12,5 +12,7 @@ extern class TopLevelWindow extends NonOwnedWindow {
     @:native("SetTitle")                public function setTitle(label:WxString):Void;
     @:native("GetTitle")                public function getTitle():WxString;
     @:native("Iconize")                 public function iconize(iconize:Bool = true):Void;
-
+    @:native("IsIconized")              public function isIconized():Bool;
+    @:native("Maximize")                public function maximize(maximize:Bool = true):Void;
+    @:native("IsMaximized")             public function isMaximized():Bool;
 }
