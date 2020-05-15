@@ -68,7 +68,26 @@ class EvtHandler extends Object implements Trackable {
         }
     }
 
+    private function dispose() {
+        if (_disposed == true || _eventMap == null) {
+            return;
+        }
+        _disposed = true;
+        for (id in _eventMap.keys()) {
+            var map = _eventMap.get(id);
+            for (eventId in map.keys()) {
+                var list = map.get(eventId);
+                for (l in list) {
+                    unbind(eventId, l, id);
+                }
+            }
+        }
+    }
+    
     private function handleEvent(e:Pointer<WxEvent>) {
+        if (_disposed == true) {
+            return;
+        }
         if (e.ptr.getId() != -1) {
             executeHandlers(e, e.ptr.getId());
         }
@@ -77,6 +96,9 @@ class EvtHandler extends Object implements Trackable {
     }
 
     private function executeHandlers(e:Pointer<WxEvent>, id:Int = -1) {
+        if (_eventMap == null) {
+            return;
+        }
         var mapForId:Map<Int, Array<Event->Void>> = _eventMap.get(id);
         if (mapForId == null) {
             return;

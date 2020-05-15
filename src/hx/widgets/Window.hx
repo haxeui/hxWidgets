@@ -47,6 +47,10 @@ class Window extends EvtHandler {
     }
 
     public override function destroy():Bool {
+        for (c in children) {
+            c.dispose();
+        }
+        dispose();
         var r = windowRef.ptr.destroy();
         if (r) {
             _ref = null;
@@ -55,7 +59,12 @@ class Window extends EvtHandler {
     }
 
     public function scheduleForDestruction() {
+        for (c in children) {
+            c.dispose();
+        }
+        dispose();
         App.instance.scheduleForDestruction(this);
+        _ref = null;
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
