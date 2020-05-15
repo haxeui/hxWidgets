@@ -27,7 +27,7 @@ class MouseEvent extends Event implements MouseState {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // STATIC HELPERS
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public static override function fromPointer(ptr:Pointer<WxEvent>):Event {
+    public static function fromPointer(ptr:Pointer<WxEvent>):Event {
         var event:MouseEvent = new MouseEvent();
         event._ref = ptr;
         return event;

@@ -27,7 +27,7 @@ class PropertyGridEvent extends Event {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // STATIC HELPERS
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public static override function fromPointer(ptr:Pointer<WxEvent>):Event {
+    public static function fromPointer(ptr:Pointer<WxEvent>):Event {
         var event:PropertyGridEvent = new PropertyGridEvent();
         event._ref = ptr;
         return event;
