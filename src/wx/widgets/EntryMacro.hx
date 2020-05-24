@@ -39,14 +39,6 @@ class EntryMacro {
         var _class = Context.getLocalClass();
         var _info = Context.getPosInfos(_pos);
 
-        if (~/mac/i.match(Sys.systemName())) {
-            haxe.macro.Compiler.define("PLATFORM_MAC");
-        } else if (~/windows/i.match(Sys.systemName())) {
-            haxe.macro.Compiler.define("PLATFORM_WINDOWS");
-        } else {
-            haxe.macro.Compiler.define("PLATFORM_OTHER");
-        }
-        
         var sourcePath = Path.directory(_info.file);
         if( !Path.isAbsolute(sourcePath) ) {
             sourcePath = Path.join([Sys.getCwd(), sourcePath]);
@@ -131,5 +123,16 @@ class EntryMacro {
 
         return false;
     }
-
+    
+    macro static function detectPlatform() {
+        if (~/mac/i.match(Sys.systemName())) {
+            haxe.macro.Compiler.define("PLATFORM_MAC");
+        } else if (~/windows/i.match(Sys.systemName())) {
+            haxe.macro.Compiler.define("PLATFORM_WINDOWS");
+        } else {
+            haxe.macro.Compiler.define("PLATFORM_OTHER");
+        }
+        
+        return null;
+    }
 }

@@ -1,2 +1,3 @@
+--macro wx.widgets.EntryMacro.detectPlatform()
 -lib hscript
 -D NO_PRECOMPILED_HEADERS
