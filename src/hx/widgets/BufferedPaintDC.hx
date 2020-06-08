@@ -7,10 +7,8 @@ class BufferedPaintDC extends BufferedDC {
 
     @:access(hx.widgets.Window)
     public function new(window:Window) {
+        _ref = WxBufferedPaintDC.createInstance(Window.toRaw(window)).reinterpret();
         super();
-        if (window != null) {
-            ///_ref = WxBufferedPaintDC.createInstance(window._ref);
-        }
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

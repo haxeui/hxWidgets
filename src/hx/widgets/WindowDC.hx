@@ -7,10 +7,10 @@ class WindowDC extends DC {
 
     @:access(hx.widgets.Window)
     public function new(window:Window) {
-        super();
-        if (window != null) {
+        if (_ref == null) {
             _ref = WxWindowDC.createInstance(Window.toRaw(window)).reinterpret();
         }
+        super();
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

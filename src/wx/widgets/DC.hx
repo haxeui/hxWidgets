@@ -19,5 +19,9 @@ extern class DC extends Object {
     @:native("GetBackground")           public function getBackground():Brush;
     @:native("SetBackground")           public function setBackground(brush:Brush):Void;
     @:native("DrawBitmap")              public function drawBitmap(bmp:Bitmap, x:Float, y:Float):Void;
-
+    @:native("GetTextForeground")       public function getTextForeground():Colour;
+    @:native("SetTextForeground")       public function setTextForeground(colour:Colour):Void;
+    @:native("GetTextBackground")       public function getTextBackground():Colour;
+    @:native("SetTextBackground")       public function setTextBackground(colour:Colour):Void;
+    @:native("GradientFillLinear")      public function gradientFillLinear(rect:Rect, initialColour:Colour, destColour:Colour):Void;
 }

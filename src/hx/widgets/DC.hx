@@ -2,6 +2,8 @@ package hx.widgets;
 
 import cpp.Pointer;
 import wx.widgets.DC in WxDC;
+import wx.widgets.Colour in WxColour;
+import wx.widgets.Rect in WxRect;
 import wx.widgets.WxString;
 
 class DC extends Object {
@@ -17,6 +19,40 @@ class DC extends Object {
         dcRef.ptr.drawLine(x1, y1, x2, y2);
     }
 
+    public var textForeground(get, set):Int;
+    private function get_textForeground():Int {
+        return dcRef.ptr.getTextForeground().GetRGB();
+    }
+    private function set_textForeground(value:Int):Int {
+        var temp:Pointer<WxColour> = WxColour.createInstance(Colour.convertColor(value));
+        dcRef.ptr.setTextForeground(temp.ref);
+        temp.destroy();
+        return value;
+    }
+
+    public var textBackground(get, set):Int;
+    private function get_textBackground():Int {
+        return dcRef.ptr.getTextBackground().GetRGB();
+    }
+    private function set_textBackground(value:Int):Int {
+        var temp:Pointer<WxColour> = WxColour.createInstance(Colour.convertColor(value));
+        dcRef.ptr.setTextBackground(temp.ref);
+        temp.destroy();
+        return value;
+    }
+    
+    public function gradientFillLinear(rect:Rect, initialColour:Int, destColour:Int) {
+        var tempRect:Pointer<WxRect> = WxRect.createInstance(rect.x, rect.y, rect.width, rect.height);
+        var tempInitialColour:Pointer<WxColour> = WxColour.createInstance(Colour.convertColor(initialColour));
+        var tempDestColour:Pointer<WxColour> = WxColour.createInstance(Colour.convertColor(destColour));
+        
+        dcRef.ptr.gradientFillLinear(tempRect.ref, tempInitialColour.ref, tempDestColour.ref);
+        
+        tempRect.destroy();        
+        tempInitialColour.destroy();        
+        tempDestColour.destroy();        
+    }
+    
     public var pen(null, set):Pen;
     @:access(hx.widgets.Pen)
     private function set_pen(value:Pen):Pen {
