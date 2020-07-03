@@ -32,6 +32,11 @@ class ListCtrl extends Control {
         return n;
     }
 
+    public function setItemState(item:Int, state:Int, stateMask:Int):Bool {
+        var b = listCtrlRef.ptr.setItemState(item, state, stateMask);
+        return b;
+    }
+
     public function setItem(item:ListItem, autoDestroy:Bool = true):Bool {
         var b = listCtrlRef.ptr.setItem(item.listItemRef.ref);
         if (autoDestroy == true) {
@@ -39,7 +44,7 @@ class ListCtrl extends Control {
         }
         return b;
     }
-
+    
     public function addItem(item:ListItem, autoDestroy:Bool = true):Int {
         item.id = itemCount;
         return insertItem(item, autoDestroy);
@@ -117,6 +122,23 @@ class ListCtrl extends Control {
         
         return indexes;
     }
+    
+    public var selectedIndex(get, set):Int;
+    private function get_selectedIndex():Int {
+        var indexes = selectedIndexes;
+        if (indexes.length == 0) {
+            return -1;
+        }
+        return indexes[0];
+    }
+    private function set_selectedIndex(value:Int):Int {
+        for (i in selectedIndexes) {
+            setItemState(i, 0, ListState.SELECTED);
+        }
+        setItemState(value, ListState.SELECTED, ListState.SELECTED);
+        return value;
+    }
+    
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helpers
