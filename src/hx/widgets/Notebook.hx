@@ -85,6 +85,11 @@ class Notebook extends BookCtrlBase {
         return new String(r.toUTF8().data());
     }
 
+    public function setPageText(page:Int, text:String):Bool {
+        var str = WxString.fromUTF8(text);
+        return notebookRef.ptr.setPageText(page, str);
+    }
+
     public var selectionText(get, null):String; // bit of sugar
     private function get_selectionText():String {
         return getPageText(selection);

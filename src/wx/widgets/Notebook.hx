@@ -31,4 +31,5 @@ extern class Notebook extends BookCtrlBase {
     @:native("CalcSizeFromPage")        public function calcSizeFromPage(pageSize:Size):Size;
     @:native("SetPadding")              public function setPadding(padding:Size):Void;
     @:native("GetPageText")             public function getPageText(page:Int):WxString;
+    @:native("SetPageText")             public function setPageText(page:Int, text:WxString):Bool;
 }
