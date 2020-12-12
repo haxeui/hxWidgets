@@ -12,6 +12,7 @@ import wx.widgets.Point in WxPoint;
 import wx.widgets.Font in WxFont;
 import wx.widgets.ClassInfo in WxClassInfo;
 import wx.widgets.EvtHandler in WxEvtHandler;
+import wx.widgets.WxString;
 
 class Window extends EvtHandler {
 
@@ -450,6 +451,24 @@ class Window extends EvtHandler {
         var r = windowRef.ptr.popupMenu(menu.menuRef.raw);
         return r;
         
+    }
+   
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Tooltips
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public var toolTip(get, set):String;
+    private function get_toolTip():String {
+        var r:WxString = windowRef.ptr.getToolTipText();
+        return new String(r.toUTF8().data());
+    }
+    private function set_toolTip(value:String):String {
+        if (value == null) {
+            windowRef.ptr.unsetToolTip();
+        } else {
+            var s = WxString.fromUTF8(value);
+            windowRef.ptr.setToolTip(s);
+        }
+        return value;
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
