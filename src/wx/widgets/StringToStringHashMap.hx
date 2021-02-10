@@ -1,4 +1,5 @@
 package wx.widgets;
+
 import cpp.Pointer;
 import cpp.RawPointer;
 
