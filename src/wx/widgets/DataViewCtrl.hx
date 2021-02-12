@@ -8,4 +8,5 @@ import cpp.RawPointer;
 @:native("wxDataViewCtrl")
 @:structAccess
 extern class DataViewCtrl extends Control {
+    @:native("GetColumn")               public function getColumn(pos:Int):RawPointer<DataViewColumn>;
 }
