@@ -67,5 +67,4 @@ class Bitmap extends GDIObject {
     private function get_bitmapRef():Pointer<WxBitmap> {
         return _ref.reinterpret();
     }
-
 }

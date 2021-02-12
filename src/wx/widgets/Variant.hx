@@ -9,6 +9,7 @@ extern class Variant extends Object {
     @:native("wxVariant")       @:overload(function(value:Bool):Variant {})
     @:native("wxVariant")       @:overload(function(value:Float):Variant {})
     @:native("wxVariant")       @:overload(function(value:WxString):Variant {})
+    @:native("wxVariant")       @:overload(function(value:RawPointer<Object>):Variant {})
     @:native("wxVariant")       public static function create(value:Int):Variant;
     
     @:native("new wxVariant")   private static function _fromInt(value:Int):RawPointer<Variant>;
