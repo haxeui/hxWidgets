@@ -21,8 +21,8 @@ extern class ListCtrl extends Control {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Instance functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    @:native("InsertItem")                  public function insertItem(text:ListItem):Int;
-    @:native("SetItem")                     public function setItem(text:ListItem):Bool;
+    @:native("InsertItem")                  public function insertItem(info:Reference<ListItem>):Int;
+    @:native("SetItem")                     public function setItem(info:Reference<ListItem>):Bool;
     @:native("SetItemState")                public function setItemState(item:Int, state:Int, stateMask:Int):Bool;
     @:native("GetImageList")                public function getImageList(which:Int):RawPointer<ImageList>;
     @:native("SetImageList")                public function setImageList(imageList:RawPointer<ImageList>, which:Int):Void;

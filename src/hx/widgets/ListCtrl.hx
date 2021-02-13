@@ -115,7 +115,7 @@ class ListCtrl extends Control {
         var p = info.listItemRef;
         return listCtrlRef.ptr.getItem(p.ref);
     }
-    
+
     // sugar
     public var selectedIndexes(get, null):Array<Int>;
     private function get_selectedIndexes():Array<Int> {
