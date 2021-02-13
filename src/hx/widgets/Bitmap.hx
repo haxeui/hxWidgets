@@ -8,9 +8,11 @@ import wx.widgets.Bitmap in WxBitmap;
 class Bitmap extends GDIObject {
 
     @:access(hx.widgets.Image)
-    public function new(image:Image = null) {
+    public function new(image:Image = null, bitmap:Pointer<WxBitmap> = null) {
         if (image != null) {
             _ref = WxBitmap.createInstance(image.imageRef.ref).reinterpret();
+        } else if (bitmap != null) {
+            _ref = bitmap.reinterpret();
         }
     }
 
@@ -44,6 +46,10 @@ class Bitmap extends GDIObject {
         return bmp;
     }
 
+    public function equals(bmp:Bitmap):Bool {
+        return bmp._ref.get_raw() == this._ref.get_raw();
+    }
+    
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Static helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

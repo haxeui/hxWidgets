@@ -28,7 +28,14 @@ extern class Variant extends Object {
                                 public static inline function fromString(value:WxString):Pointer<Variant> {
                                     return Pointer.fromRaw(_fromString(value));
                                 }
-    
+
+    @:native("new wxVariant")   private static function _empty():RawPointer<Variant>;
+                                public static inline function empty():Pointer<Variant> {
+                                    return Pointer.fromRaw(_empty());
+                                }
+
+    @:native("GetType")         public function getType():WxString;
+                                
     @:native("GetBool")         public function getBool():Bool;
     @:native("GetDouble")       public function getDouble():Float;
     @:native("GetLong")         public function getLong():Int;

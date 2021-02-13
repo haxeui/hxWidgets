@@ -9,4 +9,5 @@ import cpp.RawPointer;
 @:structAccess
 extern class DataViewCtrl extends Control {
     @:native("GetColumn")               public function getColumn(pos:Int):RawPointer<DataViewColumn>;
+    @:native("GetColumnCount")          public function getColumnCount():Int;
 }
