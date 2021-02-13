@@ -2,6 +2,7 @@ package wx.widgets;
 
 import cpp.Pointer;
 import cpp.RawPointer;
+import cpp.Reference;
 
 @:include("wx/listctrl.h")
 @:unreflective
@@ -26,6 +27,7 @@ extern class ListCtrl extends Control {
     @:native("GetImageList")                public function getImageList(which:Int):RawPointer<ImageList>;
     @:native("SetImageList")                public function setImageList(imageList:RawPointer<ImageList>, which:Int):Void;
     @:native("GetItemCount")                public function getItemCount():Int;
+    @:native("GetItem")                     public function getItem(info:Reference<ListItem>):Bool;
     @:native("GetSelectedItemCount")        public function getSelectedItemCount():Int;
     @:native("AppendColumn")                public function appendColumn(heading:WxString):Int;
     @:native("EnableAlternateRowColours")   public function enableAlternateRowColours(enable:Bool):Void;
