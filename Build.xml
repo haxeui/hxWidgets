@@ -1,6 +1,8 @@
 <xml>
     <set name="lib_folder" value="vc_dll" />
+    <set name="lib_folder" value="vc_x64_dll" if="HXCPP_M64" />
     <set name="lib_folder" value="vc_lib" if="WXSTATIC" />
+    <set name="lib_folder" value="vc_x64_lib" if="WXSTATIC HXCPP_M64" />
 
     <echo value="Using wxWidgets from: ${WXWIN}\lib\${lib_folder}" />
 
