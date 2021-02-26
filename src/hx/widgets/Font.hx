@@ -2,6 +2,7 @@ package hx.widgets;
 
 import cpp.Pointer;
 import wx.widgets.Font in WxFont;
+import wx.widgets.WxString;
 
 @:unreflective
 class Font extends GDIObject {
@@ -11,8 +12,9 @@ class Font extends GDIObject {
     private var _style:FontStyle;
     private var _weight:FontWeight;
     private var _underlined:Bool;
-
-    public function new(size:Int = -1, family:FontFamily = null, style:FontStyle = null, weight:FontWeight = null, underlined = false) {
+    private var _faceName:String;
+    
+    public function new(size:Int = -1, family:FontFamily = null, style:FontStyle = null, weight:FontWeight = null, underlined = false, faceName:String = null) {
         if (family == null) {
             family = FontFamily.DEFAULT;
         }
@@ -27,6 +29,7 @@ class Font extends GDIObject {
         _style = style;
         _weight = weight;
         _underlined = underlined;
+        _faceName = faceName;
     }
 
     public var size(get, set):Int;
@@ -74,18 +77,33 @@ class Font extends GDIObject {
         return value;
     }
 
+    public var faceName(get, set):String;
+    private function get_faceName():String {
+        return _faceName;
+    }
+    private function set_faceName(value:String):String {
+        _faceName = value;
+        return value;
+    }
+    
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     public function createPointer():Pointer<WxFont> {
-        return WxFont.createInstance(this._size, this._family, this._style, this._weight, this._underlined);
+        var fn = _faceName;
+        if (fn == null) {
+            fn = "";
+        }
+        var s = WxString.fromUTF8(fn);
+        return WxFont.createInstance(this._size, this._family, this._style, this._weight, this._underlined, s);
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Static helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     public static function copy(other:WxFont):Font {
-        return new Font(other.getPointSize(), other.getFamily(), other.getStyle(), other.getWeight(), other.getUnderlined());
+        var r:WxString = other.getFaceName();
+        return new Font(other.getPointSize(), other.getFamily(), other.getStyle(), other.getWeight(), other.getUnderlined(), new String(r.toUTF8().data()));
     }
 
 }

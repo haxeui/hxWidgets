@@ -21,5 +21,7 @@ extern class ArrayString /*extends WxArray<String>*/ {
     // instance functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     @:native("Add")                         public function add(str:WxString):Int;
+    @:native("GetCount")                    public function getCount():Int;
+    @:native("Item")                        public function item(index:Int):WxString;
 
 }

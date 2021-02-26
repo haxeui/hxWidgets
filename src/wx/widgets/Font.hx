@@ -12,9 +12,9 @@ extern class Font extends GDIObject {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Creation functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    @:native("new wxFont")              private static function _new(pointSize:Int, family:FontFamily, style:FontStyle, weight:FontWeight, underline:Bool = false):RawPointer<Font>;
-                                        public static inline function createInstance(pointSize:Int, family:FontFamily, style:FontStyle, weight:FontWeight, underline:Bool = false):Pointer<Font> {
-                                            return Pointer.fromRaw(_new(pointSize, family, style, weight, underline));
+    @:native("new wxFont")              private static function _new(pointSize:Int, family:FontFamily, style:FontStyle, weight:FontWeight, underline:Bool, faceName:WxString):RawPointer<Font>;
+                                        public static inline function createInstance(pointSize:Int, family:FontFamily, style:FontStyle, weight:FontWeight, underline:Bool, faceName:WxString):Pointer<Font> {
+                                            return Pointer.fromRaw(_new(pointSize, family, style, weight, underline, faceName));
                                         }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -25,5 +25,5 @@ extern class Font extends GDIObject {
     @:native("GetStyle")                public function getStyle():FontStyle;
     @:native("GetWeight")               public function getWeight():FontWeight;
     @:native("GetUnderlined")           public function getUnderlined():Bool;
-
+    @:native("GetFaceName")             public function getFaceName():WxString;
 }
