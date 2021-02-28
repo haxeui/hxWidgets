@@ -1,4 +1,5 @@
 package hx.widgets;
+import wx.widgets.styles.StyledTextControlStyle;
 
 #if STYLEDTEXTCTRL
 
@@ -68,15 +69,95 @@ class StyledTextCtrl extends Control {
         return value;
     }
     
-    @:access(hx.widgets.Colour)
     public function styleSetForeground(style:Int, value:Int) {
         var temp:Pointer<WxColour> = WxColour.createInstance(Colour.convertColor(value));
         styledTextCtrlRef.ptr.styleSetForeground(style, temp.ref);
         temp.destroy();
     }
     
+    public function styleSetBackground(style:Int, value:Int) {
+        var temp:Pointer<WxColour> = WxColour.createInstance(Colour.convertColor(value));
+        styledTextCtrlRef.ptr.styleSetBackground(style, temp.ref);
+        temp.destroy();
+    }
+    
+    public function setWhitespaceForeground(useSetting:Bool, value:Int) {
+        var temp:Pointer<WxColour> = WxColour.createInstance(Colour.convertColor(value));
+        styledTextCtrlRef.ptr.setWhitespaceForeground(useSetting, temp.ref);
+        temp.destroy();
+    }
+    
+    public function setWhitespaceBackground(useSetting:Bool, value:Int) {
+        var temp:Pointer<WxColour> = WxColour.createInstance(Colour.convertColor(value));
+        styledTextCtrlRef.ptr.setWhitespaceBackground(useSetting, temp.ref);
+        temp.destroy();
+    }
+    
+    public function setSelForeground(useSetting:Bool, value:Int) {
+        var temp:Pointer<WxColour> = WxColour.createInstance(Colour.convertColor(value));
+        styledTextCtrlRef.ptr.setSelForeground(useSetting, temp.ref);
+        temp.destroy();
+    }
+    
+    public function setSelBackground(useSetting:Bool, value:Int) {
+        var temp:Pointer<WxColour> = WxColour.createInstance(Colour.convertColor(value));
+        styledTextCtrlRef.ptr.setSelBackground(useSetting, temp.ref);
+        temp.destroy();
+    }
+    
+    public var caretForeground(null, set):Int;
+    private function set_caretForeground(value:Int):Int {
+        var temp:Pointer<WxColour> = WxColour.createInstance(Colour.convertColor(value));
+        styledTextCtrlRef.ptr.setCaretForeground(temp.ref);
+        temp.destroy();
+        return value;
+    }
+    
+    public function styleSetBold(style:Int, value:Bool) {
+        styledTextCtrlRef.ptr.styleSetBold(style, value);
+    }
+    
+    public function styleSetSize(style:Int, value:Int) {
+        styledTextCtrlRef.ptr.styleSetSize(style, value);
+    }
+    
+    public function styleSetFaceName(style:Int, value:String) {
+        var s = WxString.fromUTF8(value);
+        styledTextCtrlRef.ptr.styleSetFaceName(style, s);
+    }
+    
+    public function textWidth(style:Int, text:String):Int {
+        var s = WxString.fromUTF8(text);
+        return styledTextCtrlRef.ptr.textWidth(style, s);
+    }
+    
     public function styleClearAll() {
         styledTextCtrlRef.ptr.styleClearAll();
+    }
+    
+    public function startStyling(pos:Int, mask:Int) {
+        styledTextCtrlRef.ptr.startStyling(pos, mask);
+    }
+    
+    public function setStyling(length:Int, style:Int) {
+        styledTextCtrlRef.ptr.setStyling(length, style);
+    }
+    
+    private override function set_backgroundColour(value:Int):Int {
+        var temp:Pointer<WxColour> = WxColour.createInstance(Colour.convertColor(value));
+        styledTextCtrlRef.ptr.styleSetBackground(StyledTextControlStyle.DEFAULT, temp.ref);
+        styleClearAll();
+        temp.destroy();
+        return value;
+    }
+    
+    public var lineCount(get, null):Int;
+    private function get_lineCount():Int {
+        return styledTextCtrlRef.ptr.getLineCount();
+    }
+    
+    public function setMargins(left:Int, right:Int) {
+        styledTextCtrlRef.ptr.setMargins(left, right);
     }
     
     #end
