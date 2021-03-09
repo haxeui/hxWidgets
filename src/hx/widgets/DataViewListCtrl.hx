@@ -66,7 +66,8 @@ class DataViewListCtrl extends DataViewCtrl {
             case "bool":
                 r = v.ptr.getBool();
             case "long":
-                r = v.ptr.getLong();
+                var temp:Int = v.ptr.getLong();
+                r = temp; // work around for: https://github.com/haxeui/hxWidgets/issues/73
             case "wxBitmap": // very ugly!
                 var raw = v.get_raw();
                 untyped __cpp__("wxBitmap temp");
