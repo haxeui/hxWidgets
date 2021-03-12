@@ -22,6 +22,7 @@ extern class StyledTextCtrl extends Control {
     @:native("SetText")                 public function setText(value:WxString):Void;
     @:native("GetText")                 public function getText():WxString;
     @:native("SetMarginWidth")          public function setMarginWidth(margin:Int, pixelWidth:Int):Void;
+    @:native("SetMarginType")           public function setMarginType(margin:Int, type:Int):Void;
     @:native("GetMarginWidth")          public function getMarginWidth(margin:Int):Int;
     @:native("SetLexer")                public function setLexer(lexer:Int):Void;
     @:native("GetLexer")                public function getLexer():Int;
@@ -43,4 +44,7 @@ extern class StyledTextCtrl extends Control {
     @:native("TextWidth")               public function textWidth(style:Int, text:WxString):Int;
     @:native("GetLineCount")            public function getLineCount():Int;
     @:native("SetMargins")              public function setMargins(left:Int, right:Int):Void;
+    @:native("GetCurrentLine")          public function getCurrentLine():Int;
+    @:native("GetCurrentPos")           public function getCurrentPos():Int;
+    @:native("GetColumn")               public function getColumn(pos:Int):Int;
 }

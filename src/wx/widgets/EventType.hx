@@ -12,6 +12,7 @@ package wx.widgets;
 #include <wx/propgrid/propgrid.h>
 #include <wx/spinctrl.h>
 ")
+
 class EventType {
 
     public static var BUTTON:Int                = untyped __cpp__("wxEVT_BUTTON");

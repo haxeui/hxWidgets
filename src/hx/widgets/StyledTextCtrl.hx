@@ -30,6 +30,25 @@ class StyledTextCtrl extends Control {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     #if STYLEDTEXTCTRL
     
+    public var currentLine(get, null):Int;
+    private function get_currentLine():Int {
+        return styledTextCtrlRef.ptr.getCurrentLine();
+    }
+    
+    public var currentPos(get, null):Int;
+    private function get_currentPos():Int {
+        return styledTextCtrlRef.ptr.getCurrentPos();
+    }
+    
+    public var currentColumn(get, null):Int;
+    private function get_currentColumn():Int {
+        return getColumn(styledTextCtrlRef.ptr.getCurrentPos());
+    }
+    
+    public function getColumn(pos:Int):Int {
+        return styledTextCtrlRef.ptr.getColumn(pos);
+    }
+    
     public var text(get, set):String;
     private function get_text():String {
         var r:WxString = styledTextCtrlRef.ptr.getText();
@@ -43,6 +62,10 @@ class StyledTextCtrl extends Control {
     
     public function setMarginWidth(margin:Int, pixelWidth:Int) {
         styledTextCtrlRef.ptr.setMarginWidth(margin, pixelWidth);
+    }
+    
+    public function setMarginType(margin:Int, type:Int) {
+        styledTextCtrlRef.ptr.setMarginType(margin, type);
     }
     
     public function getMarginWidth(margin:Int) {
