@@ -30,6 +30,15 @@ class MenuItem extends Object {
         menuitemRef.ptr.check(checked);
     }
     
+    public var enable(get, set):Bool;
+    private function get_enable():Bool {
+        return menuitemRef.ptr.isEnabled();
+    }
+    private function set_enable(value:Bool):Bool {
+        menuitemRef.ptr.enable(value);
+        return value;
+    }
+    
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

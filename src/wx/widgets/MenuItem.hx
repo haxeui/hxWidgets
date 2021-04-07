@@ -21,4 +21,6 @@ extern class MenuItem extends Object {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     @:native("Check")                   public function check(check:Bool = true):Void;
     @:native("SetBitmap")               public function setBitmap(bitmap:Bitmap):Void;
+    @:native("Enable")                  public function enable(check:Bool = true):Void;
+    @:native("IsEnabled")               public function isEnabled():Bool;
 }
