@@ -23,4 +23,6 @@ extern class MenuItem extends Object {
     @:native("SetBitmap")               public function setBitmap(bitmap:Bitmap):Void;
     @:native("Enable")                  public function enable(check:Bool = true):Void;
     @:native("IsEnabled")               public function isEnabled():Bool;
+    @:native("SetItemLabel")            public function setItemLabel(label:WxString):Void;
+    @:native("GetItemLabel")            public function getItemLabel():WxString;
 }

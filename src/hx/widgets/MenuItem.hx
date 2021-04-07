@@ -39,6 +39,18 @@ class MenuItem extends Object {
         return value;
     }
     
+    public var label(get, set):String;
+    private function get_label():String {
+        var r:WxString = menuitemRef.ptr.getItemLabel();
+        return new String(r.toUTF8().data());
+    }
+    private function set_label(value:String):String {
+        var s = WxString.createInstance(value);
+        menuitemRef.ptr.setItemLabel(s.ref);
+        s.destroy();
+        return value;
+    }
+    
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
