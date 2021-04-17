@@ -231,6 +231,30 @@ class Window extends EvtHandler {
         windowRef.ptr.setSize(width, height);
     }
 
+    public var minSize(get, set):Size;
+    private function get_minSize():Size {
+        var r = windowRef.ptr.getMinSize();
+        return Size.copy(r);
+    }
+    private function set_minSize(value:Size):Size {
+        var temp:Pointer<WxSize> = value.createPointer();
+        windowRef.ptr.setMinSize(temp.ref);
+        temp.destroy();
+        return value;
+    }
+
+    public var maxSize(get, set):Size;
+    private function get_maxSize():Size {
+        var r = windowRef.ptr.getMaxSize();
+        return Size.copy(r);
+    }
+    private function set_maxSize(value:Size):Size {
+        var temp:Pointer<WxSize> = value.createPointer();
+        windowRef.ptr.setMaxSize(temp.ref);
+        temp.destroy();
+        return value;
+    }
+
     public var clientSize(get, set):Size;
     private function get_clientSize():Size {
         var r = windowRef.ptr.getClientSize();
@@ -245,6 +269,30 @@ class Window extends EvtHandler {
 
     public function resizeClient(width:Int, height:Int) { // bit of sugar - semantically works well with 'move'
         windowRef.ptr.setClientSize(width, height);
+    }
+
+    public var minClientSize(get, set):Size;
+    private function get_minClientSize():Size {
+        var r = windowRef.ptr.getMinClientSize();
+        return Size.copy(r);
+    }
+    private function set_minClientSize(value:Size):Size {
+        var temp:Pointer<WxSize> = value.createPointer();
+        windowRef.ptr.setMinClientSize(temp.ref);
+        temp.destroy();
+        return value;
+    }
+
+    public var maxClientSize(get, set):Size;
+    private function get_maxClientSize():Size {
+        var r = windowRef.ptr.getMaxClientSize();
+        return Size.copy(r);
+    }
+    private function set_maxClientSize(value:Size):Size {
+        var temp:Pointer<WxSize> = value.createPointer();
+        windowRef.ptr.setMaxClientSize(temp.ref);
+        temp.destroy();
+        return value;
     }
 
     public var bestSize(get, null):Size;

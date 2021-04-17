@@ -80,6 +80,18 @@ extern class Window extends EvtHandler {
     @:native("GetClientSize")                   public function getClientSize():Size;
     @:native("SetClientSize")                   @:overload(function(width:Int, height:Int):Void {})
     @:native("SetClientSize")                   public function setClientSize(size:Size):Void;
+    @:native("GetMinSize")                      public function getMinSize():Size;
+    @:native("SetMinSize")                      @:overload(function(width:Int, height:Int):Void {})
+    @:native("SetMinSize")                      public function setMinSize(size:Size):Void;
+    @:native("GetMinClientSize")                public function getMinClientSize():Size;
+    @:native("SetMinClientSize")                @:overload(function(width:Int, height:Int):Void {})
+    @:native("SetMinClientSize")                public function setMinClientSize(size:Size):Void;
+    @:native("GetMaxSize")                      public function getMaxSize():Size;
+    @:native("SetMaxSize")                      @:overload(function(width:Int, height:Int):Void {})
+    @:native("SetMaxSize")                      public function setMaxSize(size:Size):Void;
+    @:native("GetMaxClientSize")                public function getMaxClientSize():Size;
+    @:native("SetMaxClientSize")                @:overload(function(width:Int, height:Int):Void {})
+    @:native("SetMaxClientSize")                public function setMaxClientSize(size:Size):Void;
     @:native("GetBestSize")                     public function getBestSize():Size;
     @:native("GetVirtualSize")                  public function getVirtualSize():Size;
     @:native("SetVirtualSize")                  @:overload(function(width:Int, height:Int):Void {})
