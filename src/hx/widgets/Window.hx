@@ -3,6 +3,7 @@ package hx.widgets;
 import cpp.Pointer;
 import cpp.RawPointer;
 import hx.widgets.styles.BackgroundStyle;
+import hx.widgets.styles.ShowEffect;
 import wx.widgets.Window in WxWindow;
 import wx.widgets.Window.WindowList in WxWindowList;
 import wx.widgets.Colour in WxColour;
@@ -26,9 +27,17 @@ class Window extends EvtHandler {
     public function show(value:Bool = true):Bool {
         return windowRef.ptr.show(value);
     }
+    
+    public function showWithEffect(effect:ShowEffect, timeout:Int = 0) {
+        return windowRef.ptr.showWithEffect(effect, timeout);
+    }
 
     public function hide():Bool {
         return windowRef.ptr.hide();
+    }
+
+    public function hideWithEffect(effect:ShowEffect, timeout:Int = 0) {
+        return windowRef.ptr.hideWithEffect(effect, timeout);
     }
 
     public var enabled(get, set):Bool;
@@ -38,6 +47,11 @@ class Window extends EvtHandler {
     private function set_enabled(value:Bool):Bool {
         windowRef.ptr.enable(value);
         return value;
+    }
+
+    public var shown(get, null):Bool;
+    private function get_shown():Bool {
+        return windowRef.ptr.isShown();
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

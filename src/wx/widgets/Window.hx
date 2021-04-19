@@ -3,6 +3,7 @@ package wx.widgets;
 import cpp.Pointer;
 import cpp.RawPointer;
 import wx.widgets.styles.BackgroundStyle;
+import wx.widgets.styles.ShowEffect;
 
 @:include("wx/window.h")
 @:unreflective
@@ -27,6 +28,9 @@ extern class Window extends EvtHandler {
     @:native("Hide")                            public function hide():Bool;
     @:native("Enable")                          public function enable(enabled:Bool = true):Bool;
     @:native("IsEnabled")                       public function isEnabled():Bool;
+    @:native("IsShown")                         public function isShown():Bool;
+    @:native("ShowWithEffect")                  public function showWithEffect(effect:ShowEffect, timeout:Int = 0):Bool;
+    @:native("HideWithEffect")                  public function hideWithEffect(effect:ShowEffect, timeout:Int = 0):Bool;
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Window deletion functions
