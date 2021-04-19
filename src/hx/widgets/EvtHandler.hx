@@ -22,6 +22,9 @@ class EvtHandler extends Object implements Trackable {
     }
 
     public function bind(event:Int, fn:Event->Void, id:Int = -1) {
+        if (_eventMap == null) {
+            _eventMap = new Map<Int, Map<Int, Array<Event->Void>>>();
+        }
         var mapForId:Map<Int, Array<Event->Void>> = _eventMap.get(id);
         if (mapForId == null) {
             mapForId = new Map<Int, Array<Event->Void>>();
