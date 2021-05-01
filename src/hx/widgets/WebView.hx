@@ -20,6 +20,10 @@ class WebView extends Control {
             webViewRef.ptr.create(Window.toRaw(parent), id, str, Point.defaultPosition.ref, Size.defaultSize.ref, style);
         }
 
+        #else
+        
+        _ref = wx.widgets.Control.createInstance().reinterpret();
+        
         #end
 
         super(parent, id);
