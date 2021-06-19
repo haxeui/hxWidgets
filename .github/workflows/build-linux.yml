@@ -1,4 +1,4 @@
-name: Build (linux, all haxe versions)
+name: Linux
 
 on: [push, repository_dispatch]
 
@@ -20,6 +20,8 @@ jobs:
         haxe-version: ${{ matrix.haxe-version }}
 
     - name: Setup app (haxe ${{ matrix.haxe-version }}, ${{ matrix.os }})
+      env:
+        ACTIONS_ALLOW_UNSECURE_COMMANDS: true
       run: |
         sudo rm -f /etc/apt/sources.list.d/dotnetdev.list /etc/apt/sources.list.d/microsoft-prod.list
         sudo apt-get update
