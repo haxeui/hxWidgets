@@ -1,9 +1,0 @@
-engines:
-  haxe-checkstyle:
-    enabled: true
-  markdownlint:
-    enabled: true
-ratings:
-  paths:
-    - "**.hx"
-    - "**.md"
