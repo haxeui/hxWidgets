@@ -14,13 +14,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+    - uses: egor-tensin/vs-shell@v2
     - name: Setup Haxe (haxe ${{ matrix.haxe-version }}, ${{ matrix.os }})
       uses: krdlab/setup-haxe@v1
       with:
         haxe-version: ${{ matrix.haxe-version }}
 
     - name: Setup app (haxe ${{ matrix.haxe-version }}, ${{ matrix.os }})
-      uses: egor-tensin/vs-shell@v2
       env:
         ACTIONS_ALLOW_UNSECURE_COMMANDS: true
         foo: D:\a\hxWidgets\hxWidgets\wxWidgets-3.1.3
