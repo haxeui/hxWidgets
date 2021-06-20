@@ -22,7 +22,7 @@ jobs:
     - name: Setup app (haxe ${{ matrix.haxe-version }}, ${{ matrix.os }})
       env:
         ACTIONS_ALLOW_UNSECURE_COMMANDS: true
-        foo: bar
+        foo: D:\a\hxWidgets\hxWidgets\wxWidgets-3.1.3
       run: |
         choco install wget --no-progress
         wget https://github.com/wxWidgets/wxWidgets/releases/download/v3.1.3/wxWidgets-3.1.3.tar.bz2
