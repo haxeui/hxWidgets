@@ -1,3 +1,7 @@
+![build status](https://github.com/haxeui/hxwidgets/actions/workflows/build-linux.yml/badge.svg)
+![build status](https://github.com/haxeui/hxwidgets/actions/workflows/build-osx.yml/badge.svg)
+![build status](https://github.com/haxeui/hxwidgets/actions/workflows/build-windows.yml/badge.svg)
+
 # hxWidgets
 
 Haxe externs (and wrappers) for wxWidgets
