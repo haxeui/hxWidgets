@@ -23,6 +23,11 @@ jobs:
       env:
         ACTIONS_ALLOW_UNSECURE_COMMANDS: true
       run: |
+        brew update
+        brew install libjpeg 
+        brew unlink libjpeg
+        brew link libjpeg      
+        ls /usr/lib
         wget https://github.com/wxWidgets/wxWidgets/releases/download/v3.1.3/wxWidgets-3.1.3.tar.bz2
         tar xjf wxWidgets-3.1.3.tar.bz2
         cd wxWidgets-3.1.3
