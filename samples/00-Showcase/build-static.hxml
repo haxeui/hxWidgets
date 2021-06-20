@@ -14,7 +14,7 @@
 
 # by default wxwidgets uses /MD - so match for static linking
 # if wxWidgets is using /MT, remove this line
--D ABI=-MD
+# -D ABI=-MD
 -D WXSTATIC
 -D HXCPP_M64
 
