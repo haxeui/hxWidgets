@@ -33,6 +33,7 @@ jobs:
         cd build
         cd msw
         copy D:\a\hxWidgets\hxWidgets\wxWidgets-3.1.3\include\msvc\wx\setup.h D:\a\hxWidgets\hxWidgets\wxWidgets-3.1.3\include\wx\setup.h
+        copy D:\a\hxWidgets\hxWidgets\wxWidgets-3.1.3\include\msvc\wx\setup.h D:\a\hxWidgets\hxWidgets\wxWidgets-3.1.3\lib\vc_dll\mswu\wx\setup.h
         nmake.exe -f makefile.vc BUILD=release RUNTIME_LIBS=static SHARED=0
         cd ..
         cd ..
