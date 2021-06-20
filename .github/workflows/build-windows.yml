@@ -46,6 +46,7 @@ jobs:
         echo $env:WXWIN
         echo $env:foo
         echo (Get-Item .).FullName
+        echo Get-Location
         
 
 #    - name: Build app (haxe ${{ matrix.haxe-version }}, ${{ matrix.os }})
