@@ -6,6 +6,8 @@ jobs:
   build:
 
     runs-on: ${{ matrix.os }}
+    env:
+      WXWIN: D:\a\hxWidgets\hxWidgets\wxWidgets-3.1.3
 
     strategy:
       matrix:
@@ -21,35 +23,21 @@ jobs:
         haxe-version: ${{ matrix.haxe-version }}
 
     - name: Setup app (haxe ${{ matrix.haxe-version }}, ${{ matrix.os }})
-      env:
-        ACTIONS_ALLOW_UNSECURE_COMMANDS: true
-        WXWIN: D:\a\hxWidgets\hxWidgets\wxWidgets-3.1.3
       run: |
         choco install wget --no-progress
         wget https://github.com/wxWidgets/wxWidgets/releases/download/v3.1.3/wxWidgets-3.1.3.tar.bz2
         7z x wxWidgets-3.1.3.tar.bz2
         7z x wxWidgets-3.1.3.tar
-        cd wxWidgets-3.1.3
-        cd build
-        cd msw
-        #copy D:\a\hxWidgets\hxWidgets\wxWidgets-3.1.3\include\msvc\wx\setup.h D:\a\hxWidgets\hxWidgets\wxWidgets-3.1.3\include\wx\setup.h
-        #mkdir D:\a\hxWidgets\hxWidgets\wxWidgets-3.1.3\lib\vc_dll\mswu
-        #mkdir D:\a\hxWidgets\hxWidgets\wxWidgets-3.1.3\lib\vc_dll\mswu\wx
-        #copy D:\a\hxWidgets\hxWidgets\wxWidgets-3.1.3\include\msvc\wx\setup.h D:\a\hxWidgets\hxWidgets\wxWidgets-3.1.3\lib\vc_dll\mswu\wx\setup.h
+        cd wxWidgets-3.1.3\build\msw
         nmake.exe -f makefile.vc BUILD=release
         nmake.exe -f makefile.vc BUILD=release SHARED=1
-        cd ..
-        cd ..
-        cd ..
-        dir
+        cd ..\..\..
         haxelib install hxcpp --always --quiet
         haxelib install hscript --always --quiet
         haxelib dev hxWidgets .
         
     - name: Build app (haxe ${{ matrix.haxe-version }}, ${{ matrix.os }})
-      env:
-        WXWIN: D:\a\hxWidgets\hxWidgets\wxWidgets-3.1.3
       run: |
         cd samples\00-Showcase
-        haxe build.hxml
+        haxe build-static.hxml
 
