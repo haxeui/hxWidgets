@@ -16,6 +16,7 @@
 # if wxWidgets is using /MT, remove this line
 -D ABI=-MD
 -D WXSTATIC
+-D HXCPP_M64
 
 -lib hxWidgets
 -cp src/
