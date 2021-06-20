@@ -6,7 +6,6 @@ import cpp.RawPointer;
 @:headerCode("
 #include <wx/app.h>
 #undef RegisterClass
-#undef wxUSE_LIBJPEG
 ")
 @:unreflective
 @:native("wxApp")
