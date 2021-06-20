@@ -23,7 +23,7 @@ jobs:
     - name: Setup app (haxe ${{ matrix.haxe-version }}, ${{ matrix.os }})
       env:
         ACTIONS_ALLOW_UNSECURE_COMMANDS: true
-        foo: D:\a\hxWidgets\hxWidgets\wxWidgets-3.1.3
+        WXWIN: D:\a\hxWidgets\hxWidgets\wxWidgets-3.1.3
       run: |
         choco install wget --no-progress
         wget https://github.com/wxWidgets/wxWidgets/releases/download/v3.1.3/wxWidgets-3.1.3.tar.bz2
@@ -33,22 +33,9 @@ jobs:
         dir
         cd wxWidgets-3.1.3
         dir
-        echo "WXWIN=$(cd)" >> $env:GITHUB_ENV
-        echo output
-        echo $env:WXWIN
-        echo %WXWIN%
-        echo "::set-env name=bob::tim"
-        echo $env:bob
-        echo %bob%
-        echo "MY_VARIABLE=hello" | Out-File -FilePath $Env:GITHUB_ENV -Encoding utf-8 -Append
-        echo $MY_VARIABLE
-        echo $env:MY_VARIABLE
-        echo $WXWIN
-        echo $env:WXWIN
-        echo $env:foo
-        echo (Get-Item .).FullName
-        Get-Location
-        cd build\msw
+        cd build
+        dir
+        cd msw
         dir
         nmake.exe -f makefile.vc BUILD=release
         
