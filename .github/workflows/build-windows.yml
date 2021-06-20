@@ -33,6 +33,9 @@ jobs:
         dir
         echo "WXWIN=$(pwd)" >> $env:GITHUB_ENV
         echo $env:WXWIN
+        echo "::set-env name=bob::tim"
+        echo $env:bob
+        echo %bob%
 
 #    - name: Build app (haxe ${{ matrix.haxe-version }}, ${{ matrix.os }})
 #      run: |
