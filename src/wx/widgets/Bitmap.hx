@@ -28,5 +28,5 @@ extern class Bitmap extends GDIObject {
     @:native("GetHeight")               public function getHeight():Int;
     @:native("GetSubBitmap")            public function getSubBitmap(rect:Rect):Bitmap;
     @:native("IsOk")                    public function isOk():Bool;
-
+    @:native("ConvertToImage")          public function convertToImage():Image;
 }

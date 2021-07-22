@@ -1,9 +1,11 @@
 package hx.widgets;
 
 import cpp.Pointer;
+import cpp.RawPointer;
 import haxe.io.Bytes;
 import haxe.Resource;
 import wx.widgets.Bitmap in WxBitmap;
+import wx.widgets.Image in WxImage;
 
 class Bitmap extends GDIObject {
 
@@ -46,6 +48,16 @@ class Bitmap extends GDIObject {
         return bmp;
     }
 
+    public function convertToImage():Image {
+        var r = bitmapRef.ptr.convertToImage();
+        var copy = WxImage.createInstanceFromSize(r.getWidth(), r.getHeight());
+        copy.ptr.paste(r, 0, 0);
+        var image = new Image();
+        image._ref = copy.reinterpret();
+        r.destroy();
+        return image;
+    }
+    
     public function equals(bmp:Bitmap):Bool {
         return bmp._ref.get_raw() == this._ref.get_raw();
     }

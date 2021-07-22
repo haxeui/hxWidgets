@@ -1,11 +1,11 @@
 package hx.widgets;
 
 import cpp.Pointer;
+import hx.widgets.Bitmap;
 import wx.widgets.StaticBitmap in WxStaticBitmap;
 import wx.widgets.Bitmap in WxBitmap;
 
 class StaticBitmap extends Control {
-
     @:access(hx.widgets.Bitmap)
     public function new(parent:Window, bitmap:Bitmap, id:Int = -1) {
         if (_ref == null) {
