@@ -81,11 +81,23 @@ class BasicControlsView extends View {
         var vsizer:BoxSizer = new BoxSizer(Orientation.VERTICAL);
 
         var textCtrl:TextCtrl = new TextCtrl(frame, "Text");
+        textCtrl.bind(EventType.SET_FOCUS, function(e) {
+            trace("focus 1");
+        });
+        textCtrl.bind(EventType.KILL_FOCUS, function(e) {
+            trace("lost focus 1");
+        });
         vsizer.add(textCtrl);
 
         vsizer.addSpacer(5);
 
         var textCtrl:TextCtrl = new TextCtrl(frame, "Text");
+        textCtrl.bind(EventType.SET_FOCUS, function(e) {
+            trace("focus 2");
+        });
+        textCtrl.bind(EventType.KILL_FOCUS, function(e) {
+            trace("lost focus 2");
+        });
         textCtrl.foregroundColour = 0xFF0000;
         textCtrl.backgroundColour = 0x880000;
         vsizer.add(textCtrl);
