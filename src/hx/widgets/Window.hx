@@ -147,25 +147,33 @@ class Window extends EvtHandler {
         windowRef.ptr.update();
     }
 
-    public var backgroundColour(get, set):Int;
-    private function get_backgroundColour():Int {
+    public var backgroundColour(get, set):Null<Int>;
+    private function get_backgroundColour():Null<Int> {
         return windowRef.ptr.getBackgroundColour().GetRGB();
     }
-    private function set_backgroundColour(value:Int):Int {
-        var temp:Pointer<WxColour> = WxColour.createInstance(Colour.convertColor(value));
-        windowRef.ptr.setBackgroundColour(temp.ref);
-        temp.destroy();
+    private function set_backgroundColour(value:Null<Int>):Null<Int> {
+        if (value != null) {
+            var temp:Pointer<WxColour> = WxColour.createInstance(Colour.convertColor(value));
+            windowRef.ptr.setBackgroundColour(temp.ref);
+            temp.destroy();
+        } else {
+            windowRef.ptr.setBackgroundColour(untyped __cpp__("wxNullColour"));
+        }
         return value;
     }
 
-    public var foregroundColour(get, set):Int;
-    private function get_foregroundColour():Int {
+    public var foregroundColour(get, set):Null<Int>;
+    private function get_foregroundColour():Null<Int> {
         return windowRef.ptr.getForegroundColour().GetRGB();
     }
-    private function set_foregroundColour(value:Int):Int {
-        var temp:Pointer<WxColour> = WxColour.createInstance(Colour.convertColor(value));
-        windowRef.ptr.setForegroundColour(temp.ref);
-        temp.destroy();
+    private function set_foregroundColour(value:Null<Int>):Null<Int> {
+        if (value != null) {
+            var temp:Pointer<WxColour> = WxColour.createInstance(Colour.convertColor(value));
+            windowRef.ptr.setForegroundColour(temp.ref);
+            temp.destroy();
+        } else {
+            windowRef.ptr.setForegroundColour(untyped __cpp__("wxNullColour"));
+        }
         return value;
     }
 
