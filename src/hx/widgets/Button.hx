@@ -2,7 +2,6 @@ package hx.widgets;
 
 import cpp.Pointer;
 import wx.widgets.Button in WxButton;
-import wx.widgets.Bitmap in WxBitmap;
 import wx.widgets.WxString;
 
 class Button extends AnyButton {
@@ -22,40 +21,6 @@ class Button extends AnyButton {
         }
 
         super(parent, id);
-    }
-
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // Instance functions
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    private var _hasBitmap:Bool; // we'll use this var to store if a bitmap has been set, this way we can set the position in any order
-
-    public var bitmap(get, set):Bitmap;
-    @:access(hx.widgets.Bitmap)
-    private function get_bitmap():Bitmap {
-        var b = buttonRef.ptr.getBitmap();
-        var bmp:Bitmap = new Bitmap();
-        bmp._ref = WxBitmap.createInstanceFromBitmap(b).reinterpret();
-        return bmp;
-    }
-    @:access(hx.widgets.Bitmap)
-    private function set_bitmap(value:Bitmap):Bitmap {
-        buttonRef.ptr.setBitmap(value.bitmapRef.ref);
-        if (!_hasBitmap) {
-            _hasBitmap = true;
-            set_bitmapPosition(bitmapPosition);
-        }
-        return value;
-    }
-
-    public var bitmapPosition(default, set):Direction;
-    public function set_bitmapPosition(value:Direction):Direction {
-        bitmapPosition = value;
-        if (!_hasBitmap) {
-            return value;
-        }
-
-        buttonRef.ptr.setBitmapPosition(value);
-        return value;
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
