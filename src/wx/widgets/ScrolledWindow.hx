@@ -21,5 +21,6 @@ extern class ScrolledWindow extends Window {
     // Instance functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     @:native("SetScrollbars")               public function setScrollbars(pixelsPerUnitX:Int, pixelsPerUnitY:Int, noUnitsX:Int, noUnitsY:Int, xPos:Int = 0, yPos:Int = 0, noRefresh:Bool = false):Void;
+    @:native("SetScrollRate")               public function setScrollRate(xstep:Int, ystep:Int):Void;
 
 }

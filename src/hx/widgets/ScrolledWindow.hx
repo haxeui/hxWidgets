@@ -21,6 +21,10 @@ class ScrolledWindow extends Window {
         scrolledWindowRef.ptr.setScrollbars(pixelsPerUnitX, pixelsPerUnitY, noUnitsX, noUnitsY, xPos, yPos, noRefresh);
     }
 
+    public function setScrollRate(xstep:Int, ystep:Int) {
+        scrolledWindowRef.ptr.setScrollRate(xstep, ystep);
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
