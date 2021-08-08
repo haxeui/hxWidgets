@@ -31,6 +31,7 @@ extern class Window extends EvtHandler {
     @:native("IsShown")                         public function isShown():Bool;
     @:native("ShowWithEffect")                  public function showWithEffect(effect:ShowEffect, timeout:Int = 0):Bool;
     @:native("HideWithEffect")                  public function hideWithEffect(effect:ShowEffect, timeout:Int = 0):Bool;
+    @:native("SetFocus")                        public function setFocus():Void;
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Window deletion functions
