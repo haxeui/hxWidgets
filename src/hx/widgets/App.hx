@@ -22,7 +22,7 @@ class App extends AppConsole {
 
         super();
         _locale = Locale.createInstance(Locale.getSystemLanguage());
-        setCLocale();
+        //setCLocale();
     }
 
     public function init():Bool {
