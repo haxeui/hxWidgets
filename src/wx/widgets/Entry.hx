@@ -8,7 +8,7 @@ package wx.widgets;
 class Entry {
 
     public static function start(args:Array<String>) {
-        #if !allow_wx_stardard_command_line
+        #if !allow_wx_standard_command_line
         args = [];
         #end
         var args = [Sys.programPath()].concat(args);
