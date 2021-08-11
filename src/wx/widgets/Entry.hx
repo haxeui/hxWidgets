@@ -8,6 +8,9 @@ package wx.widgets;
 class Entry {
 
     public static function start(args:Array<String>) {
+        #if !allow_wx_stardard_command_line
+        args = [];
+        #end
         var args = [Sys.programPath()].concat(args);
         var argc = args.length;
         untyped __cpp__("char** argv = new char*[argc]");
