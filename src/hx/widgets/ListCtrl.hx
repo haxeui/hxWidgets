@@ -58,6 +58,10 @@ class ListCtrl extends Control {
         return listCtrlRef.ptr.deleteAllItems();
     }
     
+    public function ensureVisible(item:Int):Bool {
+        return listCtrlRef.ptr.ensureVisible(item);
+    }
+    
     public var itemCount(get, null):Int;
     private function get_itemCount():Int {
         return listCtrlRef.ptr.getItemCount();

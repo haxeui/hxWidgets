@@ -34,4 +34,5 @@ extern class ListCtrl extends Control {
     @:native("GetNextItem")                 public function getNextItem(item:Int, geometry:Int, state:Int):Int;
     @:native("DeleteItem")                  public function deleteItem(item:Int):Bool;
     @:native("DeleteAllItems")              public function deleteAllItems():Bool;
+    @:native("EnsureVisible")               public function ensureVisible(item:Int):Bool;
 }
