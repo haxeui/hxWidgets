@@ -40,10 +40,12 @@ class EventType {
 
     public static var PAINT:Int                 = untyped __cpp__("wxEVT_PAINT");
     public static var ERASE_BACKGROUND:Int      = untyped __cpp__("wxEVT_ERASE_BACKGROUND");
-    
+
     public static var SET_FOCUS:Int             = untyped __cpp__("wxEVT_SET_FOCUS");
     public static var KILL_FOCUS:Int            = untyped __cpp__("wxEVT_KILL_FOCUS");
-    
+
+    public static var CONTEXT_MENU:Int            = untyped __cpp__("wxEVT_CONTEXT_MENU");
+
     /* commented out as it causes link errors on my mac for some reason - should investigate
     public static var HYPERLINK:Int             = untyped __cpp__("wxEVT_HYPERLINK");
     */
