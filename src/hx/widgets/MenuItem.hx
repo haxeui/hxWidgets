@@ -38,7 +38,12 @@ class MenuItem extends Object {
         menuitemRef.ptr.enable(value);
         return value;
     }
-    
+
+    public var id(get, null):Int;
+    private function get_id():Int {
+        return menuitemRef.ptr.getId();
+    }
+
     public var label(get, set):String;
     private function get_label():String {
         var r:WxString = menuitemRef.ptr.getItemLabel();
