@@ -15,7 +15,7 @@ class MenuItem extends Object {
 
             var str = WxString.fromUTF8(text);
             var str2 = WxString.fromUTF8("");
-            _ref = WxMenuItem.createInstance(parent.menuRef.get_raw(), id, str, str2).reinterpret();
+            _ref = WxMenuItem.createInstance(parent.menuRef.get_raw(), id, str, str2, kind).reinterpret();
         }
     }
 

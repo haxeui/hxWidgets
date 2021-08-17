@@ -1,16 +1,17 @@
 package wx.widgets;
 
-@:headerCode("#include <wx/menu.h>")
-abstract ItemKind(Int) {
+@:include("wx/menu.h")
+@:enum extern abstract ItemKind(ItemKindImpl) {
 
-    public static var ITEM_SEPARATOR(default, null)          = new ItemKind(untyped __cpp__("::wxITEM_SEPARATOR"));
-    public static var ITEM_NORMAL(default, null)             = new ItemKind(untyped __cpp__("::wxITEM_NORMAL"));
-    public static var ITEM_CHECK(default, null)              = new ItemKind(untyped __cpp__("::wxITEM_CHECK"));
-    public static var ITEM_RADIO(default, null)              = new ItemKind(untyped __cpp__("::wxITEM_RADIO"));
-    public static var ITEM_DROPDOWN(default, null)           = new ItemKind(untyped __cpp__("::wxITEM_DROPDOWN"));
+    @:native("wxITEM_SEPARATOR")   var ITEM_SEPARATOR;
+    @:native("wxITEM_NORMAL")      var ITEM_NORMAL;
+    @:native("wxITEM_CHECK")       var ITEM_CHECK;
+    @:native("wxITEM_RADIO")       var ITEM_RADIO;
+    @:native("wxITEM_DROPDOWN")    var ITEM_DROPDOWN;
 
-    public inline function new(i:Int) {
-        this = i;
-    }
+}
 
+@:include("wx/menu.h")
+@:native("cpp::Struct<wxItemKind, cpp::EnumHandler>")
+extern class ItemKindImpl {
 }
