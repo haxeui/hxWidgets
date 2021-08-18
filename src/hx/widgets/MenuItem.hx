@@ -15,7 +15,7 @@ class MenuItem extends Object {
 
             var str = WxString.fromUTF8(text);
             var str2 = WxString.fromUTF8("");
-            _ref = WxMenuItem.createInstance(parent.menuRef.get_raw(), id, str, str2).reinterpret();
+            _ref = WxMenuItem.createInstance(parent.menuRef.get_raw(), id, str, str2, kind).reinterpret();
         }
     }
 
@@ -38,7 +38,12 @@ class MenuItem extends Object {
         menuitemRef.ptr.enable(value);
         return value;
     }
-    
+
+    public var id(get, null):Int;
+    private function get_id():Int {
+        return menuitemRef.ptr.getId();
+    }
+
     public var label(get, set):String;
     private function get_label():String {
         var r:WxString = menuitemRef.ptr.getItemLabel();
