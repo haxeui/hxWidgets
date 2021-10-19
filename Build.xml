@@ -3,6 +3,8 @@
     <set name="lib_folder" value="vc_x64_dll" if="HXCPP_M64" />
     <set name="lib_folder" value="vc_lib" if="WXSTATIC" />
     <set name="lib_folder" value="vc_x64_lib" if="WXSTATIC HXCPP_M64" />
+    <set name="lib_folder" value="gcc_lib" if="HXCPP_MINGW" />
+    <set name="lib_folder" value="gcc_dll" if="HXCPP_MINGW" />
 
     <echo value="Using wxWidgets from: ${WXWIN}\lib\${lib_folder}" />
 
@@ -25,12 +27,13 @@
         </files>
 
         <target id="haxe" tool="linker" toolid="exe">
-            <lib name="${WXWIN}\lib\${lib_folder}\*.lib" />
+            <lib name="${WXWIN}\lib\${lib_folder}\*.lib" unless="HXCPP_MINGW"/>
+            <lib name="${WXWIN}\lib\${lib_folder}\*.a" if="HXCPP_MINGW" />
             <section if="WXSTATIC">
-                <flag value="/NODEFAULTLIB:LIBCMT" /> <!-- should remove this if using /MT but couldnt see an easy way -->
-                <flag value="/MANIFEST:EMBED" />
-                <flag value="/SUBSYSTEM:windows" unless="debug" />
-                <flag value="/ENTRY:mainCRTStartup" unless="debug" />
+                <flag value="/NODEFAULTLIB:LIBCMT" unless="HXCPP_MINGW" /> <!-- should remove this if using /MT but couldnt see an easy way -->
+                <flag value="/MANIFEST:EMBED" unless="HXCPP_MINGW" />
+                <flag value="/SUBSYSTEM:windows" unless="debug||HXCPP_MINGW" />
+                <flag value="/ENTRY:mainCRTStartup" unless="debug||HXCPP_MINGW" />
                 <!--
                 <flag value="/MANIFESTINPUT:${haxelib:hxWidgets}/hxWidgets.manifest" />
                 -->
