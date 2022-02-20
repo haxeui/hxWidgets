@@ -15,7 +15,7 @@
             <compilerflag value="-I${HXWIDGETS_PATH}\include" />
             <compilerflag value="-DUNICODE" />
             <compilerflag value="-D_UNICODE" />
-            <compilerflag value="-DwxMSVC_VERISON_AUTO" />
+            <compilerflag value="-DwxMSVC_VERSION_AUTO" />
             <compilerflag value="-DwxUSE_GRAPHICS_CONTEXT" />
             <compilerflag value="-DWIN32" if="windows" />
             <compilerflag value="-D__WXMSW__" if="windows" />
