@@ -21,7 +21,10 @@ class App extends AppConsole {
         }
 
         super();
-        _locale = Locale.createInstance(Locale.getSystemLanguage());
+        var systemLanguage = Locale.getSystemLanguage();
+        if (systemLanguage != 1) {
+            _locale = Locale.createInstance(systemLanguage);
+        }
         //setCLocale();
     }
 
