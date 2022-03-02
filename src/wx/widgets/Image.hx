@@ -34,6 +34,8 @@ extern class Image extends Object {
     @:native("Scale")                   public function scale(width:Int, height:Int):Image;
     @:native("GetData")                 public function getData():RawPointer<cpp.UInt8>;
     @:native("GetAlpha")                public function getAlpha():RawPointer<cpp.UInt8>;
+    @:native("SetAlpha")                public function setAlpha(alpha:RawPointer<cpp.UInt8> = null):Void;
+    @:native("HasAlpha")                public function hasAlpha():Bool;
     @:native("GetSubImage")             public function getSubImage(rect:Rect):Image;
     @:native("Paste")                   public function paste(image:Reference<Image>, x:Int, y:Int):Void;
     @:native("Destroy")                 public function destroy():Void;

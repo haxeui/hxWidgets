@@ -39,6 +39,44 @@ class ImageData {
         }    
     }
     
+    public function copyARGB(bytes:Bytes) {
+        for (y in 0..._height) {
+            for (x in 0..._width) {
+                var offset = (x + _width * y) * 4;
+                var a = bytes.get(offset + 0);
+                var r = bytes.get(offset + 1);
+                var g = bytes.get(offset + 2);
+                var b = bytes.get(offset + 3);
+                setRGBA(x, y, r, g, b, a);
+            }
+        }
+    }
+    
+    public function copyRGBA(bytes:Bytes) {
+        for (y in 0..._height) {
+            for (x in 0..._width) {
+                var offset = (x + _width * y) * 4;
+                var r = bytes.get(offset + 0);
+                var g = bytes.get(offset + 1);
+                var b = bytes.get(offset + 2);
+                var a = bytes.get(offset + 3);
+                setRGBA(x, y, r, g, b, a);
+            }
+        }
+    }
+    
+    public function copyRGB(bytes:Bytes) {
+        for (y in 0..._height) {
+            for (x in 0..._width) {
+                var offset = (x + _width * y) * 3;
+                var r = bytes.get(offset + 0);
+                var g = bytes.get(offset + 1);
+                var b = bytes.get(offset + 2);
+                setRGB(x, y, r, g, b);
+            }
+        }
+    }
+    
     public function set(x:Int, y:Int, c:Int, useAlpha:Bool = false) {
         if (useAlpha == true) {
             var r = (c & 0xFF000000) >> 24;
@@ -66,13 +104,16 @@ class ImageData {
 class Image extends Object {
 
     @:access(hx.widgets.MemoryInputStream)
-    public function new(bytes:Bytes = null, width:Null<Int> = null, height:Null<Int> = null) {
+    public function new(bytes:Bytes = null, width:Null<Int> = null, height:Null<Int> = null, createAlphaChannel:Bool = false) {
         if (bytes != null) {
             var stream = new MemoryInputStream(bytes);
             _ref = WxImage.createInstance(stream.memoryinputstreamRef.ref).reinterpret();
             stream.destroy();
         } else if (width != null && height != null) {
            _ref = WxImage.createInstanceFromSize(width, height).reinterpret();
+        }
+        if (createAlphaChannel == true) {
+            addAlphaChannel();
         }
     }
 
@@ -97,6 +138,15 @@ class Image extends Object {
         image._ref = copy.reinterpret();
         r.destroy();
         return image;
+    }
+
+    public var hasAlpha(get, null):Bool;
+    private function get_hasAlpha():Bool {
+        return imageRef.ptr.hasAlpha();
+    }
+
+    public function addAlphaChannel() {
+        imageRef.ptr.setAlpha(null);
     }
     
     public var imageData(get, null):ImageData;
