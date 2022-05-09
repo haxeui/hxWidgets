@@ -133,7 +133,14 @@ class EntryMacro {
                 versionRelease = extractDefineFromHeaderAsInt(contents, "wxRELEASE_NUMBER", DEFAULT_WX_RELEASE_VERSION);
             }
         } else if (checkWxConfig()) {
-            
+            var config = new Process("wx-config", ["--version"]);
+            var versionString = StringTools.trim(config.stdout.readAll().toString());
+            var parts = versionString.split(".");
+            if (parts.length == 3) {
+                versionMajor = Std.parseInt(parts[0]);
+                versionMinor = Std.parseInt(parts[1]);
+                versionRelease = Std.parseInt(parts[2]);
+            }
         } else {
             Sys.println('WARNING: could not detect wxWidgets version, defaulting to ${DEFAULT_WX_MAJOR_VERSION}.${DEFAULT_WX_MINOR_VERSION}.${DEFAULT_WX_RELEASE_VERSION}');
         }
