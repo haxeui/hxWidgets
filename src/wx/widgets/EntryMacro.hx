@@ -128,9 +128,9 @@ class EntryMacro {
             var versionHeaderFile = Path.normalize(wxPath + "/include/wx/version.h");
             if (FileSystem.exists(versionHeaderFile)) {
                 var contents = File.getContent(versionHeaderFile);
-                versionMajor = extractDefineFromHeaderAsInt(contents, "wxMAJOR_VERSION", DEFAULT_WX_MAJOR_VERSION);
-                versionMinor = extractDefineFromHeaderAsInt(contents, "wxMINOR_VERSION", DEFAULT_WX_MINOR_VERSION);
-                versionRelease = extractDefineFromHeaderAsInt(contents, "wxRELEASE_NUMBER", DEFAULT_WX_RELEASE_VERSION);
+                versionMajor = extractDefineFromHeaderAsInt(contents, "wxMAJOR_VERSION", -1);
+                versionMinor = extractDefineFromHeaderAsInt(contents, "wxMINOR_VERSION", -1);
+                versionRelease = extractDefineFromHeaderAsInt(contents, "wxRELEASE_NUMBER", -1);
             }
         } else if (checkWxConfig()) {
             var config = new Process("wx-config", ["--version"]);
