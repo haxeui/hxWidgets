@@ -16,7 +16,6 @@
   <!-- Other classes to be compiled into your SWF -->
   <classpaths>
     <class path="src" />
-    <class path="..\..\src" />
   </classpaths>
   <!-- Build options -->
   <build>
@@ -29,7 +28,7 @@
   </build>
   <!-- haxelib libraries -->
   <haxelib>
-    <!-- example: <library name="..." /> -->
+    <library name="hxWidgets" />
   </haxelib>
   <!-- Class files to compile (other referenced classes will automatically be included) -->
   <compileTargets>
