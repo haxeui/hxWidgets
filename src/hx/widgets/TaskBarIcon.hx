@@ -37,6 +37,10 @@ class TaskBarIcon extends EvtHandler {
     // Utility
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     #if ((wxMAJOR_VERSION >= 3) && (wxMINOR_VERSION >= 1) && (wxRELEASE_NUMBER >= 6))
+    public function setBitmap(bitmap:Bitmap, tooltip:String = null) {
+        var bitmapBundle = new BitmapBundle(bitmap);
+        taskBarIconRef.ptr.setIcon(bitmapBundle.bitmapBundleRef.ref, WxString.fromUTF8(tooltip));
+    }
     #else
     public function setBitmap(bitmap:Bitmap, tooltip:String = null) {
         var icon = new Icon();

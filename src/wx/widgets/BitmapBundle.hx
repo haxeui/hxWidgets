@@ -4,6 +4,7 @@ package wx.widgets;
 
 import cpp.Pointer;
 import cpp.RawPointer;
+import cpp.Reference;
 
 @:include("wx/bmpbndl.h")
 @:unreflective
@@ -17,6 +18,11 @@ extern class BitmapBundle {
     @:native("new wxBitmapBundle")      private static function _new():RawPointer<BitmapBundle>;
                                         public static inline function createInstance():Pointer<BitmapBundle> {
                                             return Pointer.fromRaw(_new());
+                                        }
+
+    @:native("new wxBitmapBundle")      private static function _newFromBitmap(bitmap:Reference<Bitmap>):RawPointer<BitmapBundle>;
+                                        public static inline function createInstanceFromBitmap(bitmap:Reference<Bitmap>):Pointer<BitmapBundle> {
+                                            return Pointer.fromRaw(_newFromBitmap(bitmap));
                                         }
 }
 

@@ -5,11 +5,16 @@ package hx.widgets;
 import cpp.Pointer;
 import wx.widgets.BitmapBundle in WxBitmapBundle;
 
+@:access(hx.widgets.Bitmap)
 class BitmapBundle {
     private var _ref:Pointer<WxBitmapBundle>;
 
-    public function new() {
-        _ref = WxBitmapBundle.createInstance().reinterpret();
+    public function new(bitmap:Bitmap = null) {
+        if (bitmap == null) {
+            _ref = WxBitmapBundle.createInstance().reinterpret();
+        } else {
+            _ref = WxBitmapBundle.createInstanceFromBitmap(bitmap.bitmapRef.ref).reinterpret();
+        }
     }
 
     public function destroy():Bool {
