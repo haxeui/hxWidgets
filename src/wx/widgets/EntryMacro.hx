@@ -118,7 +118,7 @@ class EntryMacro {
         return Context.getBuildFields();
     }
 
-    macro static function defineWxVersion() {
+    macro static function defineWxVersion(printResult:Bool = true) {
         var versionMajor = -1;
         var versionMinor = -1;
         var versionRelease = -1;
@@ -140,7 +140,9 @@ class EntryMacro {
                 versionMajor = Std.parseInt(parts[0]);
                 versionMinor = Std.parseInt(parts[1]);
                 versionRelease = Std.parseInt(parts[2]);
-                Sys.println('wxWidgets version detected as ${versionMajor}.${versionMinor}.${versionRelease}');
+                if (printResult) {
+                    Sys.println('wxWidgets version detected as ${versionMajor}.${versionMinor}.${versionRelease}');
+                }
             }
         }
         
@@ -148,7 +150,9 @@ class EntryMacro {
             versionMajor = DEFAULT_WX_MAJOR_VERSION;
             versionMinor = DEFAULT_WX_MINOR_VERSION;
             versionRelease = DEFAULT_WX_RELEASE_VERSION;
-            Sys.println('WARNING: could not detect wxWidgets version, defaulting to ${DEFAULT_WX_MAJOR_VERSION}.${DEFAULT_WX_MINOR_VERSION}.${DEFAULT_WX_RELEASE_VERSION}');
+            if (printResult) {
+                Sys.println('WARNING: could not detect wxWidgets version, defaulting to ${DEFAULT_WX_MAJOR_VERSION}.${DEFAULT_WX_MINOR_VERSION}.${DEFAULT_WX_RELEASE_VERSION}');
+            }
         }
         
         haxe.macro.Compiler.define("wxMAJOR_VERSION", Std.string(versionMajor));
