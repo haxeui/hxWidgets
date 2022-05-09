@@ -6,7 +6,7 @@
     <set name="lib_folder" value="gcc_lib" if="HXCPP_MINGW" />
     <set name="lib_folder" value="gcc_dll" if="HXCPP_MINGW" />
 
-    <echo value="Using wxWidgets from: ${WXWIN}\lib\${lib_folder}" />
+    <echo value="Using wxWidgets from: ${WXWIN}\lib\${lib_folder} (version: ${wxMAJOR_VERSION}.${wxMINOR_VERSION}.${wxRELEASE_NUMBER})" />
 
     <section if="windows">
         <files id="haxe">

@@ -5,6 +5,7 @@ import haxe.macro.Expr.Field;
 import haxe.macro.Context;
 import haxe.io.Path;
 import sys.FileSystem;
+import sys.io.File;
 import sys.io.Process;
 
 typedef OSVersion = {
@@ -14,7 +15,10 @@ typedef OSVersion = {
 }
 
 class EntryMacro {
-
+    private static inline var DEFAULT_WX_MAJOR_VERSION = 3;
+    private static inline var DEFAULT_WX_MINOR_VERSION = 1;
+    private static inline var DEFAULT_WX_RELEASE_VERSION = 5;
+    
     private static function getOSVersion():OSVersion {
         var version:OSVersion = {
             major: 0,
@@ -22,7 +26,7 @@ class EntryMacro {
             revision: 0
         };
 
-        if (~/mac/i.match (Sys.systemName ())) {
+        if (isMac()) {
             var versionString:String = new Process("sw_vers", ["-productVersion"]).stdout.readAll().toString();
             var arr = versionString.split(".");
             version = {
@@ -49,7 +53,7 @@ class EntryMacro {
         var define = '<set name="HXWIDGETS_PATH" value="$libPath/"/>';
 
         var os:OSVersion = getOSVersion();
-        if (~/windows/i.match(Sys.systemName())) {
+        if (isWindows()) {
             _class.get().meta.add(":buildXml", [{ expr:EConst( CString( '$define\n<include name="${libPath}/Build.xml"/>' ) ), pos:_pos }], _pos );
         } else {
             if (!checkWxConfig()) {
@@ -88,7 +92,7 @@ class EntryMacro {
             cflags += "\n<compilerflag value=\"-DwxUSE_GRAPHICS_CONTEXT\" />\n";
             cflags += "\n<file name=\"${HXWIDGETS_PATH}/include/custom/wxownerdrawnpanel.cpp\" />\n";
 
-            if (~/mac/i.match(Sys.systemName()) && (os.major > 10 || (os.major == 10 && os.minor >= 7))) {
+            if (isMac() && (os.major > 10 || (os.major == 10 && os.minor >= 7))) {
                 #if !NO_CPP_11
 
                 cflags += '\n<compilerflag value="-mmacosx-version-min=10.7" />\n<compilerflag value="-std=c++11" />\n<compilerflag value="-stdlib=libc++" />\n';
@@ -114,6 +118,54 @@ class EntryMacro {
         return Context.getBuildFields();
     }
 
+    macro static function defineWxVersion() {
+        var versionMajor = DEFAULT_WX_MAJOR_VERSION;
+        var versionMinor = DEFAULT_WX_MINOR_VERSION;
+        var versionRelease = DEFAULT_WX_RELEASE_VERSION;
+        
+        if (isWindows()) {
+            var wxPath = Sys.getEnv("WXWIN");
+            var versionHeaderFile = Path.normalize(wxPath + "/include/wx/version.h");
+            if (FileSystem.exists(versionHeaderFile)) {
+                var contents = File.getContent(versionHeaderFile);
+                versionMajor = extractDefineFromHeaderAsInt(contents, "wxMAJOR_VERSION", DEFAULT_WX_MAJOR_VERSION);
+                versionMinor = extractDefineFromHeaderAsInt(contents, "wxMINOR_VERSION", DEFAULT_WX_MINOR_VERSION);
+                versionRelease = extractDefineFromHeaderAsInt(contents, "wxRELEASE_NUMBER", DEFAULT_WX_RELEASE_VERSION);
+            }
+        } else if (checkWxConfig()) {
+            
+        } else {
+            Sys.println('WARNING: could not detect wxWidgets version, defaulting to ${DEFAULT_WX_MAJOR_VERSION}.${DEFAULT_WX_MINOR_VERSION}.${DEFAULT_WX_RELEASE_VERSION}');
+        }
+        
+        haxe.macro.Compiler.define("wxMAJOR_VERSION", Std.string(versionMajor));
+        haxe.macro.Compiler.define("wxMINOR_VERSION", Std.string(versionMinor));
+        haxe.macro.Compiler.define("wxRELEASE_NUMBER", Std.string(versionRelease));
+        return null;
+    }
+    
+    static function extractDefineFromHeaderAsInt(contents:String, define:String, defaultValue:Int = 0):Int {
+        var value = extractDefineFromHeader(contents, define);
+        if (value == null) {
+            return defaultValue;
+        }
+        return Std.parseInt(value);
+    }
+    
+    static function extractDefineFromHeader(contents:String, define:String):String {
+        var defineString = "#define " + define;
+        var n1 = contents.indexOf(defineString);
+        if (n1 == -1) {
+            return null;
+        }
+        var n2 = contents.indexOf("\n", n1);
+        if (n2 == -1) {
+            return null;
+        }
+        var value = StringTools.trim(contents.substring(n1 + defineString.length, n2));
+        return value;
+    }
+    
     static function checkWxConfig():Bool {
         for (path in Sys.getEnv("PATH").split(":")) {
             if (FileSystem.exists(Path.join([path, "wx-config"]))) {
@@ -124,10 +176,18 @@ class EntryMacro {
         return false;
     }
     
+    static function isWindows():Bool {
+        return ~/windows/i.match(Sys.systemName());
+    }
+    
+    static function isMac():Bool {
+        return ~/mac/i.match(Sys.systemName());
+    }
+    
     macro static function detectPlatform() {
-        if (~/mac/i.match(Sys.systemName())) {
+        if (isMac()) {
             haxe.macro.Compiler.define("PLATFORM_MAC");
-        } else if (~/windows/i.match(Sys.systemName())) {
+        } else if (isWindows()) {
             haxe.macro.Compiler.define("PLATFORM_WINDOWS");
         } else {
             haxe.macro.Compiler.define("PLATFORM_OTHER");
