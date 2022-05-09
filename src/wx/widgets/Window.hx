@@ -2,6 +2,7 @@ package wx.widgets;
 
 import cpp.Pointer;
 import cpp.RawPointer;
+import cpp.Reference;
 import wx.widgets.styles.BackgroundStyle;
 import wx.widgets.styles.ShowEffect;
 
@@ -176,6 +177,12 @@ extern class Window extends EvtHandler {
     @:native("CaptureMouse")                    public function captureMouse():Void;
     @:native("HasCapture")                      public function hasCapture():Bool;
     @:native("ReleaseMouse")                    public function releaseMouse():Void;
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Validation functions
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    @:native("GetValidator")                    public function getValidator():RawPointer<Validator>;
+    @:native("SetValidator")                    public function setValidator(validator:Reference<Validator>):Void;
 }
 
 @:include("wx/list.h")

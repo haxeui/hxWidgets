@@ -583,6 +583,23 @@ class Window extends EvtHandler {
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Validation functions
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public var validator(get, set):Validator;
+    @:access(hx.widgets.Validator)
+    private function get_validator():Validator {
+        var v = new Validator(false);
+        var raw = windowRef.ptr.getValidator();
+        v._ref = Pointer.fromRaw(raw).reinterpret();
+        return v;
+    }
+    @:access(hx.widgets.Validator)
+    private function set_validator(value:Validator):Validator {
+        windowRef.ptr.setValidator(value.validatorRef.ref);
+        return value;
+    }
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Static helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     private static function autoConvert(win:Window):Window {
