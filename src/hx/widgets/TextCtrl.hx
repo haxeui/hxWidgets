@@ -44,6 +44,17 @@ class TextCtrl extends Control implements TextEntry {
         return value;
     }
 
+    public var hint(get, set):String;
+    private function get_hint():String {
+        var r:WxString = textCtrlRef.ptr.getHint();
+        return new String(r.toUTF8().data());
+    }
+    private function set_hint(value:String):String {
+        var s = WxString.fromUTF8(value);
+        textCtrlRef.ptr.setHint(s);
+        return value;
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -29,4 +29,6 @@ extern class TextCtrl extends Control implements TextEntry {
     @:native("SetValue")            public function setValue(value:WxString):Void;
     @:native("GetValue")            public function getValue():WxString;
 
+    @:native("SetHint")             public function setHint(value:WxString):Void;
+    @:native("GetHint")             public function getHint():WxString;
 }
