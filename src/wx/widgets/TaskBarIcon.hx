@@ -20,6 +20,10 @@ extern class TaskBarIcon extends EvtHandler {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // instance functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    @:native("SetIcon")                 public function setIcon(icon:Reference<Icon>, tooltip:WxString):Void;
     @:native("IsIconInstalled")         public function isIconInstalled():Bool;
+    #if ((wxMAJOR_VERSION >= 3) && (wxMINOR_VERSION >= 1) && (wxRELEASE_NUMBER >= 6))
+    @:native("SetIcon")                 public function setIcon(icon:Reference<BitmapBundle>, tooltip:WxString):Void;
+    #else
+    @:native("SetIcon")                 public function setIcon(icon:Reference<Icon>, tooltip:WxString):Void;
+    #end
 }

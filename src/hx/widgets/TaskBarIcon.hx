@@ -5,6 +5,7 @@ import wx.widgets.TaskBarIcon in WxTaskBarIcon;
 import wx.widgets.WxString;
 
 @:access(hx.widgets.Icon)
+@:access(hx.widgets.BitmapBundle)
 class TaskBarIcon extends EvtHandler {
     public function new() {
         if (_ref == null) {
@@ -17,9 +18,15 @@ class TaskBarIcon extends EvtHandler {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Instance
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    #if ((wxMAJOR_VERSION >= 3) && (wxMINOR_VERSION >= 1) && (wxRELEASE_NUMBER >= 6))
+    public function setIcon(icon:BitmapBundle, tooltip:String = null) {
+        taskBarIconRef.ptr.setIcon(icon.bitmapBundleRef.ref, WxString.fromUTF8(tooltip));
+    }
+    #else
     public function setIcon(icon:Icon, tooltip:String = null) {
         taskBarIconRef.ptr.setIcon(icon.iconRef.ref, WxString.fromUTF8(tooltip));
     }
+    #end
     
     public var isIconInstalled(get, null):Bool;
     private function get_isIconInstalled():Bool {
@@ -29,11 +36,14 @@ class TaskBarIcon extends EvtHandler {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Utility
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    #if ((wxMAJOR_VERSION >= 3) && (wxMINOR_VERSION >= 1) && (wxRELEASE_NUMBER >= 6))
+    #else
     public function setBitmap(bitmap:Bitmap, tooltip:String = null) {
         var icon = new Icon();
         icon.copyFromBitmap(bitmap);
         taskBarIconRef.ptr.setIcon(icon.iconRef.ref, WxString.fromUTF8(tooltip));
     }
+    #end
     
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

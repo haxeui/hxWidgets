@@ -140,6 +140,7 @@ class EntryMacro {
                 versionMajor = Std.parseInt(parts[0]);
                 versionMinor = Std.parseInt(parts[1]);
                 versionRelease = Std.parseInt(parts[2]);
+                Sys.println('wxWidgets version detected as ${versionMajor}.${versionMinor}.${versionRelease}');
             }
         } else {
             Sys.println('WARNING: could not detect wxWidgets version, defaulting to ${DEFAULT_WX_MAJOR_VERSION}.${DEFAULT_WX_MINOR_VERSION}.${DEFAULT_WX_RELEASE_VERSION}');
