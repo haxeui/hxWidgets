@@ -48,6 +48,9 @@ class EvtHandler extends Object implements Trackable {
     }
 
     public function unbind(event:Int, fn:Event->Void, id:Int = -1) {
+        if (_eventMap == null) {
+            return;
+        }
         var mapForId:Map<Int, Array<Event->Void>> = _eventMap.get(id);
         if (mapForId == null) {
             return;

@@ -169,6 +169,13 @@ extern class Window extends EvtHandler {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     @:native("GetClassInfo")                    public function getClassInfo():Pointer<ClassInfo>; //TODO should be in wxObject
     @:native("HitTest")                         public function hitTest(pt:Point):HitTest; //TODO should be in wxObject
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Mouse functions
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    @:native("CaptureMouse")                    public function captureMouse():Void;
+    @:native("HasCapture")                      public function hasCapture():Bool;
+    @:native("ReleaseMouse")                    public function releaseMouse():Void;
 }
 
 @:include("wx/list.h")
