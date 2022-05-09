@@ -119,9 +119,9 @@ class EntryMacro {
     }
 
     macro static function defineWxVersion() {
-        var versionMajor = DEFAULT_WX_MAJOR_VERSION;
-        var versionMinor = DEFAULT_WX_MINOR_VERSION;
-        var versionRelease = DEFAULT_WX_RELEASE_VERSION;
+        var versionMajor = -1;
+        var versionMinor = -1;
+        var versionRelease = -1;
         
         if (isWindows()) {
             var wxPath = Sys.getEnv("WXWIN");
@@ -142,7 +142,12 @@ class EntryMacro {
                 versionRelease = Std.parseInt(parts[2]);
                 Sys.println('wxWidgets version detected as ${versionMajor}.${versionMinor}.${versionRelease}');
             }
-        } else {
+        }
+        
+        if (versionMajor == -1 && versionMinor == -1 && versionRelease == -1) {
+            versionMajor = DEFAULT_WX_MAJOR_VERSION;
+            versionMinor = DEFAULT_WX_MINOR_VERSION;
+            versionRelease = DEFAULT_WX_RELEASE_VERSION;
             Sys.println('WARNING: could not detect wxWidgets version, defaulting to ${DEFAULT_WX_MAJOR_VERSION}.${DEFAULT_WX_MINOR_VERSION}.${DEFAULT_WX_RELEASE_VERSION}');
         }
         
