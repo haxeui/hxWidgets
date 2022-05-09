@@ -144,7 +144,7 @@ class EntryMacro {
             }
         }
         
-        if (versionMajor == -1 && versionMinor == -1 && versionRelease == -1) {
+        if (versionMajor == -1 || versionMinor == -1 || versionRelease == -1) {
             versionMajor = DEFAULT_WX_MAJOR_VERSION;
             versionMinor = DEFAULT_WX_MINOR_VERSION;
             versionRelease = DEFAULT_WX_RELEASE_VERSION;
