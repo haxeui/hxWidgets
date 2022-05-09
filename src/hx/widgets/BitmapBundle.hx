@@ -1,5 +1,7 @@
 package hx.widgets;
 
+#if ((wxMAJOR_VERSION >= 3) && (wxMINOR_VERSION >= 1) && (wxRELEASE_NUMBER >= 6))
+
 import cpp.Pointer;
 import wx.widgets.BitmapBundle in WxBitmapBundle;
 
@@ -26,3 +28,5 @@ class BitmapBundle {
         return _ref.reinterpret();
     }
 }
+
+#end

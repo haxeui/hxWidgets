@@ -1,5 +1,7 @@
 package wx.widgets;
 
+#if ((wxMAJOR_VERSION >= 3) && (wxMINOR_VERSION >= 1) && (wxRELEASE_NUMBER >= 6))
+
 import cpp.Pointer;
 import cpp.RawPointer;
 
@@ -17,3 +19,5 @@ extern class BitmapBundle {
                                             return Pointer.fromRaw(_new());
                                         }
 }
+
+#end
