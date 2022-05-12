@@ -9,7 +9,8 @@ class CalendarCtrl extends Control {
     public function new(parent:Window, style:Int = 0, id:Int = -1) {
         if (_ref == null) {
             _ref = WxCalendarCtrl.createInstance().reinterpret();
-            calendarCtrlRef.ptr.create(Window.toRaw(parent), id, WxDateTime.now(), Point.defaultPosition.ref, Size.defaultSize.ref, style);
+            var dt = WxDateTime.now();
+            calendarCtrlRef.ptr.create(Window.toRaw(parent), id, dt, Point.defaultPosition.ref, Size.defaultSize.ref, style);
         }
 
         super(parent, id);
