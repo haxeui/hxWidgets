@@ -26,11 +26,9 @@ class CalendarCtrl extends Control {
         return r;
     }
     private function set_date(value:Date):Date {
-        var dt = WxDateTime.createInstance();
-        var p = dt.ptr;
-        untyped __cpp__("{0}->Set((time_t) {1})", p, value.getTime() / 1000); // TODO: better way to handle date
-        calendarCtrlRef.ptr.setDate(dt.ref);
-        dt.destroy();
+        var dt = WxDateTime.now();
+        untyped __cpp__("{0}.Set((time_t) {1})", dt, value.getTime() / 1000); // TODO: better way to handle date
+        calendarCtrlRef.ptr.setDate(dt);
         return value;
     }
     
