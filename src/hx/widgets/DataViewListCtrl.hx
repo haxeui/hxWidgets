@@ -50,6 +50,10 @@ class DataViewListCtrl extends DataViewCtrl {
         dataViewListCtrlRef.ptr.deleteAllItems();
     }
     
+    public function deleteItem(row:Int) {
+        dataViewListCtrlRef.ptr.deleteItem(row);
+    }
+    
     public var itemCount(get, null):Int;
     private function get_itemCount():Int {
         return dataViewListCtrlRef.ptr.getItemCount();

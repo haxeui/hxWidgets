@@ -28,6 +28,7 @@ extern class DataViewListCtrl extends DataViewCtrl {
     @:native("AppendItem")              public function appendItem(values:VariantVector):Void;
     
     @:native("DeleteAllItems")          public function deleteAllItems():Void;
+    @:native("DeleteItem")              public function deleteItem(row:Int):Void;
     @:native("GetItemCount")            public function getItemCount():Int;
     
     @:native("GetValue")                public function getValue(value:Reference<Variant>, row:Int, col:Int):Void;
