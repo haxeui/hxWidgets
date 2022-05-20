@@ -30,7 +30,14 @@ extern class DataViewListCtrl extends DataViewCtrl {
     @:native("DeleteAllItems")          public function deleteAllItems():Void;
     @:native("DeleteItem")              public function deleteItem(row:Int):Void;
     @:native("GetItemCount")            public function getItemCount():Int;
+    @:native("GetSelectedRow")          public function getSelectedRow():Int;
+
+    @:native("RowToItem")               public function rowToItem(row:Int):DataViewItem;
+    @:native("ItemToRow")               public function itemToRow(item:Reference<DataViewItem>):Int;
     
+    @:native("SelectRow")               public function selectRow(row:Int):Void;
+    @:native("UnselectRow")             public function unselectRow(row:Int):Void;
+
     @:native("GetValue")                public function getValue(value:Reference<Variant>, row:Int, col:Int):Void;
     @:native("SetValue")                public function setValue(value:Reference<Variant>, row:Int, col:Int):Void;
     @:native("GetTextValue")            public function getTextValue(row:Int, col:Int):WxString;

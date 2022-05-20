@@ -10,6 +10,7 @@ import wx.widgets.Vector.VariantVector;
 import wx.widgets.WxString;
 
 @:access(hx.widgets.DataViewColumn)
+@:access(hx.widgets.DataViewItem)
 @:access(hx.widgets.Object)
 class DataViewListCtrl extends DataViewCtrl {
     public function new(parent:Window, style:Int = 0, id:Int = -1) {
@@ -57,6 +58,20 @@ class DataViewListCtrl extends DataViewCtrl {
     public var itemCount(get, null):Int;
     private function get_itemCount():Int {
         return dataViewListCtrlRef.ptr.getItemCount();
+    }
+    
+    public var selectedRow(get, set):Int;
+    private function get_selectedRow():Int {
+        return dataViewListCtrlRef.ptr.getSelectedRow();
+    }
+    private function set_selectedRow(value:Int) {
+        dataViewListCtrlRef.ptr.selectRow(value);
+        return value;
+    }
+    
+    public function itemToRow(item:DataViewItem):Int {
+        var i = item._item;
+        return dataViewListCtrlRef.ptr.itemToRow(i);
     }
     
     public function getValue(row:Int, col:Int):Any {
