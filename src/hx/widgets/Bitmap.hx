@@ -71,7 +71,7 @@ class Bitmap extends GDIObject {
 
     public static function fromHaxeBytes(bytes:Bytes):Bitmap {
         if (bytes == null) {
-            throw "Could not load bitmap from null bytes";
+            return null;
         }
 
         var image:Image = new Image(bytes);
