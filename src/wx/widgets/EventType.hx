@@ -50,7 +50,8 @@ class EventType {
     public static var SET_FOCUS:Int             = untyped __cpp__("wxEVT_SET_FOCUS");
     public static var KILL_FOCUS:Int            = untyped __cpp__("wxEVT_KILL_FOCUS");
 
-    public static var CONTEXT_MENU:Int            = untyped __cpp__("wxEVT_CONTEXT_MENU");
+    public static var CONTEXT_MENU:Int          = untyped __cpp__("wxEVT_CONTEXT_MENU");
+    public static var DROP_FILES:Int            = untyped __cpp__("wxEVT_DROP_FILES");
 
     /* commented out as it causes link errors on my mac for some reason - should investigate
     public static var HYPERLINK:Int             = untyped __cpp__("wxEVT_HYPERLINK");
