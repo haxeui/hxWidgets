@@ -2,6 +2,7 @@ package wx.widgets;
 
 import cpp.Pointer;
 import cpp.RawPointer;
+import cpp.Reference;
 
 @:include("wx/filedlg.h")
 @:unreflective
@@ -23,7 +24,7 @@ extern class FileDialog extends Dialog {
     @:native("GetCurrentlySelectedFilename")  public function getCurrentlySelectedFilename():WxString;
     @:native("GetDirectory")                  public function getDirectory():WxString;
     @:native("GetFilename")                   public function getFilename():WxString;
-    @:native("GetFilenames")                  public function getFilenames(filenames:ArrayString):Void;
+    @:native("GetFilenames")                  public function getFilenames(filenames:Reference<ArrayString>):Void;
     @:native("GetFilterIndex")                public function getFilterIndex():Int;
     @:native("GetMessage")                    public function getMessage():WxString;
     @:native("GetPath")                       public function getPath():WxString;

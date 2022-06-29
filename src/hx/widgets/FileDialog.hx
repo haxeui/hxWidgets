@@ -66,12 +66,15 @@ class FileDialog extends Dialog {
         return value;
     }
 
-    // TODO:
-    /*
-    public function getFilenames():Array<String> {
-        return null;
+    public var filenames(get, null):Array<String>;
+    private function get_filenames():Array<String> {
+        var wxArray = new ArrayString();
+        fileDialogRef.ptr.getFilenames(@:privateAccess wxArray.arraystringRef.ref);
+        var array = new ArrayString();
+        var r = wxArray.toArray();
+        wxArray.destroy();
+        return r;
     }
-    */
 
     public var filterIndex(get, set):Int;
     private function get_filterIndex():Int {
