@@ -28,6 +28,17 @@ class ArrayString { //extends WxArray<String> {
         return n;
     }
 
+    public function item(index:Int):String {
+        var s = arraystringRef.ptr.item(index);
+        return new String(s.toUTF8().data());
+    }
+
+    public var count(get, null):Int;
+    private function get_count():Int {
+        return arraystringRef.ptr.getCount();
+    }
+    
+    
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Static helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -42,6 +53,19 @@ class ArrayString { //extends WxArray<String> {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    public function toArray():Array<String> {
+        var r = [];
+        var n = this.count;
+        if (n > 0) {
+            for (i in 0...n) {
+                var s = item(i);
+                r.push(s);
+            }
+        }
+        return r;
+    }
+    
     private var arraystringRef(get, null):Pointer<WxArrayString>;
     private function get_arraystringRef():Pointer<WxArrayString> {
         return _ref.reinterpret();
