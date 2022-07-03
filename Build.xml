@@ -1,8 +1,13 @@
 <xml>
-    <set name="lib_folder" value="vc_dll" />
-    <set name="lib_folder" value="vc_x64_dll" if="HXCPP_M64" />
-    <set name="lib_folder" value="vc_lib" if="WXSTATIC" />
-    <set name="lib_folder" value="vc_x64_lib" if="WXSTATIC HXCPP_M64" />
+    <set name="lib_folder_prefix" value="vc_" />
+
+    <set name="lib_folder_name" value="dll" />
+    <set name="lib_folder_name" value="lib" if="WXSTATIC" />
+
+    <set name="lib_folder_arch" value="" />
+    <set name="lib_folder_arch" value="x64_" if="HXCPP_M64" />
+
+    <set name="lib_folder" value="${lib_folder_prefix}${lib_folder_arch}${lib_folder_name}" />
     <set name="lib_folder" value="gcc_lib" if="HXCPP_MINGW" />
     <set name="lib_folder" value="gcc_dll" if="HXCPP_MINGW" />
 
