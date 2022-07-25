@@ -18,7 +18,7 @@ class TaskBarIcon extends EvtHandler {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Instance
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    #if ((wxMAJOR_VERSION >= 3) && (wxMINOR_VERSION >= 1) && (wxRELEASE_NUMBER >= 6))
+    #if (wxWidgetsVersion >= version("3.1.6"))
     public function setIcon(icon:BitmapBundle, tooltip:String = null) {
         taskBarIconRef.ptr.setIcon(icon.bitmapBundleRef.ref, WxString.fromUTF8(tooltip));
     }
@@ -36,7 +36,7 @@ class TaskBarIcon extends EvtHandler {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Utility
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    #if ((wxMAJOR_VERSION >= 3) && (wxMINOR_VERSION >= 1) && (wxRELEASE_NUMBER >= 6))
+    #if (wxWidgetsVersion >= version("3.1.6"))
     public function setBitmap(bitmap:Bitmap, tooltip:String = null) {
         var bitmapBundle = new BitmapBundle(bitmap);
         taskBarIconRef.ptr.setIcon(bitmapBundle.bitmapBundleRef.ref, WxString.fromUTF8(tooltip));

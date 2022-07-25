@@ -158,6 +158,7 @@ class EntryMacro {
         haxe.macro.Compiler.define("wxMAJOR_VERSION", Std.string(versionMajor));
         haxe.macro.Compiler.define("wxMINOR_VERSION", Std.string(versionMinor));
         haxe.macro.Compiler.define("wxRELEASE_NUMBER", Std.string(versionRelease));
+        haxe.macro.Compiler.define("wxWidgetsVersion", '${versionMajor}.${versionMinor}.${versionRelease}');
         return null;
     }
     

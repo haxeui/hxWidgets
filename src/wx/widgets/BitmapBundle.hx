@@ -1,6 +1,6 @@
 package wx.widgets;
 
-#if ((wxMAJOR_VERSION >= 3) && (wxMINOR_VERSION >= 1) && (wxRELEASE_NUMBER >= 6))
+#if (wxWidgetsVersion >= version("3.1.6"))
 
 import cpp.Pointer;
 import cpp.RawPointer;
