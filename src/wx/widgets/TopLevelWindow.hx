@@ -1,4 +1,5 @@
 package wx.widgets;
+import cpp.Reference;
 
 @:include("wx/toplevel.h")
 @:unreflective
@@ -15,4 +16,9 @@ extern class TopLevelWindow extends NonOwnedWindow {
     @:native("IsIconized")              public function isIconized():Bool;
     @:native("Maximize")                public function maximize(maximize:Bool = true):Void;
     @:native("IsMaximized")             public function isMaximized():Bool;
+    #if (wxWidgetsVersion >= version("3.1.6"))
+    @:native("SetIcon")                 public function setIcon(icon:Reference<BitmapBundle>):Void;
+    #else
+    @:native("SetIcon")                 public function setIcon(icon:Reference<Icon>):Void;
+    #end
 }

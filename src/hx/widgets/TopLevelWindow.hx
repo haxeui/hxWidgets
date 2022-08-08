@@ -4,6 +4,8 @@ import cpp.Pointer;
 import wx.widgets.TopLevelWindow in WxTopLevelWindow;
 import wx.widgets.WxString;
 
+@:access(hx.widgets.Icon)
+@:access(hx.widgets.BitmapBundle)
 class TopLevelWindow extends NonOwnedWindow {
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -46,6 +48,32 @@ class TopLevelWindow extends NonOwnedWindow {
         topLevelWindowRef.ptr.maximize(value);
         return value;
     }
+    
+    #if (wxWidgetsVersion >= version("3.1.6"))
+    public function setIcon(icon:BitmapBundle) {
+        topLevelWindowRef.ptr.setIcon(icon.bitmapBundleRef.ref);
+    }
+    #else
+    public function setIcon(icon:Icon) {
+        topLevelWindowRef.ptr.setIcon(icon.iconRef.ref);
+    }
+    #end
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Utility
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    #if (wxWidgetsVersion >= version("3.1.6"))
+    public function setBitmap(bitmap:Bitmap) {
+        var bitmapBundle = new BitmapBundle(bitmap);
+        topLevelWindowRef.ptr.setIcon(bitmapBundle.bitmapBundleRef.ref);
+    }
+    #else
+    public function setBitmap(bitmap:Bitmap) {
+        var icon = new Icon();
+        icon.copyFromBitmap(bitmap);
+        topLevelWindowRef.ptr.setIcon(icon.iconRef.ref);
+    }
+    #end
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helpers
