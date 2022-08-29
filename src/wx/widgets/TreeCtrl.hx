@@ -18,8 +18,6 @@ extern class TreeCtrl extends Control {
                                             return Pointer.fromRaw(_new());
                                         }
 
-    @:native("Create")                  override public function create(parent:RawPointer<Window>, id:Int, point:Point, size:Size, style:Int):Bool;
-    
     @:native("AddRoot")                 public function addRoot(text:WxString, image:Int = -1, selImage:Int = -1):TreeItemId;
     @:native("AppendItem")              public function appendItem(parent:Reference<TreeItemId>, text:WxString, image:Int = -1, selImage:Int = -1):TreeItemId;
     @:native("AssignImageList")         public function assignImageList(imageList:RawPointer<ImageList>):Void;    
