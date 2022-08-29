@@ -84,6 +84,16 @@ class DataViewTreeCtrl extends DataViewCtrl {
         return dataViewTreeCtrlRef.ptr.isContainer(item._item);
     }
     
+    public function getChildCount(parent:DataViewItem):Int {
+        return dataViewTreeCtrlRef.ptr.getChildCount(parent._item);
+    }
+    
+    public function getNthChild(parent:DataViewItem, pos:Int):DataViewItem {
+        var item = new DataViewItem();
+        item._item = dataViewTreeCtrlRef.ptr.getNthChild(parent._item, pos);
+        return item;
+    }
+    
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
