@@ -25,8 +25,7 @@ class DataViewTreeCtrl extends DataViewCtrl {
         var s = WxString.fromUTF8(text);
         var newItem = new DataViewItem();
         if (parent == null) {
-            var parentItem = untyped __cpp__("wxDataViewItem(0)");
-            newItem._item = dataViewTreeCtrlRef.ptr.appendContainer(parentItem, s, icon, expanded);
+            newItem._item = dataViewTreeCtrlRef.ptr.appendContainer(untyped __cpp__("wxDataViewItem(0)"), s, icon, expanded);
         } else {
             var parentItem = parent._item;
             newItem._item = dataViewTreeCtrlRef.ptr.appendContainer(parentItem, s, icon, expanded);
@@ -39,8 +38,7 @@ class DataViewTreeCtrl extends DataViewCtrl {
         var s = WxString.fromUTF8(text);
         var newItem = new DataViewItem();
         if (parent == null) {
-            var parentItem = untyped __cpp__("wxDataViewItem(0)");
-            newItem._item = dataViewTreeCtrlRef.ptr.appendItem(parentItem, s, icon);
+            newItem._item = dataViewTreeCtrlRef.ptr.appendItem(untyped __cpp__("wxDataViewItem(0)"), s, icon);
         } else {
             var parentItem = parent._item;
             newItem._item = dataViewTreeCtrlRef.ptr.appendItem(parentItem, s, icon);
