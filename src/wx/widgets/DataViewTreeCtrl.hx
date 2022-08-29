@@ -24,4 +24,5 @@ extern class DataViewTreeCtrl extends DataViewCtrl  {
     @:native("DeleteAllItems")                  public function deleteAllItems():Void;    
     @:native("DeleteChildren")                  public function deleteChildren(item:Reference<DataViewItem>):Void;    
     @:native("DeleteItem")                      public function deleteItem(item:Reference<DataViewItem>):Void;    
+    @:native("IsContainer")                     public function isContainer(item:Reference<DataViewItem>):Bool;    
 }
