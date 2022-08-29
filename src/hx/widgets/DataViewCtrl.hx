@@ -39,6 +39,14 @@ class DataViewCtrl extends Control {
         return value;
     }
     
+    private function isExpanded(item:DataViewItem):Bool {
+        return dataViewCtrlRef.ptr.isExpanded(item._item);
+    }
+    
+    private function isSelected(item:DataViewItem):Bool {
+        return dataViewCtrlRef.ptr.isSelected(item._item);
+    }
+    
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

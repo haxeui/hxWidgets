@@ -15,4 +15,6 @@ extern class DataViewCtrl extends Control {
     @:native("Expand")                  public function expand(item:Reference<DataViewItem>):Void;
     @:native("GetSelection")            public function getSelection():DataViewItem;
     @:native("Select")                  public function select(item:Reference<DataViewItem>):Void;
+    @:native("IsExpanded")              public function isExpanded(item:Reference<DataViewItem>):Bool;
+    @:native("IsSelected")              public function isSelected(item:Reference<DataViewItem>):Bool;
 }
