@@ -13,6 +13,7 @@ package wx.widgets;
 #include <wx/spinctrl.h>
 #include <wx/calctrl.h>
 #include <wx/dataview.h>
+#include <wx/treebase.h>
 ")
 
 class EventType {
@@ -40,6 +41,7 @@ class EventType {
     public static var PG_CHANGED:Int            = untyped __cpp__("wxEVT_PG_CHANGED");
     public static var SPINCTRL:Int              = untyped __cpp__("wxEVT_SPINCTRL");
     public static var CALENDAR_SEL_CHANGED:Int  = untyped __cpp__("wxEVT_CALENDAR_SEL_CHANGED");
+    public static var TREE_SEL_CHANGED:Int      = untyped __cpp__("wxEVT_TREE_SEL_CHANGED");
     
     public static var DATAVIEW_ITEM_VALUE_CHANGED:Int   = untyped __cpp__("wxEVT_DATAVIEW_ITEM_VALUE_CHANGED");
     public static var DATAVIEW_SELECTION_CHANGED:Int    = untyped __cpp__("wxEVT_DATAVIEW_SELECTION_CHANGED");
