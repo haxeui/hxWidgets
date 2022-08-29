@@ -49,31 +49,35 @@ class TopLevelWindow extends NonOwnedWindow {
         return value;
     }
     
+    /* TODO: doesnt seem to work with git versions of wxWidgets, seems something has changed, need to review
     #if (wxWidgetsVersion >= version("3.1.6"))
     public function setIcon(icon:BitmapBundle) {
         topLevelWindowRef.ptr.setIcon(icon.bitmapBundleRef.ref);
     }
     #else
+    */
     public function setIcon(icon:Icon) {
         topLevelWindowRef.ptr.setIcon(icon.iconRef.ref);
     }
-    #end
+    //#end
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Utility
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /* TODO: doesnt seem to work with git versions of wxWidgets, seems something has changed, need to review
     #if (wxWidgetsVersion >= version("3.1.6"))
     public function setBitmap(bitmap:Bitmap) {
         var bitmapBundle = new BitmapBundle(bitmap);
         topLevelWindowRef.ptr.setIcon(bitmapBundle.bitmapBundleRef.ref);
     }
     #else
+    */
     public function setBitmap(bitmap:Bitmap) {
         var icon = new Icon();
         icon.copyFromBitmap(bitmap);
         topLevelWindowRef.ptr.setIcon(icon.iconRef.ref);
     }
-    #end
+    //#end
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helpers
