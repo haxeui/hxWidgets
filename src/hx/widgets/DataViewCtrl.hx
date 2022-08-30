@@ -32,6 +32,9 @@ class DataViewCtrl extends Control {
         var itemId = dataViewCtrlRef.ptr.getSelection();
         var dataViewItem = new DataViewItem();
         dataViewItem._item = itemId;
+        if (!dataViewItem.isOK) {
+            return null;
+        }
         return dataViewItem;
     }
     private function set_selection(value:DataViewItem):DataViewItem {
@@ -39,12 +42,24 @@ class DataViewCtrl extends Control {
         return value;
     }
     
-    private function isExpanded(item:DataViewItem):Bool {
+    public function isExpanded(item:DataViewItem):Bool {
         return dataViewCtrlRef.ptr.isExpanded(item._item);
     }
     
-    private function isSelected(item:DataViewItem):Bool {
+    public function isSelected(item:DataViewItem):Bool {
         return dataViewCtrlRef.ptr.isSelected(item._item);
+    }
+    
+    public function ensureVisible(item:DataViewItem) {
+        dataViewCtrlRef.ptr.ensureVisible(item._item);
+    }
+    
+    public function unselect(item:DataViewItem) {
+        dataViewCtrlRef.ptr.unselect(item._item);
+    }
+    
+    public function unselectAll() {
+        dataViewCtrlRef.ptr.unselectAll();
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
