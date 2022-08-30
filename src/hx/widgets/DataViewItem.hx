@@ -14,7 +14,7 @@ class DataViewItem {
             return -1;
         }
         var id = _item.getId();
-        var v = untyped __cpp__("(int){0}", id);
+        var v = untyped __cpp__("(int)(size_t){0}", id);
         return v;
     }
     
