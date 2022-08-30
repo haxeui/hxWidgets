@@ -2,6 +2,7 @@ package wx.widgets;
 
 import cpp.Pointer;
 import cpp.RawPointer;
+import cpp.Reference;
 
 @:include("wx/imaglist.h")
 @:unreflective
@@ -23,5 +24,6 @@ extern class ImageList extends Object {
     // Instance functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     @:native("Add")                     public function add(bitmap:Bitmap):Int;
+    @:native("GetIcon")                 public function getIcon(index:Int):Icon;
 
 }

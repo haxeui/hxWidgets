@@ -21,6 +21,8 @@ extern class DataViewTreeCtrl extends DataViewCtrl  {
     @:native("AppendItem")                      public function appendItem(parent:Reference<DataViewItem>, text:WxString, icon:Int = -1):DataViewItem;
     @:native("SetImageList")                    public function setImageList(imageList:RawPointer<ImageList>):Void;    
     @:native("GetItemText")                     public function getItemText(item:Reference<DataViewItem>):WxString;    
+    @:native("SetItemText")                     public function setItemText(item:Reference<DataViewItem>, text:WxString):Void;    
+    @:native("SetItemIcon")                     public function setItemIcon(item:Reference<DataViewItem>, icon:Reference<Icon>):Void;    
     @:native("DeleteAllItems")                  public function deleteAllItems():Void;    
     @:native("DeleteChildren")                  public function deleteChildren(item:Reference<DataViewItem>):Void;    
     @:native("DeleteItem")                      public function deleteItem(item:Reference<DataViewItem>):Void;    

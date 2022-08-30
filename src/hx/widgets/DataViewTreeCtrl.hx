@@ -1,13 +1,16 @@
 package hx.widgets;
 
 import cpp.Pointer;
+import cpp.Reference;
 import hx.widgets.ImageList;
 import wx.widgets.DataViewTreeCtrl in WxDataViewTreeCtrl;
 import wx.widgets.WxString;
 import hx.widgets.styles.DataViewCtrlStyle;
 import wx.widgets.DataViewItem in WxDataViewItem;
+import wx.widgets.Icon in WxIcon;
 
 @:access(hx.widgets.DataViewItem)
+@:access(hx.widgets.Icon)
 class DataViewTreeCtrl extends DataViewCtrl {
     public function new(parent:Window, style:Int = 0, id:Int = -1) {
         if (_ref == null) {
@@ -66,6 +69,16 @@ class DataViewTreeCtrl extends DataViewCtrl {
     public function getItemText(item:DataViewItem):String {
         var r:WxString = dataViewTreeCtrlRef.ptr.getItemText(item._item);
         return new String(r.toUTF8().data());
+    }
+    
+    public function setItemText(item:DataViewItem, text:String) {
+        var s = WxString.fromUTF8(text);
+        dataViewTreeCtrlRef.ptr.setItemText(item._item, s);
+    }
+    
+    @:access(hx.widgets.ImageList)
+    public function setItemIconIndex(item:DataViewItem, iconIndex:Int) {
+        dataViewTreeCtrlRef.ptr.setItemIcon(item._item, _imageList.imagelistRef.ptr.getIcon(iconIndex));
     }
     
     public function deleteAllItems() {
