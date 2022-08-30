@@ -16,11 +16,26 @@ void onEvent(wxEvent & e) {
 class EvtHandler extends Object implements Trackable {
 
     private var _eventMap:Map<Int, Map<Int, Array<Event->Void>>>;
-
+    private var _pausedEvents:Map<Int, Int> = null;
+    
     public function new() {
         _eventMap = new Map<Int, Map<Int, Array<Event->Void>>>();
     }
 
+    public function pauseEvent(event:Int) {
+        if (_pausedEvents == null) {
+            _pausedEvents = new Map<Int, Int>();
+        }
+        _pausedEvents.set(event, event);
+    }
+    
+    public function unpauseEvent(event:Int) {
+        if (_pausedEvents == null) {
+            return;
+        }
+        _pausedEvents.remove(event);
+    }
+    
     public function bind(event:Int, fn:Event->Void, id:Int = -1) {
         if (_eventMap == null) {
             _eventMap = new Map<Int, Map<Int, Array<Event->Void>>>();
@@ -102,6 +117,10 @@ class EvtHandler extends Object implements Trackable {
     }
 
     private function executeHandlers(e:Pointer<WxEvent>, id:Int = -1) {
+        if (_pausedEvents != null && _pausedEvents.exists(id)) {
+            return;
+        }
+        
         if (_eventMap == null) {
             return;
         }
