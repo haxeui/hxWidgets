@@ -107,6 +107,15 @@ class DataViewTreeCtrl extends DataViewCtrl {
         return item;
     }
     
+    public var indent(get, set):Int;
+    private function get_indent():Int {
+        return dataViewTreeCtrlRef.ptr.getIndent();
+    }
+    private function set_indent(value:Int):Int {
+        dataViewTreeCtrlRef.ptr.setIndent(value);
+        return value;
+    }
+    
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

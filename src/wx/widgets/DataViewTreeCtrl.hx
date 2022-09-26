@@ -29,4 +29,6 @@ extern class DataViewTreeCtrl extends DataViewCtrl  {
     @:native("IsContainer")                     public function isContainer(item:Reference<DataViewItem>):Bool;    
     @:native("GetChildCount")                   public function getChildCount(parent:Reference<DataViewItem>):Int;    
     @:native("GetNthChild")                     public function getNthChild(parent:Reference<DataViewItem>, pos:Int):DataViewItem;    
+    @:native("GetIndent")                       public function getIndent():Int;    
+    @:native("SetIndent")                       public function setIndent(indent:Int):Void;    
 }
