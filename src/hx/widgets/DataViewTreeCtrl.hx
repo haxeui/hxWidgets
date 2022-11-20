@@ -12,6 +12,8 @@ import wx.widgets.Icon in WxIcon;
 @:access(hx.widgets.DataViewItem)
 @:access(hx.widgets.Icon)
 class DataViewTreeCtrl extends DataViewCtrl {
+    private static var NULL_ITEM:WxDataViewItem = untyped __cpp__("wxDataViewItem(0)");
+
     public function new(parent:Window, style:Int = 0, id:Int = -1) {
         if (_ref == null) {
             _ref = WxDataViewTreeCtrl.createInstance().reinterpret();
@@ -28,7 +30,7 @@ class DataViewTreeCtrl extends DataViewCtrl {
         var s = WxString.fromUTF8(text);
         var newItem = new DataViewItem();
         if (parent == null) {
-            newItem._item = dataViewTreeCtrlRef.ptr.appendContainer(untyped __cpp__("wxDataViewItem(0)"), s, icon, expanded);
+            newItem._item = dataViewTreeCtrlRef.ptr.appendContainer(NULL_ITEM, s, icon, expanded);
         } else {
             var parentItem = parent._item;
             newItem._item = dataViewTreeCtrlRef.ptr.appendContainer(parentItem, s, icon, expanded);
@@ -41,7 +43,7 @@ class DataViewTreeCtrl extends DataViewCtrl {
         var s = WxString.fromUTF8(text);
         var newItem = new DataViewItem();
         if (parent == null) {
-            newItem._item = dataViewTreeCtrlRef.ptr.prependContainer(untyped __cpp__("wxDataViewItem(0)"), s, icon, expanded);
+            newItem._item = dataViewTreeCtrlRef.ptr.prependContainer(NULL_ITEM, s, icon, expanded);
         } else {
             var parentItem = parent._item;
             newItem._item = dataViewTreeCtrlRef.ptr.prependContainer(parentItem, s, icon, expanded);
@@ -56,7 +58,7 @@ class DataViewTreeCtrl extends DataViewCtrl {
         var newItem = new DataViewItem();
         if (parent == null) {
             var previousItem = previous._item;
-            newItem._item = dataViewTreeCtrlRef.ptr.insertContainer(untyped __cpp__("wxDataViewItem(0)"), previousItem, s, icon, expanded);
+            newItem._item = dataViewTreeCtrlRef.ptr.insertContainer(NULL_ITEM, previousItem, s, icon, expanded);
         } else {
             var parentItem = parent._item;
             var previousItem = previous._item;
@@ -70,7 +72,7 @@ class DataViewTreeCtrl extends DataViewCtrl {
         var s = WxString.fromUTF8(text);
         var newItem = new DataViewItem();
         if (parent == null) {
-            newItem._item = dataViewTreeCtrlRef.ptr.appendItem(untyped __cpp__("wxDataViewItem(0)"), s, icon);
+            newItem._item = dataViewTreeCtrlRef.ptr.appendItem(NULL_ITEM, s, icon);
         } else {
             var parentItem = parent._item;
             newItem._item = dataViewTreeCtrlRef.ptr.appendItem(parentItem, s, icon);
@@ -83,7 +85,7 @@ class DataViewTreeCtrl extends DataViewCtrl {
         var s = WxString.fromUTF8(text);
         var newItem = new DataViewItem();
         if (parent == null) {
-            newItem._item = dataViewTreeCtrlRef.ptr.prependItem(untyped __cpp__("wxDataViewItem(0)"), s, icon);
+            newItem._item = dataViewTreeCtrlRef.ptr.prependItem(NULL_ITEM, s, icon);
         } else {
             var parentItem = parent._item;
             newItem._item = dataViewTreeCtrlRef.ptr.prependItem(parentItem, s, icon);
@@ -97,7 +99,7 @@ class DataViewTreeCtrl extends DataViewCtrl {
         var newItem = new DataViewItem();
         if (parent == null) {
             var previousItem = previous._item;
-            newItem._item = dataViewTreeCtrlRef.ptr.insertItem(untyped __cpp__("wxDataViewItem(0)"), previousItem, s, icon);
+            newItem._item = dataViewTreeCtrlRef.ptr.insertItem(NULL_ITEM, previousItem, s, icon);
         } else {
             var parentItem = parent._item;
             var previousItem = previous._item;
@@ -156,7 +158,7 @@ class DataViewTreeCtrl extends DataViewCtrl {
     
     public function getChildCount(parent:DataViewItem):Int {
         if (parent == null) {
-            return dataViewTreeCtrlRef.ptr.getChildCount(untyped __cpp__("wxDataViewItem(0)"));
+            return dataViewTreeCtrlRef.ptr.getChildCount(NULL_ITEM);
         }
 
         return dataViewTreeCtrlRef.ptr.getChildCount(parent._item);
@@ -165,7 +167,7 @@ class DataViewTreeCtrl extends DataViewCtrl {
     public function getNthChild(parent:DataViewItem, pos:Int):DataViewItem {
         if (parent == null) {
             var item = new DataViewItem();
-            item._item = dataViewTreeCtrlRef.ptr.getNthChild(untyped __cpp__("wxDataViewItem(0)"), pos);
+            item._item = dataViewTreeCtrlRef.ptr.getNthChild(NULL_ITEM, pos);
             return item;
         }
 
