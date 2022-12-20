@@ -24,6 +24,24 @@ class SpinCtrl extends Control {
         return value;
     }
     
+    public var min(get, set):Int;
+    private function get_min():Int {
+        return spinCtrlRef.ptr.getMin();
+    }
+    private function set_min(value:Int):Int {
+        spinCtrlRef.ptr.setRange(value, max);
+        return value;
+    }
+
+    public var max(get, set):Int;
+    private function get_max():Int {
+        return spinCtrlRef.ptr.getMax();
+    }
+    private function set_max(value:Int):Int {
+        spinCtrlRef.ptr.setRange(min, value);
+        return value;
+    }
+    
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helpers
