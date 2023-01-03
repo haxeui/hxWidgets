@@ -29,6 +29,14 @@ class Control extends Window {
         s.destroy();
         return value;
     }
+    
+    public function setLabelMarkup(value:String):Bool {
+    	var s = WxString.createInstance(value);
+        var b = controlRef.ptr.setLabelMarkup(s.ref);
+        s.destroy();
+        return b;
+    
+    }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helpers
