@@ -35,7 +35,6 @@ class Control extends Window {
         var b = controlRef.ptr.setLabelMarkup(s.ref);
         s.destroy();
         return b;
-    
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
