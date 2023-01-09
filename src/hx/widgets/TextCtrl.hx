@@ -98,7 +98,7 @@ class TextCtrl extends Control implements TextEntry {
         return margins;
     }
     
-    private function getRange(from:Int, to:Int):String {
+    public function getRange(from:Int, to:Int):String {
         var r:WxString = textCtrlRef.ptr.getRange(from, to);
         return new String(r.toUTF8().data());
     }    
@@ -120,6 +120,7 @@ class TextCtrl extends Control implements TextEntry {
     	var end   = 0;
     	var startPtr  = Pointer.addressOf(start);
     	var endPtr    = Pointer.addressOf(end);
+    	
         textCtrlRef.ptr.getSelection(cast startPtr, cast endPtr);
         return {start:startPtr.ref, end:endPtr.ref};
     }
@@ -128,7 +129,8 @@ class TextCtrl extends Control implements TextEntry {
         return sel;
     }
     
-    public function getStringSelection():String {
+    public var stringSelection(get, null):String;
+    private function get_stringSelection():String {
     	var r:WxString = textCtrlRef.ptr.getStringSelection();
         return new String(r.toUTF8().data());
     }
@@ -183,8 +185,11 @@ class TextCtrl extends Control implements TextEntry {
         return value;
     }
     
-    public function setMaxLength(len:Float):Void {
+    public var maxLength(default, set):Int;
+    public function set_maxLength(len:Int):Int {
     	textCtrlRef.ptr.setMaxLength(len);
+    	maxLength = len;
+    	return len;
     }
     
     public function undo():Void {

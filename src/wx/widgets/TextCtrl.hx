@@ -61,7 +61,7 @@ extern class TextCtrl extends Control implements TextEntry {
     @:native("SelectAll")           public function selectAll():Void;
     @:native("SetHint")             public function setHint(value:WxString):Void;
     @:native("GetHint")             public function getHint():WxString;
-    @:native("SetMaxLength")        public function setMaxLength(len:Float):Void;
+    @:native("SetMaxLength")        public function setMaxLength(len:Int):Void;
     @:native("Undo")                public function undo():Void;
     @:native("WriteText")           public function writeText(value:WxString):Void;
 }
