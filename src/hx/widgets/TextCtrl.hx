@@ -116,13 +116,13 @@ class TextCtrl extends Control implements TextEntry {
     
     public var selection(get, set):{start:Int, end:Int};
     private function get_selection():{start:Int, end:Int} {
-    	var start = 0;
-    	var end   = 0;
-    	var startPtr  = Pointer.addressOf(start);
-    	var endPtr    = Pointer.addressOf(end);
+    	var start:Long = cast 0;
+    	var end:Long = cast 0;
+    	var startPtr = Pointer.addressOf(start).raw;
+    	var endPtr = Pointer.addressOf(end).raw;
     	
-        textCtrlRef.ptr.getSelection(cast startPtr, cast endPtr);
-        return {start:startPtr.ref, end:endPtr.ref};
+        textCtrlRef.ptr.getSelection(startPtr, endPtr);
+        return {start: cast start, end: cast end};
     }
     private function set_selection(sel:{start:Int, end:Int}):{start:Int, end:Int} {
         textCtrlRef.ptr.setSelection(sel.start, sel.end);

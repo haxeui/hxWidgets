@@ -2,8 +2,6 @@ package wx.widgets;
 
 import cpp.Pointer;
 import cpp.RawPointer;
-import cpp.Star;
-import cpp.Int64;
 import cpp.Reference;
 
 @:include("wx/textctrl.h")
@@ -45,7 +43,7 @@ extern class TextCtrl extends Control implements TextEntry {
     @:native("GetMargins")          public function getMargins():Point;
     @:native("SetMargins")          public function setMargins(pt:Point):Bool;
     @:native("GetRange")            public function getRange(from:Int, to:Int):WxString;
-    @:native("GetSelection")        public function getSelection(from:Star<Int64>, to:Star<Int64>):Void;
+    @:native("GetSelection")        public function getSelection(from:RawPointer<Long>, to:RawPointer<Long>):Void;
     @:native("SetSelection")        public function setSelection(from:Int, to:Int):Void;
     @:native("GetStringSelection")  public function getStringSelection():WxString;
     @:native("SetValue")            public function setValue(value:WxString):Void;
