@@ -122,7 +122,7 @@ class TextCtrl extends Control implements TextEntry {
     	var endPtr = Pointer.addressOf(end).raw;
     	
         textCtrlRef.ptr.getSelection(startPtr, endPtr);
-        return {start: cast(start, Int), end: cast(end, Int)};
+        return {start: untyped __cpp__("((int)start)"), end: untyped __cpp__("((int)end)")};
     }
     private function set_selection(sel:{start:Int, end:Int}):{start:Int, end:Int} {
         textCtrlRef.ptr.setSelection(sel.start, sel.end);
