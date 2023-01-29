@@ -46,6 +46,7 @@ class EventType {
     public static var DATAVIEW_ITEM_VALUE_CHANGED:Int   = untyped __cpp__("wxEVT_DATAVIEW_ITEM_VALUE_CHANGED");
     public static var DATAVIEW_SELECTION_CHANGED:Int    = untyped __cpp__("wxEVT_DATAVIEW_SELECTION_CHANGED");
     public static var DATAVIEW_ITEM_START_EDITING:Int   = untyped __cpp__("wxEVT_DATAVIEW_ITEM_START_EDITING");
+    public static var DATAVIEW_ITEM_CONTEXT_MENU:Int    = untyped __cpp__("wxEVT_DATAVIEW_ITEM_CONTEXT_MENU");
 
     public static var PAINT:Int                 = untyped __cpp__("wxEVT_PAINT");
     public static var ERASE_BACKGROUND:Int      = untyped __cpp__("wxEVT_ERASE_BACKGROUND");
