@@ -16,5 +16,10 @@ extern class Locale {
                                                     return Pointer.fromRaw(_new(language));
                                                 }
                                     
-    @:native("wxLocale::GetSystemLanguage")     public static function getSystemLanguage():Int;
+    
+    @:native("wxLocale::GetLanguageName")            public static function getLanguageName(lang:Int):WxString;
+    @:native("wxLocale::GetLanguageCanonicalName")   public static function getLanguageCanonicalName(lang:Int):WxString;
+    @:native("wxLocale::GetSystemEncodingName")      public static function getSystemEncodingName():WxString;
+    @:native("wxLocale::GetSystemLanguage")          public static function getSystemLanguage():Int;
+    @:native("wxLocale::IsAvailable")                public static function isAvailable(lang:Int):Bool;
 }
