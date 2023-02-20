@@ -56,6 +56,16 @@ class Main {
 
         var taskBarIcon = new TaskBarIcon();
         taskBarIcon.setBitmap(Bitmap.fromHaxeResource("haxe-logo-tiny.png"), "Some tooltip");
+
+        var taskBarMenu = new Menu();
+        taskBarMenu.append(1101, "Item 1");
+        taskBarMenu.append(1102, "Item 2");
+        taskBarMenu.appendSeparator();
+        taskBarMenu.append(1103, "Item 3");
+
+        taskBarIcon.bind(EventType.TASKBAR_CLICK, (event) -> {
+            frame.popupMenu(taskBarMenu);
+        });
         
         var platform:PlatformInfo  = new PlatformInfo();
         if (platform.isWindows) {
