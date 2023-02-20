@@ -57,9 +57,7 @@ class EventType {
     public static var CONTEXT_MENU:Int          = untyped __cpp__("wxEVT_CONTEXT_MENU");
     public static var DROP_FILES:Int            = untyped __cpp__("wxEVT_DROP_FILES");
 
-    /* commented out as it causes link errors on my mac for some reason - should investigate
     public static var HYPERLINK:Int             = untyped __cpp__("wxEVT_HYPERLINK");
-    */
 
     /** Process a wxEVT_LEFT_DOWN event. The handler of this event should normally call event.Skip() to allow the default processing to take
       * place as otherwise the window under mouse wouldn't get the focus. */
