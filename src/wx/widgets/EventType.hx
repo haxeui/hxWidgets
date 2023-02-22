@@ -14,6 +14,7 @@ package wx.widgets;
 #include <wx/calctrl.h>
 #include <wx/dataview.h>
 #include <wx/treebase.h>
+#include <wx/taskbar.h>
 ")
 
 class EventType {
@@ -57,9 +58,7 @@ class EventType {
     public static var CONTEXT_MENU:Int          = untyped __cpp__("wxEVT_CONTEXT_MENU");
     public static var DROP_FILES:Int            = untyped __cpp__("wxEVT_DROP_FILES");
 
-    /* commented out as it causes link errors on my mac for some reason - should investigate
     public static var HYPERLINK:Int             = untyped __cpp__("wxEVT_HYPERLINK");
-    */
 
     /** Process a wxEVT_LEFT_DOWN event. The handler of this event should normally call event.Skip() to allow the default processing to take
       * place as otherwise the window under mouse wouldn't get the focus. */
@@ -80,4 +79,13 @@ class EventType {
 
     public static var THREAD:Int                = untyped __cpp__("wxEVT_THREAD");
     public static var END_PROCESS:Int           = untyped __cpp__("wxEVT_END_PROCESS");
+
+    public static var TASKBAR_CLICK:Int         = untyped __cpp__("wxEVT_TASKBAR_CLICK");
+    public static var TASKBAR_LEFT_DCLICK:Int   = untyped __cpp__("wxEVT_TASKBAR_LEFT_DCLICK");
+    public static var TASKBAR_LEFT_DOWN:Int     = untyped __cpp__("wxEVT_TASKBAR_LEFT_DOWN");
+    public static var TASKBAR_LEFT_UP:Int       = untyped __cpp__("wxEVT_TASKBAR_LEFT_UP");
+    public static var TASKBAR_MOVE:Int          = untyped __cpp__("wxEVT_TASKBAR_MOVE");
+    public static var TASKBAR_RIGHT_DCLICK:Int  = untyped __cpp__("wxEVT_TASKBAR_RIGHT_DCLICK");
+    public static var TASKBAR_RIGHT_DOWN:Int    = untyped __cpp__("wxEVT_TASKBAR_RIGHT_DOWN");
+    public static var TASKBAR_RIGHT_UP:Int      = untyped __cpp__("wxEVT_TASKBAR_RIGHT_UP");
 }
