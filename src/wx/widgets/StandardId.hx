@@ -10,4 +10,7 @@ class StandardId {
     public static var NO:Int        = untyped __cpp__("::wxID_NO");
     public static var CANCEL:Int    = untyped __cpp__("::wxID_CANCEL");
     public static var APPLY:Int     = untyped __cpp__("::wxID_APPLY");
+    public static var EXIT:Int      = untyped __cpp__("::wxID_EXIT");
+    public static var PREFERENCES:Int = untyped __cpp__("::wxID_PREFERENCES");
+    public static var HIGHEST:Int   = untyped __cpp__("::wxID_HIGHEST");
 }
