@@ -18,6 +18,14 @@ class HeaderColumn {
     private function set_title(value:String):String {
         return value;
     }
+
+    public var alignment(get, set):Int;
+    private function get_alignment():Int {
+        return cast headerColumn.ptr.getAlignment();
+    }
+    private function set_alignment(value:Int):Int {
+        return value;
+    }
     
     public var width(get, set):Int;
     private function get_width():Int {
