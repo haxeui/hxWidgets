@@ -27,6 +27,10 @@ class TaskBarIcon extends EvtHandler {
         taskBarIconRef.ptr.setIcon(icon.iconRef.ref, WxString.fromUTF8(tooltip));
     }
     #end
+
+    public function removeIcon() {
+        taskBarIconRef.ptr.removeIcon();
+    }
     
     public var isIconInstalled(get, null):Bool;
     private function get_isIconInstalled():Bool {
