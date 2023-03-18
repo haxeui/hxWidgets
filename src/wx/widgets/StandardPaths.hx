@@ -17,4 +17,20 @@ extern class StandardPaths {
     @:native("GetUserConfigDir")        public function getUserConfigDir():WxString;
     @:native("GetUserDataDir")          public function getUserDataDir():WxString;
     @:native("GetUserLocalDataDir")     public function getUserLocalDataDir():WxString;
+
+    @:native("GetFileLayout")           public function getFileLayout():FileLayout;
+    @:native("SetFileLayout")           public function setFileLayout(layout: FileLayout):Void;
+}
+
+@:include("wx/stdpaths.h")
+@:enum extern abstract FileLayout(FileLayoutImpl) {
+
+    @:native("wxStandardPaths::FileLayout_Classic")   var FileLayout_Classic;
+    @:native("wxStandardPaths::FileLayout_XDG")       var FileLayout_XDG;
+
+}
+
+@:include("wx/stdpaths.h")
+@:native("cpp::Struct<wxStandardPaths::FileLayout, cpp::EnumHandler>")
+extern class FileLayoutImpl {
 }

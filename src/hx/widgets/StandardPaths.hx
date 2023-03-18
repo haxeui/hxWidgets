@@ -4,6 +4,8 @@ import cpp.Pointer;
 import wx.widgets.StandardPaths in WxStandardPaths;
 import wx.widgets.WxString;
 
+typedef FileLayout = wx.widgets.StandardPaths.FileLayout;
+
 class StandardPaths {
     private var _ref:Pointer<WxStandardPaths>;
     
@@ -77,6 +79,15 @@ class StandardPaths {
     private function get_userLocalDataDir():String {
         var s:WxString = standardPathsRef.ptr.getUserLocalDataDir();
         return new String(s.toUTF8().data());
+    }
+
+    public var fileLayout(get, set):FileLayout;
+    private function get_fileLayout():FileLayout {
+        return standardPathsRef.ptr.getFileLayout();
+    }
+    private function set_fileLayout(layout: FileLayout):FileLayout {
+        standardPathsRef.ptr.setFileLayout(layout);
+        return layout;
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
