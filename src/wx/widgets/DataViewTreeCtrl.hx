@@ -18,7 +18,11 @@ extern class DataViewTreeCtrl extends DataViewCtrl  {
                                                 }
                                                 
     @:native("AppendContainer")                 public function appendContainer(parent:Reference<DataViewItem>, text:WxString, icon:Int = -1, expanded:Int = -1):DataViewItem;
+    @:native("PrependContainer")                public function prependContainer(parent:Reference<DataViewItem>, text:WxString, icon:Int = -1, expanded:Int = -1):DataViewItem;
+    @:native("InsertContainer")                 public function insertContainer(parent:Reference<DataViewItem>, previous:Reference<DataViewItem>, text:WxString, icon:Int = -1, expanded:Int = -1):DataViewItem;
     @:native("AppendItem")                      public function appendItem(parent:Reference<DataViewItem>, text:WxString, icon:Int = -1):DataViewItem;
+    @:native("PrependItem")                     public function prependItem(parent:Reference<DataViewItem>, text:WxString, icon:Int = -1):DataViewItem;
+    @:native("InsertItem")                      public function insertItem(parent:Reference<DataViewItem>, previous:Reference<DataViewItem>, text:WxString, icon:Int = -1):DataViewItem;
     @:native("SetImageList")                    public function setImageList(imageList:RawPointer<ImageList>):Void;    
     @:native("GetItemText")                     public function getItemText(item:Reference<DataViewItem>):WxString;    
     @:native("SetItemText")                     public function setItemText(item:Reference<DataViewItem>, text:WxString):Void;    
@@ -29,4 +33,6 @@ extern class DataViewTreeCtrl extends DataViewCtrl  {
     @:native("IsContainer")                     public function isContainer(item:Reference<DataViewItem>):Bool;    
     @:native("GetChildCount")                   public function getChildCount(parent:Reference<DataViewItem>):Int;    
     @:native("GetNthChild")                     public function getNthChild(parent:Reference<DataViewItem>, pos:Int):DataViewItem;    
+    @:native("GetIndent")                       public function getIndent():Int;    
+    @:native("SetIndent")                       public function setIndent(indent:Int):Void;    
 }

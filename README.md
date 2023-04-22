@@ -29,7 +29,10 @@ You need wxWidgets 3.x and wx-config available in your path.
 
 You can install wxWidgets with:
 
-* on debian/ubuntu: `apt-get install libwxgtk3.0-dev libwxbase3.0-dev libwxgtk-webview3.0-dev`
+* debian/ubuntu 20.04 (or later):
+  * `apt-get install libwxgtk3.0-gtk3-dev libwxbase3.0-dev libwxgtk-webview3.0-gtk3-dev`
+* debian/ubuntu (older versions):
+  * `apt-get install libwxgtk3.0-dev libwxbase3.0-dev libwxgtk-webview3.0-dev`
 
 ### Mac
 
@@ -59,6 +62,7 @@ layers:
 Sometimes is useful to have the most up-to-date version of wxWidgets running on a linux or OSX system, to do this follow these steps:
 
 * download source archive from: https://www.wxwidgets.org/downloads/
+  * alternatively you can get the very latest version from here: https://github.com/wxWidgets/wxWidgets
 * unzip to, for example: `/home/users/username/wxwidgets3.1.3/`
 * create a folder there: `mkdir wx_build`
 * enter folder: `cd wx_build`

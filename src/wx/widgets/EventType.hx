@@ -14,6 +14,7 @@ package wx.widgets;
 #include <wx/calctrl.h>
 #include <wx/dataview.h>
 #include <wx/treebase.h>
+#include <wx/taskbar.h>
 ")
 
 class EventType {
@@ -35,6 +36,7 @@ class EventType {
     public static var TIMER:Int                 = untyped __cpp__("wxEVT_TIMER");
     public static var NOTEBOOK_PAGE_CHANGED:Int = untyped __cpp__("wxEVT_NOTEBOOK_PAGE_CHANGED");
     public static var SIZE:Int                  = untyped __cpp__("wxEVT_SIZE");
+    public static var MOVE:Int                  = untyped __cpp__("wxEVT_MOVE");
     public static var CHOICE:Int                = untyped __cpp__("wxEVT_CHOICE");
     public static var LIST_ITEM_SELECTED:Int    = untyped __cpp__("wxEVT_LIST_ITEM_SELECTED");
     public static var ICONIZE:Int               = untyped __cpp__("wxEVT_ICONIZE");
@@ -45,6 +47,8 @@ class EventType {
     
     public static var DATAVIEW_ITEM_VALUE_CHANGED:Int   = untyped __cpp__("wxEVT_DATAVIEW_ITEM_VALUE_CHANGED");
     public static var DATAVIEW_SELECTION_CHANGED:Int    = untyped __cpp__("wxEVT_DATAVIEW_SELECTION_CHANGED");
+    public static var DATAVIEW_ITEM_START_EDITING:Int   = untyped __cpp__("wxEVT_DATAVIEW_ITEM_START_EDITING");
+    public static var DATAVIEW_ITEM_CONTEXT_MENU:Int    = untyped __cpp__("wxEVT_DATAVIEW_ITEM_CONTEXT_MENU");
 
     public static var PAINT:Int                 = untyped __cpp__("wxEVT_PAINT");
     public static var ERASE_BACKGROUND:Int      = untyped __cpp__("wxEVT_ERASE_BACKGROUND");
@@ -55,9 +59,7 @@ class EventType {
     public static var CONTEXT_MENU:Int          = untyped __cpp__("wxEVT_CONTEXT_MENU");
     public static var DROP_FILES:Int            = untyped __cpp__("wxEVT_DROP_FILES");
 
-    /* commented out as it causes link errors on my mac for some reason - should investigate
     public static var HYPERLINK:Int             = untyped __cpp__("wxEVT_HYPERLINK");
-    */
 
     /** Process a wxEVT_LEFT_DOWN event. The handler of this event should normally call event.Skip() to allow the default processing to take
       * place as otherwise the window under mouse wouldn't get the focus. */
@@ -78,4 +80,13 @@ class EventType {
 
     public static var THREAD:Int                = untyped __cpp__("wxEVT_THREAD");
     public static var END_PROCESS:Int           = untyped __cpp__("wxEVT_END_PROCESS");
+
+    public static var TASKBAR_CLICK:Int         = untyped __cpp__("wxEVT_TASKBAR_CLICK");
+    public static var TASKBAR_LEFT_DCLICK:Int   = untyped __cpp__("wxEVT_TASKBAR_LEFT_DCLICK");
+    public static var TASKBAR_LEFT_DOWN:Int     = untyped __cpp__("wxEVT_TASKBAR_LEFT_DOWN");
+    public static var TASKBAR_LEFT_UP:Int       = untyped __cpp__("wxEVT_TASKBAR_LEFT_UP");
+    public static var TASKBAR_MOVE:Int          = untyped __cpp__("wxEVT_TASKBAR_MOVE");
+    public static var TASKBAR_RIGHT_DCLICK:Int  = untyped __cpp__("wxEVT_TASKBAR_RIGHT_DCLICK");
+    public static var TASKBAR_RIGHT_DOWN:Int    = untyped __cpp__("wxEVT_TASKBAR_RIGHT_DOWN");
+    public static var TASKBAR_RIGHT_UP:Int      = untyped __cpp__("wxEVT_TASKBAR_RIGHT_UP");
 }

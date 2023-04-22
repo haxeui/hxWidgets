@@ -22,5 +22,7 @@ extern class SpinCtrl extends Control {
     
     @:native("GetValue")                    public function getValue():Int;
     @:native("SetValue")                    public function setValue(value:Int):Void;
-    
+    @:native("GetMin")                      public function getMin():Int;
+    @:native("GetMax")                      public function getMax():Int;
+    @:native("SetRange")                    public function setRange(value:Int, value:Int):Void;
 }

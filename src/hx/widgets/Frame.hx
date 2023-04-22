@@ -28,7 +28,11 @@ class Frame extends TopLevelWindow {
     @:access(hx.widgets.MenuBar)
     private function get_menuBar():MenuBar {
         var m:MenuBar = new MenuBar(0, false);
-        var p = Pointer.fromRaw(frameRef.ptr.getMenuBar());
+        var rawMenuBar = frameRef.ptr.getMenuBar();
+        if (rawMenuBar == null) {
+            return null;
+        }
+        var p = Pointer.fromRaw(rawMenuBar);
         m._ref = p.reinterpret();
         return m;
     }

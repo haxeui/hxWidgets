@@ -22,5 +22,6 @@ extern class Timer extends EvtHandler {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     @:native("Start")           public function start(milliseconds:Int, oneShot:Bool = false):Bool;
     @:native("Stop")            public function stop():Void;
+    @:native("GetId")            public function getId():Int;
 
 }

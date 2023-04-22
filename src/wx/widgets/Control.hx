@@ -21,4 +21,5 @@ extern class Control extends Window {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     @:native("SetLabel")                public function setLabel(label:WxString):Void;
     @:native("GetLabel")                public function getLabel():WxString;
+    @:native("SetLabelMarkup")          public function setLabelMarkup(markup:WxString):Bool;
 }
