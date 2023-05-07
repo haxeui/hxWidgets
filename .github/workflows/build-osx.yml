@@ -34,7 +34,6 @@ jobs:
         echo ::add-path::$(pwd)
         cd ..
         haxelib install hxcpp --always --quiet
-        haxelib install hscript --always --quiet
         haxelib dev hxWidgets .
 
     - name: Build app (haxe ${{ matrix.haxe-version }}, ${{ matrix.os }})
