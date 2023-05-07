@@ -2,7 +2,7 @@ package wx.widgets;
 
 @:include("wx/window.h")
 @:unreflective
-@:enum extern abstract WindowVariant(WindowVariantImpl) {
+extern enum abstract WindowVariant(WindowVariantImpl) {
 
     @:native("wxWINDOW_VARIANT_NORMAL")     var WINDOW_VARIANT_NORMAL;
     @:native("wxWINDOW_VARIANT_SMALL")      var WINDOW_VARIANT_SMALL;

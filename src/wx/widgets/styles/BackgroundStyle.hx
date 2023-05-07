@@ -3,7 +3,7 @@ package wx.widgets.styles;
 @:headerCode("#include <wx/defs.h>")
 @:unreflective
 @:native("wxBackgroundStyle")
-@:enum extern abstract BackgroundStyle(BackgroundStyleImpl) {
+extern enum abstract BackgroundStyle(BackgroundStyleImpl) {
 
     @:native("wxBG_STYLE_ERASE")            var BG_ERASE;
     @:native("wxBG_STYLE_SYSTEM")           var BG_SYSTEM;

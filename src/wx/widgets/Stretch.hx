@@ -2,7 +2,7 @@ package wx.widgets;
 
 @:include("wx/defs.h")
 @:unreflective
-@:enum extern abstract Stretch(StretchImpl) {
+extern enum abstract Stretch(StretchImpl) {
 
     @:native("wxSTRETCH_NOT")       var STRETCH_NOT;
     @:native("wxSHRINK")            var SHRINK;

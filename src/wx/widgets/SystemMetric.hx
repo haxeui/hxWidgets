@@ -1,6 +1,6 @@
 package wx.widgets;
 
-@:enum extern abstract SystemMetric(SystemMetricImpl) {
+extern enum abstract SystemMetric(SystemMetricImpl) {
 
     @:native("wxSYS_MOUSE_BUTTONS")      var MOUSE_BUTTONS;
     @:native("wxSYS_BORDER_X")           var BORDER_X;

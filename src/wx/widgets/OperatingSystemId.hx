@@ -6,7 +6,7 @@ package wx.widgets;
 ")
 @:include("wx/wx.h")
 @:unreflective
-@:enum extern abstract OperatingSystemId(OperatingSystemIdImpl) {
+extern enum abstract OperatingSystemId(OperatingSystemIdImpl) {
 
     @:native("wxLEFT")                  var LEFT;
     @:native("wxOS_UNKNOWN")            var UNKNOWN;

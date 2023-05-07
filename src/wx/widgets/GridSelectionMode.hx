@@ -1,7 +1,7 @@
 package wx.widgets;
 
 @:include("wx/grid.h")
-@:enum extern abstract GridSelectionMode(GridSelectionModeImpl)  {
+extern enum abstract GridSelectionMode(GridSelectionModeImpl)  {
     @:native("wxGrid::wxGridSelectCells")           var Cells;
     @:native("wxGrid::wxGridSelectRows")            var Rows;
     @:native("wxGrid::wxGridSelectColumns")         var Columns;
