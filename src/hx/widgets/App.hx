@@ -51,6 +51,17 @@ class App extends AppConsole {
         appRef.ptr.setCLocale();
     }
     
+    public var topWindow(get, set):Window;
+    private function get_topWindow():Window {
+        var p = appRef.ptr.getTopWindow();
+        var win:Window = new Window();
+        win._ref = Pointer.fromRaw(p).reinterpret();
+        return win;
+    }
+    private function set_topWindow(value:Window):Window {
+        return value;
+    }
+
     public var traits(get, null):AppTraits;
     @:access(hx.widgets.AppTraits)
     private function get_traits():AppTraits {
