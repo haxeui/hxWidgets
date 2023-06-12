@@ -34,5 +34,7 @@ extern class App extends AppConsole {
 
     @:native("GetTopWindow")            public function getTopWindow():RawPointer<Window>;
     @:native("SetTopWindow")            public function setTopWindow(window:RawPointer<Window>):Void;
+    @:native("GetAppName")              public function getAppName():WxString;
+    @:native("SetAppName")              public function setAppName(name:WxString):Void;
 
 }

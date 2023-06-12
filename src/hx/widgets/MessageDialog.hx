@@ -26,7 +26,7 @@ class MessageDialog extends Dialog {
         super(parent);
     }
 
-    public static function showMessageBox(message:String, caption:String, style:Int, parent:Window): Int {
+    public static function messageBox(message:String, caption:String, style:Int, parent:Window): Int {
         return WxMessageDialog.messageBox(WxString.fromUTF8(message), WxString.fromUTF8(caption), style, Window.toRaw(parent));
     }
 
