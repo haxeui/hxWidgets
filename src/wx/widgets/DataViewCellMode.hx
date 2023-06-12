@@ -2,7 +2,7 @@ package wx.widgets;
 
 
 @:include("wx/dataview.h")
-@:enum extern abstract DataViewCellMode(DataViewCellModeImpl) {
+extern enum abstract DataViewCellMode(DataViewCellModeImpl) {
 
     @:native("wxDATAVIEW_CELL_INERT")           var INERT;
     @:native("wxDATAVIEW_CELL_ACTIVATABLE")     var ACTIVATABLE;

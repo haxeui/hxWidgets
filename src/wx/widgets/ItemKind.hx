@@ -1,7 +1,7 @@
 package wx.widgets;
 
 @:include("wx/menu.h")
-@:enum extern abstract ItemKind(ItemKindImpl) {
+extern enum abstract ItemKind(ItemKindImpl) {
 
     @:native("wxITEM_SEPARATOR")   var ITEM_SEPARATOR;
     @:native("wxITEM_NORMAL")      var ITEM_NORMAL;

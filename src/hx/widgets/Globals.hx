@@ -25,6 +25,8 @@ class Globals {
             env = {};
         }
 
+        #if (wxWidgetsVersion < version("3.3.0"))
+
         var pCallback:RawPointer<WxProcess> = null;
         if (callback != null) {
             pCallback = callback.processRef.raw;
@@ -40,8 +42,14 @@ class Globals {
         var wxCmd = WxString.createInstance(cmd);
         var pid = WxGlobals.execute(wxCmd.ref, flags, pCallback, pEnv);
         wxCmd.destroy();
-        
+
         return pid;
+
+        #else
+
+        return -1; // TODO
+
+        #end
     }
     
     public static function yield():Bool {

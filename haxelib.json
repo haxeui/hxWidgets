@@ -4,7 +4,7 @@
         "ianharrigan",
         "_ibilon"
     ],
-    "version": "1.9.0",
+    "version": "1.11.0",
     "license": "MIT",
     "tags": [
         "ui",
@@ -13,7 +13,7 @@
         "hxcpp",
         "wxWidgets"
     ],
-    "releasenote": "1.9.0 release",
+    "releasenote": "1.11.0 release",
     "dependencies": {
         "hxcpp": ""
     },

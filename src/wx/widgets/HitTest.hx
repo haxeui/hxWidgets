@@ -1,6 +1,6 @@
 package wx.widgets;
 
-@:enum extern abstract HitTest(HitTestImpl) {
+extern enum abstract HitTest(HitTestImpl) {
 
     @:native("wxHT_NOWHERE")                    var NOWHERE;
     @:native("wxHT_SCROLLBAR_FIRST")            var SCROLLBAR_FIRST;

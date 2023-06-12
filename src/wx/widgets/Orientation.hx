@@ -1,7 +1,7 @@
 package wx.widgets;
 
 @:include("wx/window.h")
-@:enum extern abstract Orientation(OrientationImpl) {
+extern enum abstract Orientation(OrientationImpl) {
 
     @:native("wxVERTICAL")    var VERTICAL;
     @:native("wxHORIZONTAL")  var HORIZONTAL;

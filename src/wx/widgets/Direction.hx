@@ -2,7 +2,7 @@ package wx.widgets;
 
 @:include("wx/defs.h")
 @:unreflective
-@:enum extern abstract Direction(DirectionImpl) {
+extern enum abstract Direction(DirectionImpl) {
 
     @:native("wxLEFT")   var LEFT;
     @:native("wxRIGHT")  var RIGHT;

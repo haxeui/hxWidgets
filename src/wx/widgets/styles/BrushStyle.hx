@@ -3,7 +3,7 @@ package wx.widgets.styles;
 @:headerCode("#include <wx/defs.h>")
 @:unreflective
 @:native("wxBrushStyle")
-@:enum extern abstract BrushStyle(BrushStyleImpl) {
+extern enum abstract BrushStyle(BrushStyleImpl) {
     @:native("wxBRUSHSTYLE_INVALID")                var INVALID;
     @:native("wxBRUSHSTYLE_SOLID")                  var SOLID;
     @:native("wxBRUSHSTYLE_TRANSPARENT")            var TRANSPARENT;

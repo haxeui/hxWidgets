@@ -3,7 +3,7 @@ package wx.widgets.styles;
 @:headerCode("#include <wx/defs.h>")
 @:unreflective
 @:native("wxShowEffect")
-@:enum extern abstract ShowEffect(ShowEffectImpl) {
+extern enum abstract ShowEffect(ShowEffectImpl) {
     @:native("wxSHOW_EFFECT_NONE")              var NONE;
     @:native("wxSHOW_EFFECT_ROLL_TO_LEFT")      var ROLL_TO_LEFT;
     @:native("wxSHOW_EFFECT_ROLL_TO_RIGHT")     var ROLL_TO_RIGHT;

@@ -1,6 +1,6 @@
 package wx.widgets;
 
-@:enum extern abstract SystemColour(SystemColourImpl) {
+extern enum abstract SystemColour(SystemColourImpl) {
     @:native("wxSYS_COLOUR_SCROLLBAR")                  var COLOUR_SCROLLBAR;
     @:native("wxSYS_COLOUR_DESKTOP")                    var COLOUR_DESKTOP;
     @:native("wxSYS_COLOUR_ACTIVECAPTION")              var COLOUR_ACTIVECAPTION;

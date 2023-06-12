@@ -2,7 +2,7 @@ package wx.widgets;
 
 @:include("wx/scrolwin.h")
 @:unreflective
-@:enum extern abstract ScrollbarVisibility(ScrollbarVisibilityImpl) {
+extern enum abstract ScrollbarVisibility(ScrollbarVisibilityImpl) {
 
     @:native("wxSHOW_SB_NEVER")     var NEVER;
     @:native("wxSHOW_SB_DEFAULT")   var DEFAULT;

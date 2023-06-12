@@ -36,6 +36,7 @@ class EventType {
     public static var TIMER:Int                 = untyped __cpp__("wxEVT_TIMER");
     public static var NOTEBOOK_PAGE_CHANGED:Int = untyped __cpp__("wxEVT_NOTEBOOK_PAGE_CHANGED");
     public static var SIZE:Int                  = untyped __cpp__("wxEVT_SIZE");
+    public static var MOVE:Int                  = untyped __cpp__("wxEVT_MOVE");
     public static var CHOICE:Int                = untyped __cpp__("wxEVT_CHOICE");
     public static var LIST_ITEM_SELECTED:Int    = untyped __cpp__("wxEVT_LIST_ITEM_SELECTED");
     public static var ICONIZE:Int               = untyped __cpp__("wxEVT_ICONIZE");

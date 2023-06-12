@@ -1,7 +1,7 @@
 package wx.widgets;
 
 @:include("wx/graphics.h")
-@:enum extern abstract InterpolationQuality(InterpolationQualityImpl) {
+extern enum abstract InterpolationQuality(InterpolationQualityImpl) {
 
     @:native("wxINTERPOLATION_DEFAULT")         var DEFAULT;
     @:native("wxINTERPOLATION_NONE")            var NONE;
