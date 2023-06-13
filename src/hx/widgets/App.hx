@@ -3,6 +3,7 @@ package hx.widgets;
 import cpp.Pointer;
 import wx.widgets.Locale;
 import wx.widgets.App in WxApp;
+import wx.widgets.WxString;
 
 @:headerCode("
 #include <wx/wx.h>
@@ -69,6 +70,16 @@ class App extends AppConsole {
         var appTraits = new AppTraits();
         appTraits._ref = Pointer.fromRaw(p);
         return appTraits;
+    }
+
+    public var name(get, set):String;
+    private function get_name():String {
+        return appRef.ptr.getAppName().toUTF8().data();
+    }
+
+    private function set_name(name: String):String {
+        appRef.ptr.setAppName(WxString.fromUTF8(name));
+        return name;
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
