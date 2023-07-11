@@ -158,15 +158,21 @@ class StyledTextCtrl extends Control {
         styledTextCtrlRef.ptr.styleClearAll();
     }
     
+    #if (wxWidgetsVersion <= version("3.0.0"))
     public function startStyling(pos:Int, mask:Int) {
         styledTextCtrlRef.ptr.startStyling(pos, mask);
     }
+    #else
+    public function startStyling(pos:Int) {
+        styledTextCtrlRef.ptr.startStyling(pos);
+    }
+    #end
     
     public function setStyling(length:Int, style:Int) {
         styledTextCtrlRef.ptr.setStyling(length, style);
     }
     
-    private override function set_backgroundColour(value:Int):Int {
+    private override function set_backgroundColour(value:Null<Int>):Null<Int> {
         var temp:Pointer<WxColour> = WxColour.createInstance(Colour.convertColor(value));
         styledTextCtrlRef.ptr.styleSetBackground(StyledTextControlStyle.DEFAULT, temp.ref);
         styleClearAll();

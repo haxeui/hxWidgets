@@ -34,7 +34,11 @@ extern class StyledTextCtrl extends Control {
     @:native("StyleSetSize")            public function styleSetSize(style:Int, sizePoints:Int):Void;
     @:native("StyleSetFaceName")        public function styleSetFaceName(style:Int, fontName:WxString):Void;
     @:native("StyleClearAll")           public function styleClearAll():Void;
+    #if (wxWidgetsVersion <= version("3.0.0"))
     @:native("StartStyling")            public function startStyling(pos:Int, mask:Int):Void;
+    #else
+    @:native("StartStyling")            public function startStyling(pos:Int):Void;
+    #end
     @:native("SetStyling")              public function setStyling(length:Int, style:Int):Void;
     @:native("SetWhitespaceForeground") public function setWhitespaceForeground(useSetting:Bool, fore:Colour):Void;
     @:native("SetWhitespaceBackground") public function setWhitespaceBackground(useSetting:Bool, back:Colour):Void;
