@@ -17,4 +17,5 @@ extern class MessageDialog extends Dialog {
                                             return Pointer.fromRaw(_new(parent, message, caption, style));
                                         }
 
+    @:native("wxMessageBox")            public static function messageBox(message:WxString, caption:WxString, style:Int, parent:RawPointer<Window>): Int;
 }

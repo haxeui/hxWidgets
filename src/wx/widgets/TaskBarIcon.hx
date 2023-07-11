@@ -26,4 +26,5 @@ extern class TaskBarIcon extends EvtHandler {
     #else
     @:native("SetIcon")                 public function setIcon(icon:Reference<Icon>, tooltip:WxString):Void;
     #end
+    @:native("RemoveIcon")              public function removeIcon():Void;
 }
