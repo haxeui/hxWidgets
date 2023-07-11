@@ -76,6 +76,16 @@ class FileDialog extends Dialog {
         return r;
     }
 
+    public var paths(get, null):Array<String>;
+    private function get_paths():Array<String> {
+        var wxArray = new ArrayString();
+        fileDialogRef.ptr.getPaths(@:privateAccess wxArray.arraystringRef.ref);
+        var array = new ArrayString();
+        var r = wxArray.toArray();
+        wxArray.destroy();
+        return r;
+    }
+
     public var filterIndex(get, set):Int;
     private function get_filterIndex():Int {
         return fileDialogRef.ptr.getFilterIndex();
