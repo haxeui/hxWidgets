@@ -158,13 +158,13 @@ class StyledTextCtrl extends Control {
         styledTextCtrlRef.ptr.styleClearAll();
     }
     
-    #if (wxWidgetsVersion <= version("3.0.0"))
-    public function startStyling(pos:Int, mask:Int) {
-        styledTextCtrlRef.ptr.startStyling(pos, mask);
-    }
-    #else
+    #if (PLATFORM_WINDOWS && wxWidgetsVersion > version("3.0.0"))
     public function startStyling(pos:Int) {
         styledTextCtrlRef.ptr.startStyling(pos);
+    }
+    #else
+    public function startStyling(pos:Int, mask:Int) {
+        styledTextCtrlRef.ptr.startStyling(pos, mask);
     }
     #end
     
