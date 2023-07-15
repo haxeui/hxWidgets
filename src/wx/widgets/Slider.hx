@@ -32,5 +32,17 @@ extern class Slider extends Control {
     @:native("SetSelection")            public function setSelection(startPos:Int, endPos:Int):Void;
     @:native("GetSelStart")             public function getSelStart():Int;
     @:native("GetSelEnd")               public function getSelEnd():Int;
+    @:native("ClearSel")                public function clearSel():Void;
+    @:native("ClearTicks")              public function clearTicks():Void;
+    @:native("GetLineSize")             public function getLineSize():Int;
+    @:native("SetLineSize")             public function setLineSize(lineSize:Int):Void;
+    @:native("GetPageSize")             public function getPageSize():Int;
+    @:native("SetPageSize")             public function setPageSize(pageSize:Int):Void;
+    @:native("SetRange")                public function setRange(minValue:Int, maxValue:Int):Void;
+    @:native("GetThumbLength")          public function getThumbLength():Int;
+    @:native("SetThumbLength")          public function setThumbLength(len:Int):Void;
+    @:native("GetTickFreq")             public function getTickFreq():Int;
+    @:native("SetTickFreq")             public function setTickFreq(freq:Int):Void;
+    @:native("SetTick")                 public function setTick(tickPos:Int):Void;
 
 }
