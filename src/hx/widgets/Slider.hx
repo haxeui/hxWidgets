@@ -71,6 +71,47 @@ class Slider extends Control {
         return value;
     }
 
+    public var tickFreq(get, set):Int;
+    private function get_tickFreq():Int {
+        return sliderRef.ptr.getTickFreq();
+    }
+    private function set_tickFreq(value:Int):Int {
+        sliderRef.ptr.setTickFreq(value);
+        return value;
+    }
+
+    public var lineSize(get, set):Int;
+    private function get_lineSize():Int {
+        return sliderRef.ptr.getLineSize();
+    }
+    private function set_lineSize(value:Int):Int {
+        sliderRef.ptr.setLineSize(value);
+        return value;
+    }
+
+    public var pageSize(get, set):Int;
+    private function get_pageSize():Int {
+        return sliderRef.ptr.getPageSize();
+    }
+    private function set_pageSize(value:Int):Int {
+        sliderRef.ptr.setPageSize(value);
+        return value;
+    }
+
+    public var thumbLength(get, set):Int;
+    private function get_thumbLength():Int {
+        return sliderRef.ptr.getThumbLength();
+    }
+    private function set_thumbLength(value:Int):Int {
+        sliderRef.ptr.setThumbLength(value);
+        return value;
+    }
+
+    private function setTick(value:Int):Int {
+        sliderRef.ptr.setTick(value);
+        return value;
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helper
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
