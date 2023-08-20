@@ -72,6 +72,14 @@ class DC extends Object {
         dcRef.ptr.drawText(str, x, y);
     }
 
+    public function drawRectangle(x:Int, y:Int, width:Int, height:Int) {
+        dcRef.ptr.drawRectangle(x, y, width, height);
+    }
+
+    public function drawPoint(x:Int, y:Int) {
+        dcRef.ptr.drawPoint(x, y);
+    }
+
     public function drawRoundedRectangle(x:Int, y:Int, width:Int, height:Int, radius:Float) {
         dcRef.ptr.drawRoundedRectangle(x, y, width, height, radius);
     }
