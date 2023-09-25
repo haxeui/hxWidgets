@@ -20,6 +20,8 @@ You need the [hxcpp](https://lib.haxe.org/p/hxcpp) library and **at least Haxe 3
   * `cd %WXWIN%\build\msw\`
   * `nmake.exe -f makefile.vc BUILD=release`
   * `nmake.exe -f makefile.vc BUILD=release SHARED=1`
+  * `nmake.exe -f makefile.vc BUILD=release TARGET_CPU=X64`
+  * `nmake.exe -f makefile.vc BUILD=release SHARED=1 TARGET_CPU=X64`
 
 ## Requirements for Linux and Mac
 

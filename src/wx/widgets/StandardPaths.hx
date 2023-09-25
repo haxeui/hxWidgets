@@ -23,11 +23,9 @@ extern class StandardPaths {
 }
 
 @:include("wx/stdpaths.h")
-@:enum extern abstract FileLayout(FileLayoutImpl) {
-
-    @:native("wxStandardPaths::FileLayout_Classic")   var FileLayout_Classic;
-    @:native("wxStandardPaths::FileLayout_XDG")       var FileLayout_XDG;
-
+extern enum abstract FileLayout(FileLayoutImpl) {
+    @:native("wxStandardPaths::FileLayout_Classic")   var Classic;
+    @:native("wxStandardPaths::FileLayout_XDG")       var XDG;
 }
 
 @:include("wx/stdpaths.h")
