@@ -14,7 +14,7 @@ You need the [hxcpp](https://lib.haxe.org/p/hxcpp) library and **at least Haxe 3
 
 * Download and install wxWidgets source from [https://www.wxwidgets.org/downloads/](https://www.wxwidgets.org/downloads/)
 * Create `WXWIN` environment var if setup didnt (eg: `C:\wxWidgets-3.0.2`)
-* Run `vcvarsall.bat` from Visual Studio dir
+* Open a Visual Studio Developer prompt, or run `vcvarsall.bat` from Visual Studio dir in your current prompt
   (eg: `"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat"`)
 * Build shared and static releases of wxWidgets:
   * `cd %WXWIN%\build\msw\`
