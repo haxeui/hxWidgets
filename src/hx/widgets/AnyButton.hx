@@ -24,7 +24,6 @@ class AnyButton extends Control {
         anyButtonRef.ptr.setBitmap(value.bitmapRef.ref);
         if (!_hasBitmap) {
             _hasBitmap = true;
-            set_bitmapPosition(bitmapPosition);
         }
         return value;
     }
