@@ -66,7 +66,6 @@ class Menu extends EvtHandler {
         return menuItem;
     }
 
-    // TODO destroy already defined (override clash)
     public function destroyItem(menuItem: MenuItem): Bool {
         var menuItemPtr: Pointer<WxMenuItem> = menuItem._ref.reinterpret();
         return menuRef.ptr.destroy(menuItemPtr.get_raw());
