@@ -12,7 +12,7 @@ extern class SpinCtrlDouble extends Control {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // creation functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    @:native("new wxSpinCtrlDouble")              private static function _new():RawPointer<SpinCtrlDouble>;
+    @:native("new wxSpinCtrlDouble")        private static function _new():RawPointer<SpinCtrlDouble>;
                                             public static inline function createInstance():Pointer<SpinCtrlDouble> {
                                                 return Pointer.fromRaw(_new());
                                             }
