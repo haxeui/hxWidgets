@@ -121,7 +121,7 @@ class ListCtrl extends Control {
     }
 
     // sugar
-    public var selectedIndexes(get, null):Array<Int>;
+    public var selectedIndexes(get, set):Array<Int>;
     private function get_selectedIndexes():Array<Int> {
         var indexes:Array<Int> = [];
         
@@ -131,6 +131,15 @@ class ListCtrl extends Control {
         }
         
         return indexes;
+    }
+    private function set_selectedIndexes(value:Array<Int>):Array<Int> {
+        for (i in selectedIndexes) {
+            setItemState(i, 0, ListState.SELECTED);
+        }
+        for (i in value) {
+            setItemState(i, ListState.SELECTED, ListState.SELECTED);
+        }   
+        return value;
     }
     
     public var selectedIndex(get, set):Int;
