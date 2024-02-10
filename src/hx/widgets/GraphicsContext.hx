@@ -2,6 +2,7 @@ package hx.widgets;
 
 import cpp.Pointer;
 import wx.widgets.GraphicsContext in WxGraphicsContext;
+import wx.widgets.GraphicsPath in WxGraphicsPath;
 import wx.widgets.Font in WxFont;
 import wx.widgets.Colour in WxColour;
 import wx.widgets.WxString;
@@ -16,6 +17,29 @@ class GraphicsContext extends GraphicsObject {
         if (dc != null) {
             _ref = WxGraphicsContext.createInstanceFromDC(dc._ref.rawCast()).reinterpret();
         }
+    }
+
+    @:access(hx.widgets.GraphicsPath)
+    public function createPath():hx.widgets.GraphicsPath {
+        var gp = new GraphicsPath();
+        var path = graphicscontextRef.ptr.createPath();
+        
+        //If use the path directly it works
+        path.moveToPoint(0,0);
+        path.addQuadCurveToPoint(100,100,10,10);
+        graphicscontextRef.ptr.strokePath(path);
+
+        // Haxe nor gcc complains about this
+        // but using gp doesn't work.
+        gp._ref = cpp.Pointer.addressOf(path).reinterpret();
+
+        return gp;
+    
+    }
+
+    @:access(hx.widgets.GraphicsPath)
+    public function strokePath(path:hx.widgets.GraphicsPath) {
+        graphicscontextRef.ptr.strokePath(path.gpRef.ref);
     }
 
     public function strokeLine(x1:Float, y1:Float, x2:Float, y2:Float) {
