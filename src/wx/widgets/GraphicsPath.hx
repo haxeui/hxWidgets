@@ -9,22 +9,6 @@ import cpp.RawPointer;
 extern class GraphicsPath extends GraphicsObject {
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // creation functions
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    
-    @:native("new GraphicsPath")          private static function _new():RawPointer<GraphicsPath>;
-                                    public static inline function createInstance():Pointer<GraphicsPath> {
-                                        return Pointer.fromRaw(_new());
-                                    }
-
-    @:native("new GraphicsPath")                                 private static function _newFromGraphicsPath(gp:GraphicsPath):RawPointer<GraphicsPath>;
-                                    public static inline function createInstanceFromGraphicsPath(gp:GraphicsPath):Pointer<GraphicsPath> {
-                                        return Pointer.fromRaw(_newFromGraphicsPath(gp));
-                                    }
-
-
-    
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // instance functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
