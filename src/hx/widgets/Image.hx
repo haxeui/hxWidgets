@@ -21,14 +21,14 @@ class ImageData {
         _height = image.height;
     }
     
-    public function setRGB(x:Int, y:Int, r:Int, g:Int, b:Int) {
+    public inline function setRGB(x:Int, y:Int, r:Int, g:Int, b:Int) {
         var offset = (x + _width * y) * 3;
         _data[offset + 0] = r;
         _data[offset + 1] = g;
         _data[offset + 2] = b;
     }
     
-    public function setRGBA(x:Int, y:Int, r:Int, g:Int, b:Int, a:Int) {
+    public inline function setRGBA(x:Int, y:Int, r:Int, g:Int, b:Int, a:Int) {
         var offset = (x + _width * y) * 3;
         _data[offset + 0] = r;
         _data[offset + 1] = g;
@@ -115,6 +115,11 @@ class Image extends Object {
         if (createAlphaChannel == true) {
             addAlphaChannel();
         }
+    }
+
+    public override function destroy():Bool {
+        imageRef.ptr.destroy();
+        return super.destroy();
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
