@@ -2,6 +2,7 @@ package hx.widgets;
 
 import cpp.Pointer;
 import wx.widgets.GraphicsContext in WxGraphicsContext;
+import wx.widgets.GraphicsPath in WxGraphicsPath;
 import wx.widgets.Font in WxFont;
 import wx.widgets.Colour in WxColour;
 import wx.widgets.WxString;
@@ -17,6 +18,45 @@ class GraphicsContext extends GraphicsObject {
             _ref = WxGraphicsContext.createInstanceFromDC(dc._ref.rawCast()).reinterpret();
         }
     }
+
+    public function createPath():GraphicsPath {
+        var graphicsPath = new GraphicsPath();
+        return graphicsPath;
+    }
+
+    @:access(hx.widgets.GraphicsPath)
+    public function strokePath(path:GraphicsPath) {
+        var nativePath = graphicscontextRef.ptr.createPath();
+        for (call in path.calls) {
+            switch (call) {
+                case moveToPoint(x, y):
+                    nativePath.moveToPoint(x, y);
+                case addArcToPoint(x1, y1, x2, y2, r):
+                    nativePath.addArcToPoint(x1, y1, x2, y2, r);
+                case addCircle(x, y, r):
+                    nativePath.addCircle(x, y, r);
+                case addCurveToPoint(cx1, cy1, cx2, cy2, x, y):    
+                    nativePath.addCurveToPoint(cx1, cy1, cx2, cy2, x, y);
+                case addQuadCurveToPoint(cx, cy, x, y):    
+                    nativePath.addQuadCurveToPoint(cx, cy, x, y);
+                case addEllipse(x, y, w, h):
+                    nativePath.addEllipse(x, y, w, h);
+                case addLineToPoint(x, y):
+                    nativePath.addLineToPoint(x, y);
+                case addRectangle(x, y, w, h):
+                    nativePath.addRectangle(x, y, w, h);
+                case addRoundedRectangle(x, y, w, h, r):
+                    nativePath.addRoundedRectangle(x, y, w, h, r);
+                case addArc(x, y, r, startAngle, endAngle, clockwise):
+                    nativePath.addArc(x, y, r, startAngle, endAngle, clockwise);
+                case closeSubpath:
+                    nativePath.closeSubpath();
+            }
+
+        }
+        graphicscontextRef.ptr.strokePath(nativePath);
+    }
+
 
     public function strokeLine(x1:Float, y1:Float, x2:Float, y2:Float) {
         graphicscontextRef.ptr.strokeLine(x1, y1, x2, y2);
@@ -39,6 +79,10 @@ class GraphicsContext extends GraphicsObject {
     public function drawText(text:String, x:Float, y:Float) {
         var str = WxString.fromUTF8(text);
         graphicscontextRef.ptr.drawText(str, x, y);
+    }
+
+    public function drawRectangle(x:Int, y:Int, width:Int, height:Int) {
+        graphicscontextRef.ptr.drawRectangle(x, y, width, height);
     }
 
     public function drawRoundedRectangle(x:Float, y:Float, width:Float, height:Float, radius:Float) {
