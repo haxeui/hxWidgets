@@ -66,6 +66,19 @@ class Menu extends EvtHandler {
         return menuItem;
     }
 
+    public function destroyItem(menuItem: MenuItem): Bool {
+        var menuItemPtr: Pointer<WxMenuItem> = menuItem._ref.reinterpret();
+        return menuRef.ptr.destroy(menuItemPtr.get_raw());
+    }
+
+    public function insertSubMenu(position:Int, id:Int, menu:Menu, text:String):MenuItem {
+        var str = WxString.fromUTF8(text);
+        var menuItemRef:Pointer<WxMenuItem> = Pointer.fromRaw(menuRef.ptr.insert(position, id, str, menu.menuRef.get_raw()));
+        var menuItem:MenuItem = new MenuItem();
+        menuItem._ref = menuItemRef.reinterpret();
+        return menuItem;
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -5,6 +5,7 @@ package wx.widgets;
 @:native("wxStandardPaths")
 @:structAccess
 extern class StandardPaths {
+    @:native("wxStandardPaths::Get")    public static function get():StandardPaths;
     @:native("GetAppDocumentsDir")      public function getAppDocumentsDir():WxString;
     @:native("GetConfigDir")            public function getConfigDir():WxString;
     @:native("GetDataDir")              public function getDataDir():WxString;
