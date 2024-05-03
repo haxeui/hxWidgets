@@ -1,11 +1,14 @@
 {
+    "version": "1.12.0",
     "contributors": [
         "haxeui",
         "ianharrigan",
         "_ibilon"
     ],
-    "version": "1.11.0",
-    "license": "MIT",
+    "dependencies": {
+        "hxcpp": ""
+    },
+    "releasenote": "1.12.0 release",
     "tags": [
         "ui",
         "gui",
@@ -13,10 +16,7 @@
         "hxcpp",
         "wxWidgets"
     ],
-    "releasenote": "1.11.0 release",
-    "dependencies": {
-        "hxcpp": ""
-    },
+    "license": "MIT",
     "name": "hxWidgets",
     "description": "Haxe externs (and wrappers) for wxWidgets",
     "classPath": "src",
