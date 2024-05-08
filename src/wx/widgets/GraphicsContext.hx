@@ -27,6 +27,7 @@ extern class GraphicsContext extends GraphicsObject {
     @:native("CreatePath")                      public function createPath():GraphicsPath;
     @:native("StrokePath")                      public function strokePath(path:GraphicsPath):Void;
     @:native("StrokeLine")                      public function strokeLine(x1:Float, y1:Float, x2:Float, y2:Float):Void;
+    @:native("FillPath")                        public function fillPath(path:GraphicsPath):Void;
     @:native("SetPen")                          public function setPen(pen:Pen):Void;
     @:native("SetBrush")                        public function setBrush(brush:Brush):Void;
     @:native("SetFont")                         public function setFont(font:Font, colour:Colour):Void;
