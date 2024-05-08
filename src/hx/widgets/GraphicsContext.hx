@@ -25,7 +25,7 @@ class GraphicsContext extends GraphicsObject {
     }
 
     @:access(hx.widgets.GraphicsPath)
-    public function strokePath(path:GraphicsPath) {
+    public function strokeFillPath(path:GraphicsPath, stroke:Bool = true, fill:Bool = true) {
         var nativePath = graphicscontextRef.ptr.createPath();
         for (call in path.calls) {
             switch (call) {
@@ -54,9 +54,17 @@ class GraphicsContext extends GraphicsObject {
             }
 
         }
-        graphicscontextRef.ptr.strokePath(nativePath);
+        if (stroke) graphicscontextRef.ptr.strokePath(nativePath);
+        if (fill) graphicscontextRef.ptr.fillPath(nativePath);
     }
 
+    public function strokePath(path:GraphicsPath) {
+        strokeFillPath(path, true, false);
+    }
+
+    public function fillPath(path:GraphicsPath) {
+        strokeFillPath(path, false, true);
+    }
 
     public function strokeLine(x1:Float, y1:Float, x2:Float, y2:Float) {
         graphicscontextRef.ptr.strokeLine(x1, y1, x2, y2);
