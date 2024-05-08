@@ -58,6 +58,13 @@ class GraphicsContext extends GraphicsObject {
         if (fill) graphicscontextRef.ptr.fillPath(nativePath);
     }
 
+    public function strokePath(path:GraphicsPath) {
+        strokeFillPath(path, true, false);
+    }
+
+    public function fillPath(path:GraphicsPath) {
+        strokeFillPath(path, false, true);
+    }
 
     public function strokeLine(x1:Float, y1:Float, x2:Float, y2:Float) {
         graphicscontextRef.ptr.strokeLine(x1, y1, x2, y2);
