@@ -43,7 +43,7 @@ class App extends AppConsole {
     }
 
     public function exit() {
-        locale.destroy();
+        if (locale != null) locale.destroy();
         appRef.ptr.exit();
         Entry.cleanup();
     }
