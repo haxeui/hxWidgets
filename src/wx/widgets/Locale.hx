@@ -22,4 +22,6 @@ extern class Locale {
     @:native("wxLocale::GetSystemEncodingName")      public static function getSystemEncodingName():WxString;
     @:native("wxLocale::GetSystemLanguage")          public static function getSystemLanguage():Int;
     @:native("wxLocale::IsAvailable")                public static function isAvailable(lang:Int):Bool;
+    @:native("wxLocale::AddCatalogLookupPathPrefix") public static function addCatalogLookupPathPrefix(prefix:WxString):Void;
+    @:native("wxLocale::AddCatalog")                 public function addCatalog(domain:WxString):Bool;
 }
