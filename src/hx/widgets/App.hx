@@ -26,6 +26,9 @@ class App extends AppConsole {
         
         if (systemLanguage != 1) {
             locale = new Locale(systemLanguage);
+            Locale.addCatalogLookupPathPrefix("locale");
+            locale.addCatalog("wxstd");
+            untyped __cpp__("setlocale(LC_NUMERIC, \"C\")");
         }
         //setCLocale();
     }
