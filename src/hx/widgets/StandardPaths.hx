@@ -10,6 +10,9 @@ class StandardPaths {
     private var _ref:Pointer<WxStandardPaths>;
     
     public function new() {
+        if (_ref == null) {
+            _ref = Pointer.addressOf(WxStandardPaths.get());
+        }
     }
 
     public var appDocumentsDir(get, null):String;
