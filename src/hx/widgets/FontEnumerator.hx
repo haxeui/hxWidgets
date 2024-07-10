@@ -8,7 +8,7 @@ class FontEnumerator {
     
     public static var faceNames(get, null):Array<String>;
     private static function get_faceNames():Array<String> {
-        if (_faceNameCache != null) {
+        if (useCache && _faceNameCache != null) {
             return _faceNameCache;
         }
 

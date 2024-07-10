@@ -106,4 +106,8 @@ class Font extends GDIObject {
         return new Font(other.getPointSize(), other.getFamily(), other.getStyle(), other.getWeight(), other.getUnderlined(), new String(r.toUTF8().data()));
     }
 
+    public static function addPrivateFont(filename:String):Bool {
+        var s = WxString.fromUTF8(filename);
+        return WxFont.addPrivateFont(s);
+    }
 }
