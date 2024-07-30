@@ -24,7 +24,7 @@ You need the [hxcpp](https://lib.haxe.org/p/hxcpp) library and **at least Haxe 3
   * `nmake.exe -f makefile.vc BUILD=release SHARED=1 TARGET_CPU=X64`
 
 > [!WARNING]  
-> If you a trying to build x64 versions you need to use 64-bit hosted developer command prompt shortcut: https://learn.microsoft.com/en-us/cpp/build/how-to-enable-a-64-bit-visual-cpp-toolset-on-the-command-line?view=msvc-170
+> If you are trying to build x64 versions of wxWidgets you need to use a "64-bit hosted developer command prompt" shortcut: https://learn.microsoft.com/en-us/cpp/build/how-to-enable-a-64-bit-visual-cpp-toolset-on-the-command-line?view=msvc-170
 
 ## Requirements for Linux and Mac
 
