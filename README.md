@@ -26,6 +26,9 @@ You need the [hxcpp](https://lib.haxe.org/p/hxcpp) library and **at least Haxe 3
 > [!WARNING]  
 > If you are trying to build x64 versions of wxWidgets you need to use a "64-bit hosted developer command prompt" shortcut: https://learn.microsoft.com/en-us/cpp/build/how-to-enable-a-64-bit-visual-cpp-toolset-on-the-command-line?view=msvc-170
 
+> [!INFO]  
+> You many need to add `-D HXCPP_M64` to your .hxml file if you are using a x64 version of wxWidgets
+
 ## Requirements for Linux and Mac
 
 You need wxWidgets 3.x and wx-config available in your path.
