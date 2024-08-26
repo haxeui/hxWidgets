@@ -15,6 +15,7 @@ package wx.widgets;
 #include <wx/dataview.h>
 #include <wx/treebase.h>
 #include <wx/taskbar.h>
+#include <wx/collpane.h>
 ")
 
 class EventType {
@@ -41,6 +42,8 @@ class EventType {
     public static var LIST_ITEM_SELECTED:Int    = untyped __cpp__("wxEVT_LIST_ITEM_SELECTED");
     public static var ICONIZE:Int               = untyped __cpp__("wxEVT_ICONIZE");
     public static var PG_CHANGED:Int            = untyped __cpp__("wxEVT_PG_CHANGED");
+    public static var PG_SELECTED:Int           = untyped __cpp__("wxEVT_PG_SELECTED");
+    public static var PG_HIGHLIGHTED:Int        = untyped __cpp__("wxEVT_PG_HIGHLIGHTED");
     public static var SPINCTRL:Int              = untyped __cpp__("wxEVT_SPINCTRL");
     public static var SPINCTRLDOUBLE:Int        = untyped __cpp__("wxEVT_SPINCTRLDOUBLE");
     public static var CALENDAR_SEL_CHANGED:Int  = untyped __cpp__("wxEVT_CALENDAR_SEL_CHANGED");
@@ -50,6 +53,7 @@ class EventType {
     public static var DATAVIEW_SELECTION_CHANGED:Int    = untyped __cpp__("wxEVT_DATAVIEW_SELECTION_CHANGED");
     public static var DATAVIEW_ITEM_START_EDITING:Int   = untyped __cpp__("wxEVT_DATAVIEW_ITEM_START_EDITING");
     public static var DATAVIEW_ITEM_CONTEXT_MENU:Int    = untyped __cpp__("wxEVT_DATAVIEW_ITEM_CONTEXT_MENU");
+    public static var COLLAPSIBLEPANE_CHANGED:Int       = untyped __cpp__("wxEVT_COLLAPSIBLEPANE_CHANGED");
 
     public static var PAINT:Int                 = untyped __cpp__("wxEVT_PAINT");
     public static var ERASE_BACKGROUND:Int      = untyped __cpp__("wxEVT_ERASE_BACKGROUND");
