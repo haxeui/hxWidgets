@@ -5,6 +5,7 @@ import cpp.RawPointer;
 @:include("wx/variant.h")
 @:unreflective
 @:native("wxVariant")
+@:structAccess
 extern class Variant extends Object {
     @:native("wxVariant")       @:overload(function(value:Bool):Variant {})
     @:native("wxVariant")       @:overload(function(value:Float):Variant {})

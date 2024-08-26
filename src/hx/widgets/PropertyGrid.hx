@@ -7,6 +7,7 @@ import hx.widgets.styles.PropertyGridStyles;
 import wx.widgets.PropertyGrid in WxPropertyGrid;
 import wx.widgets.WxString;
 
+@:access(hx.widgets.PGProperty)
 class PropertyGrid extends Control {
     public function new(parent:Window, style:Int = 0, id:Int = -1) {
         if (style == 0) {
@@ -20,10 +21,37 @@ class PropertyGrid extends Control {
         super(parent, id);
     }
     
-    @:access(hx.widgets.PGProperty)
+    public function showScrollbars(horz:ScrollbarVisibility, vert:ScrollbarVisibility) {
+        propertyGridRef.ptr.showScrollbars(horz, vert);
+    }
+
+    public function clearSelection() {
+        propertyGridRef.ptr.clearSelection(false);
+    }
+
+    public function setPropertyReadOnly(property:PGProperty) {
+        var p = property.propertyRef;
+        propertyGridRef.ptr.setPropertyReadOnly(p.raw);
+    }
+
+
+    public function enableProperty(property:PGProperty, enable:Bool = true) {
+        var p = property.propertyRef;
+        propertyGridRef.ptr.enableProperty(p.raw, enable);
+    }
+
     public function append(property:PGProperty):PGProperty {
         var p = property.propertyRef;
         var r = propertyGridRef.ptr.append(p.raw);
+        var prop = new PGProperty();
+        prop._ref = Pointer.fromRaw(r).reinterpret();
+        return prop;
+    }
+
+    public function appendIn(parent:PGProperty, property:PGProperty):PGProperty {
+        var parentRef = parent.propertyRef;
+        var p = property.propertyRef;
+        var r = propertyGridRef.ptr.appendIn(parentRef.raw, p.raw);
         var prop = new PGProperty();
         prop._ref = Pointer.fromRaw(r).reinterpret();
         return prop;
@@ -46,6 +74,25 @@ class PropertyGrid extends Control {
         propertyGridRef.ptr.setPropertyAttribute(strId, strAttrName, value, argFlags);
     }
     
+    public function setPropertyBackgroundColour(property:PGProperty, color:Int) {
+        var p = property.propertyRef;
+        var c = new Colour(color);
+        propertyGridRef.ptr.setPropertyBackgroundColour(p.raw, c.createPointer().ref, PGPropertyValuesFlags.DontRecurse);
+        c.destroy();
+    }
+
+    public function setMarginColour(color:Int) {
+        var c = new Colour(color);
+        propertyGridRef.ptr.setMarginColour(c.createPointer().ref);
+        c.destroy();
+    }
+
+    public function setLineColour(color:Int) {
+        var c = new Colour(color);
+        propertyGridRef.ptr.setLineColour(c.createPointer().ref);
+        c.destroy();
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Util functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -62,6 +109,14 @@ class PropertyGrid extends Control {
             name = label;
         }
         var p = new StringProperty(label, name, value);
+        return append(p);
+    }
+    
+    public function appendColourProperty(label:String, value:Int, name:String = null):PGProperty {
+        if (name == null) {
+            name = label;
+        }
+        var p = new ColourProperty(label, name, value);
         return append(p);
     }
     
@@ -90,6 +145,24 @@ class PropertyGrid extends Control {
         var p = new EnumProperty(label, name, choices, value);
         return append(p);
     }
+
+    // appendIn variants
+    public function appendCategoryIn(parent:PGProperty, label:String, name:String = null) {
+        if (name == null) {
+            name = label;
+        }
+        var p = new PropertyCategory(label, name);
+        return appendIn(parent, p);
+    }
+
+    public function appendStringPropertyIn(parent:PGProperty, label:String, value:String, name:String = null):PGProperty {
+        if (name == null) {
+            name = label;
+        }
+        var p = new StringProperty(label, name, value);
+        return appendIn(parent, p);
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
