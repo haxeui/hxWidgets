@@ -3,11 +3,16 @@ package wx.widgets.styles;
 // https://docs.wxwidgets.org/latest/property_8h.html#propgrid_property_attributes
 @:headerCode("#include <wx/propgrid/propgrid.h>")
 class PropertyGridAttributes {
-    #if (wxWidgetsVersion > version("3.2.4"))
-    public static var ATTR_HINT                         = untyped __cpp__("wxPG_ATTR_HINT");
-    public static var ATTR_MAX                          = untyped __cpp__("wxPG_ATTR_MAX");
-    public static var ATTR_MIN                          = untyped __cpp__("wxPG_ATTR_MIN");
-    public static var ATTR_UNITS                        = untyped __cpp__("wxPG_ATTR_UNITS");
+    #if (wxWidgetsVersion < version("3.2.3"))
+    public static var ATTR_HINT:String                  =  untyped __cpp__("wxS(\"Hint\")");
+    public static var ATTR_MAX:String                   =  untyped __cpp__("wxS(\"Max\")");
+    public static var ATTR_MIN:String                   = untyped __cpp__("wxS(\"Min\")");
+    public static var ATTR_UNITS:String                 = untyped __cpp__("wxS(\"Units\")");
+    #else
+    public static var ATTR_HINT:String                  = untyped __cpp__("wxPG_ATTR_HINT");
+    public static var ATTR_MAX:String                   = untyped __cpp__("wxPG_ATTR_MAX");
+    public static var ATTR_MIN:String                   = untyped __cpp__("wxPG_ATTR_MIN");
+    public static var ATTR_UNITS:String                 = untyped __cpp__("wxPG_ATTR_UNITS");
     #end
     public static var ATTR_MULTICHOICE_USERSTRINGMODE   = untyped __cpp__("wxPG_ATTR_MULTICHOICE_USERSTRINGMODE");
     public static var ATTR_SPINCTRL_MOTION              = untyped __cpp__("wxPG_ATTR_SPINCTRL_MOTION");
