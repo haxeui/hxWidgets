@@ -3,14 +3,16 @@ package wx.widgets.styles;
 // https://docs.wxwidgets.org/latest/property_8h.html#propgrid_property_attributes
 @:headerCode("#include <wx/propgrid/propgrid.h>")
 class PropertyGridAttributes {
+    #if (wxWidgetsVersion > version("3.2.4"))
     public static var ATTR_HINT                         = untyped __cpp__("wxPG_ATTR_HINT");
     public static var ATTR_MAX                          = untyped __cpp__("wxPG_ATTR_MAX");
     public static var ATTR_MIN                          = untyped __cpp__("wxPG_ATTR_MIN");
+    public static var ATTR_UNITS                        = untyped __cpp__("wxPG_ATTR_UNITS");
+    #end
     public static var ATTR_MULTICHOICE_USERSTRINGMODE   = untyped __cpp__("wxPG_ATTR_MULTICHOICE_USERSTRINGMODE");
     public static var ATTR_SPINCTRL_MOTION              = untyped __cpp__("wxPG_ATTR_SPINCTRL_MOTION");
     public static var ATTR_SPINCTRL_STEP                = untyped __cpp__("wxPG_ATTR_SPINCTRL_STEP");
     public static var ATTR_SPINCTRL_WRAP                = untyped __cpp__("wxPG_ATTR_SPINCTRL_WRAP");
-    public static var ATTR_UNITS                        = untyped __cpp__("wxPG_ATTR_UNITS");
     public static var BOOL_USE_CHECKBOX                 = untyped __cpp__("wxPG_BOOL_USE_CHECKBOX");
     public static var BOOL_USE_DOUBLE_CLICK_CYCLING     = untyped __cpp__("wxPG_BOOL_USE_DOUBLE_CLICK_CYCLING");
     public static var COLOUR_ALLOW_CUSTOM               = untyped __cpp__("wxPG_COLOUR_ALLOW_CUSTOM");
