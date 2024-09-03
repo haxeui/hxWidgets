@@ -190,8 +190,9 @@ class Window extends EvtHandler {
 
     public var font(get, set):Font;
     private function get_font():Font {
-        var r = windowRef.ptr.getFont();
-        return Font.copy(r);
+        var other = windowRef.ptr.getFont();
+        var r:WxString = other.getFaceName();
+        return new Font(other.getPointSize(), other.getFamily(), other.getStyle(), other.getWeight(), other.getUnderlined(), new String(r.toUTF8().data()));
     }
     private function set_font(value:Font):Font {
         var temp:Pointer<WxFont> = value.createPointer();
@@ -251,7 +252,7 @@ class Window extends EvtHandler {
     public var size(get, set):Size;
     private function get_size():Size {
         var r = windowRef.ptr.getSize();
-        return Size.copy(r);
+        return new Size(r.getWidth(), r.getHeight());
     }
     private function set_size(value:Size):Size {
         var temp:Pointer<WxSize> = value.createPointer();
@@ -267,7 +268,7 @@ class Window extends EvtHandler {
     public var minSize(get, set):Size;
     private function get_minSize():Size {
         var r = windowRef.ptr.getMinSize();
-        return Size.copy(r);
+        return new Size(r.getWidth(), r.getHeight());
     }
     private function set_minSize(value:Size):Size {
         var temp:Pointer<WxSize> = value.createPointer();
@@ -279,7 +280,7 @@ class Window extends EvtHandler {
     public var maxSize(get, set):Size;
     private function get_maxSize():Size {
         var r = windowRef.ptr.getMaxSize();
-        return Size.copy(r);
+        return new Size(r.getWidth(), r.getHeight());
     }
     private function set_maxSize(value:Size):Size {
         var temp:Pointer<WxSize> = value.createPointer();
@@ -291,7 +292,7 @@ class Window extends EvtHandler {
     public var clientSize(get, set):Size;
     private function get_clientSize():Size {
         var r = windowRef.ptr.getClientSize();
-        return Size.copy(r);
+        return new Size(r.getWidth(), r.getHeight());
     }
     private function set_clientSize(value:Size):Size {
         var temp:Pointer<WxSize> = value.createPointer();
@@ -307,7 +308,7 @@ class Window extends EvtHandler {
     public var minClientSize(get, set):Size;
     private function get_minClientSize():Size {
         var r = windowRef.ptr.getMinClientSize();
-        return Size.copy(r);
+        return new Size(r.getWidth(), r.getHeight());
     }
     private function set_minClientSize(value:Size):Size {
         var temp:Pointer<WxSize> = value.createPointer();
@@ -319,7 +320,7 @@ class Window extends EvtHandler {
     public var maxClientSize(get, set):Size;
     private function get_maxClientSize():Size {
         var r = windowRef.ptr.getMaxClientSize();
-        return Size.copy(r);
+        return new Size(r.getWidth(), r.getHeight());
     }
     private function set_maxClientSize(value:Size):Size {
         var temp:Pointer<WxSize> = value.createPointer();
@@ -331,13 +332,13 @@ class Window extends EvtHandler {
     public var bestSize(get, null):Size;
     private function get_bestSize():Size {
         var r = windowRef.ptr.getBestSize();
-        return Size.copy(r);
+        return new Size(r.getWidth(), r.getHeight());
     }
 
     public var virtualSize(get, set):Size;
     private function get_virtualSize():Size {
         var r = windowRef.ptr.getVirtualSize();
-        return Size.copy(r);
+        return new Size(r.getWidth(), r.getHeight());
     }
     private function set_virtualSize(value:Size):Size {
         var temp:Pointer<WxSize> = value.createPointer();
@@ -359,8 +360,9 @@ class Window extends EvtHandler {
 
     public var position(get, set):Point;
     private function get_position():Point {
-        var r = windowRef.ptr.getPosition();
-        return Point.copy(r);
+        var position = windowRef.ptr.getPosition();
+        var p:Point = new Point(position.x, position.y);
+        return p;
     }
     private function set_position(value:Point):Point {
         var temp:Pointer<WxPoint> = value.createPointer();

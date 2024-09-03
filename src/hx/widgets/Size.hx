@@ -31,8 +31,4 @@ class Size {
         }
         return defaultSize;
     }
-
-    public static function copy(other:WxSize):Size {
-        return new Size(other.getWidth(), other.getHeight());
-    }
 }

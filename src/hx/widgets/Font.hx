@@ -101,10 +101,6 @@ class Font extends GDIObject {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Static helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public static function copy(other:WxFont):Font {
-        var r:WxString = other.getFaceName();
-        return new Font(other.getPointSize(), other.getFamily(), other.getStyle(), other.getWeight(), other.getUnderlined(), new String(r.toUTF8().data()));
-    }
 
     public static function addPrivateFont(filename:String):Bool {
         var s = WxString.fromUTF8(filename);

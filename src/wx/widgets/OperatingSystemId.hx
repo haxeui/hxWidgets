@@ -7,7 +7,6 @@ package wx.widgets;
 @:include("wx/wx.h")
 @:unreflective
 extern enum abstract OperatingSystemId(OperatingSystemIdImpl) {
-
     @:native("wxLEFT")                  var LEFT;
     @:native("wxOS_UNKNOWN")            var UNKNOWN;
     @:native("wxOS_MAC_OS")             var MAC_OS;
@@ -23,7 +22,6 @@ extern enum abstract OperatingSystemId(OperatingSystemIdImpl) {
     @:native("wxOS_UNIX_AIX")           var UNIX_AIX;
     @:native("wxOS_UNIX_HPUX")          var UNIX_HPUX;
     @:native("wxOS_UNIX")               var UNIX;
-
 }
 
 @:headerCode("
@@ -31,6 +29,6 @@ extern enum abstract OperatingSystemId(OperatingSystemIdImpl) {
 #undef RegisterClass
 ")
 @:unreflective
-@:native("wxOperatingSystemId")
+@:native("cpp::Struct<wxOperatingSystemId, cpp::EnumHandler>")
 extern class OperatingSystemIdImpl {
 }

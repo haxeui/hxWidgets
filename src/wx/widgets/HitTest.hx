@@ -1,7 +1,7 @@
 package wx.widgets;
 
+@:unreflective
 extern enum abstract HitTest(HitTestImpl) {
-
     @:native("wxHT_NOWHERE")                    var NOWHERE;
     @:native("wxHT_SCROLLBAR_FIRST")            var SCROLLBAR_FIRST;
     @:native("wxHT_SCROLLBAR_ARROW_LINE_1")     var SCROLLBAR_ARROW_LINE_1;
@@ -22,6 +22,6 @@ extern enum abstract HitTest(HitTestImpl) {
 
 @:include("wx/defs.h")
 @:unreflective
-@:native("wxHitTest")
+@:native("cpp::Struct<wxHitTest, cpp::EnumHandler>")
 extern class HitTestImpl {
 }

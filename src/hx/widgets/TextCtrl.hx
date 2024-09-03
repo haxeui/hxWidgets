@@ -89,7 +89,9 @@ class TextCtrl extends Control implements TextEntry {
         
     public var margins(get, set):Point;
     private function get_margins():Point {
-        return Point.copy(textCtrlRef.ptr.getMargins());
+        var margins = textCtrlRef.ptr.getMargins();
+        var p:Point = new Point(margins.x, margins.y);
+        return p;
     }
     private function set_margins(pt:Point):Point {
     	var temp:Pointer<WxPoint> = pt.createPointer();
