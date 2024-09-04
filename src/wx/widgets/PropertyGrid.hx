@@ -22,7 +22,9 @@ extern class PropertyGrid extends Control {
     @:native("AppendIn")                        public function appendIn(parent:RawPointer<PGProperty>, property:RawPointer<PGProperty>):RawPointer<PGProperty>;
     @:native("GetProperty")                     public function getProperty(name:WxString):RawPointer<PGProperty>;
     @:native("SetPropertyAttribute")            public function setPropertyAttribute(id:WxString, attrName:WxString, value:Bool, argFlags:Int = 0):Void;
+    #if (wxWidgetsVersion >= version("3.1.6"))
     @:native("SetPropertyCell")                 public function setPropertyCell(property:RawPointer<PGProperty>, column:Int, text:WxString, bitmap:BitmapBundle, fgCol:Colour, bgCol:Colour):Void;
+    #end
     @:native("SetPropertyBackgroundColour")     public function setPropertyBackgroundColour(property:RawPointer<PGProperty>, color:Colour, flags:PGPropertyValuesFlags):Void;
     @:native("ShowScrollbars")                  public function showScrollbars(horz:ScrollbarVisibility, vert:ScrollbarVisibility):Void;
     @:native("SetPropertyReadOnly")             public function setPropertyReadOnly(property:RawPointer<PGProperty>):Void;
