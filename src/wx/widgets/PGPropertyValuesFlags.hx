@@ -20,7 +20,7 @@ extern class PGPropertyValuesFlagsImpl {
 
 #else
 
-@:include("wx/propgrid/property.h")
+@:include("wx/propgrid/propgriddefs.h")
 extern enum abstract PGPropertyValuesFlags(PGPropertyValuesFlagsImpl) {
     @:native("wxPG_PROPERTYVALUES_FLAGS::wxPG_DONT_RECURSE")        var DontRecurse;
     @:native("wxPG_PROPERTYVALUES_FLAGS::wxPG_KEEP_STRUCTURE")      var KeepStructure;
@@ -31,7 +31,7 @@ extern enum abstract PGPropertyValuesFlags(PGPropertyValuesFlagsImpl) {
     @:native("wxPG_PROPERTYVALUES_FLAGS::wxPG_SORT_TOP_LEVEL_ONLY") var SortTopLevelOnly;
 }
 
-@:include("wx/propgrid/property.h")
+@:include("wx/propgrid/propgriddefs.h")
 @:native("cpp::Struct<wxPG_PROPERTYVALUES_FLAGS, cpp::EnumHandler>")
 extern class PGPropertyValuesFlagsImpl {
 }
