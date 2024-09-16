@@ -1,6 +1,6 @@
 package wx.widgets;
 
-#if (wxWidgetsVersion > version("3.2.4"))
+#if (wxWidgetsVersion > version("3.3.0"))
 
 @:include("wx/propgrid/propgriddefs.h")
 extern enum abstract PGPropertyValuesFlags(PGPropertyValuesFlagsImpl) {

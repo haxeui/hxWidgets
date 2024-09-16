@@ -3,7 +3,7 @@ package wx.widgets.styles;
 // https://docs.wxwidgets.org/latest/property_8h.html#propgrid_property_attributes
 @:headerCode("#include <wx/propgrid/propgrid.h>")
 class PropertyGridAttributes {
-    #if (wxWidgetsVersion < version("3.2.3"))
+    #if (wxWidgetsVersion < version("3.3.0"))
     public static var ATTR_HINT:String                  =  untyped __cpp__("wxS(\"Hint\")");
     public static var ATTR_MAX:String                   =  untyped __cpp__("wxS(\"Max\")");
     public static var ATTR_MIN:String                   = untyped __cpp__("wxS(\"Min\")");
