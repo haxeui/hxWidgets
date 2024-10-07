@@ -1,7 +1,7 @@
 package hx.widgets;
 
 import cpp.Pointer;
-import wx.widgets.Locale;
+import hx.widgets.Locale;
 import wx.widgets.App in WxApp;
 import wx.widgets.WxString;
 
@@ -10,7 +10,7 @@ import wx.widgets.WxString;
 #undef RegisterClass
 ")
 class App extends AppConsole {
-    private var _locale:Pointer<Locale>;
+    private var locale:Locale;
     
     public static var instance:App;
     
@@ -22,9 +22,13 @@ class App extends AppConsole {
         }
 
         super();
-        var systemLanguage = Locale.getSystemLanguage();
+        var systemLanguage = Locale.systemLanguage;
+        
         if (systemLanguage != 1) {
-            _locale = Locale.createInstance(systemLanguage);
+            locale = new Locale(systemLanguage);
+            Locale.addCatalogLookupPathPrefix("locale");
+            locale.addCatalog("wxstd");
+            untyped __cpp__("setlocale(LC_NUMERIC, \"C\")");
         }
         //setCLocale();
     }
@@ -39,7 +43,7 @@ class App extends AppConsole {
     }
 
     public function exit() {
-        _locale.destroy();
+        if (locale != null) locale.destroy();
         appRef.ptr.exit();
         Entry.cleanup();
     }
