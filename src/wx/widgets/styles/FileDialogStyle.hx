@@ -35,7 +35,7 @@ class FileDialogStyle {
     #end
     #if (wxWidgetsVersion >= version("3.1.3"))
     /** Show hidden files */
-    public static var SHOW_HIDDEN:Int              = untyped __cpp__("wxDD_SHOW_HIDDEN");
+    public static var SHOW_HIDDEN:Int              = untyped __cpp__("wxFD_SHOW_HIDDEN");
     #end
 
 }
