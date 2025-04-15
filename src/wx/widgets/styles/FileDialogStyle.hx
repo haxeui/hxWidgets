@@ -27,5 +27,15 @@ class FileDialogStyle {
     public static var CHANGE_DIR:Int               = untyped __cpp__("wxFD_CHANGE_DIR");
     /** Show the preview of the selected files (currently only supported by wxGTK). */
     public static var PREVIEW:Int                  = untyped __cpp__("wxFD_PREVIEW");
+    #if (wxWidgetsVersion >= version("3.1.0"))
+    /** Directs the dialog to return the path and file name of the selected shortcut file, not its target as it does by default. 
+      * Currently this flag is only implemented in wxMSW and wxOSX (where it prevents aliases from being resolved).
+      * The non-dereferenced link path is always returned, even without this flag, under Unix and so using it there doesn't do anything */
+    public static var NO_FOLLOW:Int                = untyped __cpp__("wxFD_NO_FOLLOW");
+    #end
+    #if (wxWidgetsVersion >= version("3.1.3"))
+    /** Show hidden files */
+    public static var SHOW_HIDDEN:Int              = untyped __cpp__("wxFD_SHOW_HIDDEN");
+    #end
 
 }
