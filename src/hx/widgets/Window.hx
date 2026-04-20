@@ -265,6 +265,10 @@ class Window extends EvtHandler {
         windowRef.ptr.setSize(width, height);
     }
 
+    public function setSize(left:Int, top:Int, width:Int, height:Int) { // bit of sugar - semantically works well with 'move'
+        windowRef.ptr.setSize(left, top, width, height);
+    }
+
     public var minSize(get, set):Size;
     private function get_minSize():Size {
         var r = windowRef.ptr.getMinSize();
