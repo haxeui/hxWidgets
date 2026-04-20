@@ -8,6 +8,8 @@ import sys.FileSystem;
 import sys.io.File;
 import sys.io.Process;
 
+using StringTools;
+
 typedef OSVersion = {
     var major:Int;
     var minor:Int;
@@ -65,7 +67,7 @@ class EntryMacro {
             };
 
             var config = new Process("wx-config", ["--cxxflags"]);
-            var cflags = config.stdout.readAll().toString().split("\n")[0].split(" ").map(makeFlag).join("\n");
+            var cflags = config.stdout.readAll().toString().rtrim().split(" ").map(makeFlag).join("\n");
             config.exitCode();
 
             #if WEBVIEW

@@ -2,6 +2,7 @@ package wx.widgets;
 
 import cpp.Pointer;
 import cpp.RawPointer;
+import cpp.Reference;
 
 @:include("wx/wx.h")
 @:unreflective
@@ -19,4 +20,7 @@ extern class DirDialog extends Dialog {
 
     @:native("GetPath")            public function getPath():WxString;
     @:native("SetPath")            public function setPath(path:WxString):Void;
+    #if (wxWidgetsVersion >= version("3.1.4")) 
+    @:native("GetPaths")            public function getPaths(paths:Reference<ArrayString>):WxString;
+    #end
 }

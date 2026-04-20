@@ -14,5 +14,8 @@ class DirDialogStyle {
     public static var DIR_MUST_EXIST:Int       = untyped __cpp__("wxDD_DIR_MUST_EXIST");
     /** Change the current working directory to the directory chosen by the user. */
     public static var CHANGE_DIR:Int           = untyped __cpp__("wxDD_CHANGE_DIR");
-
+    #if (wxWidgetsVersion >= version("3.1.4"))
+    public static var SHOW_HIDDEN:Int          = untyped __cpp__("wxDD_SHOW_HIDDEN");
+    public static var MULTIPLE:Int             = untyped __cpp__("wxDD_MULTIPLE");
+    #end
 }

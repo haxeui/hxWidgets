@@ -37,6 +37,18 @@ class DirDialog extends Dialog {
         dirDialogRef.ptr.setPath(s);
         return value;
     }
+
+    #if (wxWidgetsVersion >= version("3.1.4")) 
+    public var paths(get, never):Array<String>;
+    private function get_paths():Array<String> {
+        var wxArray = new ArrayString();
+        dirDialogRef.ptr.getPaths(@:privateAccess wxArray.arraystringRef.ref);
+        var array = new ArrayString();
+        var r = wxArray.toArray();
+        wxArray.destroy();
+        return r;
+    }
+    #end
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helpers
