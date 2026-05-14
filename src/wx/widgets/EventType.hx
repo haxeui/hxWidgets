@@ -31,6 +31,8 @@ class EventType {
     public static var TEXT_MAXLEN:Int           = untyped __cpp__("wxEVT_TEXT_MAXLEN");
     public static var SCROLL_THUMBTRACK:Int     = untyped __cpp__("wxEVT_SCROLL_THUMBTRACK");
     public static var SCROLL_THUMBRELEASE:Int   = untyped __cpp__("wxEVT_SCROLL_THUMBRELEASE");
+    public static var SCROLL_PAGEUP:Int         = untyped __cpp__("wxEVT_SCROLL_PAGEUP");
+    public static var SCROLL_PAGEDOWN:Int       = untyped __cpp__("wxEVT_SCROLL_PAGEDOWN");
     public static var CLOSE_WINDOW:Int          = untyped __cpp__("wxEVT_CLOSE_WINDOW");
     public static var MENU:Int                  = untyped __cpp__("wxEVT_MENU");
     public static var IDLE:Int                  = untyped __cpp__("wxEVT_IDLE");
