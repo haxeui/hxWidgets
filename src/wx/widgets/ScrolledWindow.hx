@@ -24,4 +24,12 @@ extern class ScrolledWindow extends Window {
     @:native("SetScrollRate")               public function setScrollRate(xstep:Int, ystep:Int):Void;
     @:native("ShowScrollbars")              public function showScrollbars(horz:ScrollbarVisibility, vert:ScrollbarVisibility):Void;
     @:native("EnableScrolling")             public function enableScrolling(xScrolling:Bool, yScrolling:Bool):Void;
+    @:native("Scroll")                      @:overload(function(point:Point):Void {})
+    @:native("Scroll")                      public function scroll(x:Int, y:Int):Void;
+    @:native("GetViewStart")                public function getViewStart():Point;
+    @:native("GetScrollPixelsPerUnit")      public function getScrollPixelsPerUnit(pixelsPerUnitX:RawPointer<Int>, pixelsPerUnitY:RawPointer<Int>):Void;
+    @:native("CalcScrolledPosition")        public function calcScrolledPosition(point:Point):Point;
+    @:native("CalcUnscrolledPosition")      public function calcUnscrolledPosition(point:Point):Point;
+    @:native("SetTargetWindow")             public function setTargetWindow(target:RawPointer<Window>):Void;
+    @:native("GetTargetWindow")             public function getTargetWindow():RawPointer<Window>;
 }

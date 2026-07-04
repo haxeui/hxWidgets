@@ -4,6 +4,7 @@ package wx.widgets;
 #include <wx/event.h>
 #include <wx/textctrl.h>
 #include <wx/hyperlink.h>
+#include <wx/scrolwin.h>
 #include <wx/timer.h>
 #include <wx/notebook.h>
 #include <wx/listctrl.h>
@@ -33,6 +34,14 @@ class EventType {
     public static var SCROLL_THUMBRELEASE:Int   = untyped __cpp__("wxEVT_SCROLL_THUMBRELEASE");
     public static var SCROLL_PAGEUP:Int         = untyped __cpp__("wxEVT_SCROLL_PAGEUP");
     public static var SCROLL_PAGEDOWN:Int       = untyped __cpp__("wxEVT_SCROLL_PAGEDOWN");
+    public static var SCROLLWIN_TOP:Int         = untyped __cpp__("wxEVT_SCROLLWIN_TOP");
+    public static var SCROLLWIN_BOTTOM:Int      = untyped __cpp__("wxEVT_SCROLLWIN_BOTTOM");
+    public static var SCROLLWIN_LINEUP:Int      = untyped __cpp__("wxEVT_SCROLLWIN_LINEUP");
+    public static var SCROLLWIN_LINEDOWN:Int    = untyped __cpp__("wxEVT_SCROLLWIN_LINEDOWN");
+    public static var SCROLLWIN_PAGEUP:Int      = untyped __cpp__("wxEVT_SCROLLWIN_PAGEUP");
+    public static var SCROLLWIN_PAGEDOWN:Int    = untyped __cpp__("wxEVT_SCROLLWIN_PAGEDOWN");
+    public static var SCROLLWIN_THUMBTRACK:Int  = untyped __cpp__("wxEVT_SCROLLWIN_THUMBTRACK");
+    public static var SCROLLWIN_THUMBRELEASE:Int = untyped __cpp__("wxEVT_SCROLLWIN_THUMBRELEASE");
     public static var CLOSE_WINDOW:Int          = untyped __cpp__("wxEVT_CLOSE_WINDOW");
     public static var MENU:Int                  = untyped __cpp__("wxEVT_MENU");
     public static var IDLE:Int                  = untyped __cpp__("wxEVT_IDLE");

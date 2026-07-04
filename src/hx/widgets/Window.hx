@@ -249,6 +249,10 @@ class Window extends EvtHandler {
         windowRef.ptr.fit();
     }
 
+    public function fitInside() {
+        windowRef.ptr.fitInside();
+    }
+
     public var size(get, set):Size;
     private function get_size():Size {
         var r = windowRef.ptr.getSize();

@@ -33,6 +33,55 @@ class ScrolledWindow extends Window {
         scrolledWindowRef.ptr.enableScrolling(xScrolling, yScrolling);
     }
 
+    public function scroll(x:Int, y:Int) {
+        scrolledWindowRef.ptr.scroll(x, y);
+    }
+
+    public var viewStart(get, never):Point;
+    private function get_viewStart():Point {
+        var pt = scrolledWindowRef.ptr.getViewStart();
+        return new Point(pt.x, pt.y);
+    }
+
+    public var scrollPixelsPerUnit(get, never):Point;
+    private function get_scrollPixelsPerUnit():Point {
+        var x:Int = 0;
+        var y:Int = 0;
+        var xPtr = Pointer.addressOf(x).raw;
+        var yPtr = Pointer.addressOf(y).raw;
+        scrolledWindowRef.ptr.getScrollPixelsPerUnit(xPtr, yPtr);
+        return new Point(x, y);
+    }
+
+    public function calcScrolledPosition(point:Point):Point {
+        var temp = point.createPointer();
+        var converted = scrolledWindowRef.ptr.calcScrolledPosition(temp.ref);
+        temp.destroy();
+        return new Point(converted.x, converted.y);
+    }
+
+    public function calcUnscrolledPosition(point:Point):Point {
+        var temp = point.createPointer();
+        var converted = scrolledWindowRef.ptr.calcUnscrolledPosition(temp.ref);
+        temp.destroy();
+        return new Point(converted.x, converted.y);
+    }
+
+    public var targetWindow(get, set):Window;
+    private function get_targetWindow():Window {
+        var raw = scrolledWindowRef.ptr.getTargetWindow();
+        if (raw == null) {
+            return null;
+        }
+        var window = new Window();
+        @:privateAccess window._ref = Pointer.fromRaw(raw).reinterpret();
+        return window;
+    }
+    private function set_targetWindow(value:Window):Window {
+        scrolledWindowRef.ptr.setTargetWindow(Window.toRaw(value));
+        return value;
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helpers
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

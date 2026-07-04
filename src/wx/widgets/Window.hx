@@ -85,6 +85,7 @@ extern class Window extends EvtHandler {
     @:native("BeginRepositioningChildren")      public function beginRepositioningChildren():Bool;
     @:native("EndRepositioningChildren")        public function endRepositioningChildren():Void;
     @:native("Fit")                             public function fit():Void;
+    @:native("FitInside")                       public function fitInside():Void;
     @:native("GetSize")                         public function getSize():Size;
     @:native("SetSize")                         @:overload(function(left:Int, top:Int, width:Int, height:Int):Void {})
     @:native("SetSize")                         @:overload(function(width:Int, height:Int):Void {})
