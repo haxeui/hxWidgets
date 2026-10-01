@@ -105,4 +105,7 @@ class EventType {
     public static var TASKBAR_RIGHT_DCLICK:Int  = untyped __cpp__("wxEVT_TASKBAR_RIGHT_DCLICK");
     public static var TASKBAR_RIGHT_DOWN:Int    = untyped __cpp__("wxEVT_TASKBAR_RIGHT_DOWN");
     public static var TASKBAR_RIGHT_UP:Int      = untyped __cpp__("wxEVT_TASKBAR_RIGHT_UP");
+
+    public static var KEY_UP:Int                = untyped __cpp__("wxEVT_KEY_UP");
+    public static var KEY_DOWN:Int              = untyped __cpp__("wxEVT_KEY_DOWN");
 }
