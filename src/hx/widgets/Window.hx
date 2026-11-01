@@ -141,6 +141,14 @@ class Window extends EvtHandler {
         return autoConvert(win); // lets auto convert the class so it can be used with casts
     }
 
+    public function raise():Void {
+        windowRef.ptr.raise();
+    }
+
+    public function lower():Void {
+        windowRef.ptr.lower();
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Drawing-related functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

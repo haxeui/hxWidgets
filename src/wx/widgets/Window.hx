@@ -58,6 +58,8 @@ extern class Window extends EvtHandler {
     // Sibling and parent management functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     @:native("GetParent")                       public function getParent():RawPointer<Window>;
+    @:native("Raise")                           public function raise():Void;
+    @:native("Lower")                           public function lower():Void;
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Drawing-related functions
