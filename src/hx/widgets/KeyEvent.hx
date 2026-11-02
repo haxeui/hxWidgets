@@ -3,7 +3,7 @@ package hx.widgets;
 import cpp.Pointer;
 import wx.widgets.KeyEvent as WxKeyEvent;
 
-class IdleEvent extends Event {
+class KeyEvent extends Event {
     public var keyCode(get, never):Int;
     private function get_keyCode():Int {
         return keyEventRef.ptr.getKeyCode();
