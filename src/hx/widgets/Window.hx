@@ -231,6 +231,12 @@ class Window extends EvtHandler {
         return value;
     }
 
+    /** Query a created window, typically the parent before creating a transparent child. */
+    public var isTransparentBackgroundSupported(get, null):Bool;
+    private function get_isTransparentBackgroundSupported():Bool {
+        return windowRef.ptr.isTransparentBackgroundSupported();
+    }
+
     public var canSetTransparent(get, null):Bool;
     private function get_canSetTransparent():Bool {
         return windowRef.ptr.canSetTransparent();
