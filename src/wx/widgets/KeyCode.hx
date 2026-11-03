@@ -57,7 +57,6 @@ class KeyCode {
     public static var KEY_DOWN:Int = untyped __cpp__("WXK_DOWN");
     public static var KEY_SELECT:Int = untyped __cpp__("WXK_SELECT");
     public static var KEY_PRINT:Int = untyped __cpp__("WXK_PRINT");
-    public static var KEY_EXECUTE:Int = untyped __cpp__("WXK_EXECUTE");
     public static var KEY_SNAPSHOT:Int = untyped __cpp__("WXK_SNAPSHOT");
     public static var KEY_INSERT:Int = untyped __cpp__("WXK_INSERT");
     public static var KEY_HELP:Int = untyped __cpp__("WXK_HELP");
