@@ -26,4 +26,8 @@ extern class Menu extends EvtHandler {
     @:native("AppendSeparator")         public function appendSeparator():RawPointer<MenuItem>;
     @:native("AppendSubMenu")           public function appendSubMenu(menu:RawPointer<Menu>, text:WxString):RawPointer<MenuItem>;
 
+    @:native("Insert")                  public function insert(position:Int, id:Int, text:WxString, menu:RawPointer<Menu>):RawPointer<MenuItem>;
+
+    @:native("Destroy")                 public function destroy(menuItem:RawPointer<MenuItem>):Bool;
+
 }
